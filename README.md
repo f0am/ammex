@@ -20,3 +20,9 @@ git checkout nom_de_la_branche
 ```
 git checkout -b nom_de_la_branche
 ```
+
+### Docker
+#### Start les containers
+```
+docker-compose up
+```
