@@ -1,0 +1,93 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://prisma:prisma@localhost:5432/ammex"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Customer
+model Customer {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  address   String
+  phone     String
+  task      Task[]
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+// User
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  password     String
+  firstName    String
+  lastName     String
+  role         UserRole      @default(EMPLOYEE)
+  tasks        Task[]
+  updatedAt    DateTime      @updatedAt
+  createdAt    DateTime      @default(now())
+  taskComments TaskComment[]
+}
+
+enum UserRole {
+  EMPLOYEE
+  ADMIN
+}
+
+// Task
+model Task {
+  id           String        @id @default(uuid())
+  name         String?
+  description  String?
+  customer     Customer      @relation(fields: [customerId], references: [id])
+  customerId   String
+  type         TaskType      @relation(fields: [taskType], references: [name])
+  recurring    Boolean
+  dueDate      DateTime
+  taskType     String
+  userId       String?
+  user         User?         @relation(fields: [userId], references: [id])
+  updatedAt    DateTime      @updatedAt
+  createdAt    DateTime      @default(now())
+  taskComments TaskComment[]
+  TaskEvent    TaskEvent[]
+}
+
+enum TaskStatus {
+  CREATED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model TaskType {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  task      Task[]
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+model TaskEvent {
+  id          String   @id @default(uuid())
+  task        Task     @relation(fields: [taskId], references: [id])
+  taskId      String
+  type        String?
+  description String?
+  time        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model TaskComment {
+  id        String   @id @default(uuid())
+  task      Task     @relation(fields: [taskId], references: [id])
+  taskId    String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  content   String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
