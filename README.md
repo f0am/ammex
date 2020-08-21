@@ -16,7 +16,7 @@ git push
 ```
 git checkout nom_de_la_branche
 ```
-##### Nouvelle branche
+#### Nouvelle branche
 ```
 git checkout -b nom_de_la_branche
 ```
