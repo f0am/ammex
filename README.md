@@ -2,6 +2,21 @@
 
 ## Cheat Sheet
 
+### NPM
+
+```
+# install all
+npm i
+
+# install
+npm i <package>
+
+# uninstall
+npm un <package>
+
+# update
+npm up <package>
+```
 
 ### Git
 
