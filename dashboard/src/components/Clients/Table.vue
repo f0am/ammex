@@ -50,9 +50,9 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1,2,3,4]
+          jobs: [1, 2, 3, 4]
         },
-         {
+        {
           name: "Jane Doe Inc.",
           owner: "Jane Doe",
           address: "123 rue des swaggeux, Gatineau",
@@ -76,7 +76,7 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1,2,3,4]
+          jobs: [1, 2, 3, 4]
         }
       ]
     };
