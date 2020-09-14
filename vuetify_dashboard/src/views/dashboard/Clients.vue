@@ -32,14 +32,25 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field v-model="editedItem.gst" label="GST"></v-text-field>
                     </v-col>
-                    <v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-select
+                        v-model="editedItem.remittance"
+                        :items="['Monthly', 'Quaterly', 'Yearly']"
+                        label="remittance"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
+                    </v-col>
+
+                    <!-- <v-col>
                       <v-combobox
                         v-model="editedItem.jobs"
                         :items="editedItem.jobs"
                         label="Jobs"
                         multiple
                       ></v-combobox>
-                    </v-col>
+                    </v-col>-->
                   </v-row>
                 </v-container>
               </v-card-text>
@@ -109,12 +120,12 @@ export default {
         text: "Name",
         align: "start",
         sortable: false,
-        value: "name"
+        value: "name",
       },
       { value: "address", text: "Address" },
       { value: "email", text: "Email" },
       { value: "phone", text: "Phone" },
-      { value: "jobs", text: "Jobs" }
+      { value: "jobs", text: "Jobs pending" },
     ],
     clients: [],
     editedIndex: -1,
@@ -123,7 +134,7 @@ export default {
       address: "",
       email: "",
       phone: "",
-      jobs: []
+      jobs: [],
     },
     defaultItem: {
       name: "",
@@ -131,20 +142,20 @@ export default {
       address: "",
       email: "",
       phone: "",
-      jobs: []
-    }
+      jobs: [],
+    },
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    }
+    },
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    }
+    },
   },
 
   created() {
@@ -178,7 +189,7 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4]
+          jobs: [1, 2, 3, 4].length,
         },
         {
           name: "Jane Doe Inc.",
@@ -204,8 +215,8 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4]
-        }
+          jobs: [1, 2, 3, 4].length,
+        },
       ];
     },
 
@@ -236,7 +247,7 @@ export default {
         this.clients.push(this.editedItem);
       }
       this.close();
-    }
-  }
+    },
+  },
 };
 </script>
