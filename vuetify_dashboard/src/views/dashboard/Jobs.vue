@@ -1,8 +1,8 @@
 <template>
   <v-container id="regular-tables" fluid tag="section">
-    <!-- <base-v-component heading="Clients" link="components/simple-tables" /> -->
+    <!-- <base-v-component heading="Jobs" link="components/simple-tables" /> -->
 
-    <base-material-card icon="mdi-account-group" title="Clients list" class="px-5 py-3">
+    <base-material-card icon="mdi-account-group" title="Jobs list" class="px-5 py-3">
       <template v-slot:after-heading>
         <div>
           <v-dialog v-model="dialog" max-width="500px">
@@ -18,29 +18,36 @@
                 <v-container>
                   <v-row>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.name" label="Name"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.address" label="Address"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.email" label="Email"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.phone" label="Phone"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.gst" label="GST"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
+                      <v-select
+                        v-model="editedItem.client"
+                        :items="[{text: 'John Doe Inc.', value: {name: 'John Doe Inc.' }}, {text: 'Jane Doe Inc.', value: {name: 'Jane Doe Inc.' }}]"
+                        label="Client"
+                      ></v-select>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-select
-                        v-model="editedItem.remittance"
-                        :items="['Monthly', 'Quaterly', 'Yearly']"
-                        label="remittance"
+                        v-model="editedItem.type"
+                        :items="['Bookkeeping', 'Payroll', 'Taxes']"
+                        label="Type"
                       ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-select
+                        v-model="editedItem.status"
+                        :items="['Pending', 'In Progress', 'Completed']"
+                        label="Status"
+                      ></v-select>
+                    </v-col>
+
+                    <v-col cols="12" sm="6" md="4">
+                      <v-select
+                        v-model="editedItem.assignee"
+                        :items="['Hada Alvarenga', 'Jeremie St-Pierre robitaille']"
+                        label="Assignee"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
                     </v-col>
 
                     <!-- <v-col>
@@ -64,10 +71,10 @@
           </v-dialog>
         </div>
       </template>
-      <v-data-table :headers="headers" :items="clients" sort-by="name" class="elevation-1">
+      <v-data-table :headers="headers" :items="jobs" sort-by="name" class="elevation-1">
         <!-- <template v-slot:top>
           <v-toolbar flat color="white">
-            <v-toolbar-title>Clients list</v-toolbar-title>
+            <v-toolbar-title>Jobs list</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
@@ -117,32 +124,31 @@ export default {
     dialog: false,
     headers: [
       {
-        text: "Name",
+        text: "Client",
         align: "start",
         sortable: false,
-        value: "name",
+        value: "client.name",
       },
-      { value: "address", text: "Address" },
-      { value: "email", text: "Email" },
-      { value: "phone", text: "Phone" },
-      { value: "jobs", text: "Jobs pending" },
+      { value: "type", text: "Type" },
+      { value: "assignee", text: "Assignee" },
+      { value: "status", text: "Status" },
+      { value: "dueDate", text: "Due date" },
     ],
-    clients: [],
+    jobs: [],
     editedIndex: -1,
     editedItem: {
-      name: "",
-      address: "",
-      email: "",
-      phone: "",
-      jobs: [],
+      client: "",
+      assignee: "",
+      type: "",
+      status: "",
+      dueDate: "",
     },
     defaultItem: {
-      name: "",
-      name: "",
-      address: "",
-      email: "",
-      phone: "",
-      jobs: [],
+      client: "",
+      assignee: "",
+      type: "",
+      status: "Pending",
+      dueDate: "",
     },
   }),
 
@@ -164,72 +170,84 @@ export default {
 
   methods: {
     initialize() {
-      this.clients = [
+      this.jobs = [
         {
-          name: "John Doe Inc.",
-          owner: "John Doe",
-          address: "123 rue quelconque, Gatineau",
-          email: "john@doe.ca",
-          phone: "819-123-4567",
-          partnersName: "Oud-Turnhout",
-          cheques: false,
-          qst: "12345",
-          gst: "12345",
-          remittance: "quarterly",
-          payrollNumber: "12345",
-          payrollRemittance: "monthly",
-          corporation: true,
-          corporationYearEndDate: new Date(),
-          wsib: "12345",
-          wsibRemittance: "quaterly",
-          wsibCsstRate: "15",
-          wsibCode: "12345",
-          cliqsecrCode: "12345",
-          gstCode: "12345",
-          craCode: "12345",
-          consent: false,
-          t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4].length,
+          assignee: "Hada Alvarenga",
+          status: "in progress",
+          dueDate: new Date().toLocaleDateString("en-CA"),
+          type: "Bookkeeping",
+          client: {
+            name: "John Doe Inc.",
+            owner: "John Doe",
+            address: "123 rue des swaggeux, Gatineau",
+            email: "john@doe.ca",
+            phone: "819-123-4567",
+            partnersName: "Oud-Turnhout",
+            cheques: false,
+            qst: "12345",
+            gst: "12345",
+            remittance: "quarterly",
+            payrollNumber: "12345",
+            payrollRemittance: "monthly",
+            corporation: true,
+            corporationYearEndDate: new Date(),
+            wsib: "12345",
+            wsibRemittance: "quaterly",
+            wsibCsstRate: "15",
+            wsibCode: "12345",
+            cliqsecrCode: "12345",
+            gstCode: "12345",
+            craCode: "12345",
+            consent: false,
+            t4DueDate: new Date(),
+            jobs: [1, 2, 3, 4],
+          },
         },
         {
-          name: "Jane Doe Inc.",
-          owner: "Jane Doe",
-          address: "123 rue quelconque, Gatineau",
-          email: "jane@doe.ca",
-          phone: "819-123-4567",
-          partnersName: "Oud-Turnhout",
-          cheques: false,
-          qst: "12345",
-          gst: "12345",
-          remittance: "quarterly",
-          payrollNumber: "12345",
-          payrollRemittance: "monthly",
-          corporation: true,
-          corporationYearEndDate: new Date(),
-          wsib: "12345",
-          wsibRemittance: "quaterly",
-          wsibCsstRate: "15",
-          wsibCode: "12345",
-          cliqsecrCode: "12345",
-          gstCode: "12345",
-          craCode: "12345",
-          consent: false,
-          t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4].length,
+          assignee: "None",
+          status: "pending",
+          dueDate: new Date().toLocaleDateString("en-CA"),
+          type: "Payroll",
+          client: {
+            name: "Jane Doe Inc.",
+            owner: "Jane Doe",
+            address: "123 rue des swaggeux, Gatineau",
+            email: "jane@doe.ca",
+            phone: "819-123-4567",
+            partnersName: "Oud-Turnhout",
+            cheques: false,
+            qst: "12345",
+            gst: "12345",
+            remittance: "quarterly",
+            payrollNumber: "12345",
+            payrollRemittance: "monthly",
+            corporation: true,
+            corporationYearEndDate: new Date(),
+            wsib: "12345",
+            wsibRemittance: "quaterly",
+            wsibCsstRate: "15",
+            wsibCode: "12345",
+            cliqsecrCode: "12345",
+            gstCode: "12345",
+            craCode: "12345",
+            consent: false,
+            t4DueDate: new Date(),
+            jobs: [1, 2, 3, 4],
+          },
         },
       ];
     },
 
     editItem(item) {
-      this.editedIndex = this.clients.indexOf(item);
+      this.editedIndex = this.jobs.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
 
     deleteItem(item) {
-      const index = this.clients.indexOf(item);
+      const index = this.jobs.indexOf(item);
       confirm("Are you sure you want to delete this item?") &&
-        this.clients.splice(index, 1);
+        this.jobs.splice(index, 1);
     },
 
     close() {
@@ -242,9 +260,9 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.clients[this.editedIndex], this.editedItem);
+        Object.assign(this.jobs[this.editedIndex], this.editedItem);
       } else {
-        this.clients.push(this.editedItem);
+        this.jobs.push(this.editedItem);
       }
       this.close();
     },
