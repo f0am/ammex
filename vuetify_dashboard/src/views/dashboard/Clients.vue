@@ -5,7 +5,7 @@
     <base-material-card icon="mdi-account-group" title="Clients list" class="px-5 py-3">
       <template v-slot:after-heading>
         <div>
-          <v-dialog v-model="dialog" max-width="500px">
+          <v-dialog v-model="dialog" max-width="700px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">New Item</v-btn>
             </template>
@@ -33,7 +33,7 @@
                       <v-text-field v-model="editedItem.gst" label="GST"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
+                      <v-text-field v-model="editedItem.qst" label="QST"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-select
@@ -42,7 +42,50 @@
                         label="remittance"
                       ></v-select>
                     </v-col>
-
+                    <v-col cols="12" sm="6" md="4">
+                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.payrollNumber" label="Payroll Number"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-select
+                        v-model="editedItem.payrollRemittance"
+                        :items="['Monthly', 'Quaterly', 'Yearly']"
+                        label="Payroll Remittance"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-switch v-model="editedItem.corporation" class="ma-2" label="Corporation"></v-switch>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.wsib" label="WSIB"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-select
+                        v-model="editedItem.wsibRemittance"
+                        :items="['Monthly', 'Quaterly', 'Yearly']"
+                        label="WSIB Remittance"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.wsibCsstRate" label="WSIB Cost Rate"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.wsibCode" label="WSIB Code"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.cliqsecrCode" label="Cliqsecr Code"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.gstCode" label="GST Code"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.craCode" label="CRA Code"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-switch v-model="editedItem.consent" class="ma-2" label="Consent"></v-switch>
+                    </v-col>
                     <!-- <v-col>
                       <v-combobox
                         v-model="editedItem.jobs"
