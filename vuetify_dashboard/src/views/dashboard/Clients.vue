@@ -29,6 +29,9 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field v-model="editedItem.phone" label="Phone"></v-text-field>
                     </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.gst" label="GST"></v-text-field>
+                    </v-col>
                     <v-col>
                       <v-combobox
                         v-model="editedItem.jobs"
@@ -106,12 +109,12 @@ export default {
         text: "Name",
         align: "start",
         sortable: false,
-        value: "name",
+        value: "name"
       },
       { value: "address", text: "Address" },
       { value: "email", text: "Email" },
       { value: "phone", text: "Phone" },
-      { value: "jobs", text: "Jobs" },
+      { value: "jobs", text: "Jobs" }
     ],
     clients: [],
     editedIndex: -1,
@@ -120,7 +123,7 @@ export default {
       address: "",
       email: "",
       phone: "",
-      jobs: [],
+      jobs: []
     },
     defaultItem: {
       name: "",
@@ -128,20 +131,20 @@ export default {
       address: "",
       email: "",
       phone: "",
-      jobs: [],
-    },
+      jobs: []
+    }
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    }
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
+    }
   },
 
   created() {
@@ -175,7 +178,7 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4],
+          jobs: [1, 2, 3, 4]
         },
         {
           name: "Jane Doe Inc.",
@@ -201,8 +204,8 @@ export default {
           craCode: "12345",
           consent: false,
           t4DueDate: new Date(),
-          jobs: [1, 2, 3, 4],
-        },
+          jobs: [1, 2, 3, 4]
+        }
       ];
     },
 
@@ -233,7 +236,7 @@ export default {
         this.clients.push(this.editedItem);
       }
       this.close();
-    },
-  },
+    }
+  }
 };
 </script>
