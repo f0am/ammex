@@ -4,6 +4,9 @@
       <td>{{ props.item.id }}</td>
       <td>{{ props.item.firstName }}</td>
       <td>{{ props.item.lastName }}</td>
+      <td>{{ props.item.email }}</td>
+      <td>{{ props.item.phone }}</td>
+      <td>{{ props.item.role }}</td>
       <!-- Ajouter les autres propriete ici -->
       <td>
         <icon-tool-tip :name="props.item.id" :description="'More Info'">
@@ -24,6 +27,9 @@ export default {
         { text: "ID", value: "id" },
         { text: "First name", value: "firstName" },
         { text: "Last name", value: "lastName" },
+        { text: "Email", value: "email" },
+        { text: "Phone", value: "phone" },
+        { text: "Role", value: "role" }
         // Ajouter les entetes de la table ici
       ],
       users: [
@@ -31,16 +37,16 @@ export default {
         {
           id: 1,
           firstName: "Hada",
-          lastName: "Alvarenga",
-        },
-      ],
+          lastName: "Alvarenga"
+        }
+      ]
     };
   },
   methods: {
     moreInfo(item) {
       this.$router.push(`/users/${item.id}`);
-    },
-  },
+    }
+  }
 };
 </script>
 
