@@ -46,6 +46,9 @@ export default {
       default: () => {},
     },
   },
+  data() {
+    return {};
+  },
   computed: {
     // fieldsHandler() {
     //   if (this.fields instanceof Array) {
@@ -56,6 +59,8 @@ export default {
     // },
     currentValue: {
       get() {
+        return this.value;
+
         return this.value;
       },
       set(value) {

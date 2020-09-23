@@ -1,20 +1,15 @@
 <template>
-  <material-card
-    color="info"
-    title="Clients List">
-    <clients-list />
-  </material-card>
+  <v-container fluid tag="section">
+    <client-list />
+  </v-container>
 </template>
 
+
 <script>
-import ClientsList from './List'
+import ClientList from "@/components/resources/client/List";
 export default {
   components: {
-    ClientsList
-  }
-}
+    ClientList,
+  },
+};
 </script>
-
-<style>
-
-</style>

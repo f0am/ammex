@@ -20,7 +20,7 @@
     <v-list dense nav>
       <v-list-item>
         <v-list-item-avatar class="align-self-center" color="white" contain>
-          <p style="color: black; font-size: 2em;padding-top: 0.5em">A</p>
+          <p class="primary--text" style="font-size: 2em;padding-top: 0.5em">A</p>
           <!-- <v-img
             src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
             max-height="30"
@@ -166,8 +166,8 @@ export default {
 @import '~vuetify/src/styles/tools/_rtl.sass'
 
 #core-navigation-drawer
-    .v-list-group__header.v-list-item--active:before
-      opacity: .24
+  .v-list-group__header.v-list-item--active:before
+    opacity: .24
 
     .v-list-item
       &__icon--text,
