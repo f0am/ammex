@@ -24,9 +24,7 @@
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <client-form v-model="editedItem" />
-
-                        {{ editedItem }}
+                        <user-form v-model="editedItem" />
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -53,35 +51,34 @@
           class="v-card-profile"
           avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
         >
-          <v-card-text class="text-center">
-            {{ selectedUser }}
-            <!-- <h6 class="display-1 mb-1 grey--text">{{ selectedUser.role }}</h6>
+          <v-card-text v-if="selectedUser" class="text-center">
+            <h6 class="display-1 mb-1 grey--text">{{ selectedUser.role }}</h6>
 
             <h4 class="display-2 font-weight-light mb-3 black--text">
-              {{ getFullName(users[selectedUser]) }}
-              <div style="font-size: 0.7em">{{ users[selectedUser].id }}</div>
+              {{ getFullName(selectedUser) }}
+              <div style="font-size: 0.7em">{{ selectedUser.id }}</div>
             </h4>
 
             <table id="user-info" class="font-weight-light" style="width: 100%">
               <tr>
                 <td>email</td>
-                <td>{{ users[selectedUser].email }}</td>
+                <td>{{ selectedUser.email }}</td>
               </tr>
               <tr>
                 <td>phone</td>
-                <td>{{ users[selectedUser].phone }}</td>
+                <td>{{ selectedUser.phone }}</td>
               </tr>
 
               <tr>
                 <td>role</td>
-                <td>{{ users[selectedUser].role }}</td>
+                <td>{{ selectedUser.role }}</td>
               </tr>
 
               <tr>
                 <td>jobs</td>
-                <td>{{ users[selectedUser].jobs }}</td>
+                <td>{{ selectedUser.jobs }}</td>
               </tr>
-            </table> -->
+            </table>
 
             <!-- <v-btn color="success" rounded class="mr-0"> Follow </v-btn> -->
           </v-card-text>
@@ -93,9 +90,11 @@
 
 <script>
 import UsersList from "@/components/resources/user/List";
+import UserForm from "@/components/resources/user/Form";
 export default {
   components: {
     UsersList,
+    UserForm,
   },
   //
   methods: {
@@ -109,6 +108,7 @@ export default {
   data() {
     return {
       selectedUser: null,
+      editedItem: {},
     };
   },
 };

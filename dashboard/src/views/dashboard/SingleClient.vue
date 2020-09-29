@@ -15,9 +15,7 @@
           <v-layout row wrap>
             <v-flex xs12 style="padding-left: 1.5em">
               <v-layout row wrap>
-                <v-flex xs12>
-                 
-                </v-flex>
+                <v-flex xs12> </v-flex>
                 <v-flex xs12>
                   <v-list-item two-line>
                     <v-list-item-content>
@@ -185,6 +183,154 @@
         </base-material-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12" md="8">
+        <base-material-card
+          icon="mdi-file-clock"
+          title="Jobs list"
+          class="px-5 py-3"
+        >
+          <template v-slot:after-heading>
+            <div>
+              <v-dialog v-model="dialog" max-width="500px">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    color="primary"
+                    dark
+                    class="mb-2"
+                    v-bind="attrs"
+                    v-on="on"
+                    >New Item</v-btn
+                  >
+                </template>
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">{{ formTitle }}</span>
+                  </v-card-title>
+
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-select
+                            v-model="editedItem.client"
+                            :items="[
+                              {
+                                text: 'John Doe Inc.',
+                                value: { name: 'John Doe Inc.' },
+                              },
+                              {
+                                text: 'Jane Doe Inc.',
+                                value: { name: 'Jane Doe Inc.' },
+                              },
+                            ]"
+                            label="Client"
+                          ></v-select>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-select
+                            v-model="editedItem.type"
+                            :items="['Bookkeeping', 'Payroll', 'Taxes', 'GST']"
+                            label="Type"
+                          ></v-select>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-select
+                            v-model="editedItem.status"
+                            :items="[
+                              'Pending',
+                              'Documents received',
+                              'Work in progress',
+                              'Awaiting payment',
+                              'Filed',
+                              'Awaiting documents',
+                            ]"
+                            label="Status"
+                          ></v-select>
+                        </v-col>
+
+                        <v-col cols="12" sm="6" md="4">
+                          <v-select
+                            v-model="editedItem.assignee"
+                            :items="[
+                              'Hada Alvarenga',
+                              'Jeremie St-Pierre robitaille',
+                            ]"
+                            label="Assignee"
+                          ></v-select>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-menu
+                            v-model="menu2"
+                            :close-on-content-click="false"
+                            :nudge-right="40"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="290px"
+                          >
+                            <template v-slot:activator="{ on, attrs }">
+                              <v-text-field
+                                v-model="editedItem.dueDate"
+                                label="Due date"
+                                readonly
+                                v-bind="attrs"
+                                v-on="on"
+                              ></v-text-field>
+                            </template>
+                            <v-date-picker
+                              style="margin: 0"
+                              v-model="editedItem.dueDate"
+                              @input="menu2 = false"
+                            ></v-date-picker>
+                          </v-menu>
+                        </v-col>
+                        <!-- <v-col cols="12" sm="6" md="4">
+                      <v-switch
+                        v-model="editedItem.cheques"
+                        class="ma-2"
+                        label="Cheques"
+                      ></v-switch>
+                    </v-col> -->
+                        <v-col cols="12">
+                          <!-- <client-select v-model="editedItem.client" /> -->
+                        </v-col>
+
+                        <!-- <v-col>
+                      <v-combobox
+                        v-model="editedItem.jobs"
+                        :items="editedItem.jobs"
+                        label="Jobs"
+                        multiple
+                      ></v-combobox>
+                    </v-col>-->
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close"
+                      >Cancel</v-btn
+                    >
+                    <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </div>
+          </template>
+          <v-data-table
+            :headers="headers"
+            :items="jobs"
+            sort-by="name"
+            class="elevation-1"
+          >
+            <template v-slot:no-data>
+              <v-btn color="primary" @click="initialize">Reset</v-btn>
+            </template>
+          </v-data-table>
+        </base-material-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -197,6 +343,34 @@ export default {
   data() {
     return {
       client: {},
+      jobsHeaders: [
+        {
+          text: "ID",
+          align: "start",
+          value: "id",
+        },
+        { value: "type", text: "Type" },
+        { value: "assignee", text: "Assignee" },
+        { value: "status", text: "Status" },
+        { value: "dueDate", text: "Due date" },
+      ],
+      menu2: null,
+      jobs: [],
+      editedIndex: -1,
+      editedItem: {
+        client: {},
+        assignee: "",
+        type: "",
+        status: "",
+        dueDate: "",
+      },
+      defaultItem: {
+        client: {},
+        assignee: "",
+        type: "",
+        status: "Pending",
+        dueDate: "",
+      },
     };
   },
   mounted() {

@@ -2,12 +2,18 @@
   <v-container id="regular-tables" fluid tag="section">
     <!-- <base-v-component heading="Jobs" link="components/simple-tables" /> -->
 
-    <base-material-card icon="mdi-file-clock" title="Jobs list" class="px-5 py-3">
+    <base-material-card
+      icon="mdi-file-clock"
+      title="Jobs list"
+      class="px-5 py-3"
+    >
       <template v-slot:after-heading>
         <div>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">New Item</v-btn>
+              <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"
+                >New Item</v-btn
+              >
             </template>
             <v-card>
               <v-card-title>
@@ -20,21 +26,37 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-select
                         v-model="editedItem.client"
-                        :items="[{text: 'John Doe Inc.', value: {name: 'John Doe Inc.' }}, {text: 'Jane Doe Inc.', value: {name: 'Jane Doe Inc.' }}]"
+                        :items="[
+                          {
+                            text: 'John Doe Inc.',
+                            value: { name: 'John Doe Inc.' },
+                          },
+                          {
+                            text: 'Jane Doe Inc.',
+                            value: { name: 'Jane Doe Inc.' },
+                          },
+                        ]"
                         label="Client"
                       ></v-select>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-select
                         v-model="editedItem.type"
-                        :items="['Bookkeeping', 'Payroll', 'Taxes']"
+                        :items="['Bookkeeping', 'Payroll', 'Taxes', 'GST']"
                         label="Type"
                       ></v-select>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-select
                         v-model="editedItem.status"
-                        :items="['Pending', 'In Progress', 'Completed']"
+                        :items="[
+                          'Pending',
+                          'Documents received',
+                          'Work in progress',
+                          'Awaiting payment',
+                          'Filed',
+                          'Awaiting documents',
+                        ]"
                         label="Status"
                       ></v-select>
                     </v-col>
@@ -42,13 +64,45 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-select
                         v-model="editedItem.assignee"
-                        :items="['Hada Alvarenga', 'Jeremie St-Pierre robitaille']"
+                        :items="[
+                          'Hada Alvarenga',
+                          'Jeremie St-Pierre robitaille',
+                        ]"
                         label="Assignee"
                       ></v-select>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-switch v-model="editedItem.cheques" class="ma-2" label="Cheques"></v-switch>
+                      <v-menu
+                        v-model="menu2"
+                        :close-on-content-click="false"
+                        :nudge-right="40"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="290px"
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-text-field
+                            v-model="editedItem.dueDate"
+                            label="Due date"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                          ></v-text-field>
+                        </template>
+                        <v-date-picker
+                          style="margin: 0"
+                          v-model="editedItem.dueDate"
+                          @input="menu2 = false"
+                        ></v-date-picker>
+                      </v-menu>
                     </v-col>
+                    <!-- <v-col cols="12" sm="6" md="4">
+                      <v-switch
+                        v-model="editedItem.cheques"
+                        class="ma-2"
+                        label="Cheques"
+                      ></v-switch>
+                    </v-col> -->
                     <v-col cols="12">
                       <client-select v-model="editedItem.client" />
                     </v-col>
@@ -74,7 +128,12 @@
           </v-dialog>
         </div>
       </template>
-      <v-data-table :headers="headers" :items="jobs" sort-by="name" class="elevation-1">
+      <v-data-table
+        :headers="headers"
+        :items="jobs"
+        sort-by="name"
+        class="elevation-1"
+      >
         <!-- <template v-slot:top>
           <v-toolbar flat color="white">
             <v-toolbar-title>Jobs list</v-toolbar-title>
@@ -141,6 +200,7 @@ export default {
       { value: "status", text: "Status" },
       { value: "dueDate", text: "Due date" },
     ],
+    menu2: null,
     jobs: [],
     editedIndex: -1,
     editedItem: {
