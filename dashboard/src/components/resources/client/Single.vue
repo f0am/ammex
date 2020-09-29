@@ -1,32 +1,24 @@
 <template>
   <v-container fluid>
-    <v-layout
-      row
-      wrap>
+    <v-layout row wrap>
       <v-flex xs4>
         <v-card>
-          <v-card-title
-            primary-title
-            class="card-title">
-            <div class="card-title-text">{{ partner.name }}</div>
+          <v-card-title primary-title class="card-title">
+            <div class="card-title-text">{{ client.name }}</div>
           </v-card-title>
-          <v-layout
-            row
-            wrap>
-            <v-flex xs6><div class="label">SSID:</div> {{ partner.ssid }}</v-flex>
+          <v-layout row wrap>
+            <v-flex x6>{{ client }}</v-flex>
+            <!-- <v-flex xs6><div class="label">SSID:</div> {{ partner.ssid }}</v-flex>
             <v-flex xs6><div class="label">SSID ASCI:</div> {{ partner.ssidAsci }}</v-flex>
             <v-flex xs6><div class="label">UC1:</div> {{ partner.uc1.vlanId }}</v-flex>
-            <v-flex xs6><div class="label">UC3:</div> {{ partner.uc3.tunnelId }}</v-flex>
+            <v-flex xs6><div class="label">UC3:</div> {{ partner.uc3.tunnelId }}</v-flex> -->
           </v-layout>
         </v-card>
       </v-flex>
       <v-flex xs8>
         <v-card>
-          <v-card-title
-            primary-title
-            class="card-title">
+          <v-card-title primary-title class="card-title">
             <div class="card-title-text">Servers</div>
-
           </v-card-title>
           <!-- Insert Component -->
           <!-- <server-list :servers="partner.servers" /> -->
@@ -42,23 +34,18 @@ export default {
   components: {
     // ServerList
   },
-  data () {
+  data() {
     return {
-      partner: {}
-    }
+      client: {},
+    };
   },
-  mounted () {
-    this.partner = {
+  mounted() {
+    this.client = {
       id: 2,
-      name: 'RIP',
-      ssid: 'a SSID',
-      ssidAsci: 'a SSID ASCI',
-      uc1: { vlanId: 111 },
-      uc3: { tunnelId: 111 },
-      servers: [{ name: 'Server Name' }, { name: 'Server 2' }]
-    }
-  }
-}
+      name: "RIP",
+    };
+  },
+};
 </script>
 
 <style>

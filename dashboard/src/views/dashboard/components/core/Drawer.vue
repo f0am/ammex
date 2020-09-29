@@ -92,6 +92,11 @@ export default {
         to: "/clients",
       },
       {
+        icon: "mdi-account-group",
+        title: "Single Client",
+        to: "/clients/1",
+      },
+      {
         icon: "mdi-account",
         title: "Users",
         to: "/pages/user",
@@ -100,6 +105,11 @@ export default {
         icon: "mdi-file-clock",
         title: "Jobs",
         to: "/jobs",
+      },
+      {
+        icon: "mdi-file-clock",
+        title: "Test",
+        to: "/test",
       },
       // {
       //   title: 'rtables',

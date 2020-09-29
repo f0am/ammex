@@ -62,10 +62,20 @@ export default new Router({
           component: () => import('@/views/dashboard/Clients'),
         },
         {
+          name: 'Clients',
+          path: 'clients/1',
+          component: () => import('@/views/dashboard/SingleClient'),
+        },
+        {
           name: 'Jobs',
           path: 'jobs',
           component: () => import('@/views/dashboard/Jobs'),
         },
+        {
+          name: "test",
+          path: 'test',
+          component: () => import('@/views/dashboard/Test')
+        }
       ],
     },
   ],
