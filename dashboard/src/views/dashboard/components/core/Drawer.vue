@@ -92,14 +92,9 @@ export default {
         to: "/clients",
       },
       {
-        icon: "mdi-account-group",
-        title: "Single Client",
-        to: "/clients/1",
-      },
-      {
         icon: "mdi-account",
         title: "Users",
-        to: "/pages/user",
+        to: "/users",
       },
       {
         icon: "mdi-file-clock",

@@ -9,11 +9,15 @@
             <div class="subtitle-1 font-weight-light">
               Client #{{ client.id }}
             </div>
+            <v-spacer />
           </template>
 
           <v-layout row wrap>
             <v-flex xs12 style="padding-left: 1.5em">
               <v-layout row wrap>
+                <v-flex xs12>
+                 
+                </v-flex>
                 <v-flex xs12>
                   <v-list-item two-line>
                     <v-list-item-content>
@@ -69,7 +73,7 @@
                         >Corporation Year End Date</v-list-item-title
                       >
                       <v-list-item-subtitle>{{
-                        client.corporationYearEnd
+                        client.corporationYearEnd.toLocaleDateString("en-CA")
                       }}</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
@@ -113,7 +117,7 @@
                     <v-list-item-content>
                       <v-list-item-title>T4 Due Date</v-list-item-title>
                       <v-list-item-subtitle>{{
-                        client.t4dueDate
+                        client.t4dueDate.toLocaleDateString("en-CA")
                       }}</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>

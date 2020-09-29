@@ -19,9 +19,9 @@ export default new Router({
         },
         // Pages
         {
-          name: 'User Profile',
-          path: 'pages/user',
-          component: () => import('@/views/dashboard/pages/UserProfile'),
+          name: 'Users',
+          path: 'users',
+          component: () => import('@/views/dashboard/Users'),
         },
         {
           name: 'Notifications',
@@ -71,11 +71,6 @@ export default new Router({
           path: 'jobs',
           component: () => import('@/views/dashboard/Jobs'),
         },
-        {
-          name: "test",
-          path: 'test',
-          component: () => import('@/views/dashboard/Test')
-        }
       ],
     },
   ],

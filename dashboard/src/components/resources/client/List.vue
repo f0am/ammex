@@ -1,5 +1,10 @@
 <template>
-  <v-data-table :headers="headers" :items="client" class="elevation-1">
+  <v-data-table
+    :headers="headers"
+    :items="client"
+    class="elevation-1"
+    @click:row="showItem"
+  >
     <!-- <template v-slot:items="props">
       <td>{{ props.item.id }}</td>
       <td>{{ props.item.name }}</td>
@@ -31,15 +36,16 @@
       <td>{{ props.item.csstConsent }}</td> -->
     <!-- </template> -->
     <template v-slot:item.jobs="{ item }">
-      <v-avatar color="primary" size="25" style="color: #fff">2</v-avatar>
+      <v-avatar color="primary" size="25" style="color: #fff">{{
+        item.jobs
+      }}</v-avatar>
       <v-avatar color="secondary" size="25" style="color: #fff">2</v-avatar>
       <v-avatar color="warning" size="25" style="color: #fff">2</v-avatar>
       <v-avatar color="info" size="25" style="color: #fff">2</v-avatar>
     </template>
-    <template v-slot:item.actions="{ item }">
+    <!-- <template v-slot:item.actions="{ item }">
       <v-icon small class="mr-2" @click="showItem(item)"> mdi-pencil </v-icon>
-      <!-- <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon> -->
-    </template>
+    </template> -->
     <template v-slot:no-data>
       <v-btn color="primary" @click="initialize"> Reset </v-btn>
     </template>
@@ -57,7 +63,7 @@ export default {
         { text: "Phone", value: "phone" },
         { text: "Address", value: "address" },
         { text: "Jobs", value: "jobs" },
-        { text: "Actions", value: "actions" },
+        // { text: "Actions", value: "actions" },
         // { text: "Owners", value: "owners" },
         // { text: "Cheques", value: "cheques" },
         // { text: "GST", value: "gst" },
@@ -100,485 +106,13 @@ export default {
             },
           ],
         },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
       ],
     };
   },
   methods: {
+    stuff(i) {
+      console.log(i);
+    },
     showItem(item) {
       this.$router.push(`/clients/${item.id}`);
     },
@@ -599,4 +133,7 @@ export default {
 </script>
 
 <style>
+table tr {
+  cursor: pointer;
+}
 </style>
