@@ -122,7 +122,8 @@
           </v-dialog>
         </div>
       </template>
-      <v-data-table :headers="headers" :items="clients" sort-by="name" class="elevation-1">
+      <client-list />
+      <!-- <v-data-table :headers="headers" :items="clients" sort-by="name" class="elevation-1"> -->
         <!-- <template v-slot:top>
           <v-toolbar flat color="white">
             <v-toolbar-title>Clients list</v-toolbar-title>
@@ -160,10 +161,10 @@
       <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
       <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
         </template>-->
-        <template v-slot:no-data>
+        <!-- <template v-slot:no-data>
           <v-btn color="primary" @click="initialize">Reset</v-btn>
         </template>
-      </v-data-table>
+      </v-data-table> -->
     </base-material-card>
   </v-container>
 </template>
@@ -171,9 +172,11 @@
 
 <script>
 import ClientForm from "@/components/resources/client/Form";
+import ClientList from "@/components/resources/client/List";
 export default {
   components: {
     ClientForm,
+    ClientList
   },
   data: () => ({
     dialog: false,
