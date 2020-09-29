@@ -2,7 +2,7 @@
   <v-container id="regular-tables" fluid tag="section">
     <!-- <base-v-component heading="Clients" link="components/simple-tables" /> -->
 
-    <base-material-card icon="mdi-account-group" title="Clients list" class="px-5 py-3">
+    <base-material-card color="primary" icon="mdi-account-group" title="Clients list" class="px-5 py-3">
       <template v-slot:after-heading>
         <div>
           <v-dialog v-model="dialog" max-width="800px">

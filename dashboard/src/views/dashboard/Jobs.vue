@@ -4,8 +4,8 @@
 
     <base-material-card
       icon="mdi-file-clock"
-      title="Jobs list"
       class="px-5 py-3"
+      color="primary"
     >
       <template v-slot:after-heading>
         <div>

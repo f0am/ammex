@@ -2,7 +2,7 @@
   <v-container id="user-profile" fluid tag="section">
     <v-row justify="center">
       <v-col cols="12" md="8">
-        <base-material-card icon="mdi-account" class="px-5 py-3" color="info">
+        <base-material-card icon="mdi-account" class="px-5 py-3" color="primary">
           <template v-slot:after-heading>
             <div>
               <v-dialog v-model="dialog" max-width="800px">

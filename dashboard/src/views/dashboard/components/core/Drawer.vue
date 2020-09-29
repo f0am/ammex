@@ -19,16 +19,15 @@
 
     <v-list dense nav>
       <v-list-item>
-        <v-list-item-avatar class="align-self-center" color="white" contain>
-          <p style="color: black; font-size: 2em;padding-top: 0.5em">A</p>
-          <!-- <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
-          />-->
-        </v-list-item-avatar>
+        <!-- <v-list-item-avatar tile class="align-self-center" color="white" contain>
+          
+        </v-list-item-avatar> -->
 
         <v-list-item-content>
-          <v-list-item-title class="display-1" v-text="profile.title" />
+        <v-img
+            src="@/Logo.png"
+          />
+          <!-- <v-list-item-title class="display-1" v-text="profile.title" /> -->
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -101,11 +100,11 @@ export default {
         title: "Jobs",
         to: "/jobs",
       },
-      {
-        icon: "mdi-file-clock",
-        title: "Test",
-        to: "/test",
-      },
+      // {
+      //   icon: "mdi-file-clock",
+      //   title: "Test",
+      //   to: "/test",
+      // },
       // {
       //   title: 'rtables',
       //   icon: 'mdi-clipboard-outline',
