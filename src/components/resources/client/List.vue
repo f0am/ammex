@@ -4,6 +4,7 @@
     :items="client"
     class="elevation-1"
     @click:row="showItem"
+  
   >
     <!-- <template v-slot:items="props">
       <td>{{ props.item.id }}</td>
