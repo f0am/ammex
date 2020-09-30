@@ -169,7 +169,7 @@
       </v-col>
 
       <v-col cols="12" md="4">
-        <base-material-card class="v-card-profile">
+        <base-material-card class="v-card-profile" color="primary">
           <template v-slot:heading>
             <div class="display-2 font-weight-light">
               {{ client.name }}
