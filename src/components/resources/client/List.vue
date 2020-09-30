@@ -110,9 +110,6 @@ export default {
     };
   },
   methods: {
-    stuff(i) {
-      console.log(i);
-    },
     showItem(item) {
       this.$router.push(`/clients/${item.id}`);
     },
