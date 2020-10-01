@@ -5,9 +5,6 @@ type User {
   phone: String!
   email: String!
   role: Role!
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -26,9 +23,6 @@ type Client {
   address: String!
   email: String!
   jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -45,9 +39,6 @@ type Job {
   client: Client
   type: JobType!
   dueDate: String!
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -60,7 +51,6 @@ enum ModelSortDirection {
 type ModelUserConnection {
   items: [User]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -167,13 +157,10 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection
   getUser(id: ID!): User
   listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
-  syncClients(filter: ModelClientFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelClientConnection
   getClient(id: ID!): Client
   listClients(filter: ModelClientFilterInput, limit: Int, nextToken: String): ModelClientConnection
-  syncJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelJobConnection
   getJob(id: ID!): Job
   listJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String): ModelJobConnection
 }
@@ -185,7 +172,6 @@ input CreateUserInput {
   phone: String!
   email: String!
   role: Role!
-  _version: Int
 }
 
 input UpdateUserInput {
@@ -195,12 +181,10 @@ input UpdateUserInput {
   phone: String
   email: String
   role: Role
-  _version: Int
 }
 
 input DeleteUserInput {
   id: ID
-  _version: Int
 }
 
 type Mutation {
@@ -241,7 +225,6 @@ type Subscription {
 type ModelClientConnection {
   items: [Client]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelClientFilterInput {
@@ -263,7 +246,6 @@ input CreateClientInput {
   phone: String!
   address: String!
   email: String!
-  _version: Int
 }
 
 input UpdateClientInput {
@@ -273,12 +255,10 @@ input UpdateClientInput {
   phone: String
   address: String
   email: String
-  _version: Int
 }
 
 input DeleteClientInput {
   id: ID
-  _version: Int
 }
 
 input ModelClientConditionInput {
@@ -295,7 +275,6 @@ input ModelClientConditionInput {
 type ModelJobConnection {
   items: [Job]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelJobTypeInput {
@@ -318,7 +297,6 @@ input CreateJobInput {
   clientID: ID!
   type: JobType!
   dueDate: String!
-  _version: Int
 }
 
 input UpdateJobInput {
@@ -326,12 +304,10 @@ input UpdateJobInput {
   clientID: ID
   type: JobType
   dueDate: String
-  _version: Int
 }
 
 input DeleteJobInput {
   id: ID
-  _version: Int
 }
 
 input ModelJobConditionInput {

@@ -9,7 +9,6 @@ export type CreateUserInput = {
   phone: string,
   email: string,
   role: Role,
-  _version?: number | null,
 };
 
 export enum Role {
@@ -82,12 +81,10 @@ export type UpdateUserInput = {
   phone?: string | null,
   email?: string | null,
   role?: Role | null,
-  _version?: number | null,
 };
 
 export type DeleteUserInput = {
   id?: string | null,
-  _version?: number | null,
 };
 
 export type CreateClientInput = {
@@ -97,7 +94,6 @@ export type CreateClientInput = {
   phone: string,
   address: string,
   email: string,
-  _version?: number | null,
 };
 
 export type ModelClientConditionInput = {
@@ -118,12 +114,10 @@ export type UpdateClientInput = {
   phone?: string | null,
   address?: string | null,
   email?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteClientInput = {
   id?: string | null,
-  _version?: number | null,
 };
 
 export type CreateJobInput = {
@@ -131,7 +125,6 @@ export type CreateJobInput = {
   clientID: string,
   type: JobType,
   dueDate: string,
-  _version?: number | null,
 };
 
 export enum JobType {
@@ -176,12 +169,10 @@ export type UpdateJobInput = {
   clientID?: string | null,
   type?: JobType | null,
   dueDate?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteJobInput = {
   id?: string | null,
-  _version?: number | null,
 };
 
 export type ModelUserFilterInput = {
@@ -232,9 +223,6 @@ export type CreateUserMutation = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -254,9 +242,6 @@ export type UpdateUserMutation = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -276,9 +261,6 @@ export type DeleteUserMutation = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -301,11 +283,7 @@ export type CreateClientMutation = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -328,11 +306,7 @@ export type UpdateClientMutation = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -355,11 +329,7 @@ export type DeleteClientMutation = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -383,17 +353,11 @@ export type CreateJobMutation = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -417,17 +381,11 @@ export type UpdateJobMutation = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -451,48 +409,13 @@ export type DeleteJobMutation = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
-  } | null,
-};
-
-export type SyncUsersQueryVariables = {
-  filter?: ModelUserFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncUsersQuery = {
-  syncUsers:  {
-    __typename: "ModelUserConnection",
-    items:  Array< {
-      __typename: "User",
-      id: string,
-      firstName: string,
-      lastName: string,
-      phone: string,
-      email: string,
-      role: Role,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-    startedAt: number | null,
   } | null,
 };
 
@@ -509,9 +432,6 @@ export type GetUserQuery = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -534,43 +454,10 @@ export type ListUsersQuery = {
       phone: string,
       email: string,
       role: Role,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
-    startedAt: number | null,
-  } | null,
-};
-
-export type SyncClientsQueryVariables = {
-  filter?: ModelClientFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncClientsQuery = {
-  syncClients:  {
-    __typename: "ModelClientConnection",
-    items:  Array< {
-      __typename: "Client",
-      id: string,
-      name: string,
-      contact: string,
-      phone: string,
-      address: string,
-      email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-    startedAt: number | null,
   } | null,
 };
 
@@ -590,11 +477,7 @@ export type GetClientQuery = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -617,41 +500,10 @@ export type ListClientsQuery = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
-    startedAt: number | null,
-  } | null,
-};
-
-export type SyncJobsQueryVariables = {
-  filter?: ModelJobFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncJobsQuery = {
-  syncJobs:  {
-    __typename: "ModelJobConnection",
-    items:  Array< {
-      __typename: "Job",
-      id: string,
-      clientID: string,
-      type: JobType,
-      dueDate: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-    startedAt: number | null,
   } | null,
 };
 
@@ -672,17 +524,11 @@ export type GetJobQuery = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -703,14 +549,10 @@ export type ListJobsQuery = {
       clientID: string,
       type: JobType,
       dueDate: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
-    startedAt: number | null,
   } | null,
 };
 
@@ -723,9 +565,6 @@ export type OnCreateUserSubscription = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -740,9 +579,6 @@ export type OnUpdateUserSubscription = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -757,9 +593,6 @@ export type OnDeleteUserSubscription = {
     phone: string,
     email: string,
     role: Role,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -777,11 +610,7 @@ export type OnCreateClientSubscription = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -799,11 +628,7 @@ export type OnUpdateClientSubscription = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -821,11 +646,7 @@ export type OnDeleteClientSubscription = {
     jobs:  {
       __typename: "ModelJobConnection",
       nextToken: string | null,
-      startedAt: number | null,
     } | null,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -844,17 +665,11 @@ export type OnCreateJobSubscription = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -873,17 +688,11 @@ export type OnUpdateJobSubscription = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -902,17 +711,11 @@ export type OnDeleteJobSubscription = {
       phone: string,
       address: string,
       email: string,
-      _version: number,
-      _deleted: boolean | null,
-      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
     } | null,
     type: JobType,
     dueDate: string,
-    _version: number,
-    _deleted: boolean | null,
-    _lastChangedAt: number,
     createdAt: string,
     updatedAt: string,
   } | null,
