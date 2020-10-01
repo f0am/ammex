@@ -2,7 +2,11 @@
   <v-container id="user-profile" fluid tag="section">
     <v-row justify="center">
       <v-col cols="12" md="8">
-        <base-material-card icon="mdi-account" class="px-5 py-3" color="primary">
+        <base-material-card
+          icon="mdi-account"
+          class="px-5 py-3"
+          color="primary"
+        >
           <template v-slot:after-heading>
             <div>
               <v-dialog v-model="dialog" max-width="800px">
@@ -18,7 +22,7 @@
                 </template>
                 <v-card>
                   <v-card-title>
-                    <span class="headline">{{ formTitle }}</span>
+                    <!-- <span class="headline">{{ formTitle }}</span> -->
                   </v-card-title>
 
                   <v-card-text>
@@ -41,7 +45,7 @@
             </div>
           </template>
 
-          <users-list @click:row="selectUser" />
+          <users-list :users="users" @click:row="selectUser" />
           <!-- <v-data-table :headers="headers" :items="users" class="elevation-1" /> -->
         </base-material-card>
       </v-col>
@@ -64,6 +68,7 @@
                 <td>email</td>
                 <td>{{ selectedUser.email }}</td>
               </tr>
+
               <tr>
                 <td>phone</td>
                 <td>{{ selectedUser.phone }}</td>
@@ -91,12 +96,29 @@
 <script>
 import UsersList from "@/components/resources/user/List";
 import UserForm from "@/components/resources/user/Form";
+
+import * as queries from "@/graphql/queries";
+import * as mutations from "@/graphql/mutations";
+import * as subscriptions from "@/graphql/subscriptions";
+import { User } from "@/models";
 export default {
   components: {
     UsersList,
     UserForm,
   },
   //
+  async beforeCreate() {
+    try {
+      const users = await this.$ds.query(User);
+      console.log(
+        "Posts retrieved successfully!",
+        JSON.stringify(users, null, 2)
+      );
+      this.users = users;
+    } catch (error) {
+      console.log("Error retrieving posts", error);
+    }
+  },
   methods: {
     selectUser(e) {
       this.selectedUser = e;
@@ -104,11 +126,34 @@ export default {
     getFullName(user) {
       return `${user.firstName} ${user.lastName}`;
     },
+    async save() {
+      // await this.$api.graphql({
+      //   query: mutations.createUser,
+      //   variables: {
+      //     input: {
+      //       ...this.editedItem,
+      //       role: this.editedItem.role.toUpperCase(),
+      //     },
+      //   },
+      // });
+      await this.$ds.save(
+        new User({
+          ...this.editedItem,
+        })
+      );
+      // this.users = this.$ds.query(User);
+      // console.log(users)
+      // const resp = await this.$api.graphql({ query: queries.listUsers });
+      // this.users = resp.data.listUsers.items;
+    },
+    close() {},
   },
   data() {
     return {
       selectedUser: null,
       editedItem: {},
+      users: [],
+      dialog: null,
     };
   },
 };

@@ -9,7 +9,7 @@ $util.qr($context.args.input.put("updatedAt", $util.defaultIfNull($ctx.args.inpu
 
 
 ## [Start] Prepare DynamoDB PutItem Request. **
-$util.qr($context.args.input.put("__typename", "Comment"))
+$util.qr($context.args.input.put("__typename", "Job"))
 #set( $condition = {
   "expression": "attribute_not_exists(#id)",
   "expressionNames": {

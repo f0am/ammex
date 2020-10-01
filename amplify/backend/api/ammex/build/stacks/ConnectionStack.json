@@ -86,7 +86,7 @@
         }
     },
     "Resources": {
-        "BlogpostsResolver": {
+        "ClientjobsResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -101,14 +101,14 @@
                                     "Ref": "AppSyncApiId"
                                 },
                                 "GetAtt",
-                                "PostDataSource",
+                                "JobDataSource",
                                 "Name"
                             ]
                         ]
                     }
                 },
-                "FieldName": "posts",
-                "TypeName": "Blog",
+                "FieldName": "jobs",
+                "TypeName": "Client",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
                         "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
@@ -123,8 +123,8 @@
                                 "Fn::Join": [
                                     ".",
                                     [
-                                        "Blog",
-                                        "posts",
+                                        "Client",
+                                        "jobs",
                                         "req",
                                         "vtl"
                                     ]
@@ -147,8 +147,8 @@
                                 "Fn::Join": [
                                     ".",
                                     [
-                                        "Blog",
-                                        "posts",
+                                        "Client",
+                                        "jobs",
                                         "res",
                                         "vtl"
                                     ]
@@ -159,7 +159,7 @@
                 }
             }
         },
-        "PostblogResolver": {
+        "JobclientResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -174,14 +174,14 @@
                                     "Ref": "AppSyncApiId"
                                 },
                                 "GetAtt",
-                                "BlogDataSource",
+                                "ClientDataSource",
                                 "Name"
                             ]
                         ]
                     }
                 },
-                "FieldName": "blog",
-                "TypeName": "Post",
+                "FieldName": "client",
+                "TypeName": "Job",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
                         "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
@@ -196,8 +196,8 @@
                                 "Fn::Join": [
                                     ".",
                                     [
-                                        "Post",
-                                        "blog",
+                                        "Job",
+                                        "client",
                                         "req",
                                         "vtl"
                                     ]
@@ -220,154 +220,8 @@
                                 "Fn::Join": [
                                     ".",
                                     [
-                                        "Post",
-                                        "blog",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "PostcommentsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "GetAttGraphQLAPIApiId"
-                },
-                "DataSourceName": {
-                    "Fn::ImportValue": {
-                        "Fn::Join": [
-                            ":",
-                            [
-                                {
-                                    "Ref": "AppSyncApiId"
-                                },
-                                "GetAtt",
-                                "CommentDataSource",
-                                "Name"
-                            ]
-                        ]
-                    }
-                },
-                "FieldName": "comments",
-                "TypeName": "Post",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Post",
-                                        "comments",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Post",
-                                        "comments",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "CommentpostResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "GetAttGraphQLAPIApiId"
-                },
-                "DataSourceName": {
-                    "Fn::ImportValue": {
-                        "Fn::Join": [
-                            ":",
-                            [
-                                {
-                                    "Ref": "AppSyncApiId"
-                                },
-                                "GetAtt",
-                                "PostDataSource",
-                                "Name"
-                            ]
-                        ]
-                    }
-                },
-                "FieldName": "post",
-                "TypeName": "Comment",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Comment",
-                                        "post",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Comment",
-                                        "post",
+                                        "Job",
+                                        "client",
                                         "res",
                                         "vtl"
                                     ]

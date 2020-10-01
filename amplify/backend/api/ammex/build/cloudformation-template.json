@@ -78,6 +78,72 @@
         }
     },
     "Resources": {
+        "DataStore": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "TableName": {
+                    "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    "AmplifyDataStore",
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    },
+                                    {
+                                        "Ref": "env"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    "AmplifyDataStore",
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "ds_pk",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "ds_sk",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "ds_pk",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "ds_sk",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "BillingMode": "PAY_PER_REQUEST",
+                "TimeToLiveSpecification": {
+                    "AttributeName": "_ttl",
+                    "Enabled": true
+                }
+            }
+        },
         "GraphQLAPI": {
             "Type": "AWS::AppSync::GraphQLApi",
             "Properties": {
@@ -120,7 +186,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1602052807
+                        1602144915
                     ]
                 }
             },
@@ -150,7 +216,7 @@
                 }
             }
         },
-        "Blog": {
+        "User": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -215,7 +281,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "Blog.json"
+                            "User.json"
                         ]
                     ]
                 }
@@ -224,7 +290,7 @@
                 "GraphQLSchema"
             ]
         },
-        "Post": {
+        "Client": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -289,7 +355,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "Post.json"
+                            "Client.json"
                         ]
                     ]
                 }
@@ -298,7 +364,7 @@
                 "GraphQLSchema"
             ]
         },
-        "Comment": {
+        "Job": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
                 "Parameters": {
@@ -363,7 +429,7 @@
                                 "Ref": "S3DeploymentRootKey"
                             },
                             "stacks",
-                            "Comment.json"
+                            "Job.json"
                         ]
                     ]
                 }
@@ -444,9 +510,8 @@
             },
             "DependsOn": [
                 "GraphQLSchema",
-                "Post",
-                "Blog",
-                "Comment"
+                "Job",
+                "Client"
             ]
         },
         "CustomResourcesjson": {
@@ -492,9 +557,9 @@
             "DependsOn": [
                 "GraphQLAPI",
                 "GraphQLSchema",
-                "Blog",
-                "Post",
-                "Comment",
+                "User",
+                "Client",
+                "Job",
                 "ConnectionStack"
             ]
         }

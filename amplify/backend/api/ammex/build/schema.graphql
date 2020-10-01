@@ -1,26 +1,53 @@
-type Blog {
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  email: String!
+  role: Role!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum Role {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+type Client {
   id: ID!
   name: String!
-  posts(filter: ModelPostFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPostConnection
+  contact: String!
+  phone: String!
+  address: String!
+  email: String!
+  jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
 
-type Post {
-  id: ID!
-  title: String!
-  blogID: ID!
-  blog: Blog
-  comments(content: ModelStringKeyConditionInput, filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
+enum JobType {
+  BOOKKEEPING
+  TAXES
+  PAYROLL
 }
 
-type Comment {
+type Job {
   id: ID!
-  postID: ID!
-  post: Post
-  content: String!
+  clientID: ID!
+  client: Client
+  type: JobType!
+  dueDate: String!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
@@ -30,9 +57,10 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelBlogConnection {
-  items: [Blog]
+type ModelUserConnection {
+  items: [User]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -108,12 +136,21 @@ input ModelSizeInput {
   between: [Int]
 }
 
-input ModelBlogFilterInput {
+input ModelRoleInput {
+  eq: Role
+  ne: Role
+}
+
+input ModelUserFilterInput {
   id: ModelIDInput
-  name: ModelStringInput
-  and: [ModelBlogFilterInput]
-  or: [ModelBlogFilterInput]
-  not: ModelBlogFilterInput
+  firstName: ModelStringInput
+  lastName: ModelStringInput
+  phone: ModelStringInput
+  email: ModelStringInput
+  role: ModelRoleInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
 }
 
 enum ModelAttributeTypes {
@@ -130,141 +167,178 @@ enum ModelAttributeTypes {
 }
 
 type Query {
-  getBlog(id: ID!): Blog
-  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection
-  getPost(id: ID!): Post
-  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
-  getComment(id: ID!): Comment
-  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  syncClients(filter: ModelClientFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelClientConnection
+  getClient(id: ID!): Client
+  listClients(filter: ModelClientFilterInput, limit: Int, nextToken: String): ModelClientConnection
+  syncJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelJobConnection
+  getJob(id: ID!): Job
+  listJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String): ModelJobConnection
 }
 
-input CreateBlogInput {
+input CreateUserInput {
   id: ID
-  name: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  email: String!
+  role: Role!
+  _version: Int
 }
 
-input UpdateBlogInput {
+input UpdateUserInput {
   id: ID!
-  name: String
+  firstName: String
+  lastName: String
+  phone: String
+  email: String
+  role: Role
+  _version: Int
 }
 
-input DeleteBlogInput {
+input DeleteUserInput {
   id: ID
+  _version: Int
 }
 
 type Mutation {
-  createBlog(input: CreateBlogInput!, condition: ModelBlogConditionInput): Blog
-  updateBlog(input: UpdateBlogInput!, condition: ModelBlogConditionInput): Blog
-  deleteBlog(input: DeleteBlogInput!, condition: ModelBlogConditionInput): Blog
-  createPost(input: CreatePostInput!, condition: ModelPostConditionInput): Post
-  updatePost(input: UpdatePostInput!, condition: ModelPostConditionInput): Post
-  deletePost(input: DeletePostInput!, condition: ModelPostConditionInput): Post
-  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment
-  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment
-  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User
+  createClient(input: CreateClientInput!, condition: ModelClientConditionInput): Client
+  updateClient(input: UpdateClientInput!, condition: ModelClientConditionInput): Client
+  deleteClient(input: DeleteClientInput!, condition: ModelClientConditionInput): Client
+  createJob(input: CreateJobInput!, condition: ModelJobConditionInput): Job
+  updateJob(input: UpdateJobInput!, condition: ModelJobConditionInput): Job
+  deleteJob(input: DeleteJobInput!, condition: ModelJobConditionInput): Job
 }
 
-input ModelBlogConditionInput {
-  name: ModelStringInput
-  and: [ModelBlogConditionInput]
-  or: [ModelBlogConditionInput]
-  not: ModelBlogConditionInput
+input ModelUserConditionInput {
+  firstName: ModelStringInput
+  lastName: ModelStringInput
+  phone: ModelStringInput
+  email: ModelStringInput
+  role: ModelRoleInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
 }
 
 type Subscription {
-  onCreateBlog: Blog @aws_subscribe(mutations: ["createBlog"])
-  onUpdateBlog: Blog @aws_subscribe(mutations: ["updateBlog"])
-  onDeleteBlog: Blog @aws_subscribe(mutations: ["deleteBlog"])
-  onCreatePost: Post @aws_subscribe(mutations: ["createPost"])
-  onUpdatePost: Post @aws_subscribe(mutations: ["updatePost"])
-  onDeletePost: Post @aws_subscribe(mutations: ["deletePost"])
-  onCreateComment: Comment @aws_subscribe(mutations: ["createComment"])
-  onUpdateComment: Comment @aws_subscribe(mutations: ["updateComment"])
-  onDeleteComment: Comment @aws_subscribe(mutations: ["deleteComment"])
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+  onCreateClient: Client @aws_subscribe(mutations: ["createClient"])
+  onUpdateClient: Client @aws_subscribe(mutations: ["updateClient"])
+  onDeleteClient: Client @aws_subscribe(mutations: ["deleteClient"])
+  onCreateJob: Job @aws_subscribe(mutations: ["createJob"])
+  onUpdateJob: Job @aws_subscribe(mutations: ["updateJob"])
+  onDeleteJob: Job @aws_subscribe(mutations: ["deleteJob"])
 }
 
-type ModelPostConnection {
-  items: [Post]
+type ModelClientConnection {
+  items: [Client]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
-input ModelPostFilterInput {
+input ModelClientFilterInput {
   id: ModelIDInput
-  title: ModelStringInput
-  blogID: ModelIDInput
-  and: [ModelPostFilterInput]
-  or: [ModelPostFilterInput]
-  not: ModelPostFilterInput
+  name: ModelStringInput
+  contact: ModelStringInput
+  phone: ModelStringInput
+  address: ModelStringInput
+  email: ModelStringInput
+  and: [ModelClientFilterInput]
+  or: [ModelClientFilterInput]
+  not: ModelClientFilterInput
 }
 
-input CreatePostInput {
+input CreateClientInput {
   id: ID
-  title: String!
-  blogID: ID!
+  name: String!
+  contact: String!
+  phone: String!
+  address: String!
+  email: String!
+  _version: Int
 }
 
-input UpdatePostInput {
+input UpdateClientInput {
   id: ID!
-  title: String
-  blogID: ID
+  name: String
+  contact: String
+  phone: String
+  address: String
+  email: String
+  _version: Int
 }
 
-input DeletePostInput {
+input DeleteClientInput {
   id: ID
+  _version: Int
 }
 
-input ModelPostConditionInput {
-  title: ModelStringInput
-  blogID: ModelIDInput
-  and: [ModelPostConditionInput]
-  or: [ModelPostConditionInput]
-  not: ModelPostConditionInput
+input ModelClientConditionInput {
+  name: ModelStringInput
+  contact: ModelStringInput
+  phone: ModelStringInput
+  address: ModelStringInput
+  email: ModelStringInput
+  and: [ModelClientConditionInput]
+  or: [ModelClientConditionInput]
+  not: ModelClientConditionInput
 }
 
-type ModelCommentConnection {
-  items: [Comment]
+type ModelJobConnection {
+  items: [Job]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
-input ModelCommentFilterInput {
+input ModelJobTypeInput {
+  eq: JobType
+  ne: JobType
+}
+
+input ModelJobFilterInput {
   id: ModelIDInput
-  postID: ModelIDInput
-  content: ModelStringInput
-  and: [ModelCommentFilterInput]
-  or: [ModelCommentFilterInput]
-  not: ModelCommentFilterInput
+  clientID: ModelIDInput
+  type: ModelJobTypeInput
+  dueDate: ModelStringInput
+  and: [ModelJobFilterInput]
+  or: [ModelJobFilterInput]
+  not: ModelJobFilterInput
 }
 
-input CreateCommentInput {
+input CreateJobInput {
   id: ID
-  postID: ID!
-  content: String!
+  clientID: ID!
+  type: JobType!
+  dueDate: String!
+  _version: Int
 }
 
-input UpdateCommentInput {
+input UpdateJobInput {
   id: ID!
-  postID: ID
-  content: String
+  clientID: ID
+  type: JobType
+  dueDate: String
+  _version: Int
 }
 
-input DeleteCommentInput {
+input DeleteJobInput {
   id: ID
+  _version: Int
 }
 
-input ModelCommentConditionInput {
-  postID: ModelIDInput
-  content: ModelStringInput
-  and: [ModelCommentConditionInput]
-  or: [ModelCommentConditionInput]
-  not: ModelCommentConditionInput
-}
-
-input ModelStringKeyConditionInput {
-  eq: String
-  le: String
-  lt: String
-  ge: String
-  gt: String
-  between: [String]
-  beginsWith: String
+input ModelJobConditionInput {
+  clientID: ModelIDInput
+  type: ModelJobTypeInput
+  dueDate: ModelStringInput
+  and: [ModelJobConditionInput]
+  or: [ModelJobConditionInput]
+  not: ModelJobConditionInput
 }

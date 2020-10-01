@@ -16,6 +16,12 @@
 </template>
 <script>
 export default {
+  props: {
+    users: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       headers: [
@@ -50,62 +56,6 @@ export default {
         {
           text: "Actions",
           value: "actions",
-        },
-      ],
-      users: [
-        {
-          id: "0001",
-          firstName: "Hada",
-          lastName: "Alvarenga",
-          phone: "(819)123-4556",
-          email: "hada.alvarenga@ammex.com",
-          role: "Manager",
-          jobs: 15,
-        },
-        {
-          id: "0002",
-          firstName: "Jeremie",
-          lastName: "St-Pierre Robitaille",
-          phone: "(819)123-4556",
-          email: "jeremie.st-pierrerobitaille@ammex.com",
-          role: "Employee",
-          jobs: 3,
-        },
-        {
-          id: "0003",
-          firstName: "Yousef",
-          lastName: "Refaie",
-          phone: "(819)123-4556",
-          email: "yousef.refaie@ammex.com",
-          role: "Admin",
-          jobs: 40,
-        },
-        {
-          id: "0004",
-          firstName: "A Venh",
-          lastName: "Tsan",
-          phone: "(819)123-4556",
-          email: "avenh.tsan@ammex.com",
-          role: "Director",
-          jobs: 9999,
-        },
-        {
-          id: "0005",
-          firstName: "Stefan",
-          lastName: "Lozo",
-          phone: "(819)123-4556",
-          email: "stefan.lozo@ammex.com",
-          role: "Employee",
-          jobs: 2,
-        },
-        {
-          id: "0006",
-          firstName: "Beli",
-          lastName: "Tomo",
-          phone: "(819)123-4556",
-          email: "beli.tomo@ammex.com",
-          role: "Employee",
-          jobs: 0,
         },
       ],
     };

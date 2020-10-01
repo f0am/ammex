@@ -1,28 +1,39 @@
-type Blog @model {
-  id: ID!
-  name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
-}
-
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
-  id: ID!
-  title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
-}
-
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
-  id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
-  content: String!
-}
-
 type User @model {
   id: ID!
   firstName: String!
   lastName: String!
   phone: String!
   email: String!
+  role: Role!
 }
+
+enum Role {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+type Client @model {
+  id: ID!
+  name: String!
+  contact: String!
+  phone: String!
+  address: String!
+  email: String!
+  jobs: [Job] @connection(keyName: "byJob", fields: ["id"])
+}
+
+enum JobType {
+  BOOKKEEPING
+  TAXES
+  PAYROLL
+}
+
+type Job @model @key(name: "byJob", fields: ["clientID"]) {
+  id: ID!
+  clientID: ID!
+  client: Client @connection(fields: ["clientID"])
+  type: JobType!
+  dueDate: String!
+}
+

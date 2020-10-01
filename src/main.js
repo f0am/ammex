@@ -21,7 +21,24 @@ import './plugins/vee-validate'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 
+
+import Amplify, { API, DataStore } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+
+Amplify.configure(awsconfig);
+DataStore.configure()
+
 Vue.config.productionTip = false
+
+
+Vue.use({
+  install(Vue) {
+    Vue.prototype.$api = API;
+    Vue.prototype.$ds = DataStore;
+  }
+})
+
 
 new Vue({
   router,
