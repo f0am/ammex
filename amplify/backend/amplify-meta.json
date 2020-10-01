@@ -31,7 +31,7 @@
         "GraphQLAPIEndpointOutput": "https://fxubmkf7vreqlattnc6onrw52m.appsync-api.ca-central-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-sphkyypjcjbupnm6fefbabzr5e"
       },
-      "lastPushTimeStamp": "2020-10-01T08:19:56.712Z",
+      "lastPushTimeStamp": "2020-10-01T08:46:00.444Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-dev-13932-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiammex"
