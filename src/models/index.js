@@ -3,15 +3,15 @@ import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
 const Role = {
-  "EMPLOYEE": "EMPLOYEE",
-  "MANAGER": "MANAGER",
-  "ADMIN": "ADMIN"
+  "EMPLOYEE": "Employee",
+  "MANAGER": "Manager",
+  "ADMIN": "Admin"
 };
 
 const JobType = {
-  "BOOKKEEPING": "BOOKKEEPING",
-  "TAXES": "TAXES",
-  "PAYROLL": "PAYROLL"
+  "BOOKKEEPING": "Bookkeeping",
+  "TAXES": "Taxes",
+  "PAYROLL": "Payroll"
 };
 
 const { User, Client, Job } = initSchema(schema);

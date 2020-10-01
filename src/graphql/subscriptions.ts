@@ -11,6 +11,9 @@ export const onCreateUser = /* GraphQL */ `
       phone
       email
       role
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -25,6 +28,9 @@ export const onUpdateUser = /* GraphQL */ `
       phone
       email
       role
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -39,6 +45,9 @@ export const onDeleteUser = /* GraphQL */ `
       phone
       email
       role
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -55,7 +64,11 @@ export const onCreateClient = /* GraphQL */ `
       email
       jobs {
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -72,7 +85,11 @@ export const onUpdateClient = /* GraphQL */ `
       email
       jobs {
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -89,7 +106,11 @@ export const onDeleteClient = /* GraphQL */ `
       email
       jobs {
         nextToken
+        startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -107,11 +128,17 @@ export const onCreateJob = /* GraphQL */ `
         phone
         address
         email
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       type
       dueDate
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -129,11 +156,17 @@ export const onUpdateJob = /* GraphQL */ `
         phone
         address
         email
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       type
       dueDate
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -151,11 +184,17 @@ export const onDeleteJob = /* GraphQL */ `
         phone
         address
         email
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       type
       dueDate
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }

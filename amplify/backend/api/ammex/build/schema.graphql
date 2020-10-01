@@ -10,9 +10,9 @@ type User {
 }
 
 enum Role {
-  EMPLOYEE
-  MANAGER
-  ADMIN
+  Employee
+  Manager
+  Admin
 }
 
 type Client {
@@ -28,9 +28,9 @@ type Client {
 }
 
 enum JobType {
-  BOOKKEEPING
-  TAXES
-  PAYROLL
+  Bookkeeping
+  Taxes
+  Payroll
 }
 
 type Job {

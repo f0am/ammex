@@ -1,15 +1,15 @@
 import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
 
 export enum Role {
-  EMPLOYEE = "EMPLOYEE",
-  MANAGER = "MANAGER",
-  ADMIN = "ADMIN"
+  EMPLOYEE = "Employee",
+  MANAGER = "Manager",
+  ADMIN = "Admin"
 }
 
 export enum JobType {
-  BOOKKEEPING = "BOOKKEEPING",
-  TAXES = "TAXES",
-  PAYROLL = "PAYROLL"
+  BOOKKEEPING = "Bookkeeping",
+  TAXES = "Taxes",
+  PAYROLL = "Payroll"
 }
 
 

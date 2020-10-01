@@ -8,9 +8,9 @@ type User @model {
 }
 
 enum Role {
-  EMPLOYEE
-  MANAGER
-  ADMIN
+  Employee
+  Manager
+  Admin
 }
 
 type Client @model {
@@ -24,9 +24,9 @@ type Client @model {
 }
 
 enum JobType {
-  BOOKKEEPING
-  TAXES
-  PAYROLL
+  Bookkeeping
+  Taxes
+  Payroll
 }
 
 type Job @model @key(name: "byJob", fields: ["clientID"]) {

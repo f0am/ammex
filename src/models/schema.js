@@ -188,17 +188,17 @@ export const schema = {
         "Role": {
             "name": "Role",
             "values": [
-                "EMPLOYEE",
-                "MANAGER",
-                "ADMIN"
+                "Employee",
+                "Manager",
+                "Admin"
             ]
         },
         "JobType": {
             "name": "JobType",
             "values": [
-                "BOOKKEEPING",
-                "TAXES",
-                "PAYROLL"
+                "Bookkeeping",
+                "Taxes",
+                "Payroll"
             ]
         }
     },

@@ -27,7 +27,8 @@ import awsconfig from './aws-exports';
 
 
 Amplify.configure(awsconfig);
-DataStore.configure()
+DataStore.configure();
+// DataStore.start()
 
 Vue.config.productionTip = false
 

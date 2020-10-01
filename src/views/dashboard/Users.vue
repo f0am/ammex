@@ -111,7 +111,7 @@ export default {
     try {
       this.users = await this.$ds.query(User);
     } catch (error) {
-      console.log("Error retrieving posts", error);
+      // console.log("Error retrieving posts", error);
     }
   },
   methods: {
