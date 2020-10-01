@@ -109,12 +109,7 @@ export default {
   //
   async beforeCreate() {
     try {
-      const users = await this.$ds.query(User);
-      console.log(
-        "Posts retrieved successfully!",
-        JSON.stringify(users, null, 2)
-      );
-      this.users = users;
+      this.users = await this.$ds.query(User);
     } catch (error) {
       console.log("Error retrieving posts", error);
     }
@@ -141,7 +136,7 @@ export default {
           ...this.editedItem,
         })
       );
-      // this.users = this.$ds.query(User);
+      this.users = await this.$ds.query(User);
       // console.log(users)
       // const resp = await this.$api.graphql({ query: queries.listUsers });
       // this.users = resp.data.listUsers.items;
