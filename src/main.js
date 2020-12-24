@@ -18,30 +18,44 @@ import store from './store/index'
 import './plugins/base'
 import './plugins/chartist'
 import './plugins/vee-validate'
+import './plugins/vuetify-google-autocomplete'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 
-
-import Amplify, { API, DataStore } from 'aws-amplify';
+import Amplify, { API } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
+import { VueMaskDirective } from 'v-mask'
 
 Amplify.configure(awsconfig);
-DataStore.configure();
-// DataStore.start()
 
 Vue.config.productionTip = false
+Vue.directive('mask', VueMaskDirective);
+
+import clientSeeds from './seeds/clients'
+import contractSeeds from './seeds/contracts'
+
+// clientSeeds()
+
+// contractSeeds()
 
 
 Vue.use({
   install(Vue) {
     Vue.prototype.$api = API;
-    Vue.prototype.$ds = DataStore;
   }
 })
 
 
 new Vue({
+  data() {
+    return {
+      show: false,
+      message: '',
+      color: null,
+      error: null
+    }
+  },
   router,
   store,
   vuetify,

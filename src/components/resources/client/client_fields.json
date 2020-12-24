@@ -1,0 +1,121 @@
+[
+  {
+    "name": "contact",
+    "label": "Contact Name"
+  },
+  {
+    "name": "address",
+    "label": "Address"
+  },
+  {
+    "name": "email",
+    "label": "Email"
+  },
+  {
+    "name": "phone",
+    "label": "Phone"
+  },
+  {
+    "name": "id",
+    "label": "ID"
+  },
+  {
+    "name": "name",
+    "label": "Name"
+  },
+
+  {
+    "name": "owners",
+    "label": "Owners"
+  },
+  {
+    "name": "cheques",
+    "label": "Cheques"
+  },
+  {
+    "name": "qst",
+    "label": "QST"
+  },
+  {
+    "name": "gst",
+    "label": "GST"
+  },
+  {
+    "name": "remittance",
+    "label": "Remittance",
+    "type": "select",
+    "options": ["Monthly", "Quaterly", "Yearly"]
+  },
+  {
+    "name": "payrollNumber",
+    "label": "Payroll Number"
+  },
+  {
+    "name": "payrollRemittance",
+    "label": "Payroll remittance"
+  },
+  {
+    "name": "corporation",
+    "label": "Corporation"
+  },
+  {
+    "name": "corporationYearEndDate",
+    "label": "Corporation year-end date"
+  },
+  {
+    "name": "wsib",
+    "label": "WSIB"
+  },
+  {
+    "name": "wsibRemittance",
+    "label": "WSIB remittance"
+  },
+  {
+    "name": "wsibCsstRate",
+    "label": "WSIB/CSST rate"
+  },
+  {
+    "name": "wsibCode",
+    "label": "WSIB code"
+  },
+  {
+    "name": "cliqsecrCode",
+    "label": "Cliqsecr code"
+  },
+  {
+    "name": "gstCode",
+    "label": "GST code"
+  },
+  {
+    "name": "craCode",
+    "label": "CRA code"
+  },
+  {
+    "name": "t4DueDate",
+    "label": "T4 due date"
+  },
+  {
+    "name": "jobs",
+    "label": "Jobs"
+  },
+  {
+    "name": "craConsent",
+    "label": "CRA Consent",
+    "type": "switch"
+  },
+  {
+    "name": "rqConsent",
+    "label": "RQ Consent",
+    "type": "switch"
+  },
+  {
+    "name": "wsibConsent",
+    "label": "WSIB Consent",
+    "type": "switch"
+  },
+  {
+    "name": "csstConsent",
+    "label": "CSST Consent",
+    "type": "switch"
+  }
+]

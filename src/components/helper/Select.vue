@@ -1,67 +1,66 @@
 <template>
-  <div>
-    <v-select
-      :items="options"
-      v-model="currentValue"
-      :label="label"
-      :item-text="itemText"
-      :item-value="itemValue"
-      return-object
-      clearable
-      :multiple="multiple"
-    />
-  </div>
+  <v-layout column>
+    <v-flex>
+      <v-autocomplete
+        :items="options"
+        v-model="currentValue"
+        :label="label"
+        :item-text="itemText"
+        :item-value="itemValue"
+        :return-object="!returnID"
+      />
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
   props: {
     value: {
-      type: Object | Array,
-      default: () => {}
+      type: Object,
+      default: () => {},
     },
     creatable: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    multiple: {
+    returnID: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       label: "",
       itemText: "name",
-      itemValue: "id"
+      itemValue: "id",
+      dialog: false,
+      dialogTitle: "Title",
+      dialogButtonText: null,
+      dialogContent: null,
+      model: null,
+      newValue: {},
     };
   },
+  methods: {
+    cancel() {
+      this.dialog = false;
+    },
+    save() {
+      this.currentValue = this.newValue;
+      this.dialog = false;
+    },
+  },
   computed: {
-    options() {
-      return [];
-    },
-    items() {
-      if (this.creatable) {
-        return [
-          {
-            [this.itemText]: "Nouveau",
-            [this.itemValue]: false
-          },
-          ...this.options
-        ];
-      } else {
-        return this.options;
-      }
-    },
     currentValue: {
       set(value) {
         this.$emit("input", value);
       },
       get() {
         return this.value;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

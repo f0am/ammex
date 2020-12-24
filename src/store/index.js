@@ -18,7 +18,8 @@ import mutations from './mutations'
 import state from './state'
 import modules from './modules'
 
-// All methods below are temporary and will be deleted. Using them for dummy data returns - Alex
+
+// All methods below are temporary and will be deleted. Using them for dummy data returns
 
 export const Quote = new VuexModel('quotes')
 Quote.addMethod('fetchQuotes', async ({ commit }) => {

@@ -1,46 +1,93 @@
 type User {
   id: ID!
+  email: String!
   firstName: String!
   lastName: String!
   phone: String!
-  email: String!
-  role: Role!
+  role: UserRole!
+  status: String
+  jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  version: Int!
 }
 
-enum Role {
-  Employee
-  Manager
-  Admin
+enum UserRole {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  DISABLED
 }
 
 type Client {
   id: ID!
+  clientNumber: String!
   name: String!
   contact: String!
   phone: String!
   address: String!
+  province: String
+  city: String!
+  postalCode: String!
   email: String!
+  owners: [String]
+  status: String
+  contracts(type: ModelStringKeyConditionInput, filter: ModelContractFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelContractConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  version: Int!
+}
+
+type Contract {
+  clientID: ID!
+  client: Client
+  type: String!
+  startDate: AWSDateTime
+  endDate: AWSDateTime
+  gst: String
+  qst: String
+  period: String
+  corporation: Boolean
+  corporationYearEndDate: String
+  payrollNumber: String
+  payrollFrequency: String
+  remittancePeriod: String
+  remittancePeriodQc: String
+  cheques: Int
+  wsib: String
+  wsibRemittance: String
+  wsibRate: String
+  wsibCode: String
+  csst: String
+  csstRemittance: String
+  csstRate: String
+  csstCode: String
+  t4Deadline: String
   jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-}
-
-enum JobType {
-  Bookkeeping
-  Taxes
-  Payroll
+  version: Int!
 }
 
 type Job {
   id: ID!
   clientID: ID!
   client: Client
-  type: JobType!
-  dueDate: String!
+  type: String!
+  name: String
+  description: String
+  contract: Contract
+  deadline: String!
+  assigneeID: ID
+  status: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  version: Int!
 }
 
 enum ModelSortDirection {
@@ -126,18 +173,19 @@ input ModelSizeInput {
   between: [Int]
 }
 
-input ModelRoleInput {
-  eq: Role
-  ne: Role
+input ModelUserRoleInput {
+  eq: UserRole
+  ne: UserRole
 }
 
 input ModelUserFilterInput {
   id: ModelIDInput
+  email: ModelStringInput
   firstName: ModelStringInput
   lastName: ModelStringInput
   phone: ModelStringInput
-  email: ModelStringInput
-  role: ModelRoleInput
+  role: ModelUserRoleInput
+  status: ModelStringInput
   and: [ModelUserFilterInput]
   or: [ModelUserFilterInput]
   not: ModelUserFilterInput
@@ -161,30 +209,36 @@ type Query {
   listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
   getClient(id: ID!): Client
   listClients(filter: ModelClientFilterInput, limit: Int, nextToken: String): ModelClientConnection
+  getContract(clientID: ID!, type: String!): Contract
+  listContracts(clientID: ID, type: ModelStringKeyConditionInput, filter: ModelContractFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelContractConnection
   getJob(id: ID!): Job
   listJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String): ModelJobConnection
 }
 
 input CreateUserInput {
   id: ID
+  email: String!
   firstName: String!
   lastName: String!
   phone: String!
-  email: String!
-  role: Role!
+  role: UserRole!
+  status: String
 }
 
 input UpdateUserInput {
   id: ID!
+  email: String
   firstName: String
   lastName: String
   phone: String
-  email: String
-  role: Role
+  role: UserRole
+  status: String
+  expectedVersion: Int!
 }
 
 input DeleteUserInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type Mutation {
@@ -194,17 +248,21 @@ type Mutation {
   createClient(input: CreateClientInput!, condition: ModelClientConditionInput): Client
   updateClient(input: UpdateClientInput!, condition: ModelClientConditionInput): Client
   deleteClient(input: DeleteClientInput!, condition: ModelClientConditionInput): Client
+  createContract(input: CreateContractInput!, condition: ModelContractConditionInput): Contract
+  updateContract(input: UpdateContractInput!, condition: ModelContractConditionInput): Contract
+  deleteContract(input: DeleteContractInput!, condition: ModelContractConditionInput): Contract
   createJob(input: CreateJobInput!, condition: ModelJobConditionInput): Job
   updateJob(input: UpdateJobInput!, condition: ModelJobConditionInput): Job
   deleteJob(input: DeleteJobInput!, condition: ModelJobConditionInput): Job
 }
 
 input ModelUserConditionInput {
+  email: ModelStringInput
   firstName: ModelStringInput
   lastName: ModelStringInput
   phone: ModelStringInput
-  email: ModelStringInput
-  role: ModelRoleInput
+  role: ModelUserRoleInput
+  status: ModelStringInput
   and: [ModelUserConditionInput]
   or: [ModelUserConditionInput]
   not: ModelUserConditionInput
@@ -217,6 +275,9 @@ type Subscription {
   onCreateClient: Client @aws_subscribe(mutations: ["createClient"])
   onUpdateClient: Client @aws_subscribe(mutations: ["updateClient"])
   onDeleteClient: Client @aws_subscribe(mutations: ["deleteClient"])
+  onCreateContract: Contract @aws_subscribe(mutations: ["createContract"])
+  onUpdateContract: Contract @aws_subscribe(mutations: ["updateContract"])
+  onDeleteContract: Contract @aws_subscribe(mutations: ["deleteContract"])
   onCreateJob: Job @aws_subscribe(mutations: ["createJob"])
   onUpdateJob: Job @aws_subscribe(mutations: ["updateJob"])
   onDeleteJob: Job @aws_subscribe(mutations: ["deleteJob"])
@@ -229,11 +290,17 @@ type ModelClientConnection {
 
 input ModelClientFilterInput {
   id: ModelIDInput
+  clientNumber: ModelStringInput
   name: ModelStringInput
   contact: ModelStringInput
   phone: ModelStringInput
   address: ModelStringInput
+  province: ModelStringInput
+  city: ModelStringInput
+  postalCode: ModelStringInput
   email: ModelStringInput
+  owners: ModelStringInput
+  status: ModelStringInput
   and: [ModelClientFilterInput]
   or: [ModelClientFilterInput]
   not: ModelClientFilterInput
@@ -241,35 +308,175 @@ input ModelClientFilterInput {
 
 input CreateClientInput {
   id: ID
+  clientNumber: String!
   name: String!
   contact: String!
   phone: String!
   address: String!
+  province: String
+  city: String!
+  postalCode: String!
   email: String!
+  owners: [String]
+  status: String
 }
 
 input UpdateClientInput {
   id: ID!
+  clientNumber: String
   name: String
   contact: String
   phone: String
   address: String
+  province: String
+  city: String
+  postalCode: String
   email: String
+  owners: [String]
+  status: String
+  expectedVersion: Int!
 }
 
 input DeleteClientInput {
   id: ID
+  expectedVersion: Int!
 }
 
 input ModelClientConditionInput {
+  clientNumber: ModelStringInput
   name: ModelStringInput
   contact: ModelStringInput
   phone: ModelStringInput
   address: ModelStringInput
+  province: ModelStringInput
+  city: ModelStringInput
+  postalCode: ModelStringInput
   email: ModelStringInput
+  owners: ModelStringInput
+  status: ModelStringInput
   and: [ModelClientConditionInput]
   or: [ModelClientConditionInput]
   not: ModelClientConditionInput
+}
+
+type ModelContractConnection {
+  items: [Contract]
+  nextToken: String
+}
+
+input ModelContractFilterInput {
+  clientID: ModelIDInput
+  type: ModelStringInput
+  startDate: ModelStringInput
+  endDate: ModelStringInput
+  gst: ModelStringInput
+  qst: ModelStringInput
+  period: ModelStringInput
+  corporation: ModelBooleanInput
+  corporationYearEndDate: ModelStringInput
+  payrollNumber: ModelStringInput
+  payrollFrequency: ModelStringInput
+  remittancePeriod: ModelStringInput
+  remittancePeriodQc: ModelStringInput
+  cheques: ModelIntInput
+  wsib: ModelStringInput
+  wsibRemittance: ModelStringInput
+  wsibRate: ModelStringInput
+  wsibCode: ModelStringInput
+  csst: ModelStringInput
+  csstRemittance: ModelStringInput
+  csstRate: ModelStringInput
+  csstCode: ModelStringInput
+  t4Deadline: ModelStringInput
+  and: [ModelContractFilterInput]
+  or: [ModelContractFilterInput]
+  not: ModelContractFilterInput
+}
+
+input CreateContractInput {
+  clientID: ID!
+  type: String!
+  startDate: AWSDateTime
+  endDate: AWSDateTime
+  gst: String
+  qst: String
+  period: String
+  corporation: Boolean
+  corporationYearEndDate: String
+  payrollNumber: String
+  payrollFrequency: String
+  remittancePeriod: String
+  remittancePeriodQc: String
+  cheques: Int
+  wsib: String
+  wsibRemittance: String
+  wsibRate: String
+  wsibCode: String
+  csst: String
+  csstRemittance: String
+  csstRate: String
+  csstCode: String
+  t4Deadline: String
+}
+
+input UpdateContractInput {
+  clientID: ID!
+  type: String!
+  startDate: AWSDateTime
+  endDate: AWSDateTime
+  gst: String
+  qst: String
+  period: String
+  corporation: Boolean
+  corporationYearEndDate: String
+  payrollNumber: String
+  payrollFrequency: String
+  remittancePeriod: String
+  remittancePeriodQc: String
+  cheques: Int
+  wsib: String
+  wsibRemittance: String
+  wsibRate: String
+  wsibCode: String
+  csst: String
+  csstRemittance: String
+  csstRate: String
+  csstCode: String
+  t4Deadline: String
+  expectedVersion: Int!
+}
+
+input DeleteContractInput {
+  clientID: ID!
+  type: String!
+  expectedVersion: Int!
+}
+
+input ModelContractConditionInput {
+  startDate: ModelStringInput
+  endDate: ModelStringInput
+  gst: ModelStringInput
+  qst: ModelStringInput
+  period: ModelStringInput
+  corporation: ModelBooleanInput
+  corporationYearEndDate: ModelStringInput
+  payrollNumber: ModelStringInput
+  payrollFrequency: ModelStringInput
+  remittancePeriod: ModelStringInput
+  remittancePeriodQc: ModelStringInput
+  cheques: ModelIntInput
+  wsib: ModelStringInput
+  wsibRemittance: ModelStringInput
+  wsibRate: ModelStringInput
+  wsibCode: ModelStringInput
+  csst: ModelStringInput
+  csstRemittance: ModelStringInput
+  csstRate: ModelStringInput
+  csstCode: ModelStringInput
+  t4Deadline: ModelStringInput
+  and: [ModelContractConditionInput]
+  or: [ModelContractConditionInput]
+  not: ModelContractConditionInput
 }
 
 type ModelJobConnection {
@@ -277,16 +484,15 @@ type ModelJobConnection {
   nextToken: String
 }
 
-input ModelJobTypeInput {
-  eq: JobType
-  ne: JobType
-}
-
 input ModelJobFilterInput {
   id: ModelIDInput
   clientID: ModelIDInput
-  type: ModelJobTypeInput
-  dueDate: ModelStringInput
+  type: ModelStringInput
+  name: ModelStringInput
+  description: ModelStringInput
+  deadline: ModelStringInput
+  assigneeID: ModelIDInput
+  status: ModelStringInput
   and: [ModelJobFilterInput]
   or: [ModelJobFilterInput]
   not: ModelJobFilterInput
@@ -295,26 +501,50 @@ input ModelJobFilterInput {
 input CreateJobInput {
   id: ID
   clientID: ID!
-  type: JobType!
-  dueDate: String!
+  type: String!
+  name: String
+  description: String
+  deadline: String!
+  assigneeID: ID
+  status: String
 }
 
 input UpdateJobInput {
   id: ID!
   clientID: ID
-  type: JobType
-  dueDate: String
+  type: String
+  name: String
+  description: String
+  deadline: String
+  assigneeID: ID
+  status: String
+  expectedVersion: Int!
 }
 
 input DeleteJobInput {
   id: ID
+  expectedVersion: Int!
 }
 
 input ModelJobConditionInput {
   clientID: ModelIDInput
-  type: ModelJobTypeInput
-  dueDate: ModelStringInput
+  type: ModelStringInput
+  name: ModelStringInput
+  description: ModelStringInput
+  deadline: ModelStringInput
+  assigneeID: ModelIDInput
+  status: ModelStringInput
   and: [ModelJobConditionInput]
   or: [ModelJobConditionInput]
   not: ModelJobConditionInput
+}
+
+input ModelStringKeyConditionInput {
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  between: [String]
+  beginsWith: String
 }

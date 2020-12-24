@@ -2,51 +2,19 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const syncUsers = /* GraphQL */ `
-  query SyncUsers(
-    $filter: ModelUserFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncUsers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        firstName
-        lastName
-        phone
-        email
-        role
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
-      _version
-      _deleted
-      _lastChangedAt
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -59,50 +27,17 @@ export const listUsers = /* GraphQL */ `
     listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        email
         firstName
         lastName
         phone
-        email
         role
-        _version
-        _deleted
-        _lastChangedAt
+        status
         createdAt
         updatedAt
+        version
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncClients = /* GraphQL */ `
-  query SyncClients(
-    $filter: ModelClientFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncClients(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        contact
-        phone
-        address
-        email
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -110,20 +45,51 @@ export const getClient = /* GraphQL */ `
   query GetClient($id: ID!) {
     getClient(id: $id) {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -136,48 +102,159 @@ export const listClients = /* GraphQL */ `
     listClients(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        clientNumber
         name
         contact
         phone
         address
+        province
+        city
+        postalCode
         email
-        _version
-        _deleted
-        _lastChangedAt
+        owners
+        status
+        contracts {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
       nextToken
-      startedAt
     }
   }
 `;
-export const syncJobs = /* GraphQL */ `
-  query SyncJobs(
-    $filter: ModelJobFilterInput
+export const getContract = /* GraphQL */ `
+  query GetContract($clientID: ID!, $type: String!) {
+    getContract(clientID: $clientID, type: $type) {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          type
+          deadline
+          assigneeID
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
+    }
+  }
+`;
+export const listContracts = /* GraphQL */ `
+  query ListContracts(
+    $clientID: ID
+    $type: ModelStringKeyConditionInput
+    $filter: ModelContractFilterInput
     $limit: Int
     $nextToken: String
-    $lastSync: AWSTimestamp
+    $sortDirection: ModelSortDirection
   ) {
-    syncJobs(
+    listContracts(
+      clientID: $clientID
+      type: $type
       filter: $filter
       limit: $limit
       nextToken: $nextToken
-      lastSync: $lastSync
+      sortDirection: $sortDirection
     ) {
       items {
-        id
         clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          createdAt
+          updatedAt
+          version
+        }
         type
-        dueDate
-        _version
-        _deleted
-        _lastChangedAt
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
       nextToken
-      startedAt
     }
   }
 `;
@@ -186,26 +263,60 @@ export const getJob = /* GraphQL */ `
     getJob(id: $id) {
       id
       clientID
-      client {
-        id
-        name
-        contact
-        phone
-        address
-        email
-        _version
-        _deleted
-        _lastChangedAt
+      type
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
-      type
-      dueDate
-      _version
-      _deleted
-      _lastChangedAt
+      deadline
+      assigneeID
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -220,15 +331,41 @@ export const listJobs = /* GraphQL */ `
         id
         clientID
         type
-        dueDate
-        _version
-        _deleted
-        _lastChangedAt
+        contract {
+          clientID
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          createdAt
+          updatedAt
+          version
+        }
+        deadline
+        assigneeID
         createdAt
         updatedAt
+        version
       }
       nextToken
-      startedAt
     }
   }
 `;

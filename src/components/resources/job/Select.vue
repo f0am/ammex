@@ -6,9 +6,9 @@ export default {
   extends: SelectHelper,
   data() {
     return {
-      label: 'Choisir un client',
+      label: 'Select Client',
       dialog: false,
-      dialogTitle: 'Ajouter un client',
+      dialogTitle: 'Add Client',
       dialogContent: ClientForm
     }
   },

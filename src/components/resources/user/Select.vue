@@ -10,15 +10,21 @@ export default {
       dialog: false,
       dialogTitle: "Add a user",
       dialogContent: UserForm,
+      users: [],
     };
+  },
+  async beforeCreate() {
+    try {
+      const resp = await this.$api.graphql({ query: queries.listUsers });
+      this.users = resp.data.listUsers.items;
+    } catch (error) {
+      // console.log("Error retrieving posts", error);
+    }
   },
   computed: {
     options() {
-      return User.all();
+      return this.users;
     },
-  },
-  mounted() {
-    User.$fetchUsers();
   },
 };
 </script>

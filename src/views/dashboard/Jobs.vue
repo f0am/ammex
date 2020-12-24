@@ -1,12 +1,8 @@
 <template>
   <v-container id="regular-tables" fluid tag="section">
     <!-- <base-v-component heading="Jobs" link="components/simple-tables" /> -->
-
-    <base-material-card
-      icon="mdi-file-clock"
-      class="px-5 py-3"
-      color="primary"
-    >
+    <v-btn @click="seedJobs">Stuff</v-btn>
+    <base-material-card icon="mdi-file-clock" class="px-5 py-3" color="primary">
       <template v-slot:after-heading>
         <div>
           <v-dialog v-model="dialog" max-width="500px">
@@ -15,116 +11,7 @@
                 >New Item</v-btn
               >
             </template>
-            <v-card>
-              <v-card-title>
-                <span class="headline">{{ formTitle }}</span>
-              </v-card-title>
-
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-select
-                        v-model="editedItem.client"
-                        :items="[
-                          {
-                            text: 'John Doe Inc.',
-                            value: { name: 'John Doe Inc.' },
-                          },
-                          {
-                            text: 'Jane Doe Inc.',
-                            value: { name: 'Jane Doe Inc.' },
-                          },
-                        ]"
-                        label="Client"
-                      ></v-select>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-select
-                        v-model="editedItem.type"
-                        :items="['Bookkeeping', 'Payroll', 'Taxes', 'GST']"
-                        label="Type"
-                      ></v-select>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-select
-                        v-model="editedItem.status"
-                        :items="[
-                          'Pending',
-                          'Documents received',
-                          'Work in progress',
-                          'Awaiting payment',
-                          'Filed',
-                          'Awaiting documents',
-                        ]"
-                        label="Status"
-                      ></v-select>
-                    </v-col>
-
-                    <v-col cols="12" sm="6" md="4">
-                      <v-select
-                        v-model="editedItem.assignee"
-                        :items="[
-                          'Hada Alvarenga',
-                          'Jeremie St-Pierre robitaille',
-                        ]"
-                        label="Assignee"
-                      ></v-select>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-menu
-                        v-model="menu2"
-                        :close-on-content-click="false"
-                        :nudge-right="40"
-                        transition="scale-transition"
-                        offset-y
-                        min-width="290px"
-                      >
-                        <template v-slot:activator="{ on, attrs }">
-                          <v-text-field
-                            v-model="editedItem.dueDate"
-                            label="Due date"
-                            readonly
-                            v-bind="attrs"
-                            v-on="on"
-                          ></v-text-field>
-                        </template>
-                        <v-date-picker
-                          style="margin: 0"
-                          v-model="editedItem.dueDate"
-                          @input="menu2 = false"
-                        ></v-date-picker>
-                      </v-menu>
-                    </v-col>
-                    <!-- <v-col cols="12" sm="6" md="4">
-                      <v-switch
-                        v-model="editedItem.cheques"
-                        class="ma-2"
-                        label="Cheques"
-                      ></v-switch>
-                    </v-col> -->
-                    <v-col cols="12">
-                      <client-select v-model="editedItem.client" />
-                    </v-col>
-
-                    <!-- <v-col>
-                      <v-combobox
-                        v-model="editedItem.jobs"
-                        :items="editedItem.jobs"
-                        label="Jobs"
-                        multiple
-                      ></v-combobox>
-                    </v-col>-->
-                  </v-row>
-                </v-container>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                <v-btn color="blue darken-1" text @click="save">Save</v-btn>
-              </v-card-actions>
-            </v-card>
+            <!-- <job-stepper /> -->
           </v-dialog>
         </div>
       </template>
@@ -134,45 +21,38 @@
         sort-by="name"
         class="elevation-1"
       >
-        <!-- <template v-slot:top>
-          <v-toolbar flat color="white">
-            <v-toolbar-title>Jobs list</v-toolbar-title>
-            <v-divider class="mx-4" inset vertical></v-divider>
-            <v-spacer></v-spacer>
-            <v-dialog v-model="dialog" max-width="500px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">New Item</v-btn>
-              </template>
-              <v-card>
-                <v-card-title>
-                  <span class="headline">{{ formTitle }}</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.name" label="Name"></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                  <v-btn color="blue darken-1" text @click="save">Save</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-toolbar>
-        </template>-->
-        <!-- <template v-slot:item="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-      <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
-        </template>-->
+        <template v-slot:[`item.deadline`]="{ item }">
+          {{ new Date(item.deadline).toLocaleDateString("en-CA") }}
+          <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
+        </template>
+        <template v-slot:[`item.status`]="{ item }">
+          <v-select
+            style="width: 200px"
+            v-model="item.status"
+            :items="[
+              'CREATED',
+              'FINISHED',
+              'AWAITING PAYMENT',
+              'AWAITING DOCUMENTS',
+            ]"
+            dense
+          />
+          <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
+        </template>
+        <template v-slot:[`item.assignee`]="{ item }">
+          <v-select
+            style="width: 200px"
+            v-model="item.assignee"
+            :items="['USER #1', 'USER #2', 'USER #3']"
+            dense
+          />
+          <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
+        </template>
         <template v-slot:no-data>
-          <v-btn color="primary" @click="initialize">Reset</v-btn>
+          <v-progress-linear
+            :color="$root.error ? 'warning' : 'info'"
+            indeterminate
+          />
         </template>
       </v-data-table>
     </base-material-card>
@@ -181,27 +61,70 @@
 
 
 <script>
-import ClientSelect from "@/components/resources/client/Select";
+// import JobStepper from "@/views/dashboard/JobStepper";
+import * as queries from "@/graphql/queries";
+import * as mutations from "@/graphql/mutations";
+// import ClientSelect from "@/components/resources/client/Select";
 export default {
   components: {
-    ClientSelect,
+    // JobStepper,
   },
+  async beforeMount() {
+    try {
+      const resp = await this.$api.graphql({ query: queries.listJobs });
+      this.jobs = resp.data.listJobs.items.map((i) => ({ ...i, assignee: "" }));
+      console.log(this.jobs);
+    } catch (error) {
+      this.$root.message = error;
+      this.$root.color = "warning";
+      this.$root.show = true;
+      this.$root.error = error;
+    }
+
+    //  try {
+    //   const resp = await this.$api.graphql({ query: queries.listClients });
+    //   this.clients = resp.data.listClients.items;
+    //   console.log(this.clients);
+    // } catch (error) {
+    //   this.$root.message = error;
+    //   this.$root.color = "warning";
+    //   this.$root.show = true;
+    //   this.$root.error = error;
+    // }
+
+    try {
+      const resp = await this.$api.graphql({ query: queries.listContracts });
+      this.contracts = resp.data.listContracts.items;
+      console.log(this.contracts);
+    } catch (error) {
+      this.$root.message = error;
+      this.$root.color = "warning";
+      this.$root.show = true;
+      this.$root.error = error;
+    }
+  },
+
   data: () => ({
     dialog: false,
     headers: [
+      { value: "deadline", text: "Due date" },
       {
         text: "Client",
         align: "start",
-        sortable: false,
-        value: "client.name",
+        value: "contract.client.name",
       },
-      { value: "type", text: "Type" },
-      { value: "assignee", text: "Assignee" },
+      { value: "contract.type", text: "Type" },
       { value: "status", text: "Status" },
-      { value: "dueDate", text: "Due date" },
+      { value: "assignee", text: "Assignee" },
     ],
     menu2: null,
+    clients: [],
     jobs: [],
+    newJob: {
+      clientID: "10000",
+      type: "TAXES",
+    },
+    contracts: [],
     editedIndex: -1,
     editedItem: {
       client: {},
@@ -231,78 +154,47 @@ export default {
     },
   },
 
-  created() {
-    this.initialize();
-  },
-
   methods: {
-    initialize() {
-      this.jobs = [
-        {
-          assignee: "Hada Alvarenga",
-          status: "in progress",
-          dueDate: new Date().toLocaleDateString("en-CA"),
-          type: "Bookkeeping",
-          client: {
-            name: "John Doe Inc.",
-            owner: "John Doe",
-            address: "123 rue des swaggeux, Gatineau",
-            email: "john@doe.ca",
-            phone: "819-123-4567",
-            partnersName: "Oud-Turnhout",
-            cheques: false,
-            qst: "12345",
-            gst: "12345",
-            remittance: "quarterly",
-            payrollNumber: "12345",
-            payrollRemittance: "monthly",
-            corporation: true,
-            corporationYearEndDate: new Date(),
-            wsib: "12345",
-            wsibRemittance: "quaterly",
-            wsibCsstRate: "15",
-            wsibCode: "12345",
-            cliqsecrCode: "12345",
-            gstCode: "12345",
-            craCode: "12345",
-            consent: false,
-            t4DueDate: new Date(),
-            jobs: [1, 2, 3, 4],
+    randomDate(start, end) {
+      return new Date(
+        start.getTime() + Math.random() * (end.getTime() - start.getTime())
+      );
+    },
+
+    async seedJobs() {
+      // const clients = { ...this.clients }
+      const contracts = [...this.contracts];
+      contracts.forEach(async (cl, i) => {
+        const newJob = {
+          clientID: cl.clientID,
+          type: cl.type,
+          deadline: this.randomDate(new Date(), new Date(2022, 0, 1)),
+        };
+        console.log("newJob", newJob);
+        const job = await this.createJob(newJob);
+      });
+    },
+    async createJob(newJob) {
+      try {
+        await this.$api.graphql({
+          query: mutations.createJob,
+          variables: {
+            input: newJob || this.newJob,
           },
-        },
-        {
-          assignee: "None",
-          status: "pending",
-          dueDate: new Date().toLocaleDateString("en-CA"),
-          type: "Payroll",
-          client: {
-            name: "Jane Doe Inc.",
-            owner: "Jane Doe",
-            address: "123 rue des swaggeux, Gatineau",
-            email: "jane@doe.ca",
-            phone: "819-123-4567",
-            partnersName: "Oud-Turnhout",
-            cheques: false,
-            qst: "12345",
-            gst: "12345",
-            remittance: "quarterly",
-            payrollNumber: "12345",
-            payrollRemittance: "monthly",
-            corporation: true,
-            corporationYearEndDate: new Date(),
-            wsib: "12345",
-            wsibRemittance: "quaterly",
-            wsibCsstRate: "15",
-            wsibCode: "12345",
-            cliqsecrCode: "12345",
-            gstCode: "12345",
-            craCode: "12345",
-            consent: false,
-            t4DueDate: new Date(),
-            jobs: [1, 2, 3, 4],
-          },
-        },
-      ];
+        });
+        // const resp = await this.$api.graphql({ query: queries.listJobs });
+        // this.clients = resp.data.listJobs.items;
+        // this.closeJobDialog();
+
+        this.$root.message = "Job successfully created.";
+        this.$root.color = "success";
+        this.$root.show = true;
+      } catch (error) {
+        this.$root.message = error;
+        this.$root.color = "warning";
+        this.$root.show = true;
+        this.$root.error = error;
+      }
     },
 
     editItem(item) {
@@ -336,3 +228,4 @@ export default {
   },
 };
 </script>
+

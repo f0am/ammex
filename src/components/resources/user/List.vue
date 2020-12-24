@@ -5,12 +5,25 @@
     class="elevation-1"
     @click:row="selectUser"
   >
-    <template v-slot:item.name="{ item }">
+    <template v-slot:[`item.name`]="{ item }">
       {{ getFullName(item) }}
     </template>
-    <template v-slot:item.actions="{ item }">
+
+    <template v-slot:[`item.jobs`]="{ item }">
+      {{ item.jobs.items.length }}
+    </template>
+    <template v-slot:[`item.role`]="{ item }">
+      <v-chip class="mr-2" :color="getRoleColor(item)">
+        <span style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.2)">
+          {{ item.role }}
+          <!-- <span style="font-size: 1.2em">({{
+            item.jobs.items.length
+          }})</span> -->
+        </span>
+      </v-chip>
+    </template>
+    <template v-slot:[`item.actions`]="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-      <!-- <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon> -->
     </template>
   </v-data-table>
 </template>
@@ -25,22 +38,23 @@ export default {
   data() {
     return {
       headers: [
-        {
-          text: "ID",
-          value: "id",
-        },
+        // {
+        //   text: "ID",
+        //   value: "userID",
+        // },
         {
           text: "Name",
           value: "name",
         },
         {
-          text: "Phone",
-          value: "phone",
-        },
-        {
           text: "Email",
           value: "email",
         },
+        {
+          text: "Phone",
+          value: "phone",
+        },
+
         {
           text: "Role",
           value: "role",
@@ -61,18 +75,23 @@ export default {
     };
   },
   methods: {
+    getRoleColor(user) {
+      if (user.role === "ADMIN") return "warning";
+      if (user.role === "MANAGER") return "accent";
+      if (user.role === "EMPLOYEE") return "secondary";
+    },
     getFullName(user) {
       return `${user.firstName} ${user.lastName}`;
     },
     selectUser(e) {
       this.$emit("click:row", e);
     },
-    showItem(item) {
-      // console.log(item);
-      this.$router.push(`/users/${item.id}`);
+    showItem(user) {
+      // console.log(user);
+      this.$router.push(`/users/${user.id}`);
     },
-    editItem(item) {
-      this.$router.push(`/users/${item.id}`);
+    editItem(user) {
+      this.$router.push(`/users/${user.id}`);
     },
   },
 };

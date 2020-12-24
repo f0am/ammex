@@ -1,171 +1,147 @@
-/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
-      id
-      name
-      posts {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
-      comments {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
-      comments {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        createdAt
-        updatedAt
-      }
-      comments {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        createdAt
-        updatedAt
-      }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        createdAt
-        updatedAt
-      }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        createdAt
-        updatedAt
-      }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
+      status
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -173,13 +149,143 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
+      status
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -187,13 +293,143 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
+      status
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -201,16 +437,160 @@ export const onCreateClient = /* GraphQL */ `
   subscription OnCreateClient {
     onCreateClient {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          jobs {
+            items {
+              id
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              name
+              description
+              contract {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              deadline
+              assigneeID
+              status
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
       }
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -218,16 +598,160 @@ export const onUpdateClient = /* GraphQL */ `
   subscription OnUpdateClient {
     onUpdateClient {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          jobs {
+            items {
+              id
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              name
+              description
+              contract {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              deadline
+              assigneeID
+              status
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
       }
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -235,16 +759,892 @@ export const onDeleteClient = /* GraphQL */ `
   subscription OnDeleteClient {
     onDeleteClient {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          jobs {
+            items {
+              id
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              name
+              description
+              contract {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              deadline
+              assigneeID
+              status
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
       }
       createdAt
       updatedAt
+      version
+    }
+  }
+`;
+export const onCreateContract = /* GraphQL */ `
+  subscription OnCreateContract {
+    onCreateContract {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
+    }
+  }
+`;
+export const onUpdateContract = /* GraphQL */ `
+  subscription OnUpdateContract {
+    onUpdateContract {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
+    }
+  }
+`;
+export const onDeleteContract = /* GraphQL */ `
+  subscription OnDeleteContract {
+    onDeleteContract {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          client {
+            id
+            clientNumber
+            name
+            contact
+            phone
+            address
+            province
+            city
+            postalCode
+            email
+            owners
+            status
+            contracts {
+              items {
+                clientID
+                type
+                startDate
+                endDate
+                gst
+                qst
+                period
+                corporation
+                corporationYearEndDate
+                payrollNumber
+                payrollFrequency
+                remittancePeriod
+                remittancePeriodQc
+                cheques
+                wsib
+                wsibRemittance
+                wsibRate
+                wsibCode
+                csst
+                csstRemittance
+                csstRate
+                csstCode
+                t4Deadline
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          type
+          name
+          description
+          contract {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          deadline
+          assigneeID
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
     }
   }
 `;
@@ -255,18 +1655,277 @@ export const onCreateJob = /* GraphQL */ `
       clientID
       client {
         id
+        clientNumber
         name
         contact
         phone
         address
+        province
+        city
+        postalCode
         email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
       type
-      dueDate
+      name
+      description
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          contracts {
+            items {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          items {
+            id
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            name
+            description
+            contract {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            deadline
+            assigneeID
+            status
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      deadline
+      assigneeID
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -277,18 +1936,277 @@ export const onUpdateJob = /* GraphQL */ `
       clientID
       client {
         id
+        clientNumber
         name
         contact
         phone
         address
+        province
+        city
+        postalCode
         email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
       type
-      dueDate
+      name
+      description
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          contracts {
+            items {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          items {
+            id
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            name
+            description
+            contract {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            deadline
+            assigneeID
+            status
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      deadline
+      assigneeID
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -299,18 +2217,277 @@ export const onDeleteJob = /* GraphQL */ `
       clientID
       client {
         id
+        clientNumber
         name
         contact
         phone
         address
+        province
+        city
+        postalCode
         email
+        owners
+        status
+        contracts {
+          items {
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            startDate
+            endDate
+            gst
+            qst
+            period
+            corporation
+            corporationYearEndDate
+            payrollNumber
+            payrollFrequency
+            remittancePeriod
+            remittancePeriodQc
+            cheques
+            wsib
+            wsibRemittance
+            wsibRate
+            wsibCode
+            csst
+            csstRemittance
+            csstRate
+            csstCode
+            t4Deadline
+            jobs {
+              items {
+                id
+                clientID
+                type
+                name
+                description
+                deadline
+                assigneeID
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
       type
-      dueDate
+      name
+      description
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          contracts {
+            items {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          items {
+            id
+            clientID
+            client {
+              id
+              clientNumber
+              name
+              contact
+              phone
+              address
+              province
+              city
+              postalCode
+              email
+              owners
+              status
+              contracts {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            type
+            name
+            description
+            contract {
+              clientID
+              client {
+                id
+                clientNumber
+                name
+                contact
+                phone
+                address
+                province
+                city
+                postalCode
+                email
+                owners
+                status
+                createdAt
+                updatedAt
+                version
+              }
+              type
+              startDate
+              endDate
+              gst
+              qst
+              period
+              corporation
+              corporationYearEndDate
+              payrollNumber
+              payrollFrequency
+              remittancePeriod
+              remittancePeriodQc
+              cheques
+              wsib
+              wsibRemittance
+              wsibRate
+              wsibCode
+              csst
+              csstRemittance
+              csstRate
+              csstCode
+              t4Deadline
+              jobs {
+                nextToken
+              }
+              createdAt
+              updatedAt
+              version
+            }
+            deadline
+            assigneeID
+            status
+            createdAt
+            updatedAt
+            version
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      deadline
+      assigneeID
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;

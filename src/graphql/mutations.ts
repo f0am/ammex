@@ -9,16 +9,15 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
-      _version
-      _deleted
-      _lastChangedAt
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -29,16 +28,15 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
-      _version
-      _deleted
-      _lastChangedAt
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -49,16 +47,15 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
+      email
       firstName
       lastName
       phone
-      email
       role
-      _version
-      _deleted
-      _lastChangedAt
+      status
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -69,20 +66,51 @@ export const createClient = /* GraphQL */ `
   ) {
     createClient(input: $input, condition: $condition) {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -93,20 +121,51 @@ export const updateClient = /* GraphQL */ `
   ) {
     updateClient(input: $input, condition: $condition) {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -117,20 +176,255 @@ export const deleteClient = /* GraphQL */ `
   ) {
     deleteClient(input: $input, condition: $condition) {
       id
+      clientNumber
       name
       contact
       phone
       address
+      province
+      city
+      postalCode
       email
-      jobs {
+      owners
+      status
+      contracts {
+        items {
+          clientID
+          type
+          startDate
+          endDate
+          gst
+          qst
+          period
+          corporation
+          corporationYearEndDate
+          payrollNumber
+          payrollFrequency
+          remittancePeriod
+          remittancePeriodQc
+          cheques
+          wsib
+          wsibRemittance
+          wsibRate
+          wsibCode
+          csst
+          csstRemittance
+          csstRate
+          csstCode
+          t4Deadline
+          createdAt
+          updatedAt
+          version
+        }
         nextToken
-        startedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
+      version
+    }
+  }
+`;
+export const createContract = /* GraphQL */ `
+  mutation CreateContract(
+    $input: CreateContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    createContract(input: $input, condition: $condition) {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          type
+          deadline
+          assigneeID
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
+    }
+  }
+`;
+export const updateContract = /* GraphQL */ `
+  mutation UpdateContract(
+    $input: UpdateContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    updateContract(input: $input, condition: $condition) {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          type
+          deadline
+          assigneeID
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
+    }
+  }
+`;
+export const deleteContract = /* GraphQL */ `
+  mutation DeleteContract(
+    $input: DeleteContractInput!
+    $condition: ModelContractConditionInput
+  ) {
+    deleteContract(input: $input, condition: $condition) {
+      clientID
+      client {
+        id
+        clientNumber
+        name
+        contact
+        phone
+        address
+        province
+        city
+        postalCode
+        email
+        owners
+        status
+        contracts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        version
+      }
+      type
+      startDate
+      endDate
+      gst
+      qst
+      period
+      corporation
+      corporationYearEndDate
+      payrollNumber
+      payrollFrequency
+      remittancePeriod
+      remittancePeriodQc
+      cheques
+      wsib
+      wsibRemittance
+      wsibRate
+      wsibCode
+      csst
+      csstRemittance
+      csstRate
+      csstCode
+      t4Deadline
+      jobs {
+        items {
+          id
+          clientID
+          type
+          deadline
+          assigneeID
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      version
     }
   }
 `;
@@ -142,26 +436,60 @@ export const createJob = /* GraphQL */ `
     createJob(input: $input, condition: $condition) {
       id
       clientID
-      client {
-        id
-        name
-        contact
-        phone
-        address
-        email
-        _version
-        _deleted
-        _lastChangedAt
+      type
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
-      type
-      dueDate
-      _version
-      _deleted
-      _lastChangedAt
+      deadline
+      assigneeID
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -173,26 +501,60 @@ export const updateJob = /* GraphQL */ `
     updateJob(input: $input, condition: $condition) {
       id
       clientID
-      client {
-        id
-        name
-        contact
-        phone
-        address
-        email
-        _version
-        _deleted
-        _lastChangedAt
+      type
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
-      type
-      dueDate
-      _version
-      _deleted
-      _lastChangedAt
+      deadline
+      assigneeID
       createdAt
       updatedAt
+      version
     }
   }
 `;
@@ -204,26 +566,60 @@ export const deleteJob = /* GraphQL */ `
     deleteJob(input: $input, condition: $condition) {
       id
       clientID
-      client {
-        id
-        name
-        contact
-        phone
-        address
-        email
-        _version
-        _deleted
-        _lastChangedAt
+      type
+      contract {
+        clientID
+        client {
+          id
+          clientNumber
+          name
+          contact
+          phone
+          address
+          province
+          city
+          postalCode
+          email
+          owners
+          status
+          createdAt
+          updatedAt
+          version
+        }
+        type
+        startDate
+        endDate
+        gst
+        qst
+        period
+        corporation
+        corporationYearEndDate
+        payrollNumber
+        payrollFrequency
+        remittancePeriod
+        remittancePeriodQc
+        cheques
+        wsib
+        wsibRemittance
+        wsibRate
+        wsibCode
+        csst
+        csstRemittance
+        csstRate
+        csstCode
+        t4Deadline
+        jobs {
+          nextToken
+        }
         createdAt
         updatedAt
+        version
       }
-      type
-      dueDate
-      _version
-      _deleted
-      _lastChangedAt
+      deadline
+      assigneeID
       createdAt
       updatedAt
+      version
     }
   }
 `;

@@ -18,9 +18,10 @@
       <v-flex xs8>
         <v-card>
           <v-card-title primary-title class="card-title">
-            <div class="card-title-text">Servers</div>
+            <div class="card-title-text">Jobs</div>
           </v-card-title>
           <!-- Insert Component -->
+          <job-list />
           <!-- <server-list :servers="partner.servers" /> -->
         </v-card>
       </v-flex>
@@ -29,10 +30,10 @@
 </template>
 
 <script>
-// import ServerList from '@/components/resources/server/List'
+// import JobList from '@/components/resources/job/List'
 export default {
   components: {
-    // ServerList
+    JobList,
   },
   data() {
     return {

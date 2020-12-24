@@ -63,7 +63,7 @@ export default new Router({
         },
         {
           name: 'Clients',
-          path: 'clients/1',
+          path: 'clients/:id',
           component: () => import('@/views/dashboard/SingleClient'),
         },
         {

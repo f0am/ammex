@@ -1,137 +1,109 @@
 <template>
   <v-data-table
+    :search="search"
     :headers="headers"
-    :items="client"
+    :items="clients"
     class="elevation-1"
-    @click:row="showItem"
-  
   >
-    <!-- <template v-slot:items="props">
-      <td>{{ props.item.id }}</td>
-      <td>{{ props.item.name }}</td>
-      <td>{{ props.item.contact }}</td>
-      <td>{{ props.item.email }}</td>
-      <td>{{ props.item.phone }}</td>
-      <td>{{ props.item.jobs }}</td>
-      <td>{{ props.item.address }}</td>
-      <td>{{ props.item.owners }}</td>
-      <td>{{ props.item.cheques }}</td>
-      <td>{{ props.item.qst }}</td>
-      <td>{{ props.item.gst }}</td>
-      <td>{{ props.item.remittance }}</td>
-      <td>{{ props.item.payrollNumber }}</td>
-      <td>{{ props.item.payrollRemittance }}</td>
-      <td>{{ props.item.corporation }}</td>
-      <td>{{ props.item.corporationYearEnd }}</td>
-      <td>{{ props.item.wsib }}</td>
-      <td>{{ props.item.wsibRemittance }}</td>
-      <td>{{ props.item.wsibCsstRate }}</td>
-      <td>{{ props.item.wsibCode }}</td>
-      <td>{{ props.item.cliqsecrCode }}</td>
-      <td>{{ props.item.gstCode }}</td>
-      <td>{{ props.item.craCode }}</td>
-      <td>{{ props.item.t4DueDate }}</td>
-      <td>{{ props.item.craConsent }}</td>
-      <td>{{ props.item.rqConsent }}</td>
-      <td>{{ props.item.wsibConsent }}</td>
-      <td>{{ props.item.csstConsent }}</td> -->
-    <!-- </template> -->
-    <template v-slot:item.jobs="{ item }">
-      <v-avatar color="primary" size="25" style="color: #fff">{{
-        item.jobs
-      }}</v-avatar>
-      <v-avatar color="secondary" size="25" style="color: #fff">2</v-avatar>
-      <v-avatar color="warning" size="25" style="color: #fff">2</v-avatar>
-      <v-avatar color="info" size="25" style="color: #fff">2</v-avatar>
+    <template v-slot:[`item.status`]="{ item }">
+      <v-chip right class="mr-2" color="warning" v-text="item.status" />
     </template>
-    <!-- <template v-slot:item.actions="{ item }">
-      <v-icon small class="mr-2" @click="showItem(item)"> mdi-pencil </v-icon>
-    </template> -->
+    <template v-slot:[`item.contracts`]="{ item }">
+      <v-chip
+        right
+        v-for="contract in item.contracts.items"
+        class="mr-1 lighten-1"
+        :color="getContractColor(contract)"
+        :key="contract.id"
+        outlined
+        style="font-weight: 400"
+        v-text="getTypeAbbr(contract)"
+      >
+      </v-chip>
+      <slot
+        name="addContract"
+        v-if="item.contracts.items.length < 3"
+        :client="item"
+      ></slot>
+    </template>
+    <template v-slot:expanded-item="{ headers, item }">
+      <td :colspan="headers.length">More info about {{ item.name }}</td>
+    </template>
+    <template v-slot:[`item.actions`]="{ item }">
+      <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+      <v-icon small class="mr-2" @click="editItem(item)">mdi-file</v-icon>
+    </template>
     <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize"> Reset </v-btn>
+      <v-progress-linear
+        :color="$root.error ? 'warning' : 'info'"
+        indeterminate
+      />
     </template>
   </v-data-table>
 </template>
 <script>
 export default {
+  props: {
+    clients: {
+      type: Array,
+      default: () => [],
+    },
+    error: {
+      type: Object,
+      default: () => {},
+    },
+    search: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
       headers: [
-        { text: "ID", value: "id" },
-        { text: "Name", value: "name" },
+        { text: "ID", value: "clientID" },
+        { text: "Company Name", value: "name" },
         { text: "Contact Name", value: "contact" },
-        { text: "Email", value: "email" },
-        { text: "Phone", value: "phone" },
-        { text: "Address", value: "address" },
-        { text: "Jobs", value: "jobs" },
-        // { text: "Actions", value: "actions" },
-        // { text: "Owners", value: "owners" },
-        // { text: "Cheques", value: "cheques" },
-        // { text: "GST", value: "gst" },
-        // { text: "QST", value: "qst" },
-        // { text: "Remittance", value: "remittance" },
-        // { text: "Payroll", value: "payroll" },
-        // { text: "Payroll Remittance", value: "payrollRemittance" },
-        // { text: "Corporation", value: "corporation" },
-        // { text: "Corporation Year End", value: "corporationYearEnd" },
-        // { text: "WSIB", value: "wsib" },
-        // { text: "WSIB Remittance", value: "wsibRemittance" },
-        // { text: "WSIB CSST Rate", value: "wsibCsstRate" },
-        // { text: "WSIB Code", value: "wsibCode" },
-        // { text: "Cliqsecr Code", value: "cliqsecrCode" },
-        // { text: "GST Code", value: "gstCode" },
-        // { text: "CRA Code", value: "craCode" },
-        // { text: "T4 Due Date", value: "t4DueDate" },
-        // { text: "CRA Consent", value: "craConsent" },
-        // { text: "RQ Consent", value: "rqConsent" },
-        // { text: "WSIB Consent", value: "wsibConsent" },
-        // { text: "CSST Consent", value: "csstConsent" },
-      ],
-      client: [
-        {
-          id: 1,
-          contact: "Jeremie S Robitaille",
-          name: "Hada Alvarenga Inc.",
-          address: "1234 boulevard de l'Hopital, Gatineau, QC",
-          email: "123123@aksjd.lol",
-          phone: "(123)111-1234",
-          jobs: [
-            {
-              type: "Taxes",
-            },
-            {
-              type: "Payroll",
-            },
-            {
-              type: "GST",
-            },
-          ],
-        },
+        { text: "Contact Email", value: "email" },
+        { text: "Contact Phone", value: "phone" },
+        // { text: "Business Address", value: "address" },
+        { text: "Services", value: "contracts" },
+        { text: "Status", value: "status" },
+        { text: "Actions", value: "actions" },
       ],
     };
   },
   methods: {
-    showItem(item) {
-      this.$router.push(`/clients/${item.id}`);
+    getTypeAbbr(contract) {
+      if (contract.type === "BOOKKEEPING") return "BK";
+      else if (contract.type === "PAYROLL") return "PR";
+      else if (contract.type === "TAXES") return "TX";
+      else return "grey";
     },
-    jobsByType(jobs) {
-      let jobsByType = {};
-      jobs.forEach((job) => {
-        if (jobsByType[job.type]) {
-          jobsByType[job.type] = jobsByType[job.type] + 1;
-        } else {
-          jobsByType[job.type] = 1;
-        }
-      });
-
-      return jobsByType;
+    getContractColor(contract) {
+      if (contract.type === "BOOKKEEPING") return "warning";
+      else if (contract.type === "PAYROLL") return "secondary";
+      else if (contract.type === "TAXES") return "accent";
+      else return "grey";
+    },
+    getFullName(user) {
+      return `${user.firstName} ${user.lastName}`;
+    },
+    selectUser(e) {
+      this.$emit("click:row", e);
+    },
+    showItem(item) {
+      // console.log(item);
+      this.$router.push(`/clients/${item.clientID}`);
+    },
+    editItem(item) {
+      this.$router.push(`/clients/${item.clientID}`);
     },
   },
 };
 </script>
 
 <style>
-table tr {
-  cursor: pointer;
+th span {
+  font-size: 1.5em;
 }
 </style>

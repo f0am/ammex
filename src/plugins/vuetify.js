@@ -7,10 +7,11 @@ Vue.use(Vuetify)
 
 const theme = {
   primary: '#2564b2',
-  // primary: '#4CAF50',
-  secondary: '#9C27b0',
-  accent: '#9C27b0',
-  info: '#00CAE3',
+  secondary: '#7fd1b9',
+  accent: '#9293db',
+  info: '#c1dbe3',
+  warning: '#f2cd5d',
+  danger: '#d62839'
 }
 
 export default new Vuetify({

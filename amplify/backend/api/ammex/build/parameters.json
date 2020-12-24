@@ -1,7 +1,8 @@
 {
+    "CreateAPIKey": 1,
     "AppSyncApiName": "ammex",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-ammex-dev-13932-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/63d7da3cc7162aa9beda6fd51e671c6b85b4a6ee"
+    "S3DeploymentBucket": "amplify-ammex-prod-205410-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/23a02f56156243f9156906dc9cd024657a978fa6"
 }

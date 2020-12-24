@@ -1,14 +1,14 @@
 {
-  "dev": {
+  "prod": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-ammex-dev-13932-authRole",
-      "UnauthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-dev-13932-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-dev-13932-authRole",
+      "AuthRoleName": "amplify-ammex-prod-205410-authRole",
+      "UnauthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-prod-205410-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-prod-205410-authRole",
       "Region": "ca-central-1",
-      "DeploymentBucketName": "amplify-ammex-dev-13932-deployment",
-      "UnauthRoleName": "amplify-ammex-dev-13932-unauthRole",
-      "StackName": "amplify-ammex-dev-13932",
-      "StackId": "arn:aws:cloudformation:ca-central-1:513424943550:stack/amplify-ammex-dev-13932/51b570a0-02df-11eb-b990-0a976bcb2ea8",
+      "DeploymentBucketName": "amplify-ammex-prod-205410-deployment",
+      "UnauthRoleName": "amplify-ammex-prod-205410-unauthRole",
+      "StackName": "amplify-ammex-prod-205410",
+      "StackId": "arn:aws:cloudformation:ca-central-1:513424943550:stack/amplify-ammex-prod-205410/6de06390-1593-11eb-9437-0ec8e6e6031c",
       "AmplifyAppId": "d1dwvkgg53vmhe"
     }
   }
