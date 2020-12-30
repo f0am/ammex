@@ -1,8 +1,8 @@
 export default {
   "trailingSlash": true,
   "pathPrefix": "",
-  "titleTemplate": "%s - Gridsome Bulma Starter",
+  "titleTemplate": "%s - Ammex Impôts",
   "siteUrl": "",
-  "version": "0.7.21",
+  "version": "0.7.23",
   "catchLinks": true
 }

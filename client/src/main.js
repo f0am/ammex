@@ -1,11 +1,16 @@
-// Import main css
-import '~/assets/style/index.scss';
-
-// Import default layout so we don't need to import it to every page
-import DefaultLayout from '~/layouts/Default.vue';
-
+// This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function (Vue, { router, head, isClient }) {
+
+import DefaultLayout from '~/layouts/Default.vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css' 
+
+export default function (Vue, {router, head, isClient}) {
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout);
+  Vue.use(Buefy)
+  Vue.component('Layout', DefaultLayout)
+  head.link.push({
+    rel: 'stylesheet',
+    href: '//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css'
+  })
 }
