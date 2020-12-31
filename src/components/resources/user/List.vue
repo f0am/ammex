@@ -65,7 +65,7 @@ export default {
         // },
         {
           text: "Jobs",
-          value: "jobs",
+          value: "Jobs",
         },
         {
           text: "Actions",

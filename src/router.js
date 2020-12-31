@@ -71,6 +71,11 @@ export default new Router({
           path: 'jobs',
           component: () => import('@/views/dashboard/Jobs'),
         },
+        {
+          name: 'Calendar',
+          path: 'calendar',
+          component: () => import('@/components/resources/job/Calendar')
+        }
       ],
     },
   ],

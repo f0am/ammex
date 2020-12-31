@@ -31,12 +31,11 @@
         "GraphQLAPIEndpointOutput": "https://blqiugtipnhyrgzy2eb2plhcdq.appsync-api.ca-central-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-m6mqr3xcfzettj6y7tj7fd4yjm"
       },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.834Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiammex"
-      },
-      "lastPushTimeStamp": "2020-10-31T22:36:32.521Z",
-      "lastPushDirHash": "eYrFnhtWsC1UuFXf+B0VlNqMG5U="
+      }
     }
   },
   "function": {
@@ -54,23 +53,235 @@
             "GraphQLAPIKeyOutput"
           ]
         }
+      ]
+    },
+    "generateJobs": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": []
+    },
+    "ammex090d046f": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "ammex",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        }
+      ]
+    },
+    "jobFactory": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "ammex",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        },
+        {
+          "category": "api",
+          "resourceName": "ammex",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        }
+      ]
+    },
+    "ammexJobFactory": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "ammex",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        }
       ],
-      "lastBuildTimeStamp": "2020-10-31T22:35:01.000Z",
-      "lastPackageTimeStamp": "2020-10-31T22:35:01.036Z",
-      "distZipFilename": "ammexjobfactory-644c2b392b4a52736770-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexjobfactory-cloudformation-template.json",
-        "logicalId": "functionammexjobfactory"
-      },
-      "lastPushTimeStamp": "2020-10-31T22:36:32.573Z",
       "output": {
         "Region": "ca-central-1",
-        "CloudWatchEventRule": "amplify-ammex-prod-205410-function-CloudWatchEvent-12G73LCZMNFC2",
-        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexjobfactory-prod",
-        "Name": "ammexjobfactory-prod",
-        "LambdaExecutionRole": "ammexLambdaRole4bbedb44-prod"
+        "CloudWatchEventRule": "amplify-ammex-prod-205410-function-CloudWatchEvent-SYSQV39EFWT",
+        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexJobFactory-prod",
+        "Name": "ammexJobFactory-prod",
+        "LambdaExecutionRole": "ammexLambdaRoleb9eb06a7-prod"
       },
-      "lastPushDirHash": "cKi6bPH/SHTaulir0kDJu1/gOX8="
+      "lastPushTimeStamp": "2020-12-31T07:44:25.837Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexJobFactory-cloudformation-template.json",
+        "logicalId": "functionammexJobFactory"
+      }
+    },
+    "ammexUsersCreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "ca-central-1",
+        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersCreateAuthChallenge-prod",
+        "Name": "ammexUsersCreateAuthChallenge-prod",
+        "LambdaExecutionRole": "ammexUsersCreateAuthChallenge-prod"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.839Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCreateAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionammexUsersCreateAuthChallenge"
+      }
+    },
+    "ammexUsersCustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "ca-central-1",
+        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersCustomMessage-prod",
+        "Name": "ammexUsersCustomMessage-prod",
+        "LambdaExecutionRole": "ammexUsersCustomMessage-prod"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.840Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCustomMessage-cloudformation-template.json",
+        "logicalId": "functionammexUsersCustomMessage"
+      }
+    },
+    "ammexUsersDefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "ca-central-1",
+        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersDefineAuthChallenge-prod",
+        "Name": "ammexUsersDefineAuthChallenge-prod",
+        "LambdaExecutionRole": "ammexUsersDefineAuthChallenge-prod"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.841Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersDefineAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionammexUsersDefineAuthChallenge"
+      }
+    },
+    "ammexUsersPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "ammexUsersVerifyAuthChallengeResponse": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "ca-central-1",
+        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersVerifyAuthChallengeResponse-prod",
+        "Name": "ammexUsersVerifyAuthChallengeResponse-prod",
+        "LambdaExecutionRole": "ammexUsersVerifyAuthChallengeResponse-prod"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.842Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersVerifyAuthChallengeResponse-cloudformation-template.json",
+        "logicalId": "functionammexUsersVerifyAuthChallengeResponse"
+      }
+    }
+  },
+  "auth": {
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "ammexUsers",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "managersGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-managersGroupRole",
+        "employeesGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-employeesGroupRole",
+        "administratorsGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-administratorsGroupRole"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.846Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
+      }
+    },
+    "ammexUsers": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "ammexUsersCreateAuthChallenge",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "ammexUsersCustomMessage",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "ammexUsersDefineAuthChallenge",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "ammexUsersVerifyAuthChallengeResponse",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "customAuth": true,
+      "output": {
+        "CreatedSNSRole": "arn:aws:iam::513424943550:role/snsd18156e9205410-prod",
+        "AppClientSecret": "15aiu45a1bsgehafjp7kt040fgqeemn5ucpo73dd2fm41pjgb9mr",
+        "UserPoolId": "ca-central-1_eIjFA9G5Z",
+        "AppClientIDWeb": "2t8loq0idm5ue9rpoofqedg2cj",
+        "AppClientID": "7p0fm102vu3uict6hgjg1hrl83",
+        "IdentityPoolId": "ca-central-1:9bf266c9-5b44-49ff-bc47-21957f217eca",
+        "IdentityPoolName": "ammexUserPool__prod",
+        "UserPoolName": "ammexUserPool"
+      },
+      "lastPushTimeStamp": "2020-12-31T07:44:25.847Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/ammexUsers-cloudformation-template.yml",
+        "logicalId": "authammexUsers"
+      }
     }
   }
 }

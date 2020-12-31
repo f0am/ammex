@@ -50,8 +50,9 @@
 <script>
 import UsersList from "./List";
 import Stepper from "./Form";
-import * as queries from "@/graphql/queries";
-import * as mutations from "@/graphql/mutations";
+
+import { DataStore } from "@aws-amplify/datastore";
+import { User, UserRole, UserStatus } from "@/models";
 
 export default {
   components: {
@@ -61,8 +62,7 @@ export default {
 
   async beforeMount() {
     try {
-      const resp = await this.$api.graphql({ query: queries.listUsers });
-      this.users = resp.data.listUsers.items;
+      this.users = await DataStore.query(User);
       console.log(this.users);
     } catch (error) {
       this.$root.message = error;
@@ -74,15 +74,9 @@ export default {
   methods: {
     async saveUser() {
       try {
-        console.log(this.newUser);
-        await this.$api.graphql({
-          query: mutations.createUser,
-          variables: {
-            input: this.newUser,
-          },
-        });
-        const resp = await this.$api.graphql({ query: queries.listUsers });
-        this.users = resp.data.listUsers.items;
+        await DataStore.save(new User(this.newUser));
+
+        this.users = await DataStore.query(User);
         this.$root.message = "User successfully created.";
         this.$root.color = "success";
         this.$root.show = true;

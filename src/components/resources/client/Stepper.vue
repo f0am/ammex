@@ -30,7 +30,7 @@
                 <v-flex>
                   <v-text-field
                     id="clientNumber"
-                    v-model="currentValue.clientID"
+                    v-model="currentValue.clientNumber"
                     label="Client Number"
                     v-mask="'#####'"
                   />

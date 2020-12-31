@@ -62,25 +62,15 @@
 
 <script>
 // import JobStepper from "@/views/dashboard/JobStepper";
-import * as queries from "@/graphql/queries";
+import { listJobs } from "@/graphql/queries";
 import * as mutations from "@/graphql/mutations";
 // import ClientSelect from "@/components/resources/client/Select";
 export default {
   components: {
     // JobStepper,
   },
-  async beforeMount() {
-    try {
-      const resp = await this.$api.graphql({ query: queries.listJobs });
-      this.jobs = resp.data.listJobs.items.map((i) => ({ ...i, assignee: "" }));
-      console.log(this.jobs);
-    } catch (error) {
-      this.$root.message = error;
-      this.$root.color = "warning";
-      this.$root.show = true;
-      this.$root.error = error;
-    }
-
+  beforeMount() {
+    this.fetchJobs();
     //  try {
     //   const resp = await this.$api.graphql({ query: queries.listClients });
     //   this.clients = resp.data.listClients.items;
@@ -92,21 +82,13 @@ export default {
     //   this.$root.error = error;
     // }
 
-    try {
-      const resp = await this.$api.graphql({ query: queries.listContracts });
-      this.contracts = resp.data.listContracts.items;
-      console.log(this.contracts);
-    } catch (error) {
-      this.$root.message = error;
-      this.$root.color = "warning";
-      this.$root.show = true;
-      this.$root.error = error;
-    }
+    // this.fet
   },
 
   data: () => ({
     dialog: false,
     headers: [
+      { value: "name", text: "Job"},
       { value: "deadline", text: "Due date" },
       {
         text: "Client",
@@ -124,7 +106,7 @@ export default {
       clientID: "10000",
       type: "TAXES",
     },
-    contracts: [],
+    contracts: [],  
     editedIndex: -1,
     editedItem: {
       client: {},
@@ -155,6 +137,14 @@ export default {
   },
 
   methods: {
+    async fetchJobs() {
+      try {
+        const { data } = await this.$gql(listJobs);
+        this.jobs = data.listJobs.items;
+      } catch (error) {
+        this.$alert(error, "warning");
+      }
+    },
     randomDate(start, end) {
       return new Date(
         start.getTime() + Math.random() * (end.getTime() - start.getTime())

@@ -26,9 +26,6 @@
             <v-col cols="10" class="text-center">
               <v-layout column wrap>
                 <v-flex>
-                  <v-text-field v-model="currentValue.userID" label="Employee Number" />
-                </v-flex>
-                <v-flex>
                   <v-text-field
                     v-model="currentValue.firstName"
                     label="First Name"

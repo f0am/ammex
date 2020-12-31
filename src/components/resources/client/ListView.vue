@@ -16,7 +16,7 @@
           </v-btn>
         </template>
 
-        <client-wizard v-model="newClient" @confirm="saveClient" />
+        <client-wizard v-model="newClient" @confirm="createClient(newClient)" />
       </v-dialog>
     </template>
     <v-text-field
@@ -28,7 +28,7 @@
       style="max-width: 250px"
     />
     <v-dialog v-model="contractDialog" max-width="600px">
-      <stepper v-model="newContract" @confirm="saveContract" />
+      <stepper v-model="newContract" @confirm="createContract(newContract)" />
     </v-dialog>
     <clients-list :clients="clients" :search="search">
       <template v-slot:addContract="{ client }">
@@ -43,86 +43,35 @@
 import ClientsList from "@/components/resources/client/List";
 import ClientWizard from "@/components/resources/client/Stepper";
 import ContractForm from "@/components/resources/contract/Form";
-
-import * as queries from "@/graphql/queries";
-import * as mutations from "@/graphql/mutations";
-
 import Stepper from "@/components/resources/contract/Stepper";
 
+import { fetch, create } from "./index";
+import { createContractJobs } from "@/components/resources/job/index";
+import { createContract } from "@/graphql/mutations";
+
 export default {
+  mixins: [fetch, create, createContractJobs],
   components: {
     Stepper,
     ClientsList,
     ClientWizard,
   },
   async beforeMount() {
-    try {
-      const resp = await this.$api.graphql({ query: queries.listClients });
-      this.clients = resp.data.listClients.items;
-      console.log(resp);
-
-      console.log(this.clients);
-    } catch (error) {
-      this.$root.message = error;
-      this.$root.color = "warning";
-      this.$root.show = true;
-      this.$root.error = error;
-    }
+    this.fetchClients();
   },
   methods: {
-    selectClient(client) {
-      this.newContract.client = client;
-    },
-    async saveClient() {
+    async createContract(input) {
+      delete input.client;
       try {
-        await this.$api.graphql({
-          query: mutations.createClient,
-          variables: {
-            input: this.newClient,
-          },
-        });
-        const resp = await this.$api.graphql({ query: queries.listClients });
-        this.clients = resp.data.listClients.items;
-        this.closeClientDialog();
-
-        this.$root.message = "Client successfully created.";
-        this.$root.color = "success";
-        this.$root.show = true;
+        await this.$gql(createContract, { input });
+        this.$alert("Contract created successfully", "success");
+        // this.createContractJobs(input);
+        if (input.type === "BOOKKEEPING") await this.createBookkeepingJobs(input);
+        else if (input.type === "TAXES") await this.createTaxesJobs(input);
       } catch (error) {
-        this.$root.message = error;
-        this.$root.color = "warning";
-        this.$root.show = true;
-        this.$root.error = error;
+        this.$alert(error, "warning");
       }
-    },
-    async saveContract() {
-      try {
-        console.log(JSON.stringify(this.newContract));
-        const { client, ...input } = this.newContract;
-        console.log(input);
-        const s = await this.$api.graphql({
-          query: mutations.createContract,
-          variables: {
-            input: {
-              ...input,
-              clientID: client.id,
-              cheques: parseInt(input.cheques)
-            },
-          },
-        });
-        const resp = await this.$api.graphql({ query: queries.listClients });
-        this.clients = resp.data.listClients.items;
-        this.closeContractDialog();
-
-        this.$root.message = "Client successfully created.";
-        this.$root.color = "success";
-        this.$root.show = true;
-      } catch (error) {
-        this.$root.message = error;
-        this.$root.color = "warning";
-        this.$root.show = true;
-        this.$root.error = error;
-      }
+      await this.fetchClients();
     },
     closeClientDialog() {
       this.clientDialog = false;
@@ -133,18 +82,17 @@ export default {
       this.newContract = {};
     },
     openContractDialog(client) {
-      this.newContract = { ...this.newContract, client };
+      this.newContract = { ...this.newContract, client, clientID: client.id };
       this.contractDialog = true;
     },
   },
   data() {
     return {
       search: "",
-      clients: [],
-      selectedClient: null,
-      newClient: {},
 
+      newClient: {},
       clientDialog: null,
+
       newContract: {},
       contractDialog: null,
     };

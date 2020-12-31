@@ -1,7 +1,6 @@
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
-import axios from 'axios'
 
 export class VuexModel {
   static modules = {}
@@ -19,7 +18,7 @@ export class VuexModel {
   }
 
   static setClient (client) {
-    VuexModel.client = axios.create(client)
+    VuexModel.client = client
   }
 
   // static setToken(token) {

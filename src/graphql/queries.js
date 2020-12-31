@@ -31,6 +31,26 @@ export const getUser = /* GraphQL */ `
             contracts {
               items {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -53,6 +73,22 @@ export const getUser = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -82,6 +118,54 @@ export const getUser = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -114,9 +198,77 @@ export const getUser = /* GraphQL */ `
               items {
                 id
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 name
                 description
+                contract {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 deadline
                 assigneeID
                 status
@@ -178,6 +330,54 @@ export const listUsers = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -202,6 +402,37 @@ export const listUsers = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -229,6 +460,64 @@ export const listUsers = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -286,6 +575,26 @@ export const getClient = /* GraphQL */ `
             contracts {
               items {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -308,6 +617,22 @@ export const getClient = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -357,6 +682,37 @@ export const getClient = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -366,6 +722,26 @@ export const getClient = /* GraphQL */ `
               description
               contract {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -388,6 +764,22 @@ export const getClient = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -450,6 +842,54 @@ export const listClients = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -482,9 +922,77 @@ export const listClients = /* GraphQL */ `
               items {
                 id
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 name
                 description
+                contract {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 deadline
                 assigneeID
                 status
@@ -542,6 +1050,54 @@ export const getContract = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -574,9 +1130,77 @@ export const getContract = /* GraphQL */ `
               items {
                 id
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 name
                 description
+                contract {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 deadline
                 assigneeID
                 status
@@ -638,6 +1262,26 @@ export const getContract = /* GraphQL */ `
             contracts {
               items {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -660,6 +1304,22 @@ export const getContract = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -689,6 +1349,54 @@ export const getContract = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -721,9 +1429,77 @@ export const getContract = /* GraphQL */ `
               items {
                 id
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 name
                 description
+                contract {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 deadline
                 assigneeID
                 status
@@ -800,6 +1576,37 @@ export const listContracts = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -827,6 +1634,64 @@ export const listContracts = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -879,6 +1744,54 @@ export const listContracts = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -903,6 +1816,37 @@ export const listContracts = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -930,6 +1874,64 @@ export const listContracts = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -988,6 +1990,54 @@ export const getJob = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -1020,9 +2070,77 @@ export const getJob = /* GraphQL */ `
               items {
                 id
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 name
                 description
+                contract {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 deadline
                 assigneeID
                 status
@@ -1076,6 +2194,37 @@ export const getJob = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -1103,6 +2252,64 @@ export const getJob = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -1155,6 +2362,54 @@ export const getJob = /* GraphQL */ `
               owners
               status
               contracts {
+                items {
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  startDate
+                  endDate
+                  gst
+                  qst
+                  period
+                  corporation
+                  corporationYearEndDate
+                  payrollNumber
+                  payrollFrequency
+                  remittancePeriod
+                  remittancePeriodQc
+                  cheques
+                  wsib
+                  wsibRemittance
+                  wsibRate
+                  wsibCode
+                  csst
+                  csstRemittance
+                  csstRate
+                  csstCode
+                  t4Deadline
+                  jobs {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -1179,6 +2434,37 @@ export const getJob = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -1206,6 +2492,64 @@ export const getJob = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -1273,6 +2617,37 @@ export const listJobs = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -1300,6 +2675,64 @@ export const listJobs = /* GraphQL */ `
               csstCode
               t4Deadline
               jobs {
+                items {
+                  id
+                  clientID
+                  client {
+                    id
+                    clientNumber
+                    name
+                    contact
+                    phone
+                    address
+                    province
+                    city
+                    postalCode
+                    email
+                    owners
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  type
+                  name
+                  description
+                  contract {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  deadline
+                  assigneeID
+                  status
+                  createdAt
+                  updatedAt
+                  version
+                }
                 nextToken
               }
               createdAt
@@ -1333,6 +2766,26 @@ export const listJobs = /* GraphQL */ `
             contracts {
               items {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -1355,6 +2808,22 @@ export const listJobs = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -1404,6 +2873,37 @@ export const listJobs = /* GraphQL */ `
                 email
                 owners
                 status
+                contracts {
+                  items {
+                    clientID
+                    type
+                    startDate
+                    endDate
+                    gst
+                    qst
+                    period
+                    corporation
+                    corporationYearEndDate
+                    payrollNumber
+                    payrollFrequency
+                    remittancePeriod
+                    remittancePeriodQc
+                    cheques
+                    wsib
+                    wsibRemittance
+                    wsibRate
+                    wsibCode
+                    csst
+                    csstRemittance
+                    csstRate
+                    csstCode
+                    t4Deadline
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version
@@ -1413,6 +2913,26 @@ export const listJobs = /* GraphQL */ `
               description
               contract {
                 clientID
+                client {
+                  id
+                  clientNumber
+                  name
+                  contact
+                  phone
+                  address
+                  province
+                  city
+                  postalCode
+                  email
+                  owners
+                  status
+                  contracts {
+                    nextToken
+                  }
+                  createdAt
+                  updatedAt
+                  version
+                }
                 type
                 startDate
                 endDate
@@ -1435,6 +2955,22 @@ export const listJobs = /* GraphQL */ `
                 csstRate
                 csstCode
                 t4Deadline
+                jobs {
+                  items {
+                    id
+                    clientID
+                    type
+                    name
+                    description
+                    deadline
+                    assigneeID
+                    status
+                    createdAt
+                    updatedAt
+                    version
+                  }
+                  nextToken
+                }
                 createdAt
                 updatedAt
                 version

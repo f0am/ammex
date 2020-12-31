@@ -2,24 +2,32 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
-const Role = {
-  "EMPLOYEE": "Employee",
-  "MANAGER": "Manager",
-  "ADMIN": "Admin"
+const ContractType = {
+  "TAXES": "TAXES",
+  "PAYROLL": "PAYROLL",
+  "BOOKKEEPING": "BOOKKEEPING"
 };
 
-const JobType = {
-  "BOOKKEEPING": "Bookkeeping",
-  "TAXES": "Taxes",
-  "PAYROLL": "Payroll"
+const UserStatus = {
+  "PENDING": "PENDING",
+  "ACTIVE": "ACTIVE",
+  "DISABLED": "DISABLED"
 };
 
-const { User, Client, Job } = initSchema(schema);
+const UserRole = {
+  "ADMIN": "ADMIN",
+  "MANAGER": "MANAGER",
+  "USER": "USER"
+};
+
+const { Job, Contract, Client, User } = initSchema(schema);
 
 export {
-  User,
-  Client,
   Job,
-  Role,
-  JobType
+  Contract,
+  Client,
+  User,
+  ContractType,
+  UserStatus,
+  UserRole
 };

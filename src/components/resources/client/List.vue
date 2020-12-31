@@ -31,7 +31,7 @@
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-      <v-icon small class="mr-2" @click="editItem(item)">mdi-file</v-icon>
+      <v-icon small class="mr-2" @click="showItem(item)">mdi-file</v-icon>
     </template>
     <template v-slot:no-data>
       <v-progress-linear
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       headers: [
-        { text: "ID", value: "clientID" },
+        { text: "ID", value: "clientNumber" },
         { text: "Company Name", value: "name" },
         { text: "Contact Name", value: "contact" },
         { text: "Contact Email", value: "email" },
@@ -73,30 +73,42 @@ export default {
     };
   },
   methods: {
-    getTypeAbbr(contract) {
-      if (contract.type === "BOOKKEEPING") return "BK";
-      else if (contract.type === "PAYROLL") return "PR";
-      else if (contract.type === "TAXES") return "TX";
-      else return "grey";
+    getTypeAbbr({ type }) {
+      switch (type) {
+        case "BOOKKEEPING":
+          return "BK";
+        case "PAYROLL":
+          return "PR";
+        case "TAXES":
+          return "TX";
+        default:
+          return "ER";
+      }
     },
-    getContractColor(contract) {
-      if (contract.type === "BOOKKEEPING") return "warning";
-      else if (contract.type === "PAYROLL") return "secondary";
-      else if (contract.type === "TAXES") return "accent";
-      else return "grey";
+    getContractColor({ type }) {
+      switch (type) {
+        case "BOOKKEEPING":
+          return "warning";
+        case "PAYROLL":
+          return "secondary";
+        case "TAXES":
+          return "accent";
+        default:
+          return "grey";
+      }
     },
-    getFullName(user) {
-      return `${user.firstName} ${user.lastName}`;
+    getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
     },
     selectUser(e) {
       this.$emit("click:row", e);
     },
-    showItem(item) {
+    showItem({ id }) {
       // console.log(item);
-      this.$router.push(`/clients/${item.clientID}`);
+      this.$router.push(`/clients/${id}`);
     },
-    editItem(item) {
-      this.$router.push(`/clients/${item.clientID}`);
+    editItem({ cliendID }) {
+      this.$router.push(`/clients/${id}`);
     },
   },
 };

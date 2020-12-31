@@ -93,6 +93,7 @@ type Job
   # comments: [Comment] @connection(name: "JobComments")
 }
 
+
 # type Comment @model {
 #   id: ID!
 #   jobID: ID!

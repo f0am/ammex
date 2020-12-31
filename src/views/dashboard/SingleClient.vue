@@ -9,7 +9,7 @@
             </div>
 
             <div class="subtitle-1 font-weight-light">
-              {{ client.clientID }}
+              {{ client.clientNumber }}
             </div>
           </template>
           <v-card-text>
@@ -106,12 +106,12 @@
                   client.corporation
                 }}</v-list-item-subtitle>
               </v-list-item-content>
-              <v-list-item-content>
+              <!-- <v-list-item-content>
                 <v-list-item-title>Corporation Year End Date</v-list-item-title>
                 <v-list-item-subtitle>{{
                   client.corporationYearEnd.toLocaleDateString("en-CA")
                 }}</v-list-item-subtitle>
-              </v-list-item-content>
+              </v-list-item-content> -->
             </v-list-item>
             <v-list-item two-line>
               <v-list-item-content>
@@ -148,12 +148,12 @@
                   client.craCode
                 }}</v-list-item-subtitle>
               </v-list-item-content>
-              <v-list-item-content>
+              <!-- <v-list-item-content>
                 <v-list-item-title>T4 Due Date</v-list-item-title>
                 <v-list-item-subtitle>{{
                   client.t4dueDate.toLocaleDateString("en-CA")
                 }}</v-list-item-subtitle>
-              </v-list-item-content>
+              </v-list-item-content> -->
             </v-list-item>
             <hr />
             <v-list-item>
@@ -345,30 +345,16 @@
 import * as queries from "@/graphql/queries";
 import * as mutations from "@/graphql/mutations";
 
+import { get } from "@/components/resources/client/index";
+
 export default {
-  components: {
-    // ServerList
-    // JobStepper,
-  },
+  mixins: [get],
+  components: {},
   data() {
     return {
-      getClient: {},
       getJobs: [],
       dialog: false,
       editPhone: false,
-      client: {
-        id: 1,
-        contact: "Jeremie S Robitaille",
-        name: "Hada Alvarenga Inc.",
-        address: "1234 boulevard de l'Hopital, Gatineau, QC",
-        email: "123123@aksjd.lol",
-        phone: "(123)111-1234",
-        owners: ["Gilles", "Jacques"],
-        craConsent: true,
-        rqConsent: true,
-        wsibConsent: true,
-        csstConsent: true,
-      },
       jobsHeaders: [
         {
           text: "ID",
@@ -468,25 +454,12 @@ export default {
   },
   methods: {
     save() {},
+    edit() {},
     close() {},
   },
-  async beforeMount() {
+  beforeMount() {
     const clientID = this.$route.params.id;
-    console.log('mounted')
-    try {
-      const resp = await this.$api.graphql({
-        query: queries.getClient,
-        variables: { clientID },
-      });
-      this.client = { ...this.client, ...resp.data.getClient };
-      this.jobs = resp.data.getClient.contracts.items
-        .map((i) => i.jobs.items)
-        .flat();
-    } catch (error) {
-      this.$root.message = error;
-      this.$root.color = "warning";
-      this.$root.show = true;
-    }
+    this.getClient(clientID);
   },
 };
 </script>

@@ -1,72 +1,85 @@
 // Default actions
-import { VuexModel } from './VuexModel'
+import { VuexModel } from "./VuexModel";
 
-export default function (resource) {
+export default function(resource, queries) {
   // const vuexModel = this
   return {
-    async fetch ({ commit }) {
-      commit('startLoad')
+    async fetch({ commit }) {
+      commit("startLoad");
       try {
-        const { data } = await VuexModel.client.get(`${resource}`)
-        commit('setList', { data })
+        const {
+          data: { items }
+        } = await VuexModel.API.graphql({ query: queries[`list${resource}s`] });
+        commit("setList", { data: items });
       } catch (e) {
-        commit('error', e)
+        commit("error", e);
       }
 
-      commit('finishLoad')
+      commit("finishLoad");
     },
 
-    async get ({ commit }, id) {
-      commit('startLoad')
+    async get({ commit }, id) {
+      commit("startLoad");
       try {
-        const { data } = await VuexModel.client.get(`${resource}/${id}`)
-        commit('setList', { data })
+        const {
+          data: { items }
+        } = await VuexModel.client.graphql({
+          query: queries[`get${resource}`],
+          variables: { id }
+        });
+        commit("setList", { data: items });
       } catch (e) {
-        commit('error', e)
+        commit("error", e);
       }
 
-      commit('finishLoad')
+      commit("finishLoad");
     },
 
-    async create ({ commit }, data) {
-      commit('startLoad')
+    async create({ commit }, input) {
+      commit("startLoad");
 
       try {
-        const response = await VuexModel.client.post(`${resource}`, { data })
-        commit('setList', { data: response.data })
+        // const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}}));
+        const response = await VuexModel.client.graphql({
+          query: queries[`create${resource}`],
+          variables: { input }
+        });
+
+        commit("setList", { data: response.data });
       } catch (e) {
-        commit('error', e)
+        commit("error", e);
       }
 
-      commit('finishLoad')
+      commit("finishLoad");
     },
 
-    async update ({ commit }, data) {
-      commit('startLoad')
+    async update({ commit }, data) {
+      commit("startLoad");
 
       try {
-        const response = await VuexModel.client.put(`${resource}/${data.id}`, {
-          data: { ...data }
-        })
-        commit('setList', { data: response.data })
+        const response = await VuexModel.client.graphql({
+          query: queries[`update${resource}`],
+          variables: { input }
+        });
+        commit("setList", { data: response.data });
       } catch (e) {
-        commit('error', e)
+        commit("error", e);
       }
 
-      commit('finishLoad')
+      commit("finishLoad");
     },
 
-    async delete ({ commit }, id) {
-      commit('startLoad')
+    // async delete({ commit }, id) {
+    //   commit("startLoad");
 
-      try {
-        const response = await VuexModel.client.delete(`${resource}/${id}`)
-        commit('setList', { data: response.data })
-      } catch (e) {
-        commit('error', e)
-      }
+    //   try {
+    //     const response = await VuexModel.client.delete(`${resource}/${id}`);
+    //     commit("setList", { data: response.data });
+    //   } catch (e) {
+    //     commit("error", e);
+    //   }
 
-      commit('finishLoad')
-    }
-  }
+    //   commit("finishLoad");
+    // }
+  };
 }

@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "User": {
-            "name": "User",
+        "Job": {
+            "name": "Job",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,50 +10,183 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "firstName": {
-                    "name": "firstName",
+                "contractID": {
+                    "name": "contractID",
                     "isArray": false,
-                    "type": "String",
+                    "type": "ID",
                     "isRequired": true,
                     "attributes": []
                 },
-                "lastName": {
-                    "name": "lastName",
+                "deadline": {
+                    "name": "deadline",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "userID": {
+                    "name": "userID",
+                    "isArray": false,
+                    "type": "ID",
                     "isRequired": true,
                     "attributes": []
                 },
-                "phone": {
-                    "name": "phone",
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "email": {
-                    "name": "email",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "role": {
-                    "name": "role",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Role"
-                    },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 }
             },
             "syncable": true,
-            "pluralName": "Users",
+            "pluralName": "Jobs",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byContract",
+                        "fields": [
+                            "contractID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byUser",
+                        "fields": [
+                            "userID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Contract": {
+            "name": "Contract",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "type": {
+                    "name": "type",
+                    "isArray": false,
+                    "type": {
+                        "enum": "ContractType"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "clientID": {
+                    "name": "clientID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "startDate": {
+                    "name": "startDate",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "endDate": {
+                    "name": "endDate",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Jobs": {
+                    "name": "Jobs",
+                    "isArray": true,
+                    "type": {
+                        "model": "Job"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "contractID"
+                    }
+                },
+                "contractInfo": {
+                    "name": "contractInfo",
+                    "isArray": false,
+                    "type": "AWSJSON",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Client": {
+                    "name": "Client",
+                    "isArray": false,
+                    "type": {
+                        "model": "Client"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "contractClientId"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "Contracts",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byClient",
+                        "fields": [
+                            "clientID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -71,48 +204,76 @@ export const schema = {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "contact": {
                     "name": "contact",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "phone": {
                     "name": "phone",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "address": {
                     "name": "address",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "province": {
+                    "name": "province",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "city": {
+                    "name": "city",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "postalCode": {
+                    "name": "postalCode",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "email": {
                     "name": "email",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
+                    "type": "AWSEmail",
+                    "isRequired": false,
                     "attributes": []
                 },
-                "jobs": {
-                    "name": "jobs",
+                "owners": {
+                    "name": "owners",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Contracts": {
+                    "name": "Contracts",
                     "isArray": true,
                     "type": {
-                        "model": "Job"
+                        "model": "Contract"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "client"
+                        "associatedWith": "clientID"
                     }
                 }
             },
@@ -122,11 +283,27 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },
-        "Job": {
-            "name": "Job",
+        "User": {
+            "name": "User",
             "fields": {
                 "id": {
                     "name": "id",
@@ -135,49 +312,86 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "client": {
-                    "name": "client",
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "AWSEmail",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "firstName": {
+                    "name": "firstName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "lastName": {
+                    "name": "lastName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "phone": {
+                    "name": "phone",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "role": {
+                    "name": "role",
                     "isArray": false,
                     "type": {
-                        "model": "Client"
+                        "enum": "UserRole"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": {
+                        "enum": "UserStatus"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Jobs": {
+                    "name": "Jobs",
+                    "isArray": true,
+                    "type": {
+                        "model": "Job"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "clientID"
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "userID"
                     }
-                },
-                "type": {
-                    "name": "type",
-                    "isArray": false,
-                    "type": {
-                        "enum": "JobType"
-                    },
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "dueDate": {
-                    "name": "dueDate",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
                 }
             },
             "syncable": true,
-            "pluralName": "Jobs",
+            "pluralName": "Users",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
                 },
                 {
-                    "type": "key",
+                    "type": "auth",
                     "properties": {
-                        "name": "byJob",
-                        "fields": [
-                            "clientID"
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
                         ]
                     }
                 }
@@ -185,23 +399,31 @@ export const schema = {
         }
     },
     "enums": {
-        "Role": {
-            "name": "Role",
+        "ContractType": {
+            "name": "ContractType",
             "values": [
-                "Employee",
-                "Manager",
-                "Admin"
+                "TAXES",
+                "PAYROLL",
+                "BOOKKEEPING"
             ]
         },
-        "JobType": {
-            "name": "JobType",
+        "UserStatus": {
+            "name": "UserStatus",
             "values": [
-                "Bookkeeping",
-                "Taxes",
-                "Payroll"
+                "PENDING",
+                "ACTIVE",
+                "DISABLED"
+            ]
+        },
+        "UserRole": {
+            "name": "UserRole",
+            "values": [
+                "ADMIN",
+                "MANAGER",
+                "USER"
             ]
         }
     },
     "nonModels": {},
-    "version": "a8f5c2c8fffcb41516b9ebef3c78e210"
+    "version": "9d4331e7b54037bd40b748b531c47a39"
 };
