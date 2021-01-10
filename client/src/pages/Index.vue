@@ -1,12 +1,8 @@
 <template>
   <Layout>
-    <hero :image="require('~/Logo.png')" title="Hello, we're Ammex Impôts" />
-    
-
+    <hero :image="require('~/Building.jpg')" title="Hello, we're Ammex Impôts" />
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores</p>
 
-    <a class="button is-info">Log In</a>
-    <a class="button is-info">Sign Up</a>
     <div class="box cta">
       <p class="has-text-centered">
         <span class="tag is-primary">New</span> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -66,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div class="intro column is-8 is-offset-2">
+      <div class="intro column is-8 is-offset-3">
         <h2 class="title">Perfect for developers or designers!</h2>
         <br />
         <p
@@ -205,7 +201,7 @@ export default {
     title: "Ammex Impôts"
   },
   components: {Hero}
-};
+}
 </script>
 
 <style>

@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "buefy": "^0.9.4",
+    "bulma-carousel": "^4.0.4",
     "gridsome": "^0.7.0"
   },
   "devDependencies": {
     "bulma": "^0.9.1",
-    "node-sass": "^5.0.0"
+    "webpack": "^4.45.0"
   }
 }

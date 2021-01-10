@@ -1,21 +1,16 @@
 <template>
     <layout>
-            <section class="hero is-medium is-link is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Required Documents
-      </h1>
-    </div>
-  </div>
-</section>
+    <hero :image="require('~/Logo.png')" title="Required Documents" />
+
     </layout>
 </template>
 
 <script>
+import Hero from "@/components/Hero";
 export default {
   metaInfo: {
     title: 'Required Documents'
-  }
+  },
+  components: {Hero}
 }
 </script>
