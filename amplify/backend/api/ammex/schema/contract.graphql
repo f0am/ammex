@@ -1,0 +1,40 @@
+enum ContractType {
+  PAYROLL
+  BOOKKEEPING
+  TAXES
+}
+
+enum ContractStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type Contract @model @versioned {
+  id: ID!
+  client: Client! @connection(name: "ClientContracts")
+  type: ContractType!
+  status: ContractStatus @default(value: "PENDING")
+  startDate: String
+  endDate: String
+  gst: String
+  qst: String
+  period: String
+  corporation: Boolean
+  corporationYearEndDate: String
+  payrollNumber: String
+  payrollFrequency: String
+  remittancePeriod: String
+  remittancePeriodQc: String
+  cheques: Int
+  wsib: String
+  wsibRemittance: String
+  wsibRate: String
+  wsibCode: String
+  csst: String
+  csstRemittance: String
+  csstRate: String
+  csstCode: String
+  t4Deadline: String
+  jobs: [Job] @connection(name: "ContractJobs")
+}

@@ -1,7 +1,10 @@
 // Default actions
 import { VuexModel } from "./VuexModel";
+import * as Queries from "@/graphql/queries"
+import * as Mutations from "@/graphql/mutations"
 
-export default function(resource, queries) {
+
+export default function(entity) {
   // const vuexModel = this
   return {
     async fetch({ commit }) {
@@ -9,7 +12,7 @@ export default function(resource, queries) {
       try {
         const {
           data: { items }
-        } = await VuexModel.API.graphql({ query: queries[`list${resource}s`] });
+        } = await VuexModel.API.graphql({ query: Queries[`list${entity}s`] });
         commit("setList", { data: items });
       } catch (e) {
         commit("error", e);
@@ -24,7 +27,7 @@ export default function(resource, queries) {
         const {
           data: { items }
         } = await VuexModel.client.graphql({
-          query: queries[`get${resource}`],
+          query: Queries[`get${entity}`],
           variables: { id }
         });
         commit("setList", { data: items });
@@ -41,7 +44,7 @@ export default function(resource, queries) {
       try {
         // const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}}));
         const response = await VuexModel.client.graphql({
-          query: queries[`create${resource}`],
+          query: Mutations[`create${entity}`],
           variables: { input }
         });
 
@@ -58,7 +61,7 @@ export default function(resource, queries) {
 
       try {
         const response = await VuexModel.client.graphql({
-          query: queries[`update${resource}`],
+          query: queries[`update${entity}`],
           variables: { input }
         });
         commit("setList", { data: response.data });
@@ -73,7 +76,7 @@ export default function(resource, queries) {
     //   commit("startLoad");
 
     //   try {
-    //     const response = await VuexModel.client.delete(`${resource}/${id}`);
+    //     const response = await VuexModel.client.delete(`${entity}/${id}`);
     //     commit("setList", { data: response.data });
     //   } catch (e) {
     //     commit("error", e);

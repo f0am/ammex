@@ -23,37 +23,26 @@ import vuetify from "./plugins/vuetify";
 import i18n from "./i18n";
 
 import "@aws-amplify/ui-vue";
-import Amplify from "@aws-amplify/core";
-import { Auth } from "@aws-amplify/auth";
-import { API } from "@aws-amplify/api";
-// import Amplify from "@aws-amplify/core";
-// import { Auth } from "@aws-amplify/auth";
+import Amplify, { Auth, API } from "aws-amplify";
+
 import awsconfig from "./aws-exports";
 
 import { VueMaskDirective } from "v-mask";
 
 Amplify.configure(awsconfig);
-Auth.configure(awsconfig);
-
 Vue.config.productionTip = false;
 Vue.directive("mask", VueMaskDirective);
-
-import clientSeeds from "./seeds/clients";
-import contractSeeds from "./seeds/contracts";
-
-// clientSeeds()
-
-// contractSeeds()
 
 Vue.use({
   install(Vue) {
     Vue.prototype.$gql = function(query, variables) {
       return this.$root.api.graphql({ query, variables });
     };
-    Vue.prototype.$alert = function(msg, color) {
+    Vue.prototype.$alert = function(msg, color, timeout = 2000) {
       this.$root.message = msg;
       this.$root.color = color;
       this.$root.show = true;
+      this.$root.timeout = timeout;
     };
   }
 });

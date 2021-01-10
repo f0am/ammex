@@ -345,7 +345,7 @@
 import * as queries from "@/graphql/queries";
 import * as mutations from "@/graphql/mutations";
 
-import { get } from "@/components/resources/client/index";
+// import { get } from "@/components/resources/client/index";
 
 export default {
   mixins: [get],

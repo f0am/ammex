@@ -1,6 +1,12 @@
 {
     "Version": 5,
     "ElasticsearchWarning": true,
+    "ResolverConfig": {
+        "project": {
+            "ConflictHandler": "AUTOMERGE",
+            "ConflictDetection": "VERSION"
+        }
+    },
     "transformers": [
         "graphql-default-value-transformer"
     ]

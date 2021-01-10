@@ -1,0 +1,7 @@
+type Comment @model @versioned {
+  id: ID!
+  job: Job @connection(name: "JobComments")
+  user: User @connection(name: "UserComments")
+  content: String!
+}
+

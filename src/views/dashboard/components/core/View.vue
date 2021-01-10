@@ -3,7 +3,12 @@
     <router-view />
 
     <dashboard-core-footer />
-    <v-snackbar v-model="$root.show" timeout="-1" right :color="$root.color">
+    <v-snackbar
+      v-model="$root.show"
+      right
+      :timeout="$root.timeout"
+      :color="$root.color"
+    >
       {{ $root.message }}
 
       <template v-slot:action="{ attrs }">

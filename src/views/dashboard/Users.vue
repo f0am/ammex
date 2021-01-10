@@ -6,7 +6,6 @@
 
 <script>
 import UserListView from "@/components/resources/user/ListView";
-
 export default {
   components: {
     UserListView,

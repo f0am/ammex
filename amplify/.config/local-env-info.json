@@ -1,5 +1,5 @@
 {
   "projectPath": "/home/jsr/dev/ammex",
-  "envName": "prod",
-  "defaultEditor": "vscode"
+  "defaultEditor": "vscode",
+  "envName": "prod"
 }

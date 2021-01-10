@@ -27,130 +27,82 @@
           },
           "additionalAuthenticationProviders": []
         },
-        "GraphQLAPIIdOutput": "o3eg5ulzi5crhhutdb5bnysdvq",
-        "GraphQLAPIEndpointOutput": "https://blqiugtipnhyrgzy2eb2plhcdq.appsync-api.ca-central-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-m6mqr3xcfzettj6y7tj7fd4yjm"
+        "GraphQLAPIIdOutput": "lmrlrwk4y5e3tnkvqogsqdo3qa",
+        "GraphQLAPIEndpointOutput": "https://wzlq66dxpjhlnhndnxqjjzw2nm.appsync-api.ca-central-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-qgpabtg6xbh3dd5hxd57kifhem"
       },
+      "lastPushTimeStamp": "2021-01-07T08:41:57.215Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiammex"
       },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.123Z",
-      "lastPushDirHash": "0lvsvqG+8okffPjMLjmHzliTG0Y="
+      "lastPushDirHash": "z7xJUMvarTSV2vQksE3BRGCZMIA="
     }
   },
   "function": {
-    "ammexJobFactory": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "ammex",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ],
-      "lastBuildTimeStamp": "2020-12-31T04:55:49.370Z",
-      "lastPackageTimeStamp": "2020-12-31T04:55:50.045Z",
-      "distZipFilename": "ammexJobFactory-4856323055304d316132-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexJobFactory-cloudformation-template.json",
-        "logicalId": "functionammexJobFactory"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.159Z",
-      "output": {
-        "Region": "ca-central-1",
-        "CloudWatchEventRule": "amplify-ammex-prod-205410-function-CloudWatchEvent-SYSQV39EFWT",
-        "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexJobFactory-prod",
-        "Name": "ammexJobFactory-prod",
-        "LambdaExecutionRole": "ammexLambdaRoleb9eb06a7-prod"
-      },
-      "lastPushDirHash": "4qkcAs3jZaSt96gC+TnHK42AWsA="
-    },
     "ammexUsersCreateAuthChallenge": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2020-12-31T07:00:16.969Z",
-      "lastPackageTimeStamp": "2020-12-31T07:00:17.102Z",
-      "distZipFilename": "ammexUsersCreateAuthChallenge-5a63716a5252434c5577-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCreateAuthChallenge-cloudformation-template.json",
-        "logicalId": "functionammexUsersCreateAuthChallenge"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersCreateAuthChallenge-prod",
         "Name": "ammexUsersCreateAuthChallenge-prod",
         "LambdaExecutionRole": "ammexUsersCreateAuthChallenge-prod"
       },
-      "lastPushDirHash": "ak+tx8btK0tmsDWBLiZsUgypEMw="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.040Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCreateAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionammexUsersCreateAuthChallenge"
+      }
     },
     "ammexUsersCustomMessage": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2020-12-31T07:00:16.976Z",
-      "lastPackageTimeStamp": "2020-12-31T07:00:17.127Z",
-      "distZipFilename": "ammexUsersCustomMessage-6954416d524d3865316b-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCustomMessage-cloudformation-template.json",
-        "logicalId": "functionammexUsersCustomMessage"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersCustomMessage-prod",
         "Name": "ammexUsersCustomMessage-prod",
         "LambdaExecutionRole": "ammexUsersCustomMessage-prod"
       },
-      "lastPushDirHash": "4HugnJvk8wrkz8uWdoo17i1UcX4="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.042Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCustomMessage-cloudformation-template.json",
+        "logicalId": "functionammexUsersCustomMessage"
+      }
     },
     "ammexUsersDefineAuthChallenge": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2020-12-31T07:00:16.977Z",
-      "lastPackageTimeStamp": "2020-12-31T07:00:17.132Z",
-      "distZipFilename": "ammexUsersDefineAuthChallenge-647643506a4b6c567555-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersDefineAuthChallenge-cloudformation-template.json",
-        "logicalId": "functionammexUsersDefineAuthChallenge"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersDefineAuthChallenge-prod",
         "Name": "ammexUsersDefineAuthChallenge-prod",
         "LambdaExecutionRole": "ammexUsersDefineAuthChallenge-prod"
       },
-      "lastPushDirHash": "ldYyyu67Fi8t86bPSsfplEbacTc="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.044Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersDefineAuthChallenge-cloudformation-template.json",
+        "logicalId": "functionammexUsersDefineAuthChallenge"
+      }
     },
     "ammexUsersVerifyAuthChallengeResponse": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2020-12-31T07:00:16.978Z",
-      "lastPackageTimeStamp": "2020-12-31T07:00:17.238Z",
-      "distZipFilename": "ammexUsersVerifyAuthChallengeResponse-59377072706652557875-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersVerifyAuthChallengeResponse-cloudformation-template.json",
-        "logicalId": "functionammexUsersVerifyAuthChallengeResponse"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:513424943550:function:ammexUsersVerifyAuthChallengeResponse-prod",
         "Name": "ammexUsersVerifyAuthChallengeResponse-prod",
         "LambdaExecutionRole": "ammexUsersVerifyAuthChallengeResponse-prod"
       },
-      "lastPushDirHash": "dTnvOQRhNWzajk5FbmjeKIxc8iU="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.046Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersVerifyAuthChallengeResponse-cloudformation-template.json",
+        "logicalId": "functionammexUsersVerifyAuthChallengeResponse"
+      }
     }
   },
   "auth": {
@@ -169,17 +121,16 @@
           ]
         }
       ],
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/template.json",
-        "logicalId": "authuserPoolGroups"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "managersGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-managersGroupRole",
         "employeesGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-employeesGroupRole",
         "administratorsGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-administratorsGroupRole"
       },
-      "lastPushDirHash": "rYlujEe2In7vC040Pkh0MHdqbJM="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.047Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
+      }
     },
     "ammexUsers": {
       "service": "Cognito",
@@ -223,11 +174,6 @@
         }
       ],
       "customAuth": true,
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/ammexUsers-cloudformation-template.yml",
-        "logicalId": "authammexUsers"
-      },
-      "lastPushTimeStamp": "2020-12-31T07:04:19.172Z",
       "output": {
         "CreatedSNSRole": "arn:aws:iam::513424943550:role/snsd18156e9205410-prod",
         "AppClientSecret": "15aiu45a1bsgehafjp7kt040fgqeemn5ucpo73dd2fm41pjgb9mr",
@@ -238,7 +184,11 @@
         "IdentityPoolName": "ammexUserPool__prod",
         "UserPoolName": "ammexUserPool"
       },
-      "lastPushDirHash": "SlZu/jddJbad4Owy7lR6wXXC62s="
+      "lastPushTimeStamp": "2021-01-07T08:41:50.048Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/ammexUsers-cloudformation-template.yml",
+        "logicalId": "authammexUsers"
+      }
     }
   }
 }

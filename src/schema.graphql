@@ -1,0 +1,141 @@
+# type Blog @model {
+#   id: ID!
+#   name: String!
+#   posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+# }
+
+# type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+#   id: ID!
+#   title: String!
+#   blogID: ID!
+#   blog: Blog @connection(fields: ["blogID"])
+#   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+# }
+
+# type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+#   id: ID!
+#   postID: ID!
+#   post: Post @connection(fields: ["postID"])
+#   content: String!
+# }
+
+enum UserRole {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type User @model @versioned {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  role: UserRole!
+  status: UserStatus!
+  # jobs: [Job]! @connection(fields: ["id"])
+  # comments: [Comment] @connection(name: "UserComments")
+}
+
+type Client @model @versioned {
+  id: ID!
+  clientNumber: String!
+  name: String!
+  contact: String!
+  phone: String!
+  address: String!
+  province: String
+  city: String!
+  postalCode: String!
+  email: String!
+  owners: [String]
+  status: String
+  # jobs: [Job] @connection(keyName: "byClient", fields: ["id"])
+  # contracts: [Contract]! @connection(name: "ClientContracts")
+}
+
+# enum ContractType {
+#   PAYROLL
+#   BOOKKEEPING
+#   TAXES
+# }
+
+type Contract @model @versioned {
+  id: ID!
+  # clientID: ID!
+  # client: Client @connection(name: "ClientContracts")
+  type: String!
+  startDate: String
+  endDate: String
+  gst: String
+  qst: String
+  period: String
+  corporation: Boolean
+  corporationYearEndDate: String
+  payrollNumber: String
+  payrollFrequency: String
+  remittancePeriod: String
+  remittancePeriodQc: String
+  cheques: Int
+  wsib: String
+  wsibRemittance: String
+  wsibRate: String
+  wsibCode: String
+  csst: String
+  csstRemittance: String
+  csstRate: String
+  csstCode: String
+  t4Deadline: String
+  # jobs: [Job] @connection(name: "ContractJobs")
+}
+
+enum JobStatus {
+  CREATED
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+}
+
+type Job @model @versioned {
+  id: ID!
+  # contract: Contract @connection(name: "ContractJobs")
+  # type: String!
+  name: String!
+  description: String
+  deadline: String!
+  # assigneeID: ID
+  # assignee: User @connection(fields: ["id"])
+  status: String
+  # comments: [Comment] @connection(name: "JobComments")
+}
+
+# type Mutation {
+#   createJobs(input: CreateJobsInput!): [Job]
+# }
+
+# input JobsInput {
+#   clientID: ID!
+#   type: String!
+#   name: String
+#   description: String
+#   deadline: String!
+#   assigneeID: ID
+#   status: String
+# }
+
+# input CreateJobsInput {
+#   items: [JobsInput]
+# }
+
+# type Comment @model {
+#   id: ID!
+#   jobID: ID!
+#   authorID: ID!
+#   content: String!
+# }

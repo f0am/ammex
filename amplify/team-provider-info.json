@@ -29,7 +29,8 @@
         "ammexjobfactory": {},
         "generateJobs": {},
         "ammex090d046f": {},
-        "jobFactory": {}
+        "jobFactory": {},
+        "ammexJobFactory": {}
       },
       "auth": {
         "ammexUsers": {},
@@ -48,6 +49,37 @@
       "StackName": "amplify-ammex-dev-215555",
       "StackId": "arn:aws:cloudformation:ca-central-1:513424943550:stack/amplify-ammex-dev-215555/ccf094c0-4632-11eb-8638-0aea15cef510",
       "AmplifyAppId": "d1dwvkgg53vmhe"
+    }
+  },
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ammex-staging-02457-authRole",
+      "UnauthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-staging-02457-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::513424943550:role/amplify-ammex-staging-02457-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-ammex-staging-02457-deployment",
+      "UnauthRoleName": "amplify-ammex-staging-02457-unauthRole",
+      "StackName": "amplify-ammex-staging-02457",
+      "StackId": "arn:aws:cloudformation:ca-central-1:513424943550:stack/amplify-ammex-staging-02457/84536010-4fdf-11eb-82d8-067c61a6fcd8",
+      "AmplifyAppId": "d1dwvkgg53vmhe"
+    },
+    "categories": {
+      "auth": {
+        "userPoolGroups": {},
+        "ammexUsers": {}
+      },
+      "function": {
+        "ammexjobfactory": {},
+        "generateJobs": {},
+        "ammex090d046f": {},
+        "jobFactory": {},
+        "ammexJobFactory": {},
+        "ammexUsersCreateAuthChallenge": {},
+        "ammexUsersCustomMessage": {},
+        "ammexUsersDefineAuthChallenge": {},
+        "ammexUsersPostConfirmation": {},
+        "ammexUsersVerifyAuthChallengeResponse": {}
+      }
     }
   }
 }

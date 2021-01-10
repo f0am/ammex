@@ -1,51 +1,84 @@
 <template>
   <v-container id="regular-tables" fluid tag="section">
     <!-- <base-v-component heading="Jobs" link="components/simple-tables" /> -->
-    <v-btn @click="seedJobs">Stuff</v-btn>
     <base-material-card icon="mdi-file-clock" class="px-5 py-3" color="primary">
       <template v-slot:after-heading>
         <div>
+          <!-- <v-btn color="primary" @click="toggleThirtyDays" dark class=""
+            >next 30 days</v-btn
+          > -->
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            class="ml-auto"
+            label="Search"
+            single-line
+            style="max-width: 250px"
+          />
+        </div>
+        <!-- <div>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"
                 >New Item</v-btn
               >
             </template>
-            <!-- <job-stepper /> -->
           </v-dialog>
-        </div>
+        </div> -->
       </template>
       <v-data-table
+        :search="search"
         :headers="headers"
-        :items="jobs"
+        :items="filteredJobs"
         sort-by="name"
         class="elevation-1"
       >
+        <template v-slot:[`item.contract.type`]="{ item }">
+          {{ getAbbr(item.contract.type) }}
+        </template>
         <template v-slot:[`item.deadline`]="{ item }">
           {{ new Date(item.deadline).toLocaleDateString("en-CA") }}
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
         </template>
         <template v-slot:[`item.status`]="{ item }">
-          <v-select
-            style="width: 200px"
-            v-model="item.status"
-            :items="[
-              'CREATED',
-              'FINISHED',
-              'AWAITING PAYMENT',
-              'AWAITING DOCUMENTS',
-            ]"
-            dense
-          />
+          <v-badge
+            :color="getStatusColor(item.status) || 'transparent'"
+            dot
+            left
+            offset-y="40px"
+            offset-x="-20px"
+          >
+            <v-select
+              :loading="item.id === loadingJobId"
+              :disabled="item.id === loadingJobId"
+              style="width: 200px"
+              @change="updateJobStatus(item)"
+              v-model="item.status"
+              :items="[
+                'Created',
+                'Finished',
+                'Awaiting payment',
+                'Awaiting documents',
+              ]"
+            />
+          </v-badge>
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
         </template>
         <template v-slot:[`item.assignee`]="{ item }">
-          <v-select
+          <user-select
+            :loading="item.id === loadingJobId"
+            :disabled="item.id === loadingJobId"
+            v-model="item.assigneeID"
+            itemText="name"
+            itemValue="id"
+            @change="updateJobAssignee(item)"
+          />
+          <!-- <v-select
             style="width: 200px"
             v-model="item.assignee"
             :items="['USER #1', 'USER #2', 'USER #3']"
             dense
-          />
+          /> -->
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
         </template>
         <template v-slot:no-data>
@@ -63,11 +96,13 @@
 <script>
 // import JobStepper from "@/views/dashboard/JobStepper";
 import { listJobs } from "@/graphql/queries";
-import * as mutations from "@/graphql/mutations";
+import { updateJob } from "@/graphql/mutations";
 // import ClientSelect from "@/components/resources/client/Select";
+import UserSelect from "@/components/resources/user/Select";
 export default {
   components: {
     // JobStepper,
+    UserSelect,
   },
   beforeMount() {
     this.fetchJobs();
@@ -87,9 +122,14 @@ export default {
 
   data: () => ({
     dialog: false,
+    loadingJobId: -1,
     headers: [
-      { value: "name", text: "Job"},
-      { value: "deadline", text: "Due date" },
+      { value: "name", text: "Job" },
+      {
+        value: "deadline",
+        text: "Due date",
+        sort: (a, b) => (new Date(a) > new Date(b) ? -1 : 1),
+      },
       {
         text: "Client",
         align: "start",
@@ -101,12 +141,14 @@ export default {
     ],
     menu2: null,
     clients: [],
+    filter: false,
     jobs: [],
     newJob: {
       clientID: "10000",
       type: "TAXES",
     },
-    contracts: [],  
+    search: "",
+    contracts: [],
     editedIndex: -1,
     editedItem: {
       client: {},
@@ -128,6 +170,21 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
+    filteredJobs() {
+      if (this.filter) {
+        const start = new Date();
+        const end = new Date(
+          start.getFullYear(),
+          start.getMonth(),
+          start.getDay() + 30
+        );
+        return this.jobs.filter((i) => {
+          return i.deadline > start && i.deadline < end;
+        });
+      } else {
+        return this.jobs;
+      }
+    },
   },
 
   watch: {
@@ -137,18 +194,76 @@ export default {
   },
 
   methods: {
+    getStatusColor(status) {
+      switch (status) {
+        case "Created":
+          return "primary";
+        case "Awaiting payment":
+          return "warning";
+        case "Awaiting documents":
+          return "purple";
+        case "Finished":
+          return "success";
+        default:
+          return null;
+      }
+    },
+    toggleThirtyDays() {
+      this.filter = !this.filter;
+    },
+    getAbbr(type) {
+      if (type === "BOOKKEEPING") return "BK";
+      if (type === "PAYROLL") return "PR";
+      if (type === "TAXES") return "TX";
+    },
     async fetchJobs() {
       try {
         const { data } = await this.$gql(listJobs);
         this.jobs = data.listJobs.items;
       } catch (error) {
-        this.$alert(error, "warning");
+        this.$alert(error, "warning", -1);
       }
     },
-    randomDate(start, end) {
-      return new Date(
-        start.getTime() + Math.random() * (end.getTime() - start.getTime())
-      );
+
+    async updateJobStatus(job) {
+      this.loadingJobId = job.id;
+      try {
+        const { id, status, version, ...rest } = job;
+        console.log(id, status, version);
+        await this.$gql(updateJob, {
+          input: {
+            id,
+            status,
+            expectedVersion: version,
+          },
+        });
+        await this.fetchJobs();
+        this.$alert("Success updating job", "success");
+      } catch (error) {
+        this.$alert(error, "warning", -1);
+      }
+      this.loadingJobId = -1;
+    },
+
+    async updateJobAssignee(job) {
+      this.loadingJobId = job.id;
+
+      try {
+        const { id, assigneeID, version, ...rest } = job;
+        // console.log(assigneeID)
+        await this.$gql(updateJob, {
+          input: {
+            id,
+            assigneeID,
+            expectedVersion: version,
+          },
+        });
+        await this.fetchJobs();
+        this.$alert("Success updating job", "success");
+      } catch (error) {
+        this.$alert(error, "warning", -1);
+      }
+      this.loadingJobId = -1;
     },
 
     async seedJobs() {

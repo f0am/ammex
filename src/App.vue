@@ -1,33 +1,30 @@
 <template>
-  <div>
-    <div v-if="authState !== 'signedin'">You are signed out.</div>
-    <amplify-authenticator>
-      <div v-if="authState === 'signedin' && user">
-        <router-view />
-      </div>
-      <amplify-sign-out></amplify-sign-out>
-    </amplify-authenticator>
-  </div>
+  <!-- <amplify-authenticator> -->
+  <router-view />
+  <!-- <amplify-sign-in slot="sign-in">
+      <div slot="secondary-footer-content"></div>
+    </amplify-sign-in>
+  </amplify-authenticator> -->
 </template>
 
 <script>
-import { onAuthUIStateChange } from "@aws-amplify/ui-components";
+// import { onAuthUIStateChange } from "@aws-amplify/ui-components";
 
 export default {
   name: "App",
   data() {
     return {
-      user: undefined,
-      authState: undefined,
-      formFields: [
-        { type: "username" },
-        { type: "password" },
-        { type: "email" },
-      ],
+      // user: undefined,
+      // authState: undefined,
+      // formFields: [
+      //   { type: "username" },
+      //   { type: "password" },
+      //   { type: "email" },
+      // ],
     };
   },
-  beforeDestroy() {
-    return onAuthUIStateChange;
-  },
+  // beforeDestroy() {
+  //   return onAuthUIStateChange;
+  // },
 };
 </script>

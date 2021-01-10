@@ -1,0 +1,18 @@
+enum JobStatus {
+  PENDING
+  ACTIVE
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+}
+
+type Job @model @versioned {
+  id: ID!
+  contract: Contract! @connection(name: "ContractJobs")
+  name: String!
+  description: String
+  deadline: String!
+  assignee: User @connection(name: "UserJobs")
+  status: JobStatus @default(value: "PENDING")
+  comments: [Comment] @connection(name: "JobComments")
+}

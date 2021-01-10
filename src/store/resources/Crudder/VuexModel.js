@@ -4,7 +4,7 @@ import mutations from './mutations'
 
 export class VuexModel {
   static modules = {}
-  static models = []
+  static entities = []
   static store
   static client
   static properties
@@ -26,7 +26,7 @@ export class VuexModel {
   // }
 
   static generateModules () {
-    this.models.forEach(m => {
+    this.entities.forEach(m => {
       this.modules[m.model] = m.generateModule()
     })
 
@@ -41,7 +41,7 @@ export class VuexModel {
   constructor (model, idPrefix) {
     this.model = model
     this.idPrefix = idPrefix || model.substr(0, model.length - 1)
-    VuexModel.models.push(this)
+    VuexModel.entities.push(this)
   }
 
   addMutation (name, fn) {
@@ -50,13 +50,13 @@ export class VuexModel {
 
   addAction (name, fn) {
     this.actions[name] = async (ctx, params) => {
-      ctx.commit(`models/${this.model}/startLoad`, null, { root: true })
+      ctx.commit(`entities/${this.model}/startLoad`, null, { root: true })
       try {
         await fn(ctx, params)
       } catch (e) {
-        ctx.commit(`models/${this.model}/error`, e, { root: true })
+        ctx.commit(`entities/${this.model}/error`, e, { root: true })
       }
-      ctx.commit(`models/${this.model}/finishLoad`, null, { root: true })
+      ctx.commit(`entities/${this.model}/finishLoad`, null, { root: true })
     }
   }
 
@@ -68,35 +68,35 @@ export class VuexModel {
     this.addAction(name, method)
 
     this[`$${name}`] = params =>
-      VuexModel.store.dispatch(`models/${this.model}/${name}`, params)
+      VuexModel.store.dispatch(`entities/${this.model}/${name}`, params)
   }
 
   async $fetch () {
-    VuexModel.store.dispatch(`models/${this.model}/fetch`)
+    VuexModel.store.dispatch(`entities/${this.model}/fetch`)
   }
 
   async $get (id) {
-    VuexModel.store.dispatch(`models/${this.model}/get`, id)
+    VuexModel.store.dispatch(`entities/${this.model}/get`, id)
   }
 
   async $create (data) {
-    VuexModel.store.dispatch(`models/${this.model}/create`, data)
+    VuexModel.store.dispatch(`entities/${this.model}/create`, data)
   }
 
   async $update (data) {
-    VuexModel.store.dispatch(`models/${this.model}/update`, data)
+    VuexModel.store.dispatch(`entities/${this.model}/update`, data)
   }
 
   async $delete (id) {
-    VuexModel.store.dispatch(`models/${this.model}/delete`, id)
+    VuexModel.store.dispatch(`entities/${this.model}/delete`, id)
   }
 
   isLoading () {
-    return VuexModel.store.getters[`models/${this.model}/isLoading`]
+    return VuexModel.store.getters[`entities/${this.model}/isLoading`]
   }
 
   find (id) {
-    return VuexModel.store.getters[`models/${this.model}/find`](id)
+    return VuexModel.store.getters[`entities/${this.model}/find`](id)
   }
 
   query () {
@@ -119,11 +119,11 @@ export class VuexModel {
   }
 
   all () {
-    return VuexModel.store.getters[`models/${this.model}/all`]
+    return VuexModel.store.getters[`entities/${this.model}/all`]
   }
 
   raw () {
-    return VuexModel.store.getters[`models/${this.model}/data`]
+    return VuexModel.store.getters[`entities/${this.model}/data`]
   }
 
   generateModule () {
@@ -151,5 +151,5 @@ export class VuexModel {
 
 export const crudder = store => {
   VuexModel.setStore(store)
-  store.registerModule('models', VuexModel.generateModules())
+  store.registerModule('entities', VuexModel.generateModules())
 }
