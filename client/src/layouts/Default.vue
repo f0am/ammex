@@ -1,31 +1,41 @@
 <template>
-  <div class="layout">
-    <div class="notification is-fullhd is-light is-warning">
-      Information relating to
-      <g-link class="link" to="/covid/">
-        <strong>COVID-19</strong>
-      </g-link>
-    </div>
-    <div class="container is-fullhd">
-      <div class="notification is-info has-text-right is-light">
-        <g-link class="button is-outlined is-info" to="/">FR</g-link>
+  <div>
+    <b-notification type="is-warning is-light is-marginless" :closable="false">
+      <div class="container">
+        Information relating to
+        <g-link class="link" to="/covid/">
+          <strong>COVID-19</strong>
+        </g-link>
       </div>
+    </b-notification>
+    <div class="is-fullhd">
+      <b-notification :closable="false" type="is-info is-light">
+        <div class="container">
+          <g-link class="button is-outlined is-info is-pulled-right" to="/"
+            >FR</g-link
+          >
+        </div>
+      </b-notification>
     </div>
-    <header class="header">
+    <div class="container">
+      <header class="header">
         <g-link to="/">
           <g-image alt="Ammex Logo" src="~/Logo.png" width="200" />
         </g-link>
-      <nav class="navbar">                        
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About Us</g-link>
-        <g-link class="nav__link" to="/required-docs/">Required Documents</g-link>
-        <g-link class="nav__link" to="/forms/">Forms</g-link>
-        <g-link class="nav__link" to="/services/">Services</g-link>
-        <g-link class="nav__link" to="/faq/">FAQ</g-link>
-        <g-link class="nav__link" to="/contact-us/">Contact Us</g-link>
-        <g-link class="nav__link" to="/login/">Log In</g-link>               
-      </nav>
-    </header>
+        <nav class="navbar">
+          <g-link class="nav__link" to="/">Home</g-link>
+          <g-link class="nav__link" to="/about/">About Us</g-link>
+          <g-link class="nav__link" to="/required-docs/"
+            >Required Documents</g-link
+          >
+          <g-link class="nav__link" to="/forms/">Forms</g-link>
+          <g-link class="nav__link" to="/services/">Services</g-link>
+          <g-link class="nav__link" to="/faq/">FAQ</g-link>
+          <g-link class="nav__link" to="/contact-us/">Contact Us</g-link>
+          <g-link class="nav__link" to="/login/">Log In</g-link>
+        </nav>
+      </header>
+    </div>
     <slot />
     <footer />
     <footer class="footer">
