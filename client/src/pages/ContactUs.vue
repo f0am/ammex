@@ -11,15 +11,9 @@
                 voluptate facere molestiae consequatur.
               </p>
               <div class="social-media">
-                <a href="https://facebook.com" target="_blank" class="button is-light is-large">
-                  <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                <a href="https://facebook.com" target="_blank" class="button">
+                  <i class="fab fa-facebook-square" aria-hidden="true"></i>
                 </a>
-                <span class="icon-text">
-                  <span class="icon">
-                    <i class="fas fa-home"></i>
-                  </span>
-                  <span>Home</span>
-                </span>
               </div>
             </div>
             <div class="column is-one-third has-text-left">
@@ -44,7 +38,7 @@
               <div class="control">
                 <button
                   type="submit"
-                  class="button is-link is-fullwidth has-text-weight-medium is-medium"
+                  class="button is-info is-fullwidth has-text-weight-medium is-medium"
                 >Send Message</button>
               </div>
             </div>

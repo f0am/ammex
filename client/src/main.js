@@ -14,4 +14,8 @@ export default function (Vue, {router, head, isClient}) {
     rel: 'stylesheet',
     href: '//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css'
   })
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css'
+  })
 }
