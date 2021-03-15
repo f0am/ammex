@@ -11,9 +11,20 @@
     <div class="is-fullhd">
       <b-notification :closable="false" type="is-info is-light">
         <div class="container">
-          <g-link class="button is-outlined is-info is-pulled-right" to="/"
-            >FR</g-link
+          <div
+            v-if="lang !== 'fr'"
+            class="button is-outlined is-info is-pulled-right"
+            @click="setLang('fr')"
           >
+            FR
+          </div>
+          <div
+            v-if="lang !== 'en'"
+            class="button is-outlined is-info is-pulled-right"
+            @click="setLang('en')"
+          >
+            EN
+          </div>
         </div>
       </b-notification>
     </div>
@@ -23,16 +34,20 @@
           <g-image alt="Ammex Logo" src="~/Logo.png" width="200" />
         </g-link>
         <nav class="navbar">
-          <g-link class="nav__link" to="/">Home</g-link>
-          <g-link class="nav__link" to="/about/">About Us</g-link>
-          <g-link class="nav__link" to="/required-docs/"
-            >Required Documents</g-link
-          >
-          <g-link class="nav__link" to="/forms/">Forms</g-link>
-          <g-link class="nav__link" to="/services/">Services</g-link>
-          <g-link class="nav__link" to="/faq/">FAQ</g-link>
-          <g-link class="nav__link" to="/contact-us/">Contact Us</g-link>
-          <g-link class="nav__link" to="/login/">Log In</g-link>
+          <g-link class="nav__link" to="/">{{ menu[lang].home }}</g-link>
+          <g-link class="nav__link" to="/about/">{{ menu[lang].about }}</g-link>
+          <g-link class="nav__link" to="/required-docs/">{{
+            menu[lang].documents
+          }}</g-link>
+          <g-link class="nav__link" to="/forms/">{{ menu[lang].forms }}</g-link>
+          <g-link class="nav__link" to="/services/">{{
+            menu[lang].services
+          }}</g-link>
+          <g-link class="nav__link" to="/faq/">{{ menu[lang].faq }}</g-link>
+          <g-link class="nav__link" to="/contact-us/">{{
+            menu[lang].contact
+          }}</g-link>
+          <g-link class="nav__link" to="/login/">{{ menu[lang].login }}</g-link>
         </nav>
       </header>
     </div>
@@ -53,6 +68,43 @@ query {
   }
 }
 </static-query>
+
+<script>
+export default {
+  data() {
+    return {
+      lang: "en",
+      menu: {
+        en: {
+          home: "Home",
+          documents: "Required Documents",
+          about: "About Us",
+          forms: "Forms",
+          services: "Services",
+          faq: "FAQ",
+          contact: "Contact Us",
+          login: "Log In",
+        },
+        fr: {
+          home: "Accueil",
+          documents: "Documents requis",
+          about: "À Propos",
+          forms: "Formulaires",
+          services: "Services",
+          faq: "FAQ",
+          contact: "Coordonnées",
+          login: "S'authentifier",
+        },
+      },
+    };
+  },
+  methods: {
+    setLang(lang) {
+      this.lang = lang;
+    },
+  },
+};
+</script>
 
 <style>
 body {
