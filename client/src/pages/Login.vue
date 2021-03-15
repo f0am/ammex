@@ -2,15 +2,14 @@
  <layout>
  <section class="hero is-light is-fullheight">
         <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-black">Login</h3>
-                    <hr class="login-hr">
-                    <p class="subtitle has-text-black">Please login to proceed.</p>
+            <div class="container has-text has-text-centered">
+                <div class="columns is is-vcentered">
+                    <div class="column is-5" padding="200px">
+               <g-image alt="Ammex Impôts" src="~/Logo.png"/>
+                    </div>
+                    <div class="column is-6 is-offset-1">
+                        <div class="login">
                     <div class="box">
-                        <figure class="avatar">
-                            <img src="https://placehold.it/128x128">
-                        </figure>
                         <form>
                             <div class="field">
                                 <div class="control">
@@ -38,7 +37,9 @@
                     </p>
                 </div>
             </div>
+                </div>
         </div>
+            </div>
     </section>
   </Layout>
 </template>
@@ -49,3 +50,26 @@ export default {
   }
 }
 </script>
+
+<style>
+
+:root {
+  --shadowDark: #D9DDE6;
+  --background: #E4E9F2;
+  --shadowLight: #EFF5FE;
+}
+
+.hero-body {
+  justify-content: center;
+}
+
+.box {
+  border-radius: 25px;
+  padding: 1.5rem;
+  box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
+}
+
+a {
+  font-weight: 400;
+}
+</style>

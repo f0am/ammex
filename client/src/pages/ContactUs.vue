@@ -6,18 +6,38 @@
           <div class="columns is-8 is-variable">
             <div class="column is-two-thirds has-text-left">
               <h1 class="title is-1">Contact Us</h1>
-              <p class="is-size-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi soluta
-                voluptate facere molestiae consequatur.
-              </p>
+              <p
+                class="is-size-4"
+              >We are a located in the heart of Aylmer, Gatineau and operate all year-round for your accounting needs.</p>
+              <h2 class="title is-3" style="margin-top:2.5rem">Call Us now</h2>
+              <i class="fas fa-phone-alt" style="margin:5px"></i>
+              <span>819-682-0000</span>
+              <br />
+              <i class="fas fa-map-marker-alt" style="margin:5px"></i>
+              <span>204 chemin d'Aylmer app. 304, J9H 1A1 Gatineau, Quebec</span>
+              <br />
+              <i class="fas fa-envelope" style="margin:5px"></i>
+              <span>ammextax@gmail.com</span>
               <div class="social-media">
-                <a href="https://facebook.com" target="_blank" class="button">
+                <a href="https://facebook.com" target="_blank">
                   <i class="fab fa-facebook-square" aria-hidden="true"></i>
                 </a>
               </div>
+              <div class="map-responsive">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.6955131402183!2d-75.83594548444485!3d45.395312679100165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce018c43029853%3A0x8c6a2c97397986ee!2s204%20Chemin%20d&#39;Aylmer%20appt%2C%20304%2C%20Gatineau%2C%20QC%20J9H%206J8!5e0!3m2!1sen!2sca!4v1612031838258!5m2!1sen!2sca"
+                  width="600"
+                  height="450"
+                  frameborder="0"
+                  style="border:0; margin-top:2.5rem"
+                  allowfullscreen
+                  aria-hidden="false"
+                  tabindex="0"
+                ></iframe>
+              </div>
             </div>
             <div class="column is-one-third has-text-left">
-              <div class="field">
+              <div class="field" style="margin-top: 5rem">
                 <label class="label">Name</label>
                 <div class="control">
                   <input class="input is-medium" type="text" />
@@ -55,3 +75,19 @@ export default {
   }
 };
 </script>
+
+<style>
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+</style>
