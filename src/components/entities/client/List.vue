@@ -2,7 +2,7 @@
   <v-data-table
     :search="search"
     :headers="headers"
-    :items="provider.items"
+    :items="items"
     class="elevation-1"
     :loading="provider.loading !== false"
     hover="false"
@@ -12,7 +12,7 @@
       :slot="name"
       slot-scope="slotData"
     >
-      <slot :name="name" v-bind="{ ...slotData, ClientProvider }" />
+      <slot :name="name" v-bind="{ ...slotData, provider }" />
     </template>
   </v-data-table>
 </template>
@@ -23,10 +23,10 @@ export default {
       type: Object,
       default: () => {},
     },
-    items: {
-      type: Array,
-      default: () => [],
-    },
+    // items: {
+    //   type: Array,
+    //   default: () => [],
+    // },
     loading: {
       type: Boolean,
       default: false,
@@ -36,14 +36,25 @@ export default {
       default: "",
     },
   },
+  computed: {
+    items() {
+      return this.provider.items.map((i) => ({
+        ...i,
+        contact: {
+          ...i.contact,
+          name: `${i.contact.firstName} ${i.contact.lastName}`,
+        },
+      }));
+    },
+  },
   data() {
     return {
       headers: [
         { text: "ID", value: "clientNumber" },
         { text: "Company Name", value: "name" },
-        { text: "Contact Name", value: "contact" },
-        { text: "Contact Email", value: "email" },
-        { text: "Contact Phone", value: "phone" },
+        { text: "Contact Name", value: "contact.name" },
+        { text: "Contact Email", value: "contact.email" },
+        { text: "Contact Phone", value: "contact.phone" },
         { text: "Status", value: "status" },
         // { text: "Services", value: "contracts" },
         { text: "Actions", value: "actions" },
@@ -81,13 +92,6 @@ export default {
     selectUser(e) {
       this.$emit("click:row", e);
     },
-    // showItem({ id }) {
-    //   // console.log(item);
-    //   this.$router.push(`/clients/${id}`);
-    // },
-    // editItem({ cliendID }) {
-    //   this.$router.push(`/clients/${id}`);
-    // },
   },
 };
 </script>

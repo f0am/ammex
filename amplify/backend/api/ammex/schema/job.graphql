@@ -3,12 +3,15 @@ enum JobStatus {
   ACTIVE
   IN_PROGRESS
   BLOCKED
+  REVIEW
+  APPROVAL
+  WAITING_FOR_PAYMENT
   COMPLETED
 }
 
 type Job @model @versioned {
   id: ID!
-  contract: Contract! @connection(name: "ContractJobs")
+  contract: Contract @connection(name: "ContractJobs")
   name: String!
   description: String
   deadline: String!

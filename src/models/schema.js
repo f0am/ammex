@@ -27,14 +27,9 @@ export const schema = {
                 "contact": {
                     "name": "contact",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "phone": {
-                    "name": "phone",
-                    "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "nonModel": "Person"
+                    },
                     "isRequired": true,
                     "attributes": []
                 },
@@ -66,27 +61,38 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "email": {
-                    "name": "email",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "owners": {
-                    "name": "owners",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": false
-                },
                 "status": {
                     "name": "status",
                     "isArray": false,
                     "type": {
                         "enum": "ClientStatus"
                     },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "owners": {
+                    "name": "owners",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "Person"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
+                "codes": {
+                    "name": "codes",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "AccessCodes"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cheques": {
+                    "name": "cheques",
+                    "isArray": false,
+                    "type": "Int",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -134,7 +140,7 @@ export const schema = {
                     "type": {
                         "model": "Client"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
@@ -147,7 +153,7 @@ export const schema = {
                     "type": {
                         "enum": "ContractType"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "status": {
@@ -159,150 +165,19 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "startDate": {
-                    "name": "startDate",
+                "date": {
+                    "name": "date",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "endDate": {
-                    "name": "endDate",
+                "meta": {
+                    "name": "meta",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "gst": {
-                    "name": "gst",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "qst": {
-                    "name": "qst",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "period": {
-                    "name": "period",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "corporation": {
-                    "name": "corporation",
-                    "isArray": false,
-                    "type": "Boolean",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "corporationYearEndDate": {
-                    "name": "corporationYearEndDate",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "payrollNumber": {
-                    "name": "payrollNumber",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "payrollFrequency": {
-                    "name": "payrollFrequency",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "remittancePeriod": {
-                    "name": "remittancePeriod",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "remittancePeriodQc": {
-                    "name": "remittancePeriodQc",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "cheques": {
-                    "name": "cheques",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "wsib": {
-                    "name": "wsib",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "wsibRemittance": {
-                    "name": "wsibRemittance",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "wsibRate": {
-                    "name": "wsibRate",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "wsibCode": {
-                    "name": "wsibCode",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "csst": {
-                    "name": "csst",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "csstRemittance": {
-                    "name": "csstRemittance",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "csstRate": {
-                    "name": "csstRate",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "csstCode": {
-                    "name": "csstCode",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "t4Deadline": {
-                    "name": "t4Deadline",
-                    "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "nonModel": "MetaData"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
@@ -350,7 +225,7 @@ export const schema = {
                     "type": {
                         "model": "Contract"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
@@ -542,7 +417,7 @@ export const schema = {
                     "type": {
                         "model": "Job"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
@@ -555,7 +430,7 @@ export const schema = {
                     "type": {
                         "model": "User"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
@@ -567,6 +442,15 @@ export const schema = {
                     "isArray": false,
                     "type": "String",
                     "isRequired": true,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": {
+                        "enum": "CommentStatus"
+                    },
+                    "isRequired": false,
                     "attributes": []
                 }
             },
@@ -609,6 +493,23 @@ export const schema = {
                 "DISABLED"
             ]
         },
+        "Remittance": {
+            "name": "Remittance",
+            "values": [
+                "MONTHLY",
+                "QUATERLY",
+                "YEARLY"
+            ]
+        },
+        "Frequency": {
+            "name": "Frequency",
+            "values": [
+                "WEEKLY",
+                "BI_WEEKLY",
+                "SEMI_MONTHLY",
+                "MONTHLY"
+            ]
+        },
         "UserRole": {
             "name": "UserRole",
             "values": [
@@ -625,6 +526,13 @@ export const schema = {
                 "DISABLED"
             ]
         },
+        "CommentStatus": {
+            "name": "CommentStatus",
+            "values": [
+                "DRAFT",
+                "PUBLISHED"
+            ]
+        },
         "JobStatus": {
             "name": "JobStatus",
             "values": [
@@ -632,10 +540,288 @@ export const schema = {
                 "ACTIVE",
                 "IN_PROGRESS",
                 "BLOCKED",
+                "REVIEW",
+                "APPROVAL",
+                "WAITING_FOR_PAYMENT",
                 "COMPLETED"
             ]
         }
     },
-    "nonModels": {},
-    "version": "3715d7dde91335fb516874ac4694c7df"
+    "nonModels": {
+        "Person": {
+            "name": "Person",
+            "fields": {
+                "firstName": {
+                    "name": "firstName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "lastName": {
+                    "name": "lastName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "phone": {
+                    "name": "phone",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "AccessCodes": {
+            "name": "AccessCodes",
+            "fields": {
+                "cliqsecr": {
+                    "name": "cliqsecr",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cra": {
+                    "name": "cra",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wsib": {
+                    "name": "wsib",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "csst": {
+                    "name": "csst",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "MetaData": {
+            "name": "MetaData",
+            "fields": {
+                "bookkeeping": {
+                    "name": "bookkeeping",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "BookkeepingMeta"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "taxes": {
+                    "name": "taxes",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "TaxesMeta"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "payroll": {
+                    "name": "payroll",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "PayrollMeta"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "BookkeepingMeta": {
+            "name": "BookkeepingMeta",
+            "fields": {
+                "startDate": {
+                    "name": "startDate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "endDate": {
+                    "name": "endDate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "gst": {
+                    "name": "gst",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "gstRemittance": {
+                    "name": "gstRemittance",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "qst": {
+                    "name": "qst",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "qstRemittance": {
+                    "name": "qstRemittance",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "TaxesMeta": {
+            "name": "TaxesMeta",
+            "fields": {
+                "year": {
+                    "name": "year",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "corporation": {
+                    "name": "corporation",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "corporationYearEndDate": {
+                    "name": "corporationYearEndDate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "PayrollMeta": {
+            "name": "PayrollMeta",
+            "fields": {
+                "startDate": {
+                    "name": "startDate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "endDate": {
+                    "name": "endDate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "payrollNumber": {
+                    "name": "payrollNumber",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "frequency": {
+                    "name": "frequency",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Frequency"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "remittance": {
+                    "name": "remittance",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "remittanceQc": {
+                    "name": "remittanceQc",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wsib": {
+                    "name": "wsib",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wsibRemittance": {
+                    "name": "wsibRemittance",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wsibRate": {
+                    "name": "wsibRate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "csst": {
+                    "name": "csst",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "csstRemittance": {
+                    "name": "csstRemittance",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Remittance"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "csstRate": {
+                    "name": "csstRate",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        }
+    },
+    "version": "6b9288f54391f54d77f3e9aa3cef5a3a"
 };

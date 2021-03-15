@@ -38,23 +38,21 @@
                 <v-flex>
                   <vuetify-google-autocomplete
                     ref="address"
-                    v-model="currentValue.address"
                     id="map"
-                    placeholder=""
                     label="Business Address"
                     v-on:placechanged="getAddressData"
                     country="ca"
                   >
                   </vuetify-google-autocomplete>
                 </v-flex>
-                <v-flex>
+                <!-- <v-flex>
                   <v-combobox
                     v-model="currentValue.owners"
                     label="Company Owner/Partners"
                     multiple
                     chips
                   ></v-combobox>
-                </v-flex>
+                </v-flex> -->
               </v-layout>
             </v-col>
           </v-row>
@@ -76,9 +74,23 @@
                   >
                     <v-text-field
                       autocomplete="off"
-                      v-model="currentValue.contact"
+                      v-model="currentValue.contact.firstName"
                       :error-messages="errors"
-                      label="Name"
+                      label="First Name"
+                    />
+                  </validation-provider>
+                </v-flex>
+                <v-flex>
+                  <validation-provider
+                    v-slot="{ errors }"
+                    rules="required"
+                    name="name"
+                  >
+                    <v-text-field
+                      autocomplete="off"
+                      v-model="currentValue.contact.lastName"
+                      :error-messages="errors"
+                      label="Last Name"
                     />
                   </validation-provider>
                 </v-flex>
@@ -90,7 +102,7 @@
                   >
                     <v-text-field
                       autocomplete="off"
-                      v-model="currentValue.phone"
+                      v-model="currentValue.contact.phone"
                       :error-messages="errors"
                       label="Phone"
                       v-mask="'(###) ###-####'"
@@ -104,12 +116,11 @@
                     name="email"
                   >
                     <v-text-field
-                      v-model="currentValue.email"
+                      v-model="currentValue.contact.email"
                       :error-messages="errors"
                       label="Email"
                     />
                   </validation-provider>
-                  <!-- <v-text-field type="email" v-model="currentValue.email" label="Email" /> -->
                 </v-flex>
               </v-layout>
             </v-col>
@@ -127,7 +138,8 @@
               justify="space-around"
               style="max-width: 800px"
             >
-              <v-col cols="12" md="8">
+              <v-col cols="12">
+                <show-client :item="currentValue" />
                 {{ currentValue }}
               </v-col>
             </v-row>
@@ -139,7 +151,9 @@
 </template>
 
 <script>
+import ShowClient from "./ShowClient";
 export default {
+  components: { ShowClient },
   name: "ClientFormWizard",
   props: {
     value: {
@@ -154,6 +168,7 @@ export default {
       client: {},
       type: "",
       tab: 0,
+      owners: [],
       tabs: ["Client", "Contact", "Review"],
     };
   },
@@ -169,12 +184,16 @@ export default {
         this.$emit("input", value);
       },
       get() {
-        return this.value;
+        return this.value
       },
     },
   },
   methods: {
     getAddressData(addressData, placeResultData, id) {
+      // this.currentValue.address = addressData.
+      console.log(addressData);
+      this.currentValue.address = `${addressData.name}, ${addressData.locality}, ${addressData.administrative_area_level_1}, ${addressData.country}, ${addressData.postal_code}`;
+      // this.currentValue.streetName = addressData.name;
       this.currentValue.province = addressData.administrative_area_level_1;
       this.currentValue.city = addressData.locality;
       this.currentValue.postalCode = addressData.postal_code;
@@ -193,6 +212,9 @@ export default {
 </script>
 
 <style lang="sass">
+.v-text-field--placeholder
+  display: 'none'
+
 .v-card.v-card.v-card--account
   border-color: currentColor
   border-width: 4px

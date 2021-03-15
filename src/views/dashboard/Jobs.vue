@@ -55,10 +55,14 @@
               @change="updateJobStatus(item)"
               v-model="item.status"
               :items="[
-                'Created',
-                'Finished',
-                'Awaiting payment',
-                'Awaiting documents',
+                'PENDING',
+                'ACTIVE',
+                'IN_PROGRESS',
+                'BLOCKED',
+                'REVIEW',
+                'APPROVAL',
+                'WAITING_FOR_PAYMENT',
+                'COMPLETED',
               ]"
             />
           </v-badge>
@@ -97,8 +101,8 @@
 // import JobStepper from "@/views/dashboard/JobStepper";
 import { listJobs } from "@/graphql/queries";
 import { updateJob } from "@/graphql/mutations";
-// import ClientSelect from "@/components/resources/client/Select";
-import UserSelect from "@/components/resources/user/Select";
+// import ClientSelect from "@/components/entities/client/Select";
+import UserSelect from "@/components/entities/user/Select";
 export default {
   components: {
     // JobStepper,

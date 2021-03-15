@@ -17,7 +17,7 @@
         }"
         :color="color"
         :max-height="icon ? 90 : undefined"
-        :width="inline || icon ? 'auto' : '100%'"
+        :width="inline || icon || avatarText ? 'auto' : '100%'"
         elevation="6"
         class="text-start v-card--material__heading mt-n6 mb-auto"
         dark
@@ -34,6 +34,17 @@
 
         <v-icon v-else-if="icon" size="32" v-text="icon" />
 
+        <v-avatar
+          v-else-if="avatarText"
+          size="32"
+          tile
+        >
+        <span class="text-h3">
+          {{ avatarText }}
+        </span>
+          <!-- <v-img :src="avatar" /> -->
+        </v-avatar>
+
         <div v-if="text" class="headline font-weight-thin" v-text="text" />
       </v-sheet>
 
@@ -45,7 +56,7 @@
         <slot name="reveal-actions" />
       </v-col>
 
-      <div v-else-if="icon && title" class="ml-4">
+      <div v-else-if="(icon || avatarText) && title" class="ml-4">
         <div class="card-title font-weight-light" v-text="title" />
       </div>
       <div v-if="$slots['header-actions']" class="ml-auto">
@@ -74,6 +85,10 @@ export default {
 
   props: {
     avatar: {
+      type: String,
+      default: "",
+    },
+    avatarText: {
       type: String,
       default: "",
     },

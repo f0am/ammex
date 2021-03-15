@@ -20,6 +20,19 @@ const ContractStatus = {
   "DISABLED": "DISABLED"
 };
 
+const Remittance = {
+  "MONTHLY": "MONTHLY",
+  "QUATERLY": "QUATERLY",
+  "YEARLY": "YEARLY"
+};
+
+const Frequency = {
+  "WEEKLY": "WEEKLY",
+  "BI_WEEKLY": "BI_WEEKLY",
+  "SEMI_MONTHLY": "SEMI_MONTHLY",
+  "MONTHLY": "MONTHLY"
+};
+
 const UserRole = {
   "EMPLOYEE": "EMPLOYEE",
   "MANAGER": "MANAGER",
@@ -32,15 +45,23 @@ const UserStatus = {
   "DISABLED": "DISABLED"
 };
 
+const CommentStatus = {
+  "DRAFT": "DRAFT",
+  "PUBLISHED": "PUBLISHED"
+};
+
 const JobStatus = {
   "PENDING": "PENDING",
   "ACTIVE": "ACTIVE",
   "IN_PROGRESS": "IN_PROGRESS",
   "BLOCKED": "BLOCKED",
+  "REVIEW": "REVIEW",
+  "APPROVAL": "APPROVAL",
+  "WAITING_FOR_PAYMENT": "WAITING_FOR_PAYMENT",
   "COMPLETED": "COMPLETED"
 };
 
-const { Client, Contract, Job, User, Comment } = initSchema(schema);
+const { Client, Contract, Job, User, Comment, Person, AccessCodes, MetaData, BookkeepingMeta, TaxesMeta, PayrollMeta } = initSchema(schema);
 
 export {
   Client,
@@ -51,7 +72,16 @@ export {
   ClientStatus,
   ContractType,
   ContractStatus,
+  Remittance,
+  Frequency,
   UserRole,
   UserStatus,
-  JobStatus
+  CommentStatus,
+  JobStatus,
+  Person,
+  AccessCodes,
+  MetaData,
+  BookkeepingMeta,
+  TaxesMeta,
+  PayrollMeta
 };

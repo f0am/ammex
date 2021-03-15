@@ -1,4 +1,5 @@
 import ClientProvider from "./client";
 import ContractProvider from "./contract";
+import JobProvider from "./job";
 
-export { ClientProvider, ContractProvider };
+export { ClientProvider, ContractProvider, JobProvider };

@@ -31,12 +31,12 @@
         "GraphQLAPIEndpointOutput": "https://wzlq66dxpjhlnhndnxqjjzw2nm.appsync-api.ca-central-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-qgpabtg6xbh3dd5hxd57kifhem"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:57.215Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:56.459Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiammex"
       },
-      "lastPushDirHash": "z7xJUMvarTSV2vQksE3BRGCZMIA="
+      "lastPushDirHash": "7OTYtaL1Go/Hrj45JKB+3rW9HX4="
     }
   },
   "function": {
@@ -50,7 +50,7 @@
         "Name": "ammexUsersCreateAuthChallenge-prod",
         "LambdaExecutionRole": "ammexUsersCreateAuthChallenge-prod"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.040Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.497Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCreateAuthChallenge-cloudformation-template.json",
         "logicalId": "functionammexUsersCreateAuthChallenge"
@@ -66,7 +66,7 @@
         "Name": "ammexUsersCustomMessage-prod",
         "LambdaExecutionRole": "ammexUsersCustomMessage-prod"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.042Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.503Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersCustomMessage-cloudformation-template.json",
         "logicalId": "functionammexUsersCustomMessage"
@@ -82,7 +82,7 @@
         "Name": "ammexUsersDefineAuthChallenge-prod",
         "LambdaExecutionRole": "ammexUsersDefineAuthChallenge-prod"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.044Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.510Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersDefineAuthChallenge-cloudformation-template.json",
         "logicalId": "functionammexUsersDefineAuthChallenge"
@@ -98,7 +98,7 @@
         "Name": "ammexUsersVerifyAuthChallengeResponse-prod",
         "LambdaExecutionRole": "ammexUsersVerifyAuthChallengeResponse-prod"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.046Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.520Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/function/ammexUsersVerifyAuthChallengeResponse-cloudformation-template.json",
         "logicalId": "functionammexUsersVerifyAuthChallengeResponse"
@@ -126,7 +126,7 @@
         "employeesGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-employeesGroupRole",
         "administratorsGroupRole": "arn:aws:iam::513424943550:role/ca-central-1_eIjFA9G5Z-administratorsGroupRole"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.047Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.526Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/template.json",
         "logicalId": "authuserPoolGroups"
@@ -184,7 +184,7 @@
         "IdentityPoolName": "ammexUserPool__prod",
         "UserPoolName": "ammexUserPool"
       },
-      "lastPushTimeStamp": "2021-01-07T08:41:50.048Z",
+      "lastPushTimeStamp": "2021-02-22T02:26:50.529Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ammex-prod-205410-deployment/amplify-cfn-templates/auth/ammexUsers-cloudformation-template.yml",
         "logicalId": "authammexUsers"

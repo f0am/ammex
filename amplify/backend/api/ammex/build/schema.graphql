@@ -2,15 +2,15 @@ type Client {
   id: ID!
   clientNumber: String!
   name: String!
-  contact: String!
-  phone: String!
+  contact: Person!
   address: String!
   province: String
   city: String!
   postalCode: String!
-  email: String!
-  owners: [String]!
   status: ClientStatus
+  owners: [Person]!
+  codes: AccessCodes
+  cheques: Int
   contracts(filter: ModelContractFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelContractConnection
   _version: Int!
   _deleted: Boolean
@@ -20,17 +20,37 @@ type Client {
   version: Int!
 }
 
+type Person {
+  firstName: String!
+  lastName: String!
+  phone: String
+  email: String
+}
+
 enum ClientStatus {
   PENDING
   ACTIVE
   DISABLED
 }
 
+type AccessCodes {
+  cliqsecr: String
+  cra: String
+  wsib: String
+  csst: String
+}
+
+enum CommentStatus {
+  DRAFT
+  PUBLISHED
+}
+
 type Comment {
   id: ID!
-  job: Job
-  user: User
+  job: Job!
+  user: User!
   content: String!
+  status: CommentStatus
   _version: Int!
   _deleted: Boolean
   _lastChangedAt: AWSTimestamp!
@@ -51,32 +71,62 @@ enum ContractStatus {
   DISABLED
 }
 
-type Contract {
-  id: ID!
-  client: Client!
-  type: ContractType!
-  status: ContractStatus
+enum Remittance {
+  MONTHLY
+  QUATERLY
+  YEARLY
+}
+
+enum Frequency {
+  WEEKLY
+  BI_WEEKLY
+  SEMI_MONTHLY
+  MONTHLY
+}
+
+type TaxesMeta {
+  year: String
+  corporation: Boolean
+  corporationYearEndDate: String
+}
+
+type BookkeepingMeta {
   startDate: String
   endDate: String
   gst: String
+  gstRemittance: Remittance
   qst: String
-  period: String
-  corporation: Boolean
-  corporationYearEndDate: String
+  qstRemittance: Remittance
+}
+
+type PayrollMeta {
+  startDate: String
+  endDate: String
   payrollNumber: String
-  payrollFrequency: String
-  remittancePeriod: String
-  remittancePeriodQc: String
-  cheques: Int
+  frequency: Frequency
+  remittance: Remittance
+  remittanceQc: Remittance
   wsib: String
-  wsibRemittance: String
+  wsibRemittance: Remittance
   wsibRate: String
-  wsibCode: String
   csst: String
-  csstRemittance: String
+  csstRemittance: Remittance
   csstRate: String
-  csstCode: String
-  t4Deadline: String
+}
+
+type MetaData {
+  bookkeeping: BookkeepingMeta
+  taxes: TaxesMeta
+  payroll: PayrollMeta
+}
+
+type Contract {
+  id: ID!
+  client: Client
+  type: ContractType
+  status: ContractStatus
+  date: String
+  meta: MetaData
   jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
   _version: Int!
   _deleted: Boolean
@@ -91,12 +141,15 @@ enum JobStatus {
   ACTIVE
   IN_PROGRESS
   BLOCKED
+  REVIEW
+  APPROVAL
+  WAITING_FOR_PAYMENT
   COMPLETED
 }
 
 type Job {
   id: ID!
-  contract: Contract!
+  contract: Contract
   name: String!
   description: String
   deadline: String!
@@ -139,6 +192,20 @@ type User {
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   version: Int!
+}
+
+input PersonInput {
+  firstName: String!
+  lastName: String!
+  phone: String
+  email: String
+}
+
+input AccessCodesInput {
+  cliqsecr: String
+  cra: String
+  wsib: String
+  csst: String
 }
 
 enum ModelSortDirection {
@@ -234,15 +301,12 @@ input ModelClientFilterInput {
   id: ModelIDInput
   clientNumber: ModelStringInput
   name: ModelStringInput
-  contact: ModelStringInput
-  phone: ModelStringInput
   address: ModelStringInput
   province: ModelStringInput
   city: ModelStringInput
   postalCode: ModelStringInput
-  email: ModelStringInput
-  owners: ModelStringInput
   status: ModelClientStatusInput
+  cheques: ModelIntInput
   and: [ModelClientFilterInput]
   or: [ModelClientFilterInput]
   not: ModelClientFilterInput
@@ -283,15 +347,15 @@ input CreateClientInput {
   id: ID
   clientNumber: String!
   name: String!
-  contact: String!
-  phone: String!
+  contact: PersonInput!
   address: String!
   province: String
   city: String!
   postalCode: String!
-  email: String!
-  owners: [String]!
   status: ClientStatus
+  owners: [PersonInput]!
+  codes: AccessCodesInput
+  cheques: Int
   _version: Int
 }
 
@@ -299,15 +363,15 @@ input UpdateClientInput {
   id: ID!
   clientNumber: String
   name: String
-  contact: String
-  phone: String
+  contact: PersonInput
   address: String
   province: String
   city: String
   postalCode: String
-  email: String
-  owners: [String]
   status: ClientStatus
+  owners: [PersonInput]
+  codes: AccessCodesInput
+  cheques: Int
   _version: Int
   expectedVersion: Int!
 }
@@ -339,15 +403,12 @@ type Mutation {
 input ModelClientConditionInput {
   clientNumber: ModelStringInput
   name: ModelStringInput
-  contact: ModelStringInput
-  phone: ModelStringInput
   address: ModelStringInput
   province: ModelStringInput
   city: ModelStringInput
   postalCode: ModelStringInput
-  email: ModelStringInput
-  owners: ModelStringInput
   status: ModelClientStatusInput
+  cheques: ModelIntInput
   and: [ModelClientConditionInput]
   or: [ModelClientConditionInput]
   not: ModelClientConditionInput
@@ -377,9 +438,15 @@ type ModelCommentConnection {
   startedAt: AWSTimestamp
 }
 
+input ModelCommentStatusInput {
+  eq: CommentStatus
+  ne: CommentStatus
+}
+
 input ModelCommentFilterInput {
   id: ModelIDInput
   content: ModelStringInput
+  status: ModelCommentStatusInput
   and: [ModelCommentFilterInput]
   or: [ModelCommentFilterInput]
   not: ModelCommentFilterInput
@@ -388,14 +455,16 @@ input ModelCommentFilterInput {
 input CreateCommentInput {
   id: ID
   content: String!
+  status: CommentStatus
   _version: Int
-  commentJobId: ID
-  commentUserId: ID
+  commentJobId: ID!
+  commentUserId: ID!
 }
 
 input UpdateCommentInput {
   id: ID!
   content: String
+  status: CommentStatus
   _version: Int
   expectedVersion: Int!
   commentJobId: ID
@@ -410,9 +479,46 @@ input DeleteCommentInput {
 
 input ModelCommentConditionInput {
   content: ModelStringInput
+  status: ModelCommentStatusInput
   and: [ModelCommentConditionInput]
   or: [ModelCommentConditionInput]
   not: ModelCommentConditionInput
+}
+
+input MetaDataInput {
+  bookkeeping: BookkeepingMetaInput
+  taxes: TaxesMetaInput
+  payroll: PayrollMetaInput
+}
+
+input BookkeepingMetaInput {
+  startDate: String
+  endDate: String
+  gst: String
+  gstRemittance: Remittance
+  qst: String
+  qstRemittance: Remittance
+}
+
+input TaxesMetaInput {
+  year: String
+  corporation: Boolean
+  corporationYearEndDate: String
+}
+
+input PayrollMetaInput {
+  startDate: String
+  endDate: String
+  payrollNumber: String
+  frequency: Frequency
+  remittance: Remittance
+  remittanceQc: Remittance
+  wsib: String
+  wsibRemittance: Remittance
+  wsibRate: String
+  csst: String
+  csstRemittance: Remittance
+  csstRate: String
 }
 
 type ModelContractConnection {
@@ -435,27 +541,7 @@ input ModelContractFilterInput {
   id: ModelIDInput
   type: ModelContractTypeInput
   status: ModelContractStatusInput
-  startDate: ModelStringInput
-  endDate: ModelStringInput
-  gst: ModelStringInput
-  qst: ModelStringInput
-  period: ModelStringInput
-  corporation: ModelBooleanInput
-  corporationYearEndDate: ModelStringInput
-  payrollNumber: ModelStringInput
-  payrollFrequency: ModelStringInput
-  remittancePeriod: ModelStringInput
-  remittancePeriodQc: ModelStringInput
-  cheques: ModelIntInput
-  wsib: ModelStringInput
-  wsibRemittance: ModelStringInput
-  wsibRate: ModelStringInput
-  wsibCode: ModelStringInput
-  csst: ModelStringInput
-  csstRemittance: ModelStringInput
-  csstRate: ModelStringInput
-  csstCode: ModelStringInput
-  t4Deadline: ModelStringInput
+  date: ModelStringInput
   and: [ModelContractFilterInput]
   or: [ModelContractFilterInput]
   not: ModelContractFilterInput
@@ -463,58 +549,20 @@ input ModelContractFilterInput {
 
 input CreateContractInput {
   id: ID
-  type: ContractType!
+  type: ContractType
   status: ContractStatus
-  startDate: String
-  endDate: String
-  gst: String
-  qst: String
-  period: String
-  corporation: Boolean
-  corporationYearEndDate: String
-  payrollNumber: String
-  payrollFrequency: String
-  remittancePeriod: String
-  remittancePeriodQc: String
-  cheques: Int
-  wsib: String
-  wsibRemittance: String
-  wsibRate: String
-  wsibCode: String
-  csst: String
-  csstRemittance: String
-  csstRate: String
-  csstCode: String
-  t4Deadline: String
+  date: String
+  meta: MetaDataInput
   _version: Int
-  contractClientId: ID!
+  contractClientId: ID
 }
 
 input UpdateContractInput {
   id: ID!
   type: ContractType
   status: ContractStatus
-  startDate: String
-  endDate: String
-  gst: String
-  qst: String
-  period: String
-  corporation: Boolean
-  corporationYearEndDate: String
-  payrollNumber: String
-  payrollFrequency: String
-  remittancePeriod: String
-  remittancePeriodQc: String
-  cheques: Int
-  wsib: String
-  wsibRemittance: String
-  wsibRate: String
-  wsibCode: String
-  csst: String
-  csstRemittance: String
-  csstRate: String
-  csstCode: String
-  t4Deadline: String
+  date: String
+  meta: MetaDataInput
   _version: Int
   expectedVersion: Int!
   contractClientId: ID
@@ -529,27 +577,7 @@ input DeleteContractInput {
 input ModelContractConditionInput {
   type: ModelContractTypeInput
   status: ModelContractStatusInput
-  startDate: ModelStringInput
-  endDate: ModelStringInput
-  gst: ModelStringInput
-  qst: ModelStringInput
-  period: ModelStringInput
-  corporation: ModelBooleanInput
-  corporationYearEndDate: ModelStringInput
-  payrollNumber: ModelStringInput
-  payrollFrequency: ModelStringInput
-  remittancePeriod: ModelStringInput
-  remittancePeriodQc: ModelStringInput
-  cheques: ModelIntInput
-  wsib: ModelStringInput
-  wsibRemittance: ModelStringInput
-  wsibRate: ModelStringInput
-  wsibCode: ModelStringInput
-  csst: ModelStringInput
-  csstRemittance: ModelStringInput
-  csstRate: ModelStringInput
-  csstCode: ModelStringInput
-  t4Deadline: ModelStringInput
+  date: ModelStringInput
   and: [ModelContractConditionInput]
   or: [ModelContractConditionInput]
   not: ModelContractConditionInput
@@ -584,7 +612,7 @@ input CreateJobInput {
   deadline: String!
   status: JobStatus
   _version: Int
-  jobContractId: ID!
+  jobContractId: ID
   jobAssigneeId: ID
 }
 

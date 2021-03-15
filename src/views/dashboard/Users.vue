@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import UserListView from "@/components/resources/user/ListView";
+import UserListView from "@/components/entities/user/ListView";
 export default {
   components: {
     UserListView,

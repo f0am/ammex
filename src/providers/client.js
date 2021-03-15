@@ -19,7 +19,7 @@ const comp = Vue.component("ClientProvider", {
     activateClient: async function(client) {
       this.setStatus(client, "ACTIVE");
     },
-    disableClient: async function({ id, version, _version }) {
+    disableClient: async function(client) {
       this.setStatus(client, "DISABLED");
     }
   },

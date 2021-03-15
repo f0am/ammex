@@ -72,6 +72,7 @@
     </base-material-card>
   </client-provider>
 </template>
+
 <script>
 import ClientList from "@/components/entities/client/List";
 import ClientWizard from "@/components/entities/client/Stepper";

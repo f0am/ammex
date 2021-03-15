@@ -35,45 +35,39 @@
             Select the type of service required
           </div>
 
-          <v-row
-            class="mx-auto"
-            justify="space-around"
-            style="max-width: 600px"
-          >
-            <v-col cols="10" class="text-center">
-              <v-item-group
-                v-model="selectedContractType"
-                @change="next"
-                class="row ma-0"
-              >
-                <v-item v-for="(contractType, i) in contractTypes" :key="i">
-                  <template v-slot="{ active, toggle }">
-                    <v-col class="text-center" cols="3">
-                      <v-card
-                        :class="active ? 'primary--text' : 'grey--text'"
-                        class="mb-6 mx-auto pa-6 d-inline-block v-card--account"
-                        outlined
-                        @click="toggle"
-                      >
-                        <v-icon large v-text="contractType.icon" />
-                      </v-card>
+          <v-col cols="12">
+            <v-item-group
+              v-model="selectedContractType"
+              @change="next"
+              class="row d-flex justify-space-around align-center"
+            >
+              <v-item v-for="(contractType, i) in contractTypes" :key="i">
+                <template v-slot="{ active, toggle }">
+                  <v-col class="text-center" cols="3">
+                    <v-card
+                      :class="active ? 'primary--text' : 'grey--text'"
+                      class="mb-6 mx-auto pa-6 d-inline-block v-card--account"
+                      outlined
+                      @click="toggle"
+                    >
+                      <v-icon large v-text="contractType.icon" />
+                    </v-card>
 
-                      <div
-                        class="subtitle-2 text--primary"
-                        v-text="contractType.label"
-                      />
-                    </v-col>
-                  </template>
-                </v-item>
-              </v-item-group>
-              <!-- <v-autocomplete
+                    <div
+                      class="subtitle-2 text--primary"
+                      v-text="contractType.label"
+                    />
+                  </v-col>
+                </template>
+              </v-item>
+            </v-item-group>
+            <!-- <v-autocomplete
                 v-model="currentValue.type"
                 :items="['BOOKKEEPING', 'PAYROLL', 'TAXES']"
                 label="Select Service Type"
                 @input="next"
               ></v-autocomplete> -->
-            </v-col>
-          </v-row>
+          </v-col>
         </v-tab-item>
 
         <v-tab-item class="pb-12">
@@ -86,95 +80,80 @@
             style="max-width: 600px"
           >
             <v-col cols="10" class="text-center">
-              <label>Start date</label>
               <v-row>
-                <v-col cols="5">
-                  <v-menu
-                    ref="startDatePicker"
-                    v-model="startDatePicker"
-                    :close-on-content-click="false"
-                    :return-value.sync="date"
-                    transition="scale-transition"
-                    offset-y
-                    min-width="290px"
-                  >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-text-field
-                        v-model="currentValue.startDate"
-                        label="Start date"
-                        prepend-icon="mdi-calendar"
-                        readonly
-                        v-bind="attrs"
-                        v-on="on"
-                      ></v-text-field>
-                    </template>
-                    <v-date-picker
-                      v-model="currentValue.startDate"
-                      no-title
-                      scrollable
-                    >
-                      <v-spacer></v-spacer>
-                      <v-btn
-                        text
-                        color="primary"
-                        @click="startDatePicker = false"
-                      >
-                        Cancel
-                      </v-btn>
-                      <v-btn
-                        text
-                        color="primary"
-                        @click="
-                          $refs.startDatePicker.save(currentValue.startDate)
-                        "
-                      >
-                        OK
-                      </v-btn>
-                    </v-date-picker>
-                  </v-menu>
+                <v-col cols="6">
+                  <date-input
+                    name="date"
+                    label="Contract date"
+                    v-model="currentValue"
+                  />
                 </v-col>
-                <v-col cols="5">
-                  <v-menu
-                    ref="endDatePicker"
-                    v-model="endDatePicker"
-                    :close-on-content-click="false"
-                    :return-value.sync="date"
-                    transition="scale-transition"
-                    offset-y
-                    min-width="290px"
-                  >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-text-field
-                        v-model="currentValue.endDate"
-                        label="End date"
-                        prepend-icon="mdi-calendar"
-                        readonly
-                        v-bind="attrs"
-                        v-on="on"
-                      ></v-text-field>
-                    </template>
-                    <v-date-picker
-                      v-model="currentValue.endDate"
-                      no-title
-                      scrollable
-                    >
-                      <v-spacer></v-spacer>
-                      <v-btn
-                        text
-                        color="primary"
-                        @click="endDatePicker = false"
-                      >
-                        Cancel
-                      </v-btn>
-                      <v-btn
-                        text
-                        color="primary"
-                        @click="$refs.endDatePicker.save(currentValue.endDate)"
-                      >
-                        OK
-                      </v-btn>
-                    </v-date-picker>
-                  </v-menu>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row
+            class="mx-auto"
+            justify="space-around"
+            style="max-width: 600px"
+          >
+            <v-col
+              cols="10"
+              class="text-center"
+              v-if="currentValue.type === 'PAYROLL'"
+            >
+              <v-row align="center" justify="center">
+                <v-col cols="6">
+                  <date-input
+                    name="startDate"
+                    label="Start date"
+                    v-model="currentValue.meta.payroll.startDate"
+                  />
+                </v-col>
+                <v-col cols="6">
+                  <date-input
+                    name="endDate"
+                    label="End date"
+                    v-model="currentValue.meta.payroll.endDate"
+                  />
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col
+              cols="10"
+              class="text-center"
+              v-if="currentValue.type === 'BOOKKEEPING'"
+            >
+              <v-row align="center" justify="center">
+                <v-col cols="6">
+                  <date-input
+                    name="startDate"
+                    label="Start date"
+                    v-model="currentValue.meta.bookkeeping.startDate"
+                  />
+                </v-col>
+                <v-col cols="6">
+                  <date-input
+                    name="endDate"
+                    label="End date"
+                    v-model="currentValue.meta.bookkeeping.endDate"
+                  />
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col
+              cols="10"
+              class="text-center"
+              v-if="currentValue.type === 'TAXES'"
+            >
+              <v-row>
+                <v-col cols="6">
+                  <v-text-field
+                    prepend-icon="mdi-calendar"
+                    label="Year"
+                    v-model="currentValue.meta.taxes.year"
+                    v-mask="`####`"
+                  />
+                  <!-- <date-input name="year" type="year" label="Year" v-model="currentValue.meta.taxes" /> -->
                 </v-col>
               </v-row>
             </v-col>
@@ -193,15 +172,15 @@
             <v-col cols="10" class="text-center">
               <taxes-form
                 v-if="currentValue.type === 'TAXES'"
-                v-model="currentValue"
+                v-model="currentValue.meta.taxes"
               />
               <payroll-form
                 v-if="currentValue.type === 'PAYROLL'"
-                v-model="currentValue"
+                v-model="currentValue.meta.payroll"
               />
               <bookkeeping-form
                 v-if="currentValue.type === 'BOOKKEEPING'"
-                v-model="currentValue"
+                v-model="currentValue.meta.bookkeeping"
               />
             </v-col>
           </v-row>
@@ -219,7 +198,8 @@
               style="max-width: 600px"
             >
               <v-col cols="10">
-                <pre>{{ currentValue }}</pre>
+                <show-contract :item="currentValue" />
+                <!-- <show-jobs :items="[]" /> -->
                 <!-- <v-list-item>
                   <v-list-item-icon>
                     <v-icon>mdi-account</v-icon>
@@ -283,11 +263,15 @@
 import TaxesForm from "./taxes/Form";
 import PayrollForm from "./payroll/Form";
 import BookkeepingForm from "./bookkeeping/Form";
+import ShowContract from "./ShowContract";
+import DateInput from "@/components/helper/DateInput";
 export default {
   name: "DashboardFormsWizard",
 
   components: {
+    DateInput,
     // ClientSelect,
+    ShowContract,
     BookkeepingForm,
     TaxesForm,
     PayrollForm,
@@ -304,8 +288,9 @@ export default {
     return {
       client: null,
       tab: 0,
-      tabs: ["Service", "Details", "Details", "Review"],
+      tabs: ["Service", "Duration", "Details", "Review"],
       selectedContractType: null,
+      meta: {},
       contractTypes: [
         {
           value: "BOOKKEEPING",
@@ -362,6 +347,17 @@ export default {
       this.$emit("input", {
         ...this.currentValue,
         type: this.contractTypes[this.selectedContractType].value,
+        meta: {
+          payroll: {
+            startDate: {},
+            endDate: {},
+          },
+          bookkeeping: {
+            startDate: {},
+            endDate: {},
+          },
+          taxes: {},
+        },
       });
     },
   },

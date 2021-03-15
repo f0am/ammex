@@ -7,15 +7,30 @@ export const onCreateClient = /* GraphQL */ `
       id
       clientNumber
       name
-      contact
-      phone
+      contact {
+        firstName
+        lastName
+        phone
+        email
+      }
       address
       province
       city
       postalCode
-      email
-      owners
       status
+      owners {
+        firstName
+        lastName
+        phone
+        email
+      }
+      codes {
+        cliqsecr
+        cra
+        wsib
+        csst
+      }
+      cheques
       contracts {
         items {
           id
@@ -23,41 +38,36 @@ export const onCreateClient = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -77,27 +87,36 @@ export const onCreateClient = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -105,27 +124,7 @@ export const onCreateClient = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -191,15 +190,30 @@ export const onUpdateClient = /* GraphQL */ `
       id
       clientNumber
       name
-      contact
-      phone
+      contact {
+        firstName
+        lastName
+        phone
+        email
+      }
       address
       province
       city
       postalCode
-      email
-      owners
       status
+      owners {
+        firstName
+        lastName
+        phone
+        email
+      }
+      codes {
+        cliqsecr
+        cra
+        wsib
+        csst
+      }
+      cheques
       contracts {
         items {
           id
@@ -207,41 +221,36 @@ export const onUpdateClient = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -261,27 +270,36 @@ export const onUpdateClient = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -289,27 +307,7 @@ export const onUpdateClient = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -375,15 +373,30 @@ export const onDeleteClient = /* GraphQL */ `
       id
       clientNumber
       name
-      contact
-      phone
+      contact {
+        firstName
+        lastName
+        phone
+        email
+      }
       address
       province
       city
       postalCode
-      email
-      owners
       status
+      owners {
+        firstName
+        lastName
+        phone
+        email
+      }
+      codes {
+        cliqsecr
+        cra
+        wsib
+        csst
+      }
+      cheques
       contracts {
         items {
           id
@@ -391,41 +404,36 @@ export const onDeleteClient = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -445,27 +453,36 @@ export const onDeleteClient = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -473,27 +490,7 @@ export const onDeleteClient = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -565,41 +562,36 @@ export const onCreateComment = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -619,27 +611,36 @@ export const onCreateComment = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -647,27 +648,7 @@ export const onCreateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -733,27 +714,7 @@ export const onCreateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -826,6 +787,7 @@ export const onCreateComment = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -853,27 +815,7 @@ export const onCreateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -935,6 +877,7 @@ export const onCreateComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -969,15 +912,12 @@ export const onCreateComment = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -987,27 +927,7 @@ export const onCreateComment = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -1050,6 +970,7 @@ export const onCreateComment = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -1079,27 +1000,7 @@ export const onCreateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1161,6 +1062,7 @@ export const onCreateComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -1179,6 +1081,7 @@ export const onCreateComment = /* GraphQL */ `
         version
       }
       content
+      status
       _version
       _deleted
       _lastChangedAt
@@ -1200,41 +1103,36 @@ export const onUpdateComment = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1254,27 +1152,36 @@ export const onUpdateComment = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -1282,27 +1189,7 @@ export const onUpdateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1368,27 +1255,7 @@ export const onUpdateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1461,6 +1328,7 @@ export const onUpdateComment = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -1488,27 +1356,7 @@ export const onUpdateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1570,6 +1418,7 @@ export const onUpdateComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -1604,15 +1453,12 @@ export const onUpdateComment = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -1622,27 +1468,7 @@ export const onUpdateComment = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -1685,6 +1511,7 @@ export const onUpdateComment = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -1714,27 +1541,7 @@ export const onUpdateComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1796,6 +1603,7 @@ export const onUpdateComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -1814,6 +1622,7 @@ export const onUpdateComment = /* GraphQL */ `
         version
       }
       content
+      status
       _version
       _deleted
       _lastChangedAt
@@ -1835,41 +1644,36 @@ export const onDeleteComment = /* GraphQL */ `
             id
             clientNumber
             name
-            contact
-            phone
+            contact {
+              firstName
+              lastName
+              phone
+              email
+            }
             address
             province
             city
             postalCode
-            email
-            owners
             status
+            owners {
+              firstName
+              lastName
+              phone
+              email
+            }
+            codes {
+              cliqsecr
+              cra
+              wsib
+              csst
+            }
+            cheques
             contracts {
               items {
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -1889,27 +1693,36 @@ export const onDeleteComment = /* GraphQL */ `
           }
           type
           status
-          startDate
-          endDate
-          gst
-          qst
-          period
-          corporation
-          corporationYearEndDate
-          payrollNumber
-          payrollFrequency
-          remittancePeriod
-          remittancePeriodQc
-          cheques
-          wsib
-          wsibRemittance
-          wsibRate
-          wsibCode
-          csst
-          csstRemittance
-          csstRate
-          csstCode
-          t4Deadline
+          date
+          meta {
+            bookkeeping {
+              startDate
+              endDate
+              gst
+              gstRemittance
+              qst
+              qstRemittance
+            }
+            taxes {
+              year
+              corporation
+              corporationYearEndDate
+            }
+            payroll {
+              startDate
+              endDate
+              payrollNumber
+              frequency
+              remittance
+              remittanceQc
+              wsib
+              wsibRemittance
+              wsibRate
+              csst
+              csstRemittance
+              csstRate
+            }
+          }
           jobs {
             items {
               id
@@ -1917,27 +1730,7 @@ export const onDeleteComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -2003,27 +1796,7 @@ export const onDeleteComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -2096,6 +1869,7 @@ export const onDeleteComment = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -2123,27 +1897,7 @@ export const onDeleteComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -2205,6 +1959,7 @@ export const onDeleteComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -2239,15 +1994,12 @@ export const onDeleteComment = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -2257,27 +2009,7 @@ export const onDeleteComment = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -2320,6 +2052,7 @@ export const onDeleteComment = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -2349,27 +2082,7 @@ export const onDeleteComment = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -2431,6 +2144,7 @@ export const onDeleteComment = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -2449,6 +2163,7 @@ export const onDeleteComment = /* GraphQL */ `
         version
       }
       content
+      status
       _version
       _deleted
       _lastChangedAt
@@ -2466,15 +2181,30 @@ export const onCreateContract = /* GraphQL */ `
         id
         clientNumber
         name
-        contact
-        phone
+        contact {
+          firstName
+          lastName
+          phone
+          email
+        }
         address
         province
         city
         postalCode
-        email
-        owners
         status
+        owners {
+          firstName
+          lastName
+          phone
+          email
+        }
+        codes {
+          cliqsecr
+          cra
+          wsib
+          csst
+        }
+        cheques
         contracts {
           items {
             id
@@ -2482,15 +2212,30 @@ export const onCreateContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -2504,27 +2249,36 @@ export const onCreateContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -2561,27 +2315,36 @@ export const onCreateContract = /* GraphQL */ `
       }
       type
       status
-      startDate
-      endDate
-      gst
-      qst
-      period
-      corporation
-      corporationYearEndDate
-      payrollNumber
-      payrollFrequency
-      remittancePeriod
-      remittancePeriodQc
-      cheques
-      wsib
-      wsibRemittance
-      wsibRate
-      wsibCode
-      csst
-      csstRemittance
-      csstRate
-      csstCode
-      t4Deadline
+      date
+      meta {
+        bookkeeping {
+          startDate
+          endDate
+          gst
+          gstRemittance
+          qst
+          qstRemittance
+        }
+        taxes {
+          year
+          corporation
+          corporationYearEndDate
+        }
+        payroll {
+          startDate
+          endDate
+          payrollNumber
+          frequency
+          remittance
+          remittanceQc
+          wsib
+          wsibRemittance
+          wsibRate
+          csst
+          csstRemittance
+          csstRate
+        }
+      }
       jobs {
         items {
           id
@@ -2591,15 +2354,30 @@ export const onCreateContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -2613,27 +2391,36 @@ export const onCreateContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -2690,6 +2477,7 @@ export const onCreateContract = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -2740,6 +2528,7 @@ export const onCreateContract = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -2777,15 +2566,30 @@ export const onUpdateContract = /* GraphQL */ `
         id
         clientNumber
         name
-        contact
-        phone
+        contact {
+          firstName
+          lastName
+          phone
+          email
+        }
         address
         province
         city
         postalCode
-        email
-        owners
         status
+        owners {
+          firstName
+          lastName
+          phone
+          email
+        }
+        codes {
+          cliqsecr
+          cra
+          wsib
+          csst
+        }
+        cheques
         contracts {
           items {
             id
@@ -2793,15 +2597,30 @@ export const onUpdateContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -2815,27 +2634,36 @@ export const onUpdateContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -2872,27 +2700,36 @@ export const onUpdateContract = /* GraphQL */ `
       }
       type
       status
-      startDate
-      endDate
-      gst
-      qst
-      period
-      corporation
-      corporationYearEndDate
-      payrollNumber
-      payrollFrequency
-      remittancePeriod
-      remittancePeriodQc
-      cheques
-      wsib
-      wsibRemittance
-      wsibRate
-      wsibCode
-      csst
-      csstRemittance
-      csstRate
-      csstCode
-      t4Deadline
+      date
+      meta {
+        bookkeeping {
+          startDate
+          endDate
+          gst
+          gstRemittance
+          qst
+          qstRemittance
+        }
+        taxes {
+          year
+          corporation
+          corporationYearEndDate
+        }
+        payroll {
+          startDate
+          endDate
+          payrollNumber
+          frequency
+          remittance
+          remittanceQc
+          wsib
+          wsibRemittance
+          wsibRate
+          csst
+          csstRemittance
+          csstRate
+        }
+      }
       jobs {
         items {
           id
@@ -2902,15 +2739,30 @@ export const onUpdateContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -2924,27 +2776,36 @@ export const onUpdateContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -3001,6 +2862,7 @@ export const onUpdateContract = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -3051,6 +2913,7 @@ export const onUpdateContract = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -3088,15 +2951,30 @@ export const onDeleteContract = /* GraphQL */ `
         id
         clientNumber
         name
-        contact
-        phone
+        contact {
+          firstName
+          lastName
+          phone
+          email
+        }
         address
         province
         city
         postalCode
-        email
-        owners
         status
+        owners {
+          firstName
+          lastName
+          phone
+          email
+        }
+        codes {
+          cliqsecr
+          cra
+          wsib
+          csst
+        }
+        cheques
         contracts {
           items {
             id
@@ -3104,15 +2982,30 @@ export const onDeleteContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -3126,27 +3019,36 @@ export const onDeleteContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -3183,27 +3085,36 @@ export const onDeleteContract = /* GraphQL */ `
       }
       type
       status
-      startDate
-      endDate
-      gst
-      qst
-      period
-      corporation
-      corporationYearEndDate
-      payrollNumber
-      payrollFrequency
-      remittancePeriod
-      remittancePeriodQc
-      cheques
-      wsib
-      wsibRemittance
-      wsibRate
-      wsibCode
-      csst
-      csstRemittance
-      csstRate
-      csstCode
-      t4Deadline
+      date
+      meta {
+        bookkeeping {
+          startDate
+          endDate
+          gst
+          gstRemittance
+          qst
+          qstRemittance
+        }
+        taxes {
+          year
+          corporation
+          corporationYearEndDate
+        }
+        payroll {
+          startDate
+          endDate
+          payrollNumber
+          frequency
+          remittance
+          remittanceQc
+          wsib
+          wsibRemittance
+          wsibRate
+          csst
+          csstRemittance
+          csstRate
+        }
+      }
       jobs {
         items {
           id
@@ -3213,15 +3124,30 @@ export const onDeleteContract = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -3235,27 +3161,36 @@ export const onDeleteContract = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -3312,6 +3247,7 @@ export const onDeleteContract = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -3362,6 +3298,7 @@ export const onDeleteContract = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -3401,15 +3338,30 @@ export const onCreateJob = /* GraphQL */ `
           id
           clientNumber
           name
-          contact
-          phone
+          contact {
+            firstName
+            lastName
+            phone
+            email
+          }
           address
           province
           city
           postalCode
-          email
-          owners
           status
+          owners {
+            firstName
+            lastName
+            phone
+            email
+          }
+          codes {
+            cliqsecr
+            cra
+            wsib
+            csst
+          }
+          cheques
           contracts {
             items {
               id
@@ -3417,15 +3369,12 @@ export const onCreateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -3435,27 +3384,7 @@ export const onCreateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -3479,27 +3408,36 @@ export const onCreateJob = /* GraphQL */ `
         }
         type
         status
-        startDate
-        endDate
-        gst
-        qst
-        period
-        corporation
-        corporationYearEndDate
-        payrollNumber
-        payrollFrequency
-        remittancePeriod
-        remittancePeriodQc
-        cheques
-        wsib
-        wsibRemittance
-        wsibRate
-        wsibCode
-        csst
-        csstRemittance
-        csstRate
-        csstCode
-        t4Deadline
+        date
+        meta {
+          bookkeeping {
+            startDate
+            endDate
+            gst
+            gstRemittance
+            qst
+            qstRemittance
+          }
+          taxes {
+            year
+            corporation
+            corporationYearEndDate
+          }
+          payroll {
+            startDate
+            endDate
+            payrollNumber
+            frequency
+            remittance
+            remittanceQc
+            wsib
+            wsibRemittance
+            wsibRate
+            csst
+            csstRemittance
+            csstRate
+          }
+        }
         jobs {
           items {
             id
@@ -3509,15 +3447,12 @@ export const onCreateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -3527,27 +3462,7 @@ export const onCreateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -3590,6 +3505,7 @@ export const onCreateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -3637,15 +3553,12 @@ export const onCreateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -3655,27 +3568,7 @@ export const onCreateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -3718,6 +3611,7 @@ export const onCreateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -3747,27 +3641,7 @@ export const onCreateJob = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -3829,6 +3703,7 @@ export const onCreateJob = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -3858,15 +3733,12 @@ export const onCreateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -3876,27 +3748,7 @@ export const onCreateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -3939,6 +3791,7 @@ export const onCreateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -3985,6 +3838,7 @@ export const onCreateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4003,6 +3857,7 @@ export const onCreateJob = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt
@@ -4032,15 +3887,30 @@ export const onUpdateJob = /* GraphQL */ `
           id
           clientNumber
           name
-          contact
-          phone
+          contact {
+            firstName
+            lastName
+            phone
+            email
+          }
           address
           province
           city
           postalCode
-          email
-          owners
           status
+          owners {
+            firstName
+            lastName
+            phone
+            email
+          }
+          codes {
+            cliqsecr
+            cra
+            wsib
+            csst
+          }
+          cheques
           contracts {
             items {
               id
@@ -4048,15 +3918,12 @@ export const onUpdateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4066,27 +3933,7 @@ export const onUpdateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4110,27 +3957,36 @@ export const onUpdateJob = /* GraphQL */ `
         }
         type
         status
-        startDate
-        endDate
-        gst
-        qst
-        period
-        corporation
-        corporationYearEndDate
-        payrollNumber
-        payrollFrequency
-        remittancePeriod
-        remittancePeriodQc
-        cheques
-        wsib
-        wsibRemittance
-        wsibRate
-        wsibCode
-        csst
-        csstRemittance
-        csstRate
-        csstCode
-        t4Deadline
+        date
+        meta {
+          bookkeeping {
+            startDate
+            endDate
+            gst
+            gstRemittance
+            qst
+            qstRemittance
+          }
+          taxes {
+            year
+            corporation
+            corporationYearEndDate
+          }
+          payroll {
+            startDate
+            endDate
+            payrollNumber
+            frequency
+            remittance
+            remittanceQc
+            wsib
+            wsibRemittance
+            wsibRate
+            csst
+            csstRemittance
+            csstRate
+          }
+        }
         jobs {
           items {
             id
@@ -4140,15 +3996,12 @@ export const onUpdateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4158,27 +4011,7 @@ export const onUpdateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4221,6 +4054,7 @@ export const onUpdateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4268,15 +4102,12 @@ export const onUpdateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4286,27 +4117,7 @@ export const onUpdateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4349,6 +4160,7 @@ export const onUpdateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4378,27 +4190,7 @@ export const onUpdateJob = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -4460,6 +4252,7 @@ export const onUpdateJob = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -4489,15 +4282,12 @@ export const onUpdateJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4507,27 +4297,7 @@ export const onUpdateJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4570,6 +4340,7 @@ export const onUpdateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4616,6 +4387,7 @@ export const onUpdateJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4634,6 +4406,7 @@ export const onUpdateJob = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt
@@ -4663,15 +4436,30 @@ export const onDeleteJob = /* GraphQL */ `
           id
           clientNumber
           name
-          contact
-          phone
+          contact {
+            firstName
+            lastName
+            phone
+            email
+          }
           address
           province
           city
           postalCode
-          email
-          owners
           status
+          owners {
+            firstName
+            lastName
+            phone
+            email
+          }
+          codes {
+            cliqsecr
+            cra
+            wsib
+            csst
+          }
+          cheques
           contracts {
             items {
               id
@@ -4679,15 +4467,12 @@ export const onDeleteJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4697,27 +4482,7 @@ export const onDeleteJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4741,27 +4506,36 @@ export const onDeleteJob = /* GraphQL */ `
         }
         type
         status
-        startDate
-        endDate
-        gst
-        qst
-        period
-        corporation
-        corporationYearEndDate
-        payrollNumber
-        payrollFrequency
-        remittancePeriod
-        remittancePeriodQc
-        cheques
-        wsib
-        wsibRemittance
-        wsibRate
-        wsibCode
-        csst
-        csstRemittance
-        csstRate
-        csstCode
-        t4Deadline
+        date
+        meta {
+          bookkeeping {
+            startDate
+            endDate
+            gst
+            gstRemittance
+            qst
+            qstRemittance
+          }
+          taxes {
+            year
+            corporation
+            corporationYearEndDate
+          }
+          payroll {
+            startDate
+            endDate
+            payrollNumber
+            frequency
+            remittance
+            remittanceQc
+            wsib
+            wsibRemittance
+            wsibRate
+            csst
+            csstRemittance
+            csstRate
+          }
+        }
         jobs {
           items {
             id
@@ -4771,15 +4545,12 @@ export const onDeleteJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4789,27 +4560,7 @@ export const onDeleteJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4852,6 +4603,7 @@ export const onDeleteJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -4899,15 +4651,12 @@ export const onDeleteJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -4917,27 +4666,7 @@ export const onDeleteJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -4980,6 +4709,7 @@ export const onDeleteJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5009,27 +4739,7 @@ export const onDeleteJob = /* GraphQL */ `
                 id
                 type
                 status
-                startDate
-                endDate
-                gst
-                qst
-                period
-                corporation
-                corporationYearEndDate
-                payrollNumber
-                payrollFrequency
-                remittancePeriod
-                remittancePeriodQc
-                cheques
-                wsib
-                wsibRemittance
-                wsibRate
-                wsibCode
-                csst
-                csstRemittance
-                csstRate
-                csstCode
-                t4Deadline
+                date
                 _version
                 _deleted
                 _lastChangedAt
@@ -5091,6 +4801,7 @@ export const onDeleteJob = /* GraphQL */ `
               version
             }
             content
+            status
             _version
             _deleted
             _lastChangedAt
@@ -5120,15 +4831,12 @@ export const onDeleteJob = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -5138,27 +4846,7 @@ export const onDeleteJob = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -5201,6 +4889,7 @@ export const onDeleteJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5247,6 +4936,7 @@ export const onDeleteJob = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5265,6 +4955,7 @@ export const onDeleteJob = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt
@@ -5303,15 +4994,30 @@ export const onCreateUser = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -5325,27 +5031,36 @@ export const onCreateUser = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -5402,6 +5117,7 @@ export const onCreateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5452,6 +5168,7 @@ export const onCreateUser = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -5483,15 +5200,12 @@ export const onCreateUser = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -5501,27 +5215,7 @@ export const onCreateUser = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -5564,6 +5258,7 @@ export const onCreateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5610,6 +5305,7 @@ export const onCreateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5628,6 +5324,7 @@ export const onCreateUser = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt
@@ -5666,15 +5363,30 @@ export const onUpdateUser = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -5688,27 +5400,36 @@ export const onUpdateUser = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -5765,6 +5486,7 @@ export const onUpdateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5815,6 +5537,7 @@ export const onUpdateUser = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -5846,15 +5569,12 @@ export const onUpdateUser = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -5864,27 +5584,7 @@ export const onUpdateUser = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -5927,6 +5627,7 @@ export const onUpdateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5973,6 +5674,7 @@ export const onUpdateUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -5991,6 +5693,7 @@ export const onUpdateUser = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt
@@ -6029,15 +5732,30 @@ export const onDeleteUser = /* GraphQL */ `
               id
               clientNumber
               name
-              contact
-              phone
+              contact {
+                firstName
+                lastName
+                phone
+                email
+              }
               address
               province
               city
               postalCode
-              email
-              owners
               status
+              owners {
+                firstName
+                lastName
+                phone
+                email
+              }
+              codes {
+                cliqsecr
+                cra
+                wsib
+                csst
+              }
+              cheques
               contracts {
                 nextToken
                 startedAt
@@ -6051,27 +5769,36 @@ export const onDeleteUser = /* GraphQL */ `
             }
             type
             status
-            startDate
-            endDate
-            gst
-            qst
-            period
-            corporation
-            corporationYearEndDate
-            payrollNumber
-            payrollFrequency
-            remittancePeriod
-            remittancePeriodQc
-            cheques
-            wsib
-            wsibRemittance
-            wsibRate
-            wsibCode
-            csst
-            csstRemittance
-            csstRate
-            csstCode
-            t4Deadline
+            date
+            meta {
+              bookkeeping {
+                startDate
+                endDate
+                gst
+                gstRemittance
+                qst
+                qstRemittance
+              }
+              taxes {
+                year
+                corporation
+                corporationYearEndDate
+              }
+              payroll {
+                startDate
+                endDate
+                payrollNumber
+                frequency
+                remittance
+                remittanceQc
+                wsib
+                wsibRemittance
+                wsibRate
+                csst
+                csstRemittance
+                csstRate
+              }
+            }
             jobs {
               items {
                 id
@@ -6128,6 +5855,7 @@ export const onDeleteUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -6178,6 +5906,7 @@ export const onDeleteUser = /* GraphQL */ `
                 version
               }
               content
+              status
               _version
               _deleted
               _lastChangedAt
@@ -6209,15 +5938,12 @@ export const onDeleteUser = /* GraphQL */ `
                 id
                 clientNumber
                 name
-                contact
-                phone
                 address
                 province
                 city
                 postalCode
-                email
-                owners
                 status
+                cheques
                 _version
                 _deleted
                 _lastChangedAt
@@ -6227,27 +5953,7 @@ export const onDeleteUser = /* GraphQL */ `
               }
               type
               status
-              startDate
-              endDate
-              gst
-              qst
-              period
-              corporation
-              corporationYearEndDate
-              payrollNumber
-              payrollFrequency
-              remittancePeriod
-              remittancePeriodQc
-              cheques
-              wsib
-              wsibRemittance
-              wsibRate
-              wsibCode
-              csst
-              csstRemittance
-              csstRate
-              csstCode
-              t4Deadline
+              date
               jobs {
                 nextToken
                 startedAt
@@ -6290,6 +5996,7 @@ export const onDeleteUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -6336,6 +6043,7 @@ export const onDeleteUser = /* GraphQL */ `
               items {
                 id
                 content
+                status
                 _version
                 _deleted
                 _lastChangedAt
@@ -6354,6 +6062,7 @@ export const onDeleteUser = /* GraphQL */ `
             version
           }
           content
+          status
           _version
           _deleted
           _lastChangedAt

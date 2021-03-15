@@ -15,9 +15,9 @@ export default new Router({
         {
           name: "Dashboard",
           path: "",
-          component: () => import("@/components/resources/job/Calendar")
+          // component: () => import("@/components/entities/job/Calendar")
 
-          // component: () => import('@/views/dashboard/Dashboard'),
+          component: () => import('@/views/dashboard/Dashboard'),
         },
         // Pages
         {
@@ -76,7 +76,7 @@ export default new Router({
         {
           name: "Calendar",
           path: "calendar",
-          component: () => import("@/components/resources/job/Calendar")
+          component: () => import("@/components/entities/job/Calendar")
         }
       ]
     }
