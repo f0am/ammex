@@ -2,15 +2,16 @@
   <Layout>
     <hero :image="require('~/Building.jpg')" title="Our specialized services" />
     <section class="hero is-fullheight has-background-light">
-      <div class="hero-body">
+      <div class="hero-body is-paddingless">
         <div class="container">
           <div class="intro column has-text-centered">
-            <h2 class="title">Discover the range of solutions offered by our experts</h2>
+            <h2 class="title is-1">Discover the range of solutions offered by our experts</h2>
             <br />
             <p
               class="subtitle"
             >We are dedicated to answer your questions and offer you a specialized service in accounting and bookkeeping.</p>
           </div>
+          
           <div class="sandbox">
             <div class="columns is-centered" style="padding: 2rem">
               <div class="tile is-ancestor">
@@ -99,14 +100,12 @@
                         <p class="subtitle">Free of charge</p>
                      </article> 
                      </div>
-                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
   </Layout>
 </template>
@@ -118,10 +117,35 @@ export default {
   metaInfo: {
     title: "Services"
   },
-  components: { Hero }
-};
+  components: { Hero },
+   data() {
+            return {
+                rounded: false,
+            }
+        }
+};      
 </script>
+
 <style>
+.title {
+  font-size: 18px;
+}
+.subtitle {
+  font-size: 18px;
+}
+.sandbox {
+    display: table; /* Make the container element behave like a table */
+    width: 100%; /* Set full-width to expand the whole page */
+}
+.box {
+    display: table-cell; /* Make elements inside the container behave like table cells */
+}
+
+.container {
+  transition: all .4s ease-in-out;
+    
+}
+  
 </style>
 
 

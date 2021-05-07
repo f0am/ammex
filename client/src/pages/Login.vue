@@ -1,7 +1,7 @@
  <template>
  <layout>
  <section class="hero is-light is-fullheight">
-        <div class="hero-body">
+        <div class="hero-body" style="margin:80px">
             <div class="container has-text has-text-centered">
                 <div class="columns is is-vcentered">
                     <div class="column is-5" padding="200px">

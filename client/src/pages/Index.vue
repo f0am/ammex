@@ -11,7 +11,7 @@
 </template>
     <section class="section has-background-light">
       <div class="hero-body">
-        <div class="container">
+        <div class="container slide-top"> 
           <p
             class="is-size-4"
             style="padding: 80px"
@@ -25,7 +25,7 @@
         </div>
         <div class="columns features">
           <div class="column is-4">
-            <div class="card is-shady">
+            <div class="card is-shady animate_animated animate__fadeInUp">
               <div class="card-content">
                 <div class="content has-text-centered">
                   <p class="title">Professionals</p>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="column is-4">
-            <div class="card is-shady">
+            <div class="card is-shady animate_animated animate__fadeInUp">
               <div class="card-content">
                 <div class="content has-text-centered">
                   <p class="title">Affordable</p>
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="column is-4">
-            <div class="card is-shady">
+            <div class="card is-shady animate_animated animate__fadeInUp">
               <div class="card-content">
                 <div class="content has-text-centered">
                   <p class="title">Services</p>
@@ -149,5 +149,42 @@ transition: all .2s ease-in-out;
 box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
 }
 
+.slide-top {
+	-webkit-animation: slide-top 0.5s ease-in-out both;
+	        animation: slide-top 0.5s ease-in-out both;
+}
+/**
+ * ----------------------------------------
+ * animation slide-top
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+
+.card {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
 
 </style>

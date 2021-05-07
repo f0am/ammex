@@ -2,6 +2,11 @@
   <layout>
   </layout>
 </template>
+<style>
+
+</style>
+
+</style>
 <script>
 export default {
   metaInfo: {

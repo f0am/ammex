@@ -2,14 +2,14 @@
   <layout>
     <section class="hero is-fullheight">
       <div class="hero-body">
-        <div class="container has-text-centered">
+        <div class="container has-text-centered" style="margin:80px">
           <div class="columns is-8 is-variable">
             <div class="column is-two-thirds has-text-left">
               <h1 class="title is-1">Contact Us</h1>
               <p
                 class="is-size-4"
               >We are a located in the heart of Aylmer, Gatineau and operate all year-round for your accounting needs.</p>
-              <h2 class="title is-3" style="margin-top:2.5rem">Call Us now</h2>
+              <h2 class="title is-2" style="margin-top:2.5rem">Call Us now</h2>
               <i class="fas fa-phone-alt" style="margin:5px"></i>
               <span>819-682-0000</span>
               <br />
