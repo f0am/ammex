@@ -1,8 +1,11 @@
 <template>
   <div>
-    <b-notification type="is-warning is-light is-marginless is-small" :closable="false">
+    <b-notification
+      type="is-warning is-light is-marginless is-small"
+      :closable="false"
+    >
       <div class="container">
-        {{ covid[lang].information }} 
+        {{ covid[lang].information }}
         <g-link class="link" to="/covid/">
           <strong>COVID-19</strong>
         </g-link>
@@ -10,7 +13,9 @@
     </b-notification>
     <div class="is-fullhd">
       <b-notification :closable="false" type=" is-info is-light is-small">
-        <div class="columns notification is-info is-light has-text-centered is-small">
+        <div
+          class="columns notification is-info is-light has-text-centered is-small"
+        >
           <div class="column">
             <g-link class="button rounded" to="tel:+1-819-682-0000">
               <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
@@ -18,22 +23,31 @@
           </div>
           <div class="column">
             <ul>
-              <li>{{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 - 16:00</li>
-              <li>{{ days[lang].saturday }} - {{ days[lang].sunday }} : {{days[lang].closed}}</li>
+              <li>
+                {{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 - 16:00
+              </li>
+              <li>
+                {{ days[lang].saturday }} - {{ days[lang].sunday }} :
+                {{ days[lang].closed }}
+              </li>
             </ul>
           </div>
 
           <div class="column">
             <div
-              class="button is-outlined is-info is-pulled-right"
+              class="button is-outlined is-info"
               v-if="lang !== 'fr'"
               @click="setLang('fr')"
-            >FR</div>
+            >
+              FR
+            </div>
             <div
               v-if="lang !== 'en'"
-              class="button is-outlined is-info is-pulled-right"
+              class="button is-outlined is-info"
               @click="setLang('en')"
-            >EN</div>
+            >
+              EN
+            </div>
           </div>
         </div>
       </b-notification>
@@ -41,52 +55,53 @@
     <div class="container">
       <header class="header">
         <g-link to="/">
-          <g-image alt="Ammex Logo" src="~/Logo.svg" background-color="smokewhite" width="500" />
+          <g-image
+            alt="Ammex Logo"
+            src="~/Logo.svg"
+            background-color="smokewhite"
+            width="500"
+          />
         </g-link>
         <b-nav class="navbar">
-          <g-link class="navbar-item" to="/about/">
-            {{
-            menu[lang].about
-            }}
+          <g-link class="navbar-item" :to="getPath('about')">
+            {{ menu[lang].about }}
           </g-link>
           <b-dropdown :triggers="['hover']" aria-role="list">
             <template #trigger>
-              <g-link class="navbar-item" to="/required-docs">
+              <g-link class="navbar-item" :to="getPath('required-docs')">
                 {{ menu[lang].documents }}
                 <i class="fal fa-angle-down" style="margin: 7px"></i>
               </g-link>
             </template>
             <g-link
               class="navbar-item"
-              to="/required-docs/"
+              :to="getPath('required-docs')"
               aria-role="listitem"
-            >{{ menu[lang].requiredDocuments }}</g-link>
-            <g-link class="navbar-item" to="/forms/" aria-role="listitem">
-              {{
-              menu[lang].forms
-              }}
+              >{{ menu[lang].requiredDocuments }}</g-link
+            >
+            <g-link
+              class="navbar-item"
+              :to="getPath('forms')"
+              aria-role="listitem"
+            >
+              {{ menu[lang].forms }}
             </g-link>
             <g-link
               class="navbar-item"
-              to="/contact-us/"
+              :to="getPath('contact-us')"
               aria-role="listitem"
-            >{{ menu[lang].dropOff }}</g-link>
+              >{{ menu[lang].dropOff }}</g-link
+            >
             <g-link class="navbar-item" to="/login/" aria-role="listitem">
-              {{
-              menu[lang].uploadDocuments
-              }}
+              {{ menu[lang].uploadDocuments }}
             </g-link>
           </b-dropdown>
           <g-link class="navbar-item" to="/services/">
-            {{
-            menu[lang].services
-            }}
+            {{ menu[lang].services }}
           </g-link>
           <g-link class="navbar-item" to="/faq/">{{ menu[lang].faq }}</g-link>
           <g-link class="navbar-item" to="/contact-us/">
-            {{
-            menu[lang].contact
-            }}
+            {{ menu[lang].contact }}
           </g-link>
           <b-navbar-item tag="div">
             <div class="buttons">
@@ -103,15 +118,20 @@
     <footer />
     <div class="columns has-text-centered is-marginless">
       <div class="column has-background-info is-6" style="padding: 80px">
-        <g-link class="button is-centered is-big has-background-white" to="tel:+1-819-682-0000">
+        <g-link
+          class="button is-centered is-big has-background-white"
+          to="tel:+1-819-682-0000"
+        >
           <i class="fas fa-phone-alt" style="margin-right: 5px"></i>819-682-0000
         </g-link>
       </div>
       <div class="column is-6" style="padding: 80px">
-        
-        <g-link to="/contact-us/" class="button is-centered is-big has-background-white">
+        <g-link
+          to="/contact-us/"
+          class="button is-centered is-big has-background-white"
+        >
           <i class="far fa-envelope" style="margin: 5px"></i>
-          {{menu[lang].contact}}
+          {{ menu[lang].contact }}
         </g-link>
       </div>
     </div>
@@ -143,9 +163,13 @@ query {
 
 <script>
 export default {
+  computed: {
+    lang() {
+      return this.$route.path.split("/")[1];
+    },
+  },
   data() {
     return {
-      lang: "en",
       menu: {
         en: {
           home: "Home",
@@ -158,7 +182,7 @@ export default {
           services: "Services",
           faq: "FAQ",
           contact: "Contact Us",
-          login: "Log In"
+          login: "Log In",
         },
         fr: {
           home: "Accueil",
@@ -171,8 +195,8 @@ export default {
           services: "Services",
           faq: "FAQ",
           contact: "Coordonnées",
-          login: "Connecter"
-        }
+          login: "Connecter",
+        },
       },
       days: {
         en: {
@@ -188,7 +212,7 @@ export default {
           saturday: "Samedi",
           sunday: "Dimanche",
           closed: "Fermé",
-        }
+        },
       },
       covid: {
         en: {
@@ -196,15 +220,19 @@ export default {
         },
         fr: {
           information: "Information sur la",
-        }
-      }
+        },
+      },
     };
   },
   methods: {
+    getPath(relativePath) {
+      return "/" + this.lang + "/" + relativePath;
+      // return `/${this.lang}/${relativePath}`
+    },
     setLang(lang) {
-      this.lang = lang;
-    }
-  }
+      this.$router.push(this.$route.path.replace(this.lang, lang));
+    },
+  },
 };
 </script>
 
