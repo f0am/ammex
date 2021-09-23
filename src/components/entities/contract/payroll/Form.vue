@@ -11,13 +11,13 @@ export default {
           mask: "######",
         },
         {
-          name: "payrollFrequency",
+          name: "frequency",
           label: "Payroll Frequency",
           type: "autocomplete",
           options: ["Weekly", "Bi-weekly", "Semi-monthly", "Monthly"],
         },
         {
-          name: "remittancePeriod",
+          name: "remittance",
           label: "Remittance Period Federal",
           type: "autocomplete",
           options: ["Monthly", "Quaterly", "Yearly"],
@@ -40,7 +40,7 @@ export default {
         },
 
         {
-          name: "remittancePeriodQc",
+          name: "remittanceQc",
           label: "Remittance Period Quebec",
           type: "autocomplete",
           options: ["Monthly", "Quaterly", "Yearly"],
