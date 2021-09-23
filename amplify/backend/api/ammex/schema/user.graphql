@@ -10,7 +10,7 @@ enum UserStatus {
   DISABLED
 }
 
-type User @model @versioned {
+type User @model {
   id: ID!
   email: String!
   firstName: String!

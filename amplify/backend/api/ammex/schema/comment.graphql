@@ -3,7 +3,7 @@ enum CommentStatus {
   PUBLISHED
 }
 
-type Comment @model @versioned {
+type Comment @model {
   id: ID!
   job: Job! @connection(name: "JobComments")
   user: User! @connection(name: "UserComments")

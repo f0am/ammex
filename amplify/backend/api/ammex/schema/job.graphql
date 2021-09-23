@@ -9,7 +9,7 @@ enum JobStatus {
   COMPLETED
 }
 
-type Job @model @versioned {
+type Job @model {
   id: ID!
   contract: Contract @connection(name: "ContractJobs")
   name: String!

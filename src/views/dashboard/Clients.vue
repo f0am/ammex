@@ -20,7 +20,7 @@
       <template #card-actions>
         <v-dialog v-model="clientDialog" max-width="600px">
           <template #activator="{ on, attrs }">
-            <v-btn
+               <v-btn
               style="top: -30px"
               color="primary"
               fab
@@ -97,7 +97,6 @@ import ListWithClients from "@/components/entities/client/ListWithClients";
 import ClientWizard from "@/components/entities/client/Stepper";
 import ContractForm from "@/components/entities/contract/Form";
 import Stepper from "@/components/entities/contract/Stepper";
-import { ClientProvider, JobProvider } from "@/providers";
 import CtaBtn from "@/components/helper/CtaBtn";
 import ChipColor from "@/components/helper/ColoredChip";
 import MapCondComp from "@/components/helper/MapCondComp";
@@ -113,8 +112,8 @@ export default {
   components: {
     ListWithClients,
     ClientWizard,
-    ClientProvider,
-    JobProvider,
+    // ClientProvider,
+    // JobProvider,
     ClientStatus,
     ShowClient,
     Stepper,

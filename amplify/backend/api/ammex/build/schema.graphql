@@ -17,7 +17,6 @@ type Client {
   _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  version: Int!
 }
 
 type Person {
@@ -56,7 +55,6 @@ type Comment {
   _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  version: Int!
 }
 
 enum ContractType {
@@ -133,7 +131,6 @@ type Contract {
   _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  version: Int!
 }
 
 enum JobStatus {
@@ -161,7 +158,6 @@ type Job {
   _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  version: Int!
 }
 
 enum UserRole {
@@ -191,7 +187,6 @@ type User {
   _lastChangedAt: AWSTimestamp!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  version: Int!
 }
 
 input PersonInput {
@@ -373,13 +368,11 @@ input UpdateClientInput {
   codes: AccessCodesInput
   cheques: Int
   _version: Int
-  expectedVersion: Int!
 }
 
 input DeleteClientInput {
-  id: ID
+  id: ID!
   _version: Int
-  expectedVersion: Int!
 }
 
 type Mutation {
@@ -466,15 +459,13 @@ input UpdateCommentInput {
   content: String
   status: CommentStatus
   _version: Int
-  expectedVersion: Int!
   commentJobId: ID
   commentUserId: ID
 }
 
 input DeleteCommentInput {
-  id: ID
+  id: ID!
   _version: Int
-  expectedVersion: Int!
 }
 
 input ModelCommentConditionInput {
@@ -564,14 +555,12 @@ input UpdateContractInput {
   date: String
   meta: MetaDataInput
   _version: Int
-  expectedVersion: Int!
   contractClientId: ID
 }
 
 input DeleteContractInput {
-  id: ID
+  id: ID!
   _version: Int
-  expectedVersion: Int!
 }
 
 input ModelContractConditionInput {
@@ -623,15 +612,13 @@ input UpdateJobInput {
   deadline: String
   status: JobStatus
   _version: Int
-  expectedVersion: Int!
   jobContractId: ID
   jobAssigneeId: ID
 }
 
 input DeleteJobInput {
-  id: ID
+  id: ID!
   _version: Int
-  expectedVersion: Int!
 }
 
 input ModelJobConditionInput {
@@ -693,13 +680,11 @@ input UpdateUserInput {
   role: UserRole
   status: UserStatus
   _version: Int
-  expectedVersion: Int!
 }
 
 input DeleteUserInput {
-  id: ID
+  id: ID!
   _version: Int
-  expectedVersion: Int!
 }
 
 input ModelUserConditionInput {

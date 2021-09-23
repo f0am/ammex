@@ -43,103 +43,6 @@ export const syncClients = /* GraphQL */ `
         }
         cheques
         contracts {
-          items {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -148,7 +51,6 @@ export const syncClients = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -188,143 +90,14 @@ export const getClient = /* GraphQL */ `
       contracts {
         items {
           id
-          client {
-            id
-            clientNumber
-            name
-            contact {
-              firstName
-              lastName
-              phone
-              email
-            }
-            address
-            province
-            city
-            postalCode
-            status
-            owners {
-              firstName
-              lastName
-              phone
-              email
-            }
-            codes {
-              cliqsecr
-              cra
-              wsib
-              csst
-            }
-            cheques
-            contracts {
-              items {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           type
           status
           date
-          meta {
-            bookkeeping {
-              startDate
-              endDate
-              gst
-              gstRemittance
-              qst
-              qstRemittance
-            }
-            taxes {
-              year
-              corporation
-              corporationYearEndDate
-            }
-            payroll {
-              startDate
-              endDate
-              payrollNumber
-              frequency
-              remittance
-              remittanceQc
-              wsib
-              wsibRemittance
-              wsibRate
-              csst
-              csstRemittance
-              csstRate
-            }
-          }
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         nextToken
         startedAt
@@ -334,7 +107,6 @@ export const getClient = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      version
     }
   }
 `;
@@ -374,103 +146,6 @@ export const listClients = /* GraphQL */ `
         }
         cheques
         contracts {
-          items {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -479,7 +154,6 @@ export const listClients = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -503,203 +177,15 @@ export const syncComments = /* GraphQL */ `
         id
         job {
           id
-          contract {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           name
           description
           deadline
-          assignee {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           status
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         user {
           id
@@ -709,103 +195,11 @@ export const syncComments = /* GraphQL */ `
           phone
           role
           status
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         content
         status
@@ -814,7 +208,6 @@ export const syncComments = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -829,143 +222,14 @@ export const getComment = /* GraphQL */ `
         id
         contract {
           id
-          client {
-            id
-            clientNumber
-            name
-            contact {
-              firstName
-              lastName
-              phone
-              email
-            }
-            address
-            province
-            city
-            postalCode
-            status
-            owners {
-              firstName
-              lastName
-              phone
-              email
-            }
-            codes {
-              cliqsecr
-              cra
-              wsib
-              csst
-            }
-            cheques
-            contracts {
-              items {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           type
           status
           date
-          meta {
-            bookkeeping {
-              startDate
-              endDate
-              gst
-              gstRemittance
-              qst
-              qstRemittance
-            }
-            taxes {
-              year
-              corporation
-              corporationYearEndDate
-            }
-            payroll {
-              startDate
-              endDate
-              payrollNumber
-              frequency
-              remittance
-              remittanceQc
-              wsib
-              wsibRemittance
-              wsibRate
-              csst
-              csstRemittance
-              csstRate
-            }
-          }
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         name
         description
@@ -978,184 +242,14 @@ export const getComment = /* GraphQL */ `
           phone
           role
           status
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         status
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -1164,7 +258,6 @@ export const getComment = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       user {
         id
@@ -1175,172 +268,10 @@ export const getComment = /* GraphQL */ `
         role
         status
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -1349,7 +280,6 @@ export const getComment = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       content
       status
@@ -1358,7 +288,6 @@ export const getComment = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      version
     }
   }
 `;
@@ -1373,203 +302,15 @@ export const listComments = /* GraphQL */ `
         id
         job {
           id
-          contract {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           name
           description
           deadline
-          assignee {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           status
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         user {
           id
@@ -1579,103 +320,11 @@ export const listComments = /* GraphQL */ `
           phone
           role
           status
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         content
         status
@@ -1684,7 +333,6 @@ export const listComments = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -1710,191 +358,22 @@ export const syncContracts = /* GraphQL */ `
           id
           clientNumber
           name
-          contact {
-            firstName
-            lastName
-            phone
-            email
-          }
           address
           province
           city
           postalCode
           status
-          owners {
-            firstName
-            lastName
-            phone
-            email
-          }
-          codes {
-            cliqsecr
-            cra
-            wsib
-            csst
-          }
           cheques
-          contracts {
-            items {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         type
         status
         date
-        meta {
-          bookkeeping {
-            startDate
-            endDate
-            gst
-            gstRemittance
-            qst
-            qstRemittance
-          }
-          taxes {
-            year
-            corporation
-            corporationYearEndDate
-          }
-          payroll {
-            startDate
-            endDate
-            payrollNumber
-            frequency
-            remittance
-            remittanceQc
-            wsib
-            wsibRemittance
-            wsibRate
-            csst
-            csstRemittance
-            csstRate
-          }
-        }
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -1903,7 +382,6 @@ export const syncContracts = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -1943,103 +421,6 @@ export const getContract = /* GraphQL */ `
         }
         cheques
         contracts {
-          items {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -2048,7 +429,6 @@ export const getContract = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       type
       status
@@ -2085,203 +465,15 @@ export const getContract = /* GraphQL */ `
       jobs {
         items {
           id
-          contract {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           name
           description
           deadline
-          assignee {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           status
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         nextToken
         startedAt
@@ -2291,7 +483,6 @@ export const getContract = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      version
     }
   }
 `;
@@ -2308,191 +499,22 @@ export const listContracts = /* GraphQL */ `
           id
           clientNumber
           name
-          contact {
-            firstName
-            lastName
-            phone
-            email
-          }
           address
           province
           city
           postalCode
           status
-          owners {
-            firstName
-            lastName
-            phone
-            email
-          }
-          codes {
-            cliqsecr
-            cra
-            wsib
-            csst
-          }
           cheques
-          contracts {
-            items {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         type
         status
         date
-        meta {
-          bookkeeping {
-            startDate
-            endDate
-            gst
-            gstRemittance
-            qst
-            qstRemittance
-          }
-          taxes {
-            year
-            corporation
-            corporationYearEndDate
-          }
-          payroll {
-            startDate
-            endDate
-            payrollNumber
-            frequency
-            remittance
-            remittanceQc
-            wsib
-            wsibRemittance
-            wsibRate
-            csst
-            csstRemittance
-            csstRate
-          }
-        }
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -2501,7 +523,6 @@ export const listContracts = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -2525,143 +546,14 @@ export const syncJobs = /* GraphQL */ `
         id
         contract {
           id
-          client {
-            id
-            clientNumber
-            name
-            contact {
-              firstName
-              lastName
-              phone
-              email
-            }
-            address
-            province
-            city
-            postalCode
-            status
-            owners {
-              firstName
-              lastName
-              phone
-              email
-            }
-            codes {
-              cliqsecr
-              cra
-              wsib
-              csst
-            }
-            cheques
-            contracts {
-              items {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           type
           status
           date
-          meta {
-            bookkeeping {
-              startDate
-              endDate
-              gst
-              gstRemittance
-              qst
-              qstRemittance
-            }
-            taxes {
-              year
-              corporation
-              corporationYearEndDate
-            }
-            payroll {
-              startDate
-              endDate
-              payrollNumber
-              frequency
-              remittance
-              remittanceQc
-              wsib
-              wsibRemittance
-              wsibRate
-              csst
-              csstRemittance
-              csstRate
-            }
-          }
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         name
         description
@@ -2674,184 +566,14 @@ export const syncJobs = /* GraphQL */ `
           phone
           role
           status
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         status
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -2860,7 +582,6 @@ export const syncJobs = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -2877,191 +598,22 @@ export const getJob = /* GraphQL */ `
           id
           clientNumber
           name
-          contact {
-            firstName
-            lastName
-            phone
-            email
-          }
           address
           province
           city
           postalCode
           status
-          owners {
-            firstName
-            lastName
-            phone
-            email
-          }
-          codes {
-            cliqsecr
-            cra
-            wsib
-            csst
-          }
           cheques
-          contracts {
-            items {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         type
         status
         date
-        meta {
-          bookkeeping {
-            startDate
-            endDate
-            gst
-            gstRemittance
-            qst
-            qstRemittance
-          }
-          taxes {
-            year
-            corporation
-            corporationYearEndDate
-          }
-          payroll {
-            startDate
-            endDate
-            payrollNumber
-            frequency
-            remittance
-            remittanceQc
-            wsib
-            wsibRemittance
-            wsibRate
-            csst
-            csstRemittance
-            csstRate
-          }
-        }
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -3070,7 +622,6 @@ export const getJob = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       name
       description
@@ -3084,172 +635,10 @@ export const getJob = /* GraphQL */ `
         role
         status
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -3258,143 +647,11 @@ export const getJob = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       status
       comments {
         items {
           id
-          job {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
-          user {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           content
           status
           _version
@@ -3402,7 +659,6 @@ export const getJob = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         nextToken
         startedAt
@@ -3412,7 +668,6 @@ export const getJob = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      version
     }
   }
 `;
@@ -3427,143 +682,14 @@ export const listJobs = /* GraphQL */ `
         id
         contract {
           id
-          client {
-            id
-            clientNumber
-            name
-            contact {
-              firstName
-              lastName
-              phone
-              email
-            }
-            address
-            province
-            city
-            postalCode
-            status
-            owners {
-              firstName
-              lastName
-              phone
-              email
-            }
-            codes {
-              cliqsecr
-              cra
-              wsib
-              csst
-            }
-            cheques
-            contracts {
-              items {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           type
           status
           date
-          meta {
-            bookkeeping {
-              startDate
-              endDate
-              gst
-              gstRemittance
-              qst
-              qstRemittance
-            }
-            taxes {
-              year
-              corporation
-              corporationYearEndDate
-            }
-            payroll {
-              startDate
-              endDate
-              payrollNumber
-              frequency
-              remittance
-              remittanceQc
-              wsib
-              wsibRemittance
-              wsibRate
-              csst
-              csstRemittance
-              csstRate
-            }
-          }
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         name
         description
@@ -3576,184 +702,14 @@ export const listJobs = /* GraphQL */ `
           phone
           role
           status
-          jobs {
-            items {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         status
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -3762,7 +718,6 @@ export const listJobs = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -3791,172 +746,10 @@ export const syncUsers = /* GraphQL */ `
         role
         status
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -3965,7 +758,6 @@ export const syncUsers = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt
@@ -3985,203 +777,15 @@ export const getUser = /* GraphQL */ `
       jobs {
         items {
           id
-          contract {
-            id
-            client {
-              id
-              clientNumber
-              name
-              contact {
-                firstName
-                lastName
-                phone
-                email
-              }
-              address
-              province
-              city
-              postalCode
-              status
-              owners {
-                firstName
-                lastName
-                phone
-                email
-              }
-              codes {
-                cliqsecr
-                cra
-                wsib
-                csst
-              }
-              cheques
-              contracts {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            type
-            status
-            date
-            meta {
-              bookkeeping {
-                startDate
-                endDate
-                gst
-                gstRemittance
-                qst
-                qstRemittance
-              }
-              taxes {
-                year
-                corporation
-                corporationYearEndDate
-              }
-              payroll {
-                startDate
-                endDate
-                payrollNumber
-                frequency
-                remittance
-                remittanceQc
-                wsib
-                wsibRemittance
-                wsibRate
-                csst
-                csstRemittance
-                csstRate
-              }
-            }
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           name
           description
           deadline
-          assignee {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           status
-          comments {
-            items {
-              id
-              job {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              user {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              content
-              status
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            nextToken
-            startedAt
-          }
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         nextToken
         startedAt
@@ -4189,137 +793,6 @@ export const getUser = /* GraphQL */ `
       comments {
         items {
           id
-          job {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
-          user {
-            id
-            email
-            firstName
-            lastName
-            phone
-            role
-            status
-            jobs {
-              items {
-                id
-                name
-                description
-                deadline
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           content
           status
           _version
@@ -4327,7 +800,6 @@ export const getUser = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          version
         }
         nextToken
         startedAt
@@ -4337,7 +809,6 @@ export const getUser = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
-      version
     }
   }
 `;
@@ -4357,172 +828,10 @@ export const listUsers = /* GraphQL */ `
         role
         status
         jobs {
-          items {
-            id
-            contract {
-              id
-              client {
-                id
-                clientNumber
-                name
-                address
-                province
-                city
-                postalCode
-                status
-                cheques
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              type
-              status
-              date
-              jobs {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            name
-            description
-            deadline
-            assignee {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            status
-            comments {
-              items {
-                id
-                content
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              nextToken
-              startedAt
-            }
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
         comments {
-          items {
-            id
-            job {
-              id
-              contract {
-                id
-                type
-                status
-                date
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              name
-              description
-              deadline
-              assignee {
-                id
-                email
-                firstName
-                lastName
-                phone
-                role
-                status
-                _version
-                _deleted
-                _lastChangedAt
-                createdAt
-                updatedAt
-                version
-              }
-              status
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            user {
-              id
-              email
-              firstName
-              lastName
-              phone
-              role
-              status
-              jobs {
-                nextToken
-                startedAt
-              }
-              comments {
-                nextToken
-                startedAt
-              }
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-              version
-            }
-            content
-            status
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-            version
-          }
           nextToken
           startedAt
         }
@@ -4531,7 +840,6 @@ export const listUsers = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
-        version
       }
       nextToken
       startedAt

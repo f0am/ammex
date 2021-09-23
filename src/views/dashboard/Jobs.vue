@@ -48,23 +48,25 @@
             offset-y="40px"
             offset-x="-20px"
           >
-            <v-select
-              :loading="item.id === loadingJobId"
-              :disabled="item.id === loadingJobId"
-              style="width: 200px"
-              @change="updateJobStatus(item)"
-              v-model="item.status"
-              :items="[
-                'PENDING',
-                'ACTIVE',
-                'IN_PROGRESS',
-                'BLOCKED',
-                'REVIEW',
-                'APPROVAL',
-                'WAITING_FOR_PAYMENT',
-                'COMPLETED',
-              ]"
-            />
+            <job-provider v-slot="{ JobProvider }">
+              <v-select
+                :loading="item.id === loadingJobId"
+                :disabled="item.id === loadingJobId"
+                style="width: 200px"
+                @change="updateJobStatus(JobProvider, item)"
+                v-model="item.status"
+                :items="[
+                  'PENDING',
+                  'ACTIVE',
+                  'IN_PROGRESS',
+                  'BLOCKED',
+                  'REVIEW',
+                  'APPROVAL',
+                  'WAITING_FOR_PAYMENT',
+                  'COMPLETED',
+                ]"
+              />
+            </job-provider>
           </v-badge>
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
         </template>
@@ -228,7 +230,7 @@ export default {
         this.$alert(error, "warning", -1);
       }
     },
-
+    async updateJobStatusHandler(job) {},
     async updateJobStatus(job) {
       this.loadingJobId = job.id;
       try {

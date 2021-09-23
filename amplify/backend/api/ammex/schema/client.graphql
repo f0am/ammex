@@ -1,4 +1,4 @@
-type Client @model @versioned {
+type Client @model {
   id: ID!
   clientNumber: String!
   name: String!

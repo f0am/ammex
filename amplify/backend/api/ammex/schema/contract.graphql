@@ -64,7 +64,7 @@ type MetaData {
   payroll: PayrollMeta
 }
 
-type Contract @model @versioned {
+type Contract @model {
   id: ID!
   client: Client @connection(name: "ClientContracts")
   type: ContractType

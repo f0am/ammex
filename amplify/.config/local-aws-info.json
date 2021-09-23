@@ -1,12 +1,8 @@
 {
-    "prod": {
-        "configLevel": "project",
-        "useProfile": true,
-        "profileName": "default"
-    },
-    "staging": {
-        "configLevel": "project",
-        "useProfile": true,
-        "profileName": "default"
-    }
+  "dev": {
+    "configLevel": "amplifyAdmin"
+  },
+  "develop": {
+    "configLevel": "amplifyAdmin"
+  }
 }
