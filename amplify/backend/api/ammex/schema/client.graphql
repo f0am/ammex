@@ -1,0 +1,35 @@
+type Client @model {
+  id: ID!
+  clientNumber: String!
+  name: String!
+  contact: Person!
+  address: String!
+  province: String
+  city: String!
+  postalCode: String!
+  status: ClientStatus @default(value: "PENDING")
+  owners: [Person]!
+  codes: AccessCodes
+  cheques: Int @default(value: "0")
+  contracts: [Contract]! @connection(name: "ClientContracts")
+}
+
+type Person {
+  firstName: String!
+  lastName: String!
+  phone: String
+  email: String
+}
+
+enum ClientStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type AccessCodes {
+  cliqsecr: String
+  cra: String
+  wsib: String
+  csst: String
+}

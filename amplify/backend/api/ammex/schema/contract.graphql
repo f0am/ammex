@@ -1,0 +1,77 @@
+enum ContractType {
+  PAYROLL
+  BOOKKEEPING
+  TAXES
+}
+
+enum ContractStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+enum Remittance {
+  MONTHLY
+  QUATERLY
+  YEARLY
+}
+
+enum Frequency {
+  WEEKLY
+  BI_WEEKLY
+  SEMI_MONTHLY
+  MONTHLY
+}
+
+type TaxesMeta {
+  year: String
+  corporation: Boolean
+  corporationYearEndDate: String
+}
+
+type BookkeepingMeta {
+  startDate: String
+  endDate: String
+
+  gst: String
+  gstRemittance: Remittance
+
+  qst: String
+  qstRemittance: Remittance
+}
+
+type PayrollMeta {
+  startDate: String
+  endDate: String
+
+  payrollNumber: String
+  frequency: Frequency
+  remittance: Remittance
+  remittanceQc: Remittance
+
+  wsib: String
+  wsibRemittance: Remittance
+  wsibRate: String
+
+  csst: String
+  csstRemittance: Remittance
+  csstRate: String
+}
+
+type MetaData {
+  bookkeeping: BookkeepingMeta
+  taxes: TaxesMeta
+  payroll: PayrollMeta
+}
+
+type Contract @model {
+  id: ID!
+  client: Client @connection(name: "ClientContracts")
+  type: ContractType
+  status: ContractStatus @default(value: "PENDING")
+  date: String
+
+  meta: MetaData
+
+  jobs: [Job] @connection(name: "ContractJobs")
+}

@@ -1,0 +1,23 @@
+enum UserRole {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type User @model {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  role: UserRole!
+  status: UserStatus @default(value: "PENDING")
+  jobs: [Job]! @connection(name: "UserJobs")
+  comments: [Comment]! @connection(name: "UserComments")
+}

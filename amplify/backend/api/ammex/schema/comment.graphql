@@ -1,0 +1,12 @@
+enum CommentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+type Comment @model {
+  id: ID!
+  job: Job! @connection(name: "JobComments")
+  user: User! @connection(name: "UserComments")
+  content: String!
+  status: CommentStatus @default(value: "DRAFT")
+}

@@ -1,0 +1,700 @@
+type Client {
+  id: ID!
+  clientNumber: String!
+  name: String!
+  contact: Person!
+  address: String!
+  province: String
+  city: String!
+  postalCode: String!
+  status: ClientStatus
+  owners: [Person]!
+  codes: AccessCodes
+  cheques: Int
+  contracts(filter: ModelContractFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelContractConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Person {
+  firstName: String!
+  lastName: String!
+  phone: String
+  email: String
+}
+
+enum ClientStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type AccessCodes {
+  cliqsecr: String
+  cra: String
+  wsib: String
+  csst: String
+}
+
+enum CommentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+type Comment {
+  id: ID!
+  job: Job!
+  user: User!
+  content: String!
+  status: CommentStatus
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ContractType {
+  PAYROLL
+  BOOKKEEPING
+  TAXES
+}
+
+enum ContractStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+enum Remittance {
+  MONTHLY
+  QUATERLY
+  YEARLY
+}
+
+enum Frequency {
+  WEEKLY
+  BI_WEEKLY
+  SEMI_MONTHLY
+  MONTHLY
+}
+
+type TaxesMeta {
+  year: String
+  corporation: Boolean
+  corporationYearEndDate: String
+}
+
+type BookkeepingMeta {
+  startDate: String
+  endDate: String
+  gst: String
+  gstRemittance: Remittance
+  qst: String
+  qstRemittance: Remittance
+}
+
+type PayrollMeta {
+  startDate: String
+  endDate: String
+  payrollNumber: String
+  frequency: Frequency
+  remittance: Remittance
+  remittanceQc: Remittance
+  wsib: String
+  wsibRemittance: Remittance
+  wsibRate: String
+  csst: String
+  csstRemittance: Remittance
+  csstRate: String
+}
+
+type MetaData {
+  bookkeeping: BookkeepingMeta
+  taxes: TaxesMeta
+  payroll: PayrollMeta
+}
+
+type Contract {
+  id: ID!
+  client: Client
+  type: ContractType
+  status: ContractStatus
+  date: String
+  meta: MetaData
+  jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum JobStatus {
+  PENDING
+  ACTIVE
+  IN_PROGRESS
+  BLOCKED
+  REVIEW
+  APPROVAL
+  WAITING_FOR_PAYMENT
+  COMPLETED
+}
+
+type Job {
+  id: ID!
+  contract: Contract
+  name: String!
+  description: String
+  deadline: String!
+  assignee: User
+  status: JobStatus
+  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum UserRole {
+  EMPLOYEE
+  MANAGER
+  ADMIN
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  DISABLED
+}
+
+type User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  role: UserRole!
+  status: UserStatus
+  jobs(filter: ModelJobFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelJobConnection
+  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+input PersonInput {
+  firstName: String!
+  lastName: String!
+  phone: String
+  email: String
+}
+
+input AccessCodesInput {
+  cliqsecr: String
+  cra: String
+  wsib: String
+  csst: String
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelClientConnection {
+  items: [Client]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelClientStatusInput {
+  eq: ClientStatus
+  ne: ClientStatus
+}
+
+input ModelClientFilterInput {
+  id: ModelIDInput
+  clientNumber: ModelStringInput
+  name: ModelStringInput
+  address: ModelStringInput
+  province: ModelStringInput
+  city: ModelStringInput
+  postalCode: ModelStringInput
+  status: ModelClientStatusInput
+  cheques: ModelIntInput
+  and: [ModelClientFilterInput]
+  or: [ModelClientFilterInput]
+  not: ModelClientFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  syncClients(filter: ModelClientFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelClientConnection
+  getClient(id: ID!): Client
+  listClients(filter: ModelClientFilterInput, limit: Int, nextToken: String): ModelClientConnection
+  syncComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelCommentConnection
+  getComment(id: ID!): Comment
+  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
+  syncContracts(filter: ModelContractFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelContractConnection
+  getContract(id: ID!): Contract
+  listContracts(filter: ModelContractFilterInput, limit: Int, nextToken: String): ModelContractConnection
+  syncJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelJobConnection
+  getJob(id: ID!): Job
+  listJobs(filter: ModelJobFilterInput, limit: Int, nextToken: String): ModelJobConnection
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+}
+
+input CreateClientInput {
+  id: ID
+  clientNumber: String!
+  name: String!
+  contact: PersonInput!
+  address: String!
+  province: String
+  city: String!
+  postalCode: String!
+  status: ClientStatus
+  owners: [PersonInput]!
+  codes: AccessCodesInput
+  cheques: Int
+  _version: Int
+}
+
+input UpdateClientInput {
+  id: ID!
+  clientNumber: String
+  name: String
+  contact: PersonInput
+  address: String
+  province: String
+  city: String
+  postalCode: String
+  status: ClientStatus
+  owners: [PersonInput]
+  codes: AccessCodesInput
+  cheques: Int
+  _version: Int
+}
+
+input DeleteClientInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createClient(input: CreateClientInput!, condition: ModelClientConditionInput): Client
+  updateClient(input: UpdateClientInput!, condition: ModelClientConditionInput): Client
+  deleteClient(input: DeleteClientInput!, condition: ModelClientConditionInput): Client
+  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment
+  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment
+  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment
+  createContract(input: CreateContractInput!, condition: ModelContractConditionInput): Contract
+  updateContract(input: UpdateContractInput!, condition: ModelContractConditionInput): Contract
+  deleteContract(input: DeleteContractInput!, condition: ModelContractConditionInput): Contract
+  createJob(input: CreateJobInput!, condition: ModelJobConditionInput): Job
+  updateJob(input: UpdateJobInput!, condition: ModelJobConditionInput): Job
+  deleteJob(input: DeleteJobInput!, condition: ModelJobConditionInput): Job
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User
+}
+
+input ModelClientConditionInput {
+  clientNumber: ModelStringInput
+  name: ModelStringInput
+  address: ModelStringInput
+  province: ModelStringInput
+  city: ModelStringInput
+  postalCode: ModelStringInput
+  status: ModelClientStatusInput
+  cheques: ModelIntInput
+  and: [ModelClientConditionInput]
+  or: [ModelClientConditionInput]
+  not: ModelClientConditionInput
+}
+
+type Subscription {
+  onCreateClient: Client @aws_subscribe(mutations: ["createClient"])
+  onUpdateClient: Client @aws_subscribe(mutations: ["updateClient"])
+  onDeleteClient: Client @aws_subscribe(mutations: ["deleteClient"])
+  onCreateComment: Comment @aws_subscribe(mutations: ["createComment"])
+  onUpdateComment: Comment @aws_subscribe(mutations: ["updateComment"])
+  onDeleteComment: Comment @aws_subscribe(mutations: ["deleteComment"])
+  onCreateContract: Contract @aws_subscribe(mutations: ["createContract"])
+  onUpdateContract: Contract @aws_subscribe(mutations: ["updateContract"])
+  onDeleteContract: Contract @aws_subscribe(mutations: ["deleteContract"])
+  onCreateJob: Job @aws_subscribe(mutations: ["createJob"])
+  onUpdateJob: Job @aws_subscribe(mutations: ["updateJob"])
+  onDeleteJob: Job @aws_subscribe(mutations: ["deleteJob"])
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+}
+
+type ModelCommentConnection {
+  items: [Comment]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelCommentStatusInput {
+  eq: CommentStatus
+  ne: CommentStatus
+}
+
+input ModelCommentFilterInput {
+  id: ModelIDInput
+  content: ModelStringInput
+  status: ModelCommentStatusInput
+  and: [ModelCommentFilterInput]
+  or: [ModelCommentFilterInput]
+  not: ModelCommentFilterInput
+}
+
+input CreateCommentInput {
+  id: ID
+  content: String!
+  status: CommentStatus
+  _version: Int
+  commentJobId: ID!
+  commentUserId: ID!
+}
+
+input UpdateCommentInput {
+  id: ID!
+  content: String
+  status: CommentStatus
+  _version: Int
+  commentJobId: ID
+  commentUserId: ID
+}
+
+input DeleteCommentInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelCommentConditionInput {
+  content: ModelStringInput
+  status: ModelCommentStatusInput
+  and: [ModelCommentConditionInput]
+  or: [ModelCommentConditionInput]
+  not: ModelCommentConditionInput
+}
+
+input MetaDataInput {
+  bookkeeping: BookkeepingMetaInput
+  taxes: TaxesMetaInput
+  payroll: PayrollMetaInput
+}
+
+input BookkeepingMetaInput {
+  startDate: String
+  endDate: String
+  gst: String
+  gstRemittance: Remittance
+  qst: String
+  qstRemittance: Remittance
+}
+
+input TaxesMetaInput {
+  year: String
+  corporation: Boolean
+  corporationYearEndDate: String
+}
+
+input PayrollMetaInput {
+  startDate: String
+  endDate: String
+  payrollNumber: String
+  frequency: Frequency
+  remittance: Remittance
+  remittanceQc: Remittance
+  wsib: String
+  wsibRemittance: Remittance
+  wsibRate: String
+  csst: String
+  csstRemittance: Remittance
+  csstRate: String
+}
+
+type ModelContractConnection {
+  items: [Contract]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelContractTypeInput {
+  eq: ContractType
+  ne: ContractType
+}
+
+input ModelContractStatusInput {
+  eq: ContractStatus
+  ne: ContractStatus
+}
+
+input ModelContractFilterInput {
+  id: ModelIDInput
+  type: ModelContractTypeInput
+  status: ModelContractStatusInput
+  date: ModelStringInput
+  and: [ModelContractFilterInput]
+  or: [ModelContractFilterInput]
+  not: ModelContractFilterInput
+}
+
+input CreateContractInput {
+  id: ID
+  type: ContractType
+  status: ContractStatus
+  date: String
+  meta: MetaDataInput
+  _version: Int
+  contractClientId: ID
+}
+
+input UpdateContractInput {
+  id: ID!
+  type: ContractType
+  status: ContractStatus
+  date: String
+  meta: MetaDataInput
+  _version: Int
+  contractClientId: ID
+}
+
+input DeleteContractInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelContractConditionInput {
+  type: ModelContractTypeInput
+  status: ModelContractStatusInput
+  date: ModelStringInput
+  and: [ModelContractConditionInput]
+  or: [ModelContractConditionInput]
+  not: ModelContractConditionInput
+}
+
+type ModelJobConnection {
+  items: [Job]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelJobStatusInput {
+  eq: JobStatus
+  ne: JobStatus
+}
+
+input ModelJobFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  deadline: ModelStringInput
+  status: ModelJobStatusInput
+  and: [ModelJobFilterInput]
+  or: [ModelJobFilterInput]
+  not: ModelJobFilterInput
+}
+
+input CreateJobInput {
+  id: ID
+  name: String!
+  description: String
+  deadline: String!
+  status: JobStatus
+  _version: Int
+  jobContractId: ID
+  jobAssigneeId: ID
+}
+
+input UpdateJobInput {
+  id: ID!
+  name: String
+  description: String
+  deadline: String
+  status: JobStatus
+  _version: Int
+  jobContractId: ID
+  jobAssigneeId: ID
+}
+
+input DeleteJobInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelJobConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  deadline: ModelStringInput
+  status: ModelJobStatusInput
+  and: [ModelJobConditionInput]
+  or: [ModelJobConditionInput]
+  not: ModelJobConditionInput
+}
+
+type ModelUserConnection {
+  items: [User]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelUserRoleInput {
+  eq: UserRole
+  ne: UserRole
+}
+
+input ModelUserStatusInput {
+  eq: UserStatus
+  ne: UserStatus
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  email: ModelStringInput
+  firstName: ModelStringInput
+  lastName: ModelStringInput
+  phone: ModelStringInput
+  role: ModelUserRoleInput
+  status: ModelUserStatusInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+input CreateUserInput {
+  id: ID
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  role: UserRole!
+  status: UserStatus
+  _version: Int
+}
+
+input UpdateUserInput {
+  id: ID!
+  email: String
+  firstName: String
+  lastName: String
+  phone: String
+  role: UserRole
+  status: UserStatus
+  _version: Int
+}
+
+input DeleteUserInput {
+  id: ID!
+  _version: Int
+}
+
+input ModelUserConditionInput {
+  email: ModelStringInput
+  firstName: ModelStringInput
+  lastName: ModelStringInput
+  phone: ModelStringInput
+  role: ModelUserRoleInput
+  status: ModelUserStatusInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+}
