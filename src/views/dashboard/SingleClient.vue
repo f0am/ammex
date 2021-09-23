@@ -331,7 +331,6 @@
             <v-flex xs6><div class="label">UC3:</div> {{ partner.uc3.tunnelId }}</v-flex> -->
         </base-material-card>
       </v-col>
-<<<<<<< HEAD:dashboard/src/views/dashboard/SingleClient.vue
 
       <v-col cols="12" md="4">
         <base-material-card class="v-card-profile" color="primary">
@@ -516,8 +515,6 @@
           </v-card-text>
         </base-material-card>
       </v-col>
-=======
->>>>>>> develop:src/views/dashboard/SingleClient.vue
     </v-row>
     <v-row>
       <v-col cols="12" md="8"> </v-col>
