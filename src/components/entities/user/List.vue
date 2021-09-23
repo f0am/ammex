@@ -10,6 +10,7 @@
     </template>
 
     <template v-slot:[`item.jobs`]="{ item }">
+      {{ item.jobs }}
       {{ item.jobs.items }}
     </template>
     <template v-slot:[`item.role`]="{ item }">

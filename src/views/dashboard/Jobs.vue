@@ -34,7 +34,7 @@
         class="elevation-1"
       >
         <template v-slot:[`item.contract.type`]="{ item }">
-          {{ getAbbr(item.contract.type) }}
+          {{ item.contract.type }}
         </template>
         <template v-slot:[`item.deadline`]="{ item }">
           {{ new Date(item.deadline).toLocaleDateString("en-CA") }}
@@ -48,25 +48,25 @@
             offset-y="40px"
             offset-x="-20px"
           >
-            <job-provider v-slot="{ JobProvider }">
-              <v-select
-                :loading="item.id === loadingJobId"
-                :disabled="item.id === loadingJobId"
-                style="width: 200px"
-                @change="updateJobStatus(JobProvider, item)"
-                v-model="item.status"
-                :items="[
-                  'PENDING',
-                  'ACTIVE',
-                  'IN_PROGRESS',
-                  'BLOCKED',
-                  'REVIEW',
-                  'APPROVAL',
-                  'WAITING_FOR_PAYMENT',
-                  'COMPLETED',
-                ]"
-              />
-            </job-provider>
+            <!-- <job-provider v-slot="{ JobProvider }"> -->
+            <v-select
+              :loading="item.id === loadingJobId"
+              :disabled="item.id === loadingJobId"
+              style="width: 200px"
+              @change="updateJobStatus(item)"
+              v-model="item.status"
+              :items="[
+                'PENDING',
+                'ACTIVE',
+                'IN_PROGRESS',
+                'BLOCKED',
+                'REVIEW',
+                'APPROVAL',
+                'WAITING_FOR_PAYMENT',
+                'COMPLETED',
+              ]"
+            />
+            <!-- </job-provider> -->
           </v-badge>
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
         </template>
@@ -74,7 +74,7 @@
           <user-select
             :loading="item.id === loadingJobId"
             :disabled="item.id === loadingJobId"
-            v-model="item.assigneeID"
+            v-model="item.assignee"
             itemText="name"
             itemValue="id"
             @change="updateJobAssignee(item)"
@@ -86,6 +86,9 @@
             dense
           /> -->
           <!-- {{ item.deadline.toLocaleDateString("en-US") }} -->
+        </template>
+        <template v-slot:[`item.actions`]="{ item }">
+          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
         </template>
         <template v-slot:no-data>
           <v-progress-linear
@@ -107,25 +110,11 @@ import { updateJob } from "@/graphql/mutations";
 import UserSelect from "@/components/entities/user/Select";
 export default {
   components: {
-    // JobStepper,
     UserSelect,
   },
   beforeMount() {
     this.fetchJobs();
-    //  try {
-    //   const resp = await this.$api.graphql({ query: queries.listClients });
-    //   this.clients = resp.data.listClients.items;
-    //   console.log(this.clients);
-    // } catch (error) {
-    //   this.$root.message = error;
-    //   this.$root.color = "warning";
-    //   this.$root.show = true;
-    //   this.$root.error = error;
-    // }
-
-    // this.fet
   },
-
   data: () => ({
     dialog: false,
     loadingJobId: -1,
@@ -144,6 +133,7 @@ export default {
       { value: "contract.type", text: "Type" },
       { value: "status", text: "Status" },
       { value: "assignee", text: "Assignee" },
+      { value: "actions", text: "Actions" },
     ],
     menu2: null,
     clients: [],
@@ -251,16 +241,17 @@ export default {
       this.loadingJobId = -1;
     },
 
-    async updateJobAssignee(job) {
+    async updateJobAssignee(job, assigneeId) {
       this.loadingJobId = job.id;
-
       try {
-        const { id, assigneeID, version, ...rest } = job;
-        // console.log(assigneeID)
+        console.log(job);
+        const { id, assignee, version, ...rest } = job;
+        console.log(typeof assignee);
+        console.log(assignee);
         await this.$gql(updateJob, {
           input: {
             id,
-            assigneeID,
+            jobAssigneeId: assigneeId,
             expectedVersion: version,
           },
         });

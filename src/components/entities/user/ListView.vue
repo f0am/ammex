@@ -63,6 +63,7 @@ export default {
   async beforeMount() {
     try {
       const { data } = await this.$gql(listUsers);
+      console.log("data", data);
       this.users = data.listUsers.items;
     } catch (error) {
       this.$alert(error, "warning");
@@ -71,7 +72,8 @@ export default {
   methods: {
     async saveUser() {
       try {
-        const { data } = await this.$gql(createUser, { input: this.newUser});
+        const { data } = await this.$gql(createUser, { input: this.newUser });
+        console.log("save", data);
         this.users = data.listUsers.items;
       } catch (error) {
         this.$alert(error, "warning");

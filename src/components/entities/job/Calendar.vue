@@ -1,5 +1,6 @@
 <template>
   <base-material-card title="Jobs" class="px-5 py-0" color="primary" inline>
+    {{ jobs }}
     <template v-slot:after-heading>
       <v-toolbar class="ma-0 pa-0" flat style="background-color: transparent">
         <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
