@@ -12,6 +12,7 @@ enum ContractStatus {
 
 enum Remittance {
   MONTHLY
+  BI_MONTHLY
   QUATERLY
   YEARLY
 }
