@@ -19,3 +19,25 @@ export default function (Vue, {router, head, isClient}) {
     href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css'
   })
 }
+// Burger menus
+document.addEventListener('DOMContentLoaded', function() {
+  // open/close
+  const toggler = document.querySelectorAll('[data-toggle="side-menu"]');
+
+  if (toggler.length) {
+      for (var i = 0; i < toggler.length; i++) {
+          const target = toggler[i].getAttribute('data-target');
+
+          if (target.length) {
+              toggler[i].addEventListener('click', function(event) {
+                  event.preventDefault();
+                  const menu = document.querySelector(target);
+      
+                  if (menu) {
+                      menu.classList.toggle('is-hidden');
+                  }
+              });
+          }
+      }
+  }
+});

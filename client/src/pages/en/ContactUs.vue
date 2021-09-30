@@ -24,16 +24,6 @@
                 </a>
               </div>
               <div class="map-responsive">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.6955131402183!2d-75.83594548444485!3d45.395312679100165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce018c43029853%3A0x8c6a2c97397986ee!2s204%20Chemin%20d&#39;Aylmer%20appt%2C%20304%2C%20Gatineau%2C%20QC%20J9H%206J8!5e0!3m2!1sen!2sca!4v1612031838258!5m2!1sen!2sca"
-                  width="600"
-                  height="450"
-                  frameborder="0"
-                  style="border:0; margin-top:2.5rem"
-                  allowfullscreen
-                  aria-hidden="false"
-                  tabindex="0"
-                ></iframe>
               </div>
             </div>
             <div class="column is-one-third has-text-left">
@@ -66,6 +56,12 @@
         </div>
       </div>
     </section>
+    <section class="map-section">
+      <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.6955131402183!2d-75.83594548444485!3d45.395312679100165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce018c43029853%3A0x8c6a2c97397986ee!2s204%20Chemin%20d&#39;Aylmer%20appt%2C%20304%2C%20Gatineau%2C%20QC%20J9H%206J8!5e0!3m2!1sen!2sca!4v1612031838258!5m2!1sen!2sca"
+        id="map"
+      ></iframe>
+    </section>
   </layout>
 </template>
 <script>
@@ -77,17 +73,10 @@ export default {
 </script>
 
 <style>
-.map-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
+#map {
+  width: 100% !important;
+  height: 400px;
+  margin-bottom: 50px;
 }
-.map-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
+
 </style>
