@@ -687,117 +687,119 @@
       </div>
     </section>
 
-<section>
-  <div class="form">
-    <div class="field">
-      <label class="label" for>Statut de résidence</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+    <section>
+      <div class="form">
+        <div class="field">
+          <label class="label" for>Statut de résidence</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Statut d'emploi</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Statut d'emploi</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Avez-vous reçu de l'assurance-emploi?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Avez-vous reçu de l'assurance-emploi?</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Avez-vous un revenu de placements?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Oui</option>
-            <option>Non</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Avez-vous un revenu de placements?</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Oui</option>
+                <option>Non</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Vous êtes</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Étudiant</option>
-            <option>N/A</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Vous êtes</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Étudiant</option>
+                <option>N/A</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Vous êtes</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Propriétaire</option>
-            <option>Locataire</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Vous êtes</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Propriétaire</option>
+                <option>Locataire</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="field">
-      <label class="label" for>Avez-vous payé des frais de garderie?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Oui</option>
-            <option>Non</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
+        <div class="field">
+          <label class="label" for>Avez-vous payé des frais de garderie?</label>
+          <div class="control">
+            <div class="select">
+              <select name="field-name">
+                <option>Oui</option>
+                <option>Non</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   </layout>
 </template>
 
 <script>
+import { FormWizard, TabContent } from "vue-form-wizard";
+import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import Hero from "@/components/Hero";
 export default {
   metaInfo: {
-    title: "Documents requis"
+    title: "Documents requis",
   },
-  components: { Hero }
+  components: { Hero },
 };
 </script>
 

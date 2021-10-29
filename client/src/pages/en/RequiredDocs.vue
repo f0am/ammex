@@ -3,11 +3,14 @@
     <section class="section">
       <div class="container">
         <div class="box">
+          <form-wizard />
+        </div>
+        <div class="box">
           <div class="table-container">
             <table class="table is-fullwidth is-striped">
               <thead>
                 <tr>
-                  <th>CHECK LIST FOR ANY SLIPS </th>
+                  <th>CHECK LIST FOR ANY SLIPS</th>
                   <th>Information you might need</th>
                 </tr>
               </thead>
@@ -29,10 +32,10 @@
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    </td>
-                    </td>
+                  </td>
+                </tr>
                 <tr>
-                  <td class="py-4">Employment Insurance</th>
+                  <td class="py-4">Employment Insurance</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -145,7 +148,6 @@
                       />
                     </svg>
                   </td>
-                  </td>
                 </tr>
                 <tr>
                   <td class="py-4">Tuition or education fees</td>
@@ -164,8 +166,9 @@
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    </td>
-                  <tr>
+                  </td>
+                </tr>
+                <tr>
                   <td class="py-4">Medical</td>
                   <td class="py-4">
                     <svg
@@ -183,65 +186,9 @@
                       />
                     </svg>
                   </td>
-                  </tr>
-                  <tr>
-                   <td class="py-4">Child care expenses</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  </tr>
-                  <tr>
-                   <td class="py-4">RRSP</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  </tr>
-                   <td class="py-4">Union and professional dues</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  </tr>
-                  <tr>
-                   <td class="py-4">Charitable donations</td>
+                </tr>
+                <tr>
+                  <td class="py-4">Child care expenses</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -259,8 +206,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Rental, property tax credit</td>
+                <tr>
+                  <td class="py-4">RRSP</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -278,8 +225,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Moving expenses</td>
+                <tr>
+                  <td class="py-4">Union and professional dues</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -297,8 +244,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Business and rental income</td>
+                <tr>
+                  <td class="py-4">Charitable donations</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -316,8 +263,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Disability support deduction</td>
+                <tr>
+                  <td class="py-4">Rental, property tax credit</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -335,8 +282,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Disability deduction for self</td>
+                <tr>
+                  <td class="py-4">Moving expenses</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -354,8 +301,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Adoption expenses</td>
+                <tr>
+                  <td class="py-4">Business and rental income</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -373,8 +320,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Support income/Deduction</td>
+                <tr>
+                  <td class="py-4">Disability support deduction</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -392,8 +339,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Business Investment loss</td>
+                <tr>
+                  <td class="py-4">Disability deduction for self</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -411,8 +358,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Universal child care benefit stat</td>
+                <tr>
+                  <td class="py-4">Adoption expenses</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -430,8 +377,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Transit passes</td>
+                <tr>
+                  <td class="py-4">Support income/Deduction</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -449,8 +396,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Exploration and development expenses</td>
+                <tr>
+                  <td class="py-4">Business Investment loss</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -468,8 +415,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Caregiver deduction</td>
+                <tr>
+                  <td class="py-4">Universal child care benefit stat</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -487,8 +434,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Spouse/Common law income</td>
+                <tr>
+                  <td class="py-4">Transit passes</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -506,8 +453,8 @@
                     </svg>
                   </td>
                 </tr>
-                 <tr>
-                   <td class="py-4">Notice of assessment</td>
+                <tr>
+                  <td class="py-4">Exploration and development expenses</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -525,6 +472,62 @@
                     </svg>
                   </td>
                 </tr>
+                <tr>
+                  <td class="py-4">Caregiver deduction</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Spouse/Common law income</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Notice of assessment</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -533,121 +536,23 @@
       </div>
     </section>
 
-<section>
-  <div class="form">
-    <div class="field">
-      <label class="label" for>Residency Status</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Employment Status</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Did you receive any employment insurance?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Do you have investment income?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Did you go to school?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Do you own or rent?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label" for>Did you pay for any childcare expenses?</label>
-      <div class="control">
-        <div class="select">
-          <select name="field-name">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <section>
+      <div class="form"></div>
+    </section>
   </layout>
 </template>
 
 <script>
+import FormWizard from "~/components/FormWizard";
 import Hero from "@/components/Hero";
 export default {
   metaInfo: {
-    title: "Required Documents"
+    title: "Required Documents",
   },
-  components: { Hero }
+  components: { Hero, FormWizard },
 };
 </script>
 <style>
-
 input.is-custom-field {
   border-bottom: 0.8px solid #252525 !important;
   outline: none;
