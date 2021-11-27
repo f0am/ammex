@@ -1,5 +1,4 @@
 <template>
-
   <body>
     <div>
       <b-notification
@@ -8,29 +7,25 @@
       >
         <div class="container">
           {{ covid[lang].information }}
-          <g-link
-            class="link"
-            :to="getPath('covid')"
-          >
+          <g-link class="link" :to="getPath('covid')">
             <strong>COVID-19</strong>
           </g-link>
         </div>
       </b-notification>
       <div class="is-fullhd">
-        <b-notification
-          :closable="false"
-          type=" is-info is-light is-small"
-        >
-          <div class="columns notification is-info is-light has-text-centered is-small">
+        <b-notification :closable="false" type=" is-info is-light is-small">
+          <div
+            class="
+              columns
+              notification
+              is-info is-light
+              has-text-centered
+              is-small
+            "
+          >
             <div class="column">
-              <g-link
-                class="button rounded"
-                to="tel:+1-819-682-0000"
-              >
-                <i
-                  class="fas fa-phone-alt"
-                  style="margin: 5px"
-                ></i>819-682-0000
+              <g-link class="button rounded" to="tel:+1-819-682-0000">
+                <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
               </g-link>
             </div>
             <div class="column">
@@ -50,12 +45,16 @@
                 class="button is-outlined is-info"
                 v-if="lang !== 'fr'"
                 @click="setLang('fr')"
-              >FR</div>
+              >
+                FR
+              </div>
               <div
                 v-if="lang !== 'en'"
                 class="button is-outlined is-info"
                 @click="setLang('en')"
-              >EN</div>
+              >
+                EN
+              </div>
             </div>
           </div>
         </b-notification>
@@ -71,87 +70,56 @@
             />
           </g-link>
           <b-nav class="navbar">
-            <g-link
-              class="navbar-item"
-              :to="getPath('about')"
-            >
-              {{
-            menu[lang].about
-            }}
+            <g-link class="navbar-item" :to="getPath('about')">
+              {{ menu[lang].about }}
             </g-link>
-            <b-dropdown
-              :triggers="['hover']"
-              aria-role="list"
-            >
+            <b-dropdown :triggers="['hover']" aria-role="list">
               <template #trigger>
-                <g-link
-                  class="navbar-item"
-                  :to="getPath('required-docs')"
-                >
+                <g-link class="navbar-item" :to="getPath('required-docs')">
                   {{ menu[lang].documents }}
-                  <i
-                    class="fal fa-angle-down"
-                    style="margin: 7px"
-                  ></i>
+                  <i class="fal fa-angle-down" style="margin: 7px"></i>
                 </g-link>
               </template>
               <g-link
                 class="navbar-item"
                 :to="getPath('required-docs')"
                 aria-role="listitem"
-              >{{ menu[lang].requiredDocuments }}</g-link>
+                >{{ menu[lang].requiredDocuments }}</g-link
+              >
 
               <g-link
                 class="navbar-item"
                 :to="getPath('forms')"
                 aria-role="listitem"
-              >{{ menu[lang].forms }}</g-link>
+                >{{ menu[lang].forms }}</g-link
+              >
               <g-link
                 class="navbar-item"
                 :to="getPath('contact-us')"
                 aria-role="listitem"
-              >{{ menu[lang].dropOff }}</g-link>
+                >{{ menu[lang].dropOff }}</g-link
+              >
               <g-link
                 class="navbar-item"
                 :to="getPath('login')"
                 aria-role="listitem"
-              >{{ menu[lang].uploadDocuments }}</g-link>
+                >{{ menu[lang].uploadDocuments }}</g-link
+              >
             </b-dropdown>
-            <g-link
-              class="navbar-item"
-              :to="getPath('services')"
-            >
-              {{
-            menu[lang].services
-            }}
+            <g-link class="navbar-item" :to="getPath('services')">
+              {{ menu[lang].services }}
             </g-link>
-            <g-link
-              class="navbar-item"
-              :to="getPath('faq')"
-            >
-              {{
-            menu[lang].faq
-            }}
+            <g-link class="navbar-item" :to="getPath('faq')">
+              {{ menu[lang].faq }}
             </g-link>
-            <g-link
-              class="navbar-item"
-              :to="getPath('contact-us')"
-            >
-              {{
-            menu[lang].contact
-            }}
+            <g-link class="navbar-item" :to="getPath('contact-us')">
+              {{ menu[lang].contact }}
             </g-link>
             <b-navbar-item tag="div">
               <div class="buttons">
-                <g-link
-                  class="button is-danger"
-                  :to="getPath('login')"
-                >
+                <g-link class="button is-danger" :to="getPath('login')">
                   {{ menu[lang].login }}
-                  <i
-                    class="fas fa-user"
-                    style="margin: 7px"
-                  ></i>
+                  <i class="fas fa-user" style="margin: 7px"></i>
                 </g-link>
               </div>
             </b-navbar-item>
@@ -161,41 +129,26 @@
       <slot />
       <footer />
       <div class="columns has-text-centered is-marginless">
-        <div
-          class="column has-background-info is-6"
-          style="padding: 80px"
-        >
+        <div class="column has-background-info is-6" style="padding: 80px">
           <g-link
             class="button is-centered is-big has-background-white"
             to="tel:+1-819-682-0000"
           >
-            <i
-              class="fas fa-phone-alt"
-              style="margin-right: 5px"
-            ></i>819-682-0000
+            <i class="fas fa-phone-alt" style="margin-right: 5px"></i
+            >819-682-0000
           </g-link>
         </div>
-        <div
-          class="column is-6"
-          style="padding: 80px"
-        >
+        <div class="column is-6" style="padding: 80px">
           <g-link
             class="button is-centered is-big has-background-white"
             :to="getPath('contact-us')"
           >
-            <i
-              class="far fa-envelope"
-              style="margin: 5px"
-            ></i>
+            <i class="far fa-envelope" style="margin: 5px"></i>
             {{ menu[lang].contact }}
           </g-link>
         </div>
       </div>
-      <footer
-        class="footer"
-        style="padding-bottom: 3rem"
-        id="footer"
-      >
+      <footer class="footer" style="padding-bottom: 3rem" id="footer">
         <section class="section">
           <div class="container">
             <div class="columns is-multiline is-justify-content-space-between">
@@ -211,8 +164,12 @@
               </div>
               <div class="column is-2">{{ footer[lang].outro }}</div>
               <div class="column is-3">
-                <h3 class="title is-size-5 is-spaced mb-3">{{ footer[lang].office }}</h3>
-                <p class="subtitle">204 chemin d'Aylmer app. 304, J9H 1A1 Gatineau, Quebec</p>
+                <h3 class="title is-size-5 is-spaced mb-3">
+                  {{ footer[lang].office }}
+                </h3>
+                <p class="subtitle">
+                  204 chemin d'Aylmer app. 304, J9H 1A1 Gatineau, Quebec
+                </p>
               </div>
               <div class="column is-3">
                 <h3 class="title is-size-5 is-spaced mb-3">Contact</h3>
@@ -220,25 +177,18 @@
               </div>
             </div>
             <div class="mt-5 is-flex is-justify-content-space-between">
-              <p class="subtitle is-size-7">&copy; {{ new Date().getFullYear() }}. {{ footer[lang].rights }}</p>
+              <p class="subtitle is-size-7">
+                &copy; {{ new Date().getFullYear() }}. {{ footer[lang].rights }}
+              </p>
               <div>
                 <a href="#">
-                  <img
-                    src="other-assets/icons/facebook-blue.svg"
-                    alt
-                  />
+                  <img src="other-assets/icons/facebook-blue.svg" alt />
                 </a>
                 <a href="#">
-                  <img
-                    src="other-assets/icons/twitter-blue.svg"
-                    alt
-                  />
+                  <img src="other-assets/icons/twitter-blue.svg" alt />
                 </a>
                 <a href="#">
-                  <img
-                    src="other-assets/icons/instagram-blue.svg"
-                    alt
-                  />
+                  <img src="other-assets/icons/instagram-blue.svg" alt />
                 </a>
               </div>
             </div>
@@ -384,15 +334,13 @@ a.active--exact.active {
 }
 
 .button :hover {
-  margin-right: 20px;
-  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
-  background-color: black !important;
-  color: white !important;
 }
-
+.radio :hover {
+  transition: all 0.4s ease 0s;
+}
 .sub-header {
   font-weight: bold;
   font-size: xx-large;
@@ -417,16 +365,6 @@ a {
   font-weight: 400;
 }
 
-#features {
-  background: linear-gradient(
-    180deg,
-    rgba(167, 193, 223) 26%,
-    rgb(255 255 255) 100%)),
-  padding: 5rem 0;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
 .sectionf {
   padding-top: 1.5rem;
 }
@@ -438,7 +376,6 @@ a {
 #map {
   width: 100% !important;
   height: 400px;
-  margin-bottom: 50px;
 }
 .title {
   font-size: 18px;

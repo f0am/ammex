@@ -45,6 +45,7 @@
     </b-field>-->
     <!-- </div> -->
     <b-steps
+      type="is-info"
       v-model="activeStep"
       :animated="isAnimated"
       :rounded="isRounded"
@@ -58,7 +59,7 @@
       <b-step-item
         v-for="(q, i) in questions"
         :key="q.text"
-        :step="i+1"
+        :step="i + 1"
         :clickable="isStepsClickable"
         style="position: relative"
       >
@@ -66,19 +67,18 @@
           class="is-flex is-align-items-center is-flex-direction-column"
           style="position: absolute; left: 0; right: 0; top: 50px; bottom: 0"
         >
-          <label>{{q.text}}</label>
-          </br>
+          <label>{{ q.text }}</label>
 
           <b-field class="is-centered">
             <b-radio-button
               v-for="opt in q.options"
-              :key="q.text+'-'+opt"
+              :key="q.text + '-' + opt"
               v-model="answers[q.text]"
               :native-value="opt"
               type="is-danger is-light is-outlined"
             >
               <!-- <b-icon icon="close"></b-icon> -->
-              <span>{{opt}}</span>
+              <span>{{ opt }}</span>
             </b-radio-button>
           </b-field>
         </div>
@@ -106,25 +106,27 @@
         <h1 class="title has-text-centered">Finish</h1>Lorem ipsum dolor sit amet.
       </b-step-item>-->
 
-      <template v-if="customNavigation" #navigation="{previous, next}">
+      <template v-if="customNavigation" #navigation="{ previous, next }">
         <b-button
           outlined
-          style="position: absolute; bottom: 0; left: 0;"
-          type="is-danger"
+          style="position: absolute; bottom: 0; left: 0"
+          type="is-info"
           icon-pack="fas"
-          icon-left="backward"
+          icon-left="chevron-left"
           :disabled="previous.disabled"
           @click.prevent="previous.action"
-        >Previous</b-button>
+          >Previous</b-button
+        >
         <b-button
           outlined
           style="position: absolute; bottom: 0; right: 0"
-          type="is-success"
+          type="is-info"
           icon-pack="fas"
-          icon-right="forward"
+          icon-right="chevron-right"
           :disabled="next.disabled"
           @click.prevent="next.action"
-        >Next</b-button>
+          >Next</b-button
+        >
       </template>
     </b-steps>
   </section>

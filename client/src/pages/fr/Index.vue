@@ -1,8 +1,8 @@
 <template>
-<body>
-  <Layout>
+  <body>
+    <Layout>
       <section class="family-section" id="family-owned">
-        <main style="transition:0.5s;" data-v-e0bc686a class>
+        <main style="transition: 0.5s" data-v-e0bc686a class>
           <div class="section">
             <div class="container">
               <div class="is-max-w-lg mx-auto mb-5 has-text-centered">
@@ -11,7 +11,9 @@
                   <span class="has-text-info">Ammex Impôts </span>
                   <span>Revenus Impôts</span>
                 </h2>
-                <p class="subtitle">Comptabilité et préparation de déclaration de revenus.</p>
+                <p class="subtitle">
+                  Comptabilité et préparation de déclaration de revenus.
+                </p>
               </div>
               <div class="is-max-w-xl mx-auto mb-6">
                 <div class="field is-horizontal">
@@ -28,7 +30,9 @@
                             <path
                               d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
                             />
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            <path
+                              d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                            />
                           </svg>
                         </span>
                         <input
@@ -66,100 +70,17 @@
                         <button
                           class="button is-info is-block is-fullwidth"
                           type="submit"
-                        >Se Connecter</button>
+                        >
+                          Se Connecter
+                        </button>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="is-max-w-4xl mx-auto pb-6">
-                <div
-                  class="columns is-mobile is-multiline is-centered is-vcentered has-text-centered"
-                >
-                  <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
-                    <img src="other-assets/logos/brands/tesla.svg" alt />
-                  </div>
-                  <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
-                    <img src="other-assets/logos/brands/facebook.svg" alt />
-                  </div>
-                  <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
-                    <img src="other-assets/logos/brands/marvel.svg" alt />
-                  </div>
-                  <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
-                    <img src="other-assets/logos/brands/nike.svg" alt />
-                  </div>
-                  <div class="mb-4 column is-hidden-mobile is-4-tablet is-2-desktop">
-                    <img src="other-assets/logos/brands/airbnb.svg" alt />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </main>
-        <div class="is-hidden" id="sideMenuHeaders08">
-          <div class="is-fixed is-top is-right is-fullsize has-background-grey" style="z-index: 1;"></div>
-          <nav
-            class="is-fixed is-top is-left is-bottom navbar is-flex is-flex-direction-column pt-4 px-4"
-            style="width: 80%; height: 100%; overflow-y: scroll;"
-          >
-            <div class="mb-5 navbar-brand is-flex is-justify-content-space-between">
-              <a class="navbar-item" href="#">
-                <img src="images/Logo.png" alt="Ammex Impots" width="100" />
-              </a>
-              <a
-                class="navbar-item"
-                data-toggle="side-menu"
-                data-target="#sideMenuHeaders08"
-                aria-controls="sideMenuHeaders08"
-                aria-label="Close"
-              >
-                <svg
-                  class="image is-24x24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div>
-              <nav class="navbar mb-5">
-                <div class="is-fullwidth">
-                  <a class="navbar-item" href="#">About Us</a>
-                  <a class="navbar-item" href="#">Required Documents</a>
-                  <a class="navbar-item" href="#">Services</a>
-                  <a class="navbar-item" href="#">FAQ</a>
-                </div>
-              </nav>
-              <div class="mb-6 pt-5 has-border-top">
-                <a class="button is-block is-info is-outlined mb-2" href="#">Log In</a>
-                <a class="button is-block is-info" href="#">Sign Up</a>
-              </div>
-            </div>
-            <div class="pl-4 pb-4 mt-auto">
-              <p class="mb-5 is-size-7">
-                <span>Get in Touch</span>
-                <a href="#">ammextax@gmail.com</a>
-              </p>
-              <a href="#">
-                <img src="other-assets/icons/facebook-blue.svg" alt />
-              </a>
-              <a href="#">
-                <img src="other-assets/icons/twitter-blue.svg" alt />
-              </a>
-              <a href="#">
-                <img src="other-assets/icons/instagram-blue.svg" alt />
-              </a>
-            </div>
-          </nav>
-        </div>
       </section>
       <section class="section has-background-white-bis">
         <div class="container">
@@ -172,67 +93,115 @@
               </h2>
             </div>
             <div class="column is-12 is-7-desktop">
-              <p
-                class="subtitle"
-              >La satisfaction de nos clients est au cœur de nos priorités. Nous nous engageons à établir des relations à long terme et à toujours trouver des solutions pour vos besoins financiers. Nos services de comptabilité abordables et conviviaux comprennent la préparation des déclarations de revenus fédérales, provinciales, personnels et des sociétés et ce, en Anglais, Français et Arabe. Nous employons des processus, des techniques et des technologies de pointe qui protègent nos clients aujourd'hui et à l'avenir.</p>
+              <p class="subtitle">
+                La satisfaction de nos clients est au cœur de nos priorités.
+                Nous nous engageons à établir des relations à long terme et à
+                toujours trouver des solutions pour vos besoins financiers. Nos
+                services de comptabilité abordables et conviviaux comprennent la
+                préparation des déclarations de revenus fédérales, provinciales,
+                personnels et des sociétés et ce, en Anglais, Français et Arabe.
+                Nous employons des processus, des techniques et des technologies
+                de pointe qui protègent nos clients aujourd'hui et à l'avenir.
+              </p>
             </div>
           </div>
           <div class="columns is-multiline">
             <div class="column is-6-tablet is-4-desktop">
-              <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
+              <div
+                class="
+                  box
+                  p-6
+                  is-shady
+                  has-text-justified
+                  animate_animated animate__fadeInUp
+                "
+              >
                 <div
-                  class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
-                >1</div>
-                <figure class="mb-4 image">
-                  <img
-                    style="width: 100%; height: auto;"
-                    src="other-assets/illustrations/work-tv.png"
-                    alt
-                  />
-                </figure>
+                  class="
+                    is-inline-block
+                    px-4
+                    py-2
+                    has-background-info-light has-text-info
+                    is-rounded
+                  "
+                >
+                  1
+                </div>
                 <h3 class="title is-size-5 is-spaced mb-3">Professionnels</h3>
                 <p class="subtitle">
-                  Comptez sur notre expertise en matière de préparation fiscale pour les sociétés, et les particuliers en affaires! Nous sommes situés à
+                  Comptez sur notre expertise en matière de préparation fiscale
+                  pour les sociétés, et les particuliers en affaires! Nous
+                  sommes situés à
                   <strong>Gatineau/Ottawa (Secteur Aylmer)</strong> Québec.
                 </p>
               </div>
             </div>
             <div class="column is-6-tablet is-4-desktop">
-              <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
+              <div
+                class="
+                  box
+                  p-6
+                  is-shady
+                  has-text-justified
+                  animate_animated animate__fadeInUp
+                "
+              >
                 <div
-                  class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
-                >2</div>
-                <figure class="mb-4 image">
-                  <img
-                    style="width: 100%; height: auto;"
-                    src="other-assets/illustrations/people-watching.png"
-                    alt
-                  />
-                </figure>
+                  class="
+                    is-inline-block
+                    px-4
+                    py-2
+                    has-background-info-light has-text-info
+                    is-rounded
+                  "
+                >
+                  2
+                </div>
                 <h3 class="title is-size-5 is-spaced mb-3">Abordable</h3>
                 <p class="subtitle">
-                  Que vos besoins de services comptables soient quotidiens, hebdomadaires, mensuels ou annuels, nous sommes ouverts durant toute l’année et ce, pour toutes les provinces canadiennes. Nous ne traitons jamais nos clients comme un numéro.
-                  Nos prix débutant à
-                  <strong>69.99$</strong> pour les impôts personnels. Nous sommes dédiés à répondre à vos questions et à vous offrir un service spécialisé et fiable en matière de comptabilité et de tenue de livre.
+                  Que vos besoins de services comptables soient quotidiens,
+                  hebdomadaires, mensuels ou annuels, nous sommes ouverts durant
+                  toute l’année et ce, pour toutes les provinces canadiennes.
+                  Nous ne traitons jamais nos clients comme un numéro. Nos prix
+                  débutant à
+                  <strong>69.99$</strong> pour les impôts personnels. Nous
+                  sommes dédiés à répondre à vos questions et à vous offrir un
+                  service spécialisé et fiable en matière de comptabilité et de
+                  tenue de livre.
                 </p>
               </div>
             </div>
             <div class="column is-12 is-4-desktop">
-              <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
+              <div
+                class="
+                  box
+                  p-6
+                  is-shady
+                  has-text-justified
+                  animate_animated animate__fadeInUp
+                "
+              >
                 <div
-                  class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
-                >3</div>
-                <figure class="mb-4 image">
-                  <img
-                    style="width: 100%; height: auto;"
-                    src="other-assets/illustrations/financial-report.png"
-                    alt
-                  />
-                </figure>
-                <h3 class="title is-size-5 is-spaced mb-3">Technologies de Pointe</h3>
-                <p
-                  class="subtitle"
-                >Nous sécurison vos informations avec la technologie de pointe avec l'utilisation de téléphones portables et système informatiques pour recueillir les reçus et informations. Contactez-nous pour plus d'information sur nos services.</p>
+                  class="
+                    is-inline-block
+                    px-4
+                    py-2
+                    has-background-info-light has-text-info
+                    is-rounded
+                  "
+                >
+                  3
+                </div>
+
+                <h3 class="title is-size-5 is-spaced mb-3">
+                  Technologies de Pointe
+                </h3>
+                <p class="subtitle">
+                  Nous sécurison vos informations avec la technologie de pointe
+                  avec l'utilisation de téléphones portables et système
+                  informatiques pour recueillir les reçus et informations.
+                  Contactez-nous pour plus d'information sur nos services.
+                </p>
               </div>
             </div>
           </div>
@@ -242,10 +211,14 @@
       <section class="section">
         <div class="container">
           <div class="is-max-w-lg mx-auto has-text-centered">
-            <h2 class="mt-5 title is-spaced">Une entreprise familiale depuis plus de 30 ans</h2>
-            <p
-              class="subtitle"
-            >Afin de mieux vous servir, vous pouvez nous confier vos documents en toute sécurité, que ce soit par courrier électronique, à notre bureau ou simplement via notre site web.</p>
+            <h2 class="mt-5 title is-spaced">
+              Une entreprise familiale depuis plus de 30 ans
+            </h2>
+            <p class="subtitle">
+              Afin de mieux vous servir, vous pouvez nous confier vos documents
+              en toute sécurité, que ce soit par courrier électronique, à notre
+              bureau ou simplement via notre site web.
+            </p>
             <div class="mt-5">
               <a class="button is-info mr-2" href="#">Voir maintenant</a>
               <a class="button is-light" href="#">Savoir plus</a>
@@ -253,94 +226,6 @@
           </div>
         </div>
       </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="columns is-multiline">
-            <div class="column is-6 is-3-desktop">
-              <div class="box has-text-centered">
-                <svg
-                  class="mb-2 mx-auto image is-48x48 has-text-info"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <h3 class="subtitle is-spaced mb-2">Followers</h3>
-                <h2 class="title mb-3">250 324</h2>
-              </div>
-            </div>
-            <div class="column is-6 is-3-desktop">
-              <div class="box has-text-centered">
-                <svg
-                  class="mb-2 mx-auto image is-48x48 has-text-info"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                  />
-                </svg>
-                <h3 class="subtitle is-spaced mb-2">Solved Problems</h3>
-                <h2 class="title mb-3">6 510</h2>
-              </div>
-            </div>
-            <div class="column is-6 is-3-desktop">
-              <div class="box has-text-centered">
-                <svg
-                  class="mb-2 mx-auto image is-48x48 has-text-info"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                  />
-                </svg>
-                <h3 class="subtitle is-spaced mb-2">Happy Customers</h3>
-                <h2 class="title mb-3">14 350</h2>
-              </div>
-            </div>
-            <div class="column is-6 is-3-desktop">
-              <div class="box has-text-centered">
-                <svg
-                  class="mb-2 mx-auto image is-48x48 has-text-info"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <h3 class="subtitle is-spaced mb-2">Projects</h3>
-                <h2 class="title mb-3">149 324</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="section py-6">
         <div class="container">
           <div class="columns is-multiline">
@@ -348,7 +233,9 @@
               <h2 class="title">Contactez-nous</h2>
               <p class="subtitle">Nous serons heureux de vous servir</p>
             </div>
-            <div class="column columns is-multiline is-mobile has-text-centered">
+            <div
+              class="column columns is-multiline is-mobile has-text-centered"
+            >
               <div class="column is-6-touch is-4-desktop">
                 <svg
                   class="image is-inline-block is-32x32 has-text-info mb-4"
@@ -419,77 +306,6 @@
                 </div>
               </div>
             </div>
-            <div class="column is-12">
-              <form>
-                <div class="field mb-4">
-                  <div class="control">
-                    <span class="has-text-weight-bold mr-3">Departament:</span>
-                    <label class="radio">
-                      <input class="radio" type="radio" name="department" value="1" checked />
-                      <span>Support</span>
-                    </label>
-                    <label class="radio">
-                      <input class="radio" type="radio" name="department" value="2" />
-                      <span>Sales</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="columns is-desktop">
-                  <div class="column is-6-desktop">
-                    <div class="field">
-                      <div class="control">
-                        <input class="input" type="text" placeholder="Subject" />
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control">
-                        <input class="input" type="text" placeholder="Name" />
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control">
-                        <input class="input" type="email" placeholder="name@example.com" />
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control">
-                        <div class="file has-name is-right is-fullwidth">
-                          <label class="file-label">
-                            <input class="file-input" type="file" placeholder="Choose file.." />
-                            <span class="file-cta">
-                              <span class="file-label">Browse</span>
-                            </span>
-                            <span class="file-name">Choose file..</span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-6-desktop">
-                    <div class="field is-fullheight">
-                      <div class="control is-fullheight">
-                        <textarea
-                          class="textarea is-fullheight"
-                          type="text"
-                          placeholder="Message..."
-                        ></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="is-flex is-justify-content-space-between is-align-items-center">
-                  <div class="control">
-                    <label class="checkbox">
-                      <input class="checkbox" type="checkbox" name="terms" value="1" />
-                      <span>I agree to terms and conditions.</span>
-                    </label>
-                  </div>
-                  <div class="control">
-                    <button class="button is-info is-fullwidth" type="submit">Submit</button>
-                  </div>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </section>
@@ -499,7 +315,7 @@
           id="map"
         ></iframe>
       </section>
-  </Layout>
+    </Layout>
   </body>
 </template>
 
@@ -507,12 +323,12 @@
 import Hero from "@/components/Hero";
 export default {
   metaInfo: {
-    title: "Ammex Impôts"
+    title: "Ammex Impôts",
   },
   methods: {
     getImgUrl(value) {
       return `https://picsum.photos/id/43${value}/1230/500`;
-    }
+    },
   },
   components: { Hero },
   data() {
@@ -522,11 +338,11 @@ export default {
         { text: "Client 2", color: "info" },
         { text: "Client 3", color: "success" },
         { text: "Client 4", color: "warning" },
-        { text: "Client 5", color: "danger" }
-      ]
+        { text: "Client 5", color: "danger" },
+      ],
     };
   },
-  components: { Hero }
+  components: { Hero },
 };
 </script>
 

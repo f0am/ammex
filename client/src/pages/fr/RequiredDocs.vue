@@ -3,168 +3,20 @@
     <section class="section">
       <div class="container">
         <div class="box">
+          <form-wizard />
+        </div>
+        <div class="box">
           <div class="table-container">
             <table class="table is-fullwidth is-striped">
               <thead>
                 <tr>
-                  <th>Package</th>
-                  <th>Feature 1</th>
-                  <th>Feature 2</th>
-                  <th>Feature 3</th>
-                  <th>Feature 4</th>
-                  <th>Feature 5</th>
+                  <th>CHECK LIST FOR ANY SLIPS</th>
+                  <th>Information you might need</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="py-4">Example for Package 1</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4">Example for Package 2</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                  <td class="py-4">Employment Income</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-danger"
@@ -183,154 +35,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="py-4">Example for Package 3</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4">Example for Package 4</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                  <td class="py-4">Employment Insurance</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -349,71 +54,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="py-4">Example for Package 5</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                  <td class="py-4">Pension Income</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -432,154 +73,8 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="py-4">Example for Package 6</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4">Example for Package 7</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                  <td class="py-4">Worker Compensation</td>
+
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -598,23 +93,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="py-4">Example for Package 8</td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-success"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                  <td class="py-4">Social Assistance (Welfare)</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-danger"
@@ -631,22 +110,9 @@
                       />
                     </svg>
                   </td>
-                  <td class="py-4">
-                    <svg
-                      class="image is-24x24 has-text-danger"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Investment Income</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -663,6 +129,389 @@
                       />
                     </svg>
                   </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Capital gain or loss</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Tuition or education fees</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Medical</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Child care expenses</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">RRSP</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Union and professional dues</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Charitable donations</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Rental, property tax credit</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Moving expenses</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Business and rental income</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Disability support deduction</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Disability deduction for self</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Adoption expenses</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Support income/Deduction</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Business Investment loss</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Universal child care benefit stat</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Transit passes</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Exploration and development expenses</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Caregiver deduction</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Spouse/Common law income</td>
+                  <td class="py-4">
+                    <svg
+                      class="image is-24x24 has-text-success"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-4">Notice of assessment</td>
                   <td class="py-4">
                     <svg
                       class="image is-24x24 has-text-success"
@@ -688,120 +537,43 @@
     </section>
 
     <section>
-      <div class="form">
-        <div class="field">
-          <label class="label" for>Statut de résidence</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Statut d'emploi</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Avez-vous reçu de l'assurance-emploi?</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Avez-vous un revenu de placements?</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Oui</option>
-                <option>Non</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Vous êtes</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Étudiant</option>
-                <option>N/A</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Vous êtes</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Propriétaire</option>
-                <option>Locataire</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for>Avez-vous payé des frais de garderie?</label>
-          <div class="control">
-            <div class="select">
-              <select name="field-name">
-                <option>Oui</option>
-                <option>Non</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="form"></div>
     </section>
   </layout>
 </template>
 
 <script>
-import { FormWizard, TabContent } from "vue-form-wizard";
-import "vue-form-wizard/dist/vue-form-wizard.min.css";
+import FormWizard from "~/components/FormWizard";
 import Hero from "@/components/Hero";
 export default {
   metaInfo: {
-    title: "Documents requis",
+    title: "Required Documents",
   },
-  components: { Hero },
+  components: { Hero, FormWizard },
 };
 </script>
-
 <style>
+input.is-custom-field {
+  border-bottom: 0.8px solid #252525 !important;
+  outline: none;
+  border: none;
+  box-shadow: none !important;
+  /* width: 90% !important; */
+  border-radius: unset;
+}
+
+textarea {
+  border-bottom: 0.8px solid #252525 !important;
+  outline: none !important;
+  border: none;
+  box-shadow: none !important;
+  border-radius: unset;
+  border-color: none !important;
+  outline-color: none !important;
+}
+
+.form {
+  display: flex;
+  padding: 5rem;
+}
 </style>
