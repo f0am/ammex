@@ -130,7 +130,7 @@
                 toute l’année et ce, pour toutes les provinces canadiennes.
                 Nous ne traitons jamais nos clients comme un numéro. Nos prix
                 débutant à
-                <strong>69.99$</strong> pour les impôts personnels. Nous
+                <strong>74,99$</strong> pour les impôts personnels. Nous
                 sommes dédiés à répondre à vos questions et à vous offrir un
                 service spécialisé et fiable en matière de comptabilité et de
                 tenue de livre.
