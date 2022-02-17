@@ -36,6 +36,7 @@
     "pug": "^2.0.3",
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^2.6.2",
-    "webpack": "^4.45.0"
+    "webpack": "^4.45.0",
+    "optimize-css-assets-webpack-plugin":"^4.0.0"
   }
 }

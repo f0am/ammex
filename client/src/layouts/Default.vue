@@ -1,79 +1,54 @@
 <template>
-  <body>
-    <div>
-      <b-notification
-        type="is-warning is-light is-marginless is-small"
-        :closable="false"
-      >
-        <div class="container">
-          {{ covid[lang].information }}
-          <g-link class="link" :to="getPath('covid')">
-            <strong>COVID-19</strong>
-          </g-link>
+<body>
+  <div>
+    <b-notification type="is-warning is-light is-marginless is-small" :closable="false">
+      <div class="container">
+        {{ covid[lang].information }}
+        <g-link class="link" :to="getPath('covid')">
+          <strong>COVID-19</strong>
+        </g-link>
+      </div>
+    </b-notification>
+    <div class="is-fullhd">
+      <b-notification :closable="false" type=" is-info is-light is-small">
+        <div class="columns notification is-info is-light has-text-centered is-small">
+          <div class="column">
+            <g-link class="button rounded" to="tel:+1-819-682-0000">
+              <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
+            </g-link>
+          </div>
+          <div class="column">
+            <ul>
+              <li>
+                {{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 -
+                16:00
+              </li>
+              <li>
+                {{ days[lang].saturday }} - {{ days[lang].sunday }} :
+                {{ days[lang].closed }}
+              </li>
+            </ul>
+          </div>
+          <div class="column">
+            <div class="button is-outlined is-info" v-if="lang !== 'fr'" @click="setLang('fr')">FR</div>
+            <div v-if="lang !== 'en'" class="button is-outlined is-info" @click="setLang('en')">EN</div>
+          </div>
         </div>
       </b-notification>
-      <div class="is-fullhd">
-        <b-notification :closable="false" type=" is-info is-light is-small">
-          <div
-            class="
-              columns
-              notification
-              is-info is-light
-              has-text-centered
-              is-small
-            "
-          >
-            <div class="column">
-              <g-link class="button rounded" to="tel:+1-819-682-0000">
-                <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
-              </g-link>
-            </div>
-            <div class="column">
-              <ul>
-                <li>
-                  {{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 -
-                  16:00
-                </li>
-                <li>
-                  {{ days[lang].saturday }} - {{ days[lang].sunday }} :
-                  {{ days[lang].closed }}
-                </li>
-              </ul>
-            </div>
-            <div class="column">
-              <div
-                class="button is-outlined is-info"
-                v-if="lang !== 'fr'"
-                @click="setLang('fr')"
-              >
-                FR
-              </div>
-              <div
-                v-if="lang !== 'en'"
-                class="button is-outlined is-info"
-                @click="setLang('en')"
-              >
-                EN
-              </div>
-            </div>
-          </div>
-        </b-notification>
-      </div>
-      <div class="container">
-        <header class="header">
-          <g-link :to="getPath('/')">
-            <g-image
-              alt="Ammex Logo"
-              src="~/pictures/logo.svg"
-              background-color="smokewhite"
-              width="500"
-            />
-          </g-link>
-          <b-nav class="navbar">
-            <g-link class="navbar-item" :to="getPath('about')">
-              {{ menu[lang].about }}
-            </g-link>
-            <b-dropdown :triggers="['hover']" aria-role="list">
+    </div>
+    <div class="container">
+      <header class="header">
+        <g-link :to="getPath('/')">
+          <g-image
+            alt="Ammex Logo"
+            src="~/pictures/logo.svg"
+            background-color="smokewhite"
+            width="500"
+          />
+        </g-link>
+        <b-nav class="navbar">
+          <g-link class="navbar-item" :to="getPath('about')">{{ menu[lang].about }}</g-link>
+          <!-- <b-dropdown :triggers="['hover']" aria-role="list">
               <template #trigger>
                 <g-link class="navbar-item" :to="getPath('required-docs')">
                   {{ menu[lang].documents }}
@@ -105,98 +80,80 @@
                 aria-role="listitem"
                 >{{ menu[lang].uploadDocuments }}</g-link
               >
-            </b-dropdown>
-            <g-link class="navbar-item" :to="getPath('services')">
-              {{ menu[lang].services }}
-            </g-link>
-            <g-link class="navbar-item" :to="getPath('faq')">
+          </b-dropdown>-->
+          <g-link class="navbar-item" :to="getPath('services')">{{ menu[lang].services }}</g-link>
+          <!-- <g-link class="navbar-item" :to="getPath('faq')">
               {{ menu[lang].faq }}
-            </g-link>
-            <g-link class="navbar-item" :to="getPath('contact-us')">
-              {{ menu[lang].contact }}
-            </g-link>
-            <b-navbar-item tag="div">
-              <div class="buttons">
-                <g-link class="button is-danger" :to="getPath('login')">
-                  {{ menu[lang].login }}
-                  <i class="fas fa-user" style="margin: 7px"></i>
-                </g-link>
-              </div>
-            </b-navbar-item>
-          </b-nav>
-        </header>
-      </div>
-      <slot />
-      <footer />
-      <div class="columns has-text-centered is-marginless">
-        <div class="column has-background-info is-6" style="padding: 80px">
-          <g-link
-            class="button is-centered is-big has-background-white"
-            to="tel:+1-819-682-0000"
-          >
-            <i class="fas fa-phone-alt" style="margin-right: 5px"></i
-            >819-682-0000
-          </g-link>
-        </div>
-        <div class="column is-6" style="padding: 80px">
-          <g-link
-            class="button is-centered is-big has-background-white"
-            :to="getPath('contact-us')"
-          >
-            <i class="far fa-envelope" style="margin: 5px"></i>
-            {{ menu[lang].contact }}
-          </g-link>
-        </div>
-      </div>
-      <footer class="footer" style="padding-bottom: 3rem" id="footer">
-        <section class="section">
-          <div class="container">
-            <div class="columns is-multiline is-justify-content-space-between">
-              <div class="column is-2 is is-paddingless">
-                <g-link to="/">
-                  <g-image
-                    alt="Ammex Logo"
-                    src="~/pictures/logo.svg"
-                    background-color="smokewhite"
-                    width="500"
-                  />
-                </g-link>
-              </div>
-              <div class="column is-2">{{ footer[lang].outro }}</div>
-              <div class="column is-3">
-                <h3 class="title is-size-5 is-spaced mb-3">
-                  {{ footer[lang].office }}
-                </h3>
-                <p class="subtitle">
-                  204 chemin d'Aylmer app. 304, J9H 1A1 Gatineau, Quebec
-                </p>
-              </div>
-              <div class="column is-3">
-                <h3 class="title is-size-5 is-spaced mb-3">Contact</h3>
-                <p class="subtitle">ammextax@gmail.com</p>
-              </div>
+          </g-link>-->
+          <g-link class="navbar-item" :to="getPath('contact-us')">{{ menu[lang].contact }}</g-link>
+          <!-- <b-navbar-item tag="div">
+            <div class="buttons">
+              <g-link class="button is-danger" :to="getPath('login')">
+                {{ menu[lang].login }}
+                <i class="fas fa-user" style="margin: 7px"></i>
+              </g-link>
             </div>
-            <div class="mt-5 is-flex is-justify-content-space-between">
-              <p class="subtitle is-size-7">
-                &copy; {{ new Date().getFullYear() }}. {{ footer[lang].rights }}
-              </p>
-              <div>
-                <a href="#">
-                  <img src="other-assets/icons/facebook-blue.svg" alt />
-                </a>
-                <a href="#">
-                  <img src="other-assets/icons/twitter-blue.svg" alt />
-                </a>
-                <a href="#">
-                  <img src="other-assets/icons/instagram-blue.svg" alt />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </footer>
+          </b-navbar-item>-->
+        </b-nav>
+      </header>
     </div>
-  </body>
+    <slot />
+    <div class="columns has-text-centered is-marginless">
+      <div class="column has-background-info is-6" style="padding: 80px">
+        <g-link class="button is-centered is-big has-background-white" to="tel:+1-819-682-0000">
+          <i class="fas fa-phone-alt" style="margin-right: 5px"></i>819-682-0000
+        </g-link>
+      </div>
+      <div class="column is-6" style="padding: 80px">
+        <g-link class="button is-centered is-big has-background-white" :to="getPath('contact-us')">
+          <i class="far fa-envelope" style="margin: 5px"></i>
+          {{ menu[lang].contact }}
+        </g-link>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="columns is-multiline is-justify-content-space-between">
+          <div class="column is-2 is is-paddingless">
+            <g-link to="/">
+              <g-image
+                alt="Ammex Logo"
+                src="~/pictures/logo.svg"
+                background-color="smokewhite"
+                width="500"
+              />
+            </g-link>
+          </div>
+          <!-- <div class="column is-2">{{ footer[lang].outro }}</div> -->
+          <div class="column is-3" style="padding-top: 60px">
+            <h3 class="title is-size-5 is-spaced mb-3">{{ footer[lang].office }}</h3>
+            <p class="subtitle">204 chemin d'Aylmer app. 304, J9H 1A1 Gatineau, Quebec</p>
+          </div>
+          <div class="column is-3" style="padding-top: 60px">
+            <h3 class="title is-size-5 is-spaced mb-3">Contact</h3>
+            <p class="subtitle">ammextax@gmail.com</p>
+          </div>
+        </div>
+        <div class="mt-5 is-flex is-justify-content-space-between">
+          <p
+            class="subtitle is-size-7"
+          >&copy; {{ new Date().getFullYear() }}. {{ footer[lang].rights }}</p>
+          <div>
+            <a href="#">
+              <img src="other-assets/icons/facebook-blue.svg" alt />
+            </a>
+            <a href="#">
+              <img src="other-assets/icons/twitter-blue.svg" alt />
+            </a>
+            <a href="#">
+              <img src="other-assets/icons/instagram-blue.svg" alt />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
 </template>
 
 <static-query>
@@ -370,7 +327,8 @@ a {
 }
 
 #footer {
-  padding-top: 10rem;
+  /* padding-top: 10rem; */
+  padding: 0;
 }
 
 #map {

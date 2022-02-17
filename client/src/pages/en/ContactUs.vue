@@ -18,13 +18,12 @@
               <br />
               <i class="fas fa-envelope" style="margin:5px"></i>
               <span>ammextax@gmail.com</span>
-              <div class="social-media">
+              <!-- <div class="social-media">
                 <a href="https://facebook.com" target="_blank">
                   <i class="fab fa-facebook-square" aria-hidden="true"></i>
                 </a>
-              </div>
-              <div class="map-responsive">
-              </div>
+              </div>-->
+              <div class="map-responsive"></div>
             </div>
             <div class="column is-one-third has-text-left">
               <div class="field" style="margin-top: 5rem">
@@ -47,6 +46,7 @@
               </div>
               <div class="control">
                 <button
+                  disabled
                   type="submit"
                   class="button is-info is-fullwidth has-text-weight-medium is-medium"
                 >Send Message</button>
@@ -58,7 +58,7 @@
     </section>
     <section class="map-section">
       <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.6955131402183!2d-75.83594548444485!3d45.395312679100165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce018c43029853%3A0x8c6a2c97397986ee!2s204%20Chemin%20d&#39;Aylmer%20appt%2C%20304%2C%20Gatineau%2C%20QC%20J9H%206J8!5e0!3m2!1sen!2sca!4v1612031838258!5m2!1sen!2sca"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.6955131402183!2d-75.83594548444485!3d45.395312679100165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce018c43029853%3A0x8c6a2c97397986ee!2s204%20Chemin%20d&#39;Aylmer%20appt%2C%20304%2C%20Gatineau%2C%20QC%20J9H%206J8!5e0!3m2!1sen!2sca!4v1612031838258!5m2!1sen!2sca"
         id="map"
       ></iframe>
     </section>
@@ -67,8 +67,8 @@
 <script>
 export default {
   metaInfo: {
-    title: "Contact Us"
-  }
+    title: "Contact Us",
+  },
 };
 </script>
 
@@ -78,5 +78,4 @@ export default {
   height: 400px;
   margin-bottom: 50px;
 }
-
 </style>

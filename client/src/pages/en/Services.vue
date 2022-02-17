@@ -27,7 +27,7 @@
             <div class="mb-6">
               <h2 class="mt-4 title is-size-3">Our Specialized Services</h2>
             </div>
-            <div class="is-flex mb-6">
+            <!-- <div class="is-flex mb-6">
               <div class="mr-4 has-text-info">
                 <svg
                   class="image is-32x32"
@@ -50,7 +50,7 @@
                   class="subtitle"
                 >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis expedita animi.</p>
               </div>
-            </div>
+            </div>-->
             <div class="is-flex mb-6">
               <div class="mr-4 has-text-info">
                 <svg
@@ -77,7 +77,7 @@
                 >We are dedicated to answer your questions and offer you a specialized service in accounting and bookkeeping.</p>
               </div>
             </div>
-            <div class="is-flex">
+            <!-- <div class="is-flex">
               <div class="mr-4 has-text-info">
                 <svg
                   class="image is-32x32"
@@ -100,12 +100,12 @@
                   class="subtitle"
                 >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis expedita animi.</p>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
     </section>
-      <section class="hero is-fullheight has-background-light">
+    <section class="hero is-fullheight has-background-light">
       <div class="hero-body">
         <div class="container">
           <div class="intro column has-text-centered">
@@ -273,7 +273,7 @@
               </div>
             </div>
           </div>
-          <div class="column is-6-tablet is-4-desktop mb-5">
+          <!-- <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
               <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
                 <svg
@@ -300,7 +300,7 @@
                 >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
               <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
@@ -327,7 +327,7 @@
               </div>
             </div>
           </div>
-          <div class="column is-6-tablet is-4-desktop mb-5">
+          <!-- <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
               <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
                 <svg
@@ -352,7 +352,7 @@
                 >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </section>
@@ -364,14 +364,14 @@
 import Hero from "@/components/Hero";
 export default {
   metaInfo: {
-    title: "Services"
+    title: "Services",
   },
   components: { Hero },
   data() {
     return {
-      rounded: false
+      rounded: false,
     };
-  }
+  },
 };
 </script>
 

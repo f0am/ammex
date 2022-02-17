@@ -4,22 +4,18 @@
       <div class="container has-text has-text-centered">
         <div class="columns is is-vcentered">
           <div class="column is-5">
-            <g-image :src="image"/>
-                    </div>
-                    <div class="column is-6 is-offset-1">
-        <h1 class="title is-2">{{title}}</h1>
-          <h2 class="subtitle is-4">
-                            Accounting & preparation of income tax returns
-                        </h2>
-                        <br>
-                        <p class="has-text-centered">
-                            <a class="button is-medium is-info is-outlined">
-                                Learn more
-                            </a>
-                        </p>
+            <g-image :src="image" />
+          </div>
+          <div class="column is-6 is-offset-1">
+            <h1 class="title is-2">{{title}}</h1>
+            <h2 class="subtitle is-4">Accounting & preparation of income tax returns</h2>
+            <br />
+            <p class="has-text-centered">
+              <a class="button is-medium is-info is-outlined">Learn more</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 </template>
@@ -29,13 +25,13 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     image: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
