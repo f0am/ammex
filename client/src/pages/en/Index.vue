@@ -119,7 +119,7 @@
               <h3 class="title is-size-5 is-spaced mb-3">Affordable</h3>
               <p class="subtitle">
                 Our affordable prices start at
-                <strong>69.99$</strong> for
+                <strong>74.99$</strong> for
                 personal taxes. We are dedicated to answer your questions and
                 offer you a specialized service in accounting and bookkeeping.
               </p>
