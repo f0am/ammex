@@ -109,8 +109,8 @@
               <div
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >1</div>
-              <h3 class="title is-size-5 is-spaced mb-3">Professionnels</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Professionnels</span>
+              <p class="subtitle mt-4">
                 Comptez sur notre expertise en matière de préparation fiscale
                 pour les sociétés, et les particuliers en affaires! Nous
                 sommes situés à
@@ -123,8 +123,8 @@
               <div
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >2</div>
-              <h3 class="title is-size-5 is-spaced mb-3">Abordable</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Abordable</span>
+              <p class="subtitle mt-4">
                 Que vos besoins de services comptables soient quotidiens,
                 hebdomadaires, mensuels ou annuels, nous sommes ouverts durant
                 toute l’année et ce, pour toutes les provinces canadiennes.
@@ -143,8 +143,8 @@
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >3</div>
 
-              <h3 class="title is-size-5 is-spaced mb-3">Technologies de Pointe</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Innovant</span>
+              <p class="subtitle mt-4">
                 Nous sécurison vos informations avec la technologie de pointe
                 avec l'utilisation de téléphones portables et système
                 informatiques pour recueillir les reçus et informations.

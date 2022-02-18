@@ -101,8 +101,8 @@
               <div
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >1</div>
-              <h3 class="title is-size-5 is-spaced mb-3">Professionals</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Professionals</span>
+              <p class="subtitle mt-4">
                 Count on our expertise in tax preparation for corporations,
                 trusts and individuals! We are located in
                 <strong>Gatineau/Ottawa (Aylmer Sector)</strong> Quebec. We
@@ -116,8 +116,8 @@
               <div
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >2</div>
-              <h3 class="title is-size-5 is-spaced mb-3">Affordable</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Affordable</span>
+              <p class="subtitle mt-4">
                 Our affordable prices start at
                 <strong>74.99$</strong> for
                 personal taxes. We are dedicated to answer your questions and
@@ -130,8 +130,8 @@
               <div
                 class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
               >3</div>
-              <h3 class="title is-size-5 is-spaced mb-3">Cutting Edge Technology</h3>
-              <p class="subtitle">
+              <span class="title is-size-5 is-spaced ml-4">Cutting Edge</span>
+              <p class="subtitle mt-4">
                 We secure your data with cutting edge technology using
                 smartphone devices and computer systems to collect receipts
                 and information. Contact us for more information about our
