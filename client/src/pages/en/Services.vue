@@ -217,7 +217,7 @@
               </div>
               <div>
                 <h3 class="title is-size-5 is-spaced mb-3">Payroll</h3>
-                <p class="subtitle">Payroll for exmployees</p>
+                <p class="subtitle">Payroll for employees</p>
                 <p class="subtitle">Payroll remittance</p>
               </div>
             </div>
