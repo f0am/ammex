@@ -11,7 +11,7 @@
     </b-notification>
     <div class="is-fullhd">
       <b-notification :closable="false" type=" is-info is-light is-small">
-        <div class="columns notification is-info is-light has-text-centered is-small">
+        <div class="columns notification is-info is-light has-text-centered is-small" style="overflow: hidden">
           <div class="column">
             <g-link class="button rounded" to="tel:+1-819-682-0000">
               <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
@@ -112,7 +112,7 @@
       </div>
     </div>
     <footer>
-      <div class="container">
+      <div class="container has-text-centered">
         <div class="columns is-multiline is-justify-content-space-between">
           <div class="column is-2 is is-paddingless">
             <g-link to="/">
@@ -344,6 +344,10 @@ a {
 
 .container {
   transition: all 0.4s ease-in-out;
+}
+
+.media-content {
+  overflow: hidden !important;
 }
 
 /**
