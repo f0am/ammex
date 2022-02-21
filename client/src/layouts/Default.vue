@@ -1,14 +1,14 @@
 <template>
 <body>
   <div>
-    <b-notification type="is-warning is-light is-marginless is-small" :closable="false">
+    <!-- <b-notification type="is-warning is-light is-marginless is-small" :closable="false">
       <div class="container">
         {{ covid[lang].information }}
         <g-link class="link" :to="getPath('covid')">
           <strong>COVID-19</strong>
         </g-link>
       </div>
-    </b-notification>
+    </b-notification> -->
     <div class="is-fullhd">
       <b-notification :closable="false" type=" is-info is-light is-small">
         <div class="columns notification is-info is-light has-text-centered is-small" style="overflow: hidden">
@@ -99,12 +99,12 @@
     </div>
     <slot />
     <div class="columns has-text-centered is-marginless">
-      <div class="column has-background-info is-6" style="padding: 80px">
+      <div class="column background-info is-6" style="padding: 80px">
         <g-link class="button is-centered is-big has-background-white" to="tel:+1-819-682-0000">
           <i class="fas fa-phone-alt" style="margin-right: 5px"></i>819-682-0000
         </g-link>
       </div>
-      <div class="column is-6" style="padding: 80px">
+      <div class="column is-6 has-background-light" style="padding: 80px">
         <g-link class="button is-centered is-big has-background-white" :to="getPath('contact-us')">
           <i class="far fa-envelope" style="margin: 5px"></i>
           {{ menu[lang].contact }}
@@ -250,7 +250,6 @@ export default {
   },
 };
 </script>
-
 <style>
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -348,6 +347,18 @@ a {
 
 .media-content {
   overflow: hidden !important;
+}
+
+.text-info {
+  color: #2867b1;
+}
+
+.background-info {
+  background-color:#2866b1;
+}
+
+.background-info-light {
+  background-color:rgba(40, 102, 177, 0.15);
 }
 
 /**

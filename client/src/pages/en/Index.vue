@@ -6,12 +6,12 @@
         <div class="section">
           <div class="container">
             <div class="is-max-w-lg mx-auto mb-5 has-text-centered">
-              <h2 class="mt-4 title is-spaced">
+              <h2 class="mt-4 title is-spaced" style="text-shadow: 0 0 1px rgba(255,255,255,0.7);">
                 <span>We are&nbsp;</span>
-                <span class="has-text-info">Ammex Impôts&nbsp;</span>
+                <span class="text-info">Ammex Impôts&nbsp;</span>
                 <span>Income tax</span>
               </h2>
-              <p class="subtitle">Accounting and preparation of income tax returns</p>
+              <p class="subtitle" style="text-shadow: 0 0 1px rgba(255,255,255,0.9);">Accounting and preparation of income tax returns</p>
             </div>
             <!-- <div class="is-max-w-xl mx-auto mb-6">
               <div class="field is-horizontal">
@@ -79,7 +79,7 @@
           <div class="column is-12 is-5-desktop">
             <h2 class="title is-spaced">
               <span>Make your&nbsp;</span>
-              <span class="has-text-info">life easier&nbsp;</span>
+              <span class="text-info">life easier&nbsp;</span>
               <span>for all your accounting and financial needs</span>
             </h2>
           </div>
@@ -99,7 +99,7 @@
           <div class="column is-6-tablet is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >1</div>
               <span class="title is-size-5 is-spaced ml-4">Professionals</span>
               <p class="subtitle mt-4">
@@ -114,7 +114,7 @@
           <div class="column is-6-tablet is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >2</div>
               <span class="title is-size-5 is-spaced ml-4">Affordable</span>
               <p class="subtitle mt-4">
@@ -128,7 +128,7 @@
           <div class="column is-12 is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >3</div>
               <span class="title is-size-5 is-spaced ml-4">Cutting Edge</span>
               <p class="subtitle mt-4">
@@ -148,8 +148,7 @@
           <h2 class="title is-1">Family owned and operated for over 30 years</h2>
           <p class="subtitle">
             To serve you better, you can safely drop-off your documents with
-            us whether it is by email, at our office or simply through our
-            website.
+            us whether it is by email, at our office.
           </p>
           <!-- <div class="mt-5">
             <a class="button is-info mr-2" href="#">Check now</a>
@@ -168,7 +167,7 @@
           <div class="column columns is-multiline is-mobile has-text-centered">
             <div class="column is-6-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -189,7 +188,7 @@
             </div>
             <div class="column is-6-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -210,7 +209,7 @@
             </div>
             <div class="column is-12-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -249,41 +248,16 @@
 </Layout>
 </template>
 
-<script>
-import Hero from "@/components/Hero";
-export default {
-  metaInfo: {
-    title: "Ammex Impôts",
-  },
-  methods: {
-    getImgUrl(value) {
-      return `https://picsum.photos/id/43${value}/1230/500`;
-    },
-  },
-  components: { Hero },
-  data() {
-    return {
-      carousels: [
-        { text: "Client 1", color: "info" },
-        { text: "Client 2", color: "info" },
-        { text: "Client 3", color: "success" },
-        { text: "Client 4", color: "warning" },
-        { text: "Client 5", color: "danger" },
-      ],
-    };
-  },
-  components: { Hero },
-};
-</script>
-
 <style>
 #family-owned {
   background-image: url(~@/pictures/bgaccounting.jpeg);
   background-repeat: no-repeat;
-  height: 800px;
+  height: 500px;
   align-items: center;
   justify-content: center;
   display: flex;
+  background-position: right bottom;
+  background-size: cover;
 }
 
 .home-links a {

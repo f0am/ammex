@@ -28,7 +28,7 @@
               <h2 class="mt-4 title is-size-3">Nos services spécialisés</h2>
             </div>
             <!-- <div class="is-flex mb-6">
-              <div class="mr-4 has-text-info">
+              <div class="mr-4 text-info">
                 <svg
                   class="image is-32x32"
                   fill="none"
@@ -52,7 +52,7 @@
               </div>
             </div>-->
             <div class="is-flex mb-6">
-              <div class="mr-4 has-text-info">
+              <div class="mr-4 text-info">
                 <svg
                   class="image is-32x32"
                   fill="none"
@@ -78,7 +78,7 @@
               </div>
             </div>
             <!-- <div class="is-flex">
-              <div class="mr-4 has-text-info">
+              <div class="mr-4 text-info">
                 <svg
                   class="image is-32x32"
                   fill="none"
@@ -124,7 +124,7 @@
         <div class="columns is-multiline is-centered">
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,13 +142,14 @@
               </div>
               <div>
                 <h3 class="title is-size-5 is-spaced mb-3">Impôts pour les sociétés</h3>
-                <p class="subtitle">Impôts pour les sociétés de capitaux</p>
+                <p class="subtitle">Impôts pour les sociétés</p>
+                <p class="subtitle">Entreprise individuelle</p>
               </div>
             </div>
           </div>
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,13 +172,12 @@
                 <p class="subtitle">Dépenses d'emploi</p>
                 <p class="subtitle">Xpress Cash - Remise de remboursement Fédéral le jour même</p>
                 <p class="subtitle">Résidents réputés</p>
-                <p class="subtitle">Revenu locatif</p>
               </div>
             </div>
           </div>
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +202,7 @@
           </div>
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +227,7 @@
           </div>
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@
           </div>
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -280,7 +280,7 @@
           </div>
           <!-- <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -308,7 +308,7 @@
           </div>-->
           <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -330,13 +330,13 @@
                 >Prendre en charge les réponses avec le gouvernement</h3>
                 <p
                   class="subtitle"
-                >Enlevés gratuitement en cas de changement de decision dans le futur.</p>
+                >Offert gratuitement à nos clients</p>
               </div>
             </div>
           </div>
           <!-- <div class="column is-6-tablet is-4-desktop mb-5">
             <div class="is-flex is-align-items-start">
-              <div class="mr-5 p-4 is-rounded has-background-info has-text-white">
+              <div class="mr-5 p-4 is-rounded background-info has-text-white">
                 <svg
                   class="image is-32x32"
                   xmlns="http://www.w3.org/2000/svg"

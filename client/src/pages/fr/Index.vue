@@ -6,12 +6,12 @@
         <div class="section">
           <div class="container">
             <div class="is-max-w-lg mx-auto mb-5 has-text-centered">
-              <h2 class="mt-4 title is-spaced">
-                <span>Nous sommes&nbsp;</span>
-                <span class="has-text-info">Ammex Impôts&nbsp;</span>
-                <span>Revenus Impôts</span>
+              <h2 class="mt-4 title is-spaced" style="text-shadow: 0 0 1px rgba(255,255,255,0.7);">
+                <span>Nous sommes </span>
+                <span class="text-info">Ammex Impôts </span>
+                <span>Income Tax</span>
               </h2>
-              <p class="subtitle">Comptabilité et préparation de déclaration de revenus.</p>
+              <p class="subtitle" style="text-shadow: 0 0 1px rgba(255,255,255,0.7);">Comptabilité et préparation de déclaration de revenus.</p>
             </div>
             <!-- <div class="is-max-w-xl mx-auto mb-6">
                 <div class="field is-horizontal">
@@ -86,7 +86,7 @@
           <div class="column is-12 is-5-desktop">
             <h2 class="title is-spaced">
               <span>Nous nous occupons de tous vos&nbsp;</span>
-              <span class="has-text-info">besoins&nbsp;</span>
+              <span class="text-info">besoins&nbsp;</span>
               <span>en matière de comptabilité et finances</span>
             </h2>
           </div>
@@ -107,7 +107,7 @@
           <div class="column is-6-tablet is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >1</div>
               <span class="title is-size-5 is-spaced ml-4">Professionnels</span>
               <p class="subtitle mt-4">
@@ -121,7 +121,7 @@
           <div class="column is-6-tablet is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >2</div>
               <span class="title is-size-5 is-spaced ml-4">Abordable</span>
               <p class="subtitle mt-4">
@@ -140,7 +140,7 @@
           <div class="column is-12 is-4-desktop">
             <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
               <div
-                class="is-inline-block px-4 py-2 has-background-info-light has-text-info is-rounded"
+                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
               >3</div>
 
               <span class="title is-size-5 is-spaced ml-4">Innovant</span>
@@ -163,7 +163,7 @@
           <p class="subtitle">
             Afin de mieux vous servir, vous pouvez nous confier vos documents
             en toute sécurité, que ce soit par courrier électronique, à notre
-            bureau ou simplement via notre site web.
+            bureau.
           </p>
           <!-- <div class="mt-5">
             <a class="button is-info mr-2" href="#">Voir maintenant</a>
@@ -182,7 +182,7 @@
           <div class="column columns is-multiline is-mobile has-text-centered">
             <div class="column is-6-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -203,7 +203,7 @@
             </div>
             <div class="column is-6-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -224,7 +224,7 @@
             </div>
             <div class="column is-12-touch is-4-desktop">
               <svg
-                class="image is-inline-block is-32x32 has-text-info mb-4"
+                class="image is-inline-block is-32x32 text-info mb-4"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
