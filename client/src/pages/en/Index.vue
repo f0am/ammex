@@ -11,7 +11,10 @@
                 <span class="text-info">Ammex Impôts&nbsp;</span>
                 <span>Income tax</span>
               </h2>
-              <p class="subtitle" style="text-shadow: 0 0 1px rgba(255,255,255,0.9);">Accounting and preparation of income tax returns</p>
+              <p
+                class="subtitle"
+                style="text-shadow: 0 0 1px rgba(255,255,255,0.9);"
+              >Accounting and preparation of income tax returns</p>
             </div>
             <!-- <div class="is-max-w-xl mx-auto mb-6">
               <div class="field is-horizontal">
@@ -95,48 +98,48 @@
             </p>
           </div>
         </div>
-        <div class="columns is-multiline">
-          <div class="column is-6-tablet is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >1</div>
-              <span class="title is-size-5 is-spaced ml-4">Professionals</span>
-              <p class="subtitle mt-4">
-                Count on our expertise in tax preparation for corporations,
-                trusts and individuals! We are located in
-                <strong>Gatineau/Ottawa (Aylmer Sector)</strong> Quebec. We
-                are open year-round for all Canadian provinces. We never treat
-                our clients like a number.
-              </p>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">1</div>
+                <span class="title is-size-5 is-spaced ml-4">Professionals</span>
+                <p class="subtitle mt-4">
+                  Count on our expertise in tax preparation for corporations,
+                  trusts and individuals! We are located in
+                  <strong>Gatineau/Ottawa (Aylmer Sector)</strong> Quebec. We
+                  are open year-round for all Canadian provinces. We never treat
+                  our clients like a number.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="column is-6-tablet is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >2</div>
-              <span class="title is-size-5 is-spaced ml-4">Affordable</span>
-              <p class="subtitle mt-4">
-                Our affordable prices start at
-                <strong>74.99$</strong> for
-                personal taxes. We are dedicated to answer your questions and
-                offer you a specialized service in accounting and bookkeeping.
-              </p>
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">2</div>
+                <span class="title is-size-5 is-spaced ml-4">Affordable</span>
+                <p class="subtitle mt-4">
+                  Our affordable prices start at
+                  <strong>74.99$</strong> for
+                  personal taxes. We are dedicated to answer your questions and
+                  offer you a specialized service in accounting and bookkeeping.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="column is-12 is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >3</div>
-              <span class="title is-size-5 is-spaced ml-4">Cutting Edge</span>
-              <p class="subtitle mt-4">
-                We secure your data with cutting edge technology using
-                smartphone devices and computer systems to collect receipts
-                and information. Contact us for more information about our
-                services.
-              </p>
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">3</div>
+                <span class="title is-size-5 is-spaced ml-4">Cutting Edge</span>
+                <p class="subtitle mt-4">
+                  We secure your data with cutting edge technology using
+                  smartphone devices and computer systems to collect receipts
+                  and information. Contact us for more information about our
+                  services.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -249,54 +252,4 @@
 </template>
 
 <style>
-#family-owned {
-  background-image: url(~@/pictures/bgaccounting.jpeg);
-  background-repeat: no-repeat;
-  height: 500px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  background-position: right bottom;
-  background-size: cover;
-}
-
-.home-links a {
-  margin-right: 1rem;
-}
-.is-active .al img {
-  filter: grayscale(0%);
-}
-.al img {
-  filter: grayscale(100%);
-}
-.box {
-  border-radius: 25px;
-  padding: 1.5rem;
-  box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
-  border-left: none;
-  border-right: none;
-}
-.tile.notification {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.is-shady {
-  animation: flyintoright 0.4s backwards;
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
-  border-radius: 4px;
-  display: inline-block;
-  margin: 10px;
-  position: relative;
-  transition: all 0.2s ease-in-out;
-}
-.is-shady:hover {
-  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(0, 0, 0, 0.19);
-}
-
-.slide-top {
-  -webkit-animation: slide-top 0.5s ease-in-out both;
-  animation: slide-top 0.5s ease-in-out both;
-}
 </style>

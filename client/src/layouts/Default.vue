@@ -8,10 +8,13 @@
           <strong>COVID-19</strong>
         </g-link>
       </div>
-    </b-notification> -->
+    </b-notification>-->
     <div class="is-fullhd">
       <b-notification :closable="false" type=" is-info is-light is-small">
-        <div class="columns notification is-info is-light has-text-centered is-small" style="overflow: hidden">
+        <div
+          class="columns notification is-info is-light has-text-centered is-small"
+          style="overflow: hidden"
+        >
           <div class="column">
             <g-link class="button rounded" to="tel:+1-819-682-0000">
               <i class="fas fa-phone-alt" style="margin: 5px"></i>819-682-0000
@@ -354,11 +357,62 @@ a {
 }
 
 .background-info {
-  background-color:#2866b1;
+  background-color: #2866b1;
 }
 
 .background-info-light {
-  background-color:rgba(40, 102, 177, 0.15);
+  background-color: rgba(40, 102, 177, 0.15);
+}
+
+#family-owned {
+  background-image: url(~@/pictures/bgaccounting.jpeg);
+  background-repeat: no-repeat;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-position: right bottom;
+  background-size: cover;
+}
+
+.home-links a {
+  margin-right: 1rem;
+}
+.is-active .al img {
+  filter: grayscale(0%);
+}
+.al img {
+  filter: grayscale(100%);
+}
+.box {
+  /* border-radius: 25px; */
+  padding: 1.5rem;
+  box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
+  border-left: none;
+  border-right: none;
+}
+.tile.notification {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.is-shady {
+  animation: flyintoright 0.4s backwards;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.is-shady:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(0, 0, 0, 0.19);
+}
+
+.slide-top {
+  -webkit-animation: slide-top 0.5s ease-in-out both;
+  animation: slide-top 0.5s ease-in-out both;
 }
 
 /**

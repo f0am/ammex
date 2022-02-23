@@ -7,11 +7,16 @@
           <div class="container">
             <div class="is-max-w-lg mx-auto mb-5 has-text-centered">
               <h2 class="mt-4 title is-spaced" style="text-shadow: 0 0 1px rgba(255,255,255,0.7);">
-                <span>Nous sommes </span>
-                <span class="text-info">Ammex Impôts </span>
+                <span>Nous sommes</span>
+                <span>&nbsp;</span>
+                <span class="text-info">Ammex Impôts</span>
+                <span>&nbsp;</span>
                 <span>Income Tax</span>
               </h2>
-              <p class="subtitle" style="text-shadow: 0 0 1px rgba(255,255,255,0.7);">Comptabilité et préparation de déclaration de revenus.</p>
+              <p
+                class="subtitle"
+                style="text-shadow: 0 0 1px rgba(255,255,255,0.7);"
+              >Comptabilité et préparation de déclaration de revenus.</p>
             </div>
             <!-- <div class="is-max-w-xl mx-auto mb-6">
                 <div class="field is-horizontal">
@@ -103,53 +108,53 @@
             </p>
           </div>
         </div>
-        <div class="columns is-multiline">
-          <div class="column is-6-tablet is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >1</div>
-              <span class="title is-size-5 is-spaced ml-4">Professionnels</span>
-              <p class="subtitle mt-4">
-                Comptez sur notre expertise en matière de préparation fiscale
-                pour les sociétés, et les particuliers en affaires! Nous
-                sommes situés à
-                <strong>Gatineau/Ottawa (Secteur Aylmer)</strong> Québec.
-              </p>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">1</div>
+                <span class="title is-size-5 is-spaced ml-4">Professionnels</span>
+                <p class="subtitle mt-4">
+                  Comptez sur notre expertise en matière de préparation fiscale
+                  pour les sociétés, et les particuliers en affaires! Nous
+                  sommes situés à
+                  <strong>Gatineau/Ottawa (Secteur Aylmer)</strong> Québec.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="column is-6-tablet is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >2</div>
-              <span class="title is-size-5 is-spaced ml-4">Abordable</span>
-              <p class="subtitle mt-4">
-                Que vos besoins de services comptables soient quotidiens,
-                hebdomadaires, mensuels ou annuels, nous sommes ouverts durant
-                toute l’année et ce, pour toutes les provinces canadiennes.
-                Nous ne traitons jamais nos clients comme un numéro. Nos prix
-                débutant à
-                <strong>74,99$</strong> pour les impôts personnels. Nous
-                sommes dédiés à répondre à vos questions et à vous offrir un
-                service spécialisé et fiable en matière de comptabilité et de
-                tenue de livre.
-              </p>
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">2</div>
+                <span class="title is-size-5 is-spaced ml-4">Abordable</span>
+                <p class="subtitle mt-4">
+                  Que vos besoins de services comptables soient quotidiens,
+                  hebdomadaires, mensuels ou annuels, nous sommes ouverts durant
+                  toute l’année et ce, pour toutes les provinces canadiennes.
+                  Nous ne traitons jamais nos clients comme un numéro. Nos prix
+                  débutant à
+                  <strong>74,99$</strong> pour les impôts personnels. Nous
+                  sommes dédiés à répondre à vos questions et à vous offrir un
+                  service spécialisé et fiable en matière de comptabilité et de
+                  tenue de livre.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="column is-12 is-4-desktop">
-            <div class="box p-6 is-shady has-text-justified animate_animated animate__fadeInUp">
-              <div
-                class="is-inline-block px-4 py-2 background-info-light text-info is-rounded"
-              >3</div>
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box is-shady">
+              <div class="p-3 has-text-justified animate_animated animate__fadeInUp">
+                <div class="is-inline-block px-4 py-2 background-info-light text-info is-rounded">3</div>
 
-              <span class="title is-size-5 is-spaced ml-4">Innovant</span>
-              <p class="subtitle mt-4">
-                Nous sécurison vos informations avec la technologie de pointe
-                avec l'utilisation de téléphones portables et système
-                informatiques pour recueillir les reçus et informations.
-                Contactez-nous pour plus d'information sur nos services.
-              </p>
+                <span class="title is-size-5 is-spaced ml-4">Innovant</span>
+                <p class="subtitle mt-4">
+                  Nous sécurison vos informations avec la technologie de pointe
+                  avec l'utilisation de téléphones portables et système
+                  informatiques pour recueillir les reçus et informations.
+                  Contactez-nous pour plus d'information sur nos services.
+                </p>
+              </div>
             </div>
           </div>
         </div>
