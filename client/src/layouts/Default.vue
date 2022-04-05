@@ -23,11 +23,12 @@
           <div class="column">
             <ul>
               <li>
-                {{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 -
-                16:00
+                {{ days[lang].monday }} - {{ days[lang].friday }} : 9:00 -
+                19:00
               </li>
+              <li>{{ days[lang].saturday }} : 9:00 - 17:00</li>
               <li>
-                {{ days[lang].saturday }} - {{ days[lang].sunday }} :
+                {{ days[lang].sunday }} :
                 {{ days[lang].closed }}
               </li>
             </ul>
