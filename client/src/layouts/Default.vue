@@ -1,16 +1,5 @@
 <template>
   <div>
-    <b-notification
-      type="is-warning is-light is-marginless is-small"
-      :closable="false"
-    >
-      <div class="container">
-        {{ covid[lang].information }}
-        <g-link class="link" to="/covid/">
-          <strong>COVID-19</strong>
-        </g-link>
-      </div>
-    </b-notification>
     <div class="is-fullhd">
       <b-notification :closable="false" type=" is-info is-light is-small">
         <div
@@ -23,13 +12,13 @@
           </div>
           <div class="column">
             <ul>
-              <li>
+              <!-- <li>
                 {{ days[lang].monday }} - {{ days[lang].friday }} : 8:00 - 16:00
               </li>
               <li>
                 {{ days[lang].saturday }} - {{ days[lang].sunday }} :
                 {{ days[lang].closed }}
-              </li>
+              </li> -->
             </ul>
           </div>
 
@@ -165,7 +154,8 @@ query {
 export default {
   computed: {
     lang() {
-      return this.$route.path.split("/")[1];
+      return "en"
+      // return this.$route.path.split("/")[1];
     },
   },
   data() {
@@ -212,14 +202,6 @@ export default {
           saturday: "Samedi",
           sunday: "Dimanche",
           closed: "Fermé",
-        },
-      },
-      covid: {
-        en: {
-          information: "Information relating to",
-        },
-        fr: {
-          information: "Information sur la",
         },
       },
     };
