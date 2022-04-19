@@ -122,6 +122,7 @@
           <div class="column is-2 is is-paddingless">
             <g-link to="/">
               <g-image
+                immediate="true"
                 alt="Ammex Logo"
                 src="~/pictures/logo.svg"
                 background-color="smokewhite"
