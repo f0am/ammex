@@ -44,6 +44,7 @@
       <header class="header">
         <g-link :to="getPath('/')">
           <g-image
+            immediate="true"
             alt="Ammex Logo"
             src="~/pictures/logo.svg"
             background-color="smokewhite"
