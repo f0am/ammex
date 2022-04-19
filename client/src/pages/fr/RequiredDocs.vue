@@ -553,12 +553,11 @@ export default {
 };
 </script>
 <style>
-input.is-custom-field {
+/* input.is-custom-field {
   border-bottom: 0.8px solid #252525 !important;
   outline: none;
   border: none;
   box-shadow: none !important;
-  /* width: 90% !important; */
   border-radius: unset;
 }
 
@@ -570,7 +569,7 @@ textarea {
   border-radius: unset;
   border-color: none !important;
   outline-color: none !important;
-}
+} */
 
 .form {
   display: flex;

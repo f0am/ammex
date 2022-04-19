@@ -5,7 +5,7 @@ import DefaultLayout from "~/layouts/Default.vue";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 
-export default function(Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.use(Buefy);
   Vue.component("Layout", DefaultLayout);
@@ -28,26 +28,31 @@ export default function(Vue, { router, head, isClient }) {
     src: "https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js",
     body: true
   });
-}
-// Burger menus
-document.addEventListener("DOMContentLoaded", function() {
-  // open/close
-  const toggler = document.querySelectorAll('[data-toggle="side-menu"]');
 
-  if (toggler.length) {
-    for (var i = 0; i < toggler.length; i++) {
-      const target = toggler[i].getAttribute("data-target");
 
-      if (target.length) {
-        toggler[i].addEventListener("click", function(event) {
-          event.preventDefault();
-          const menu = document.querySelector(target);
+  if (isClient) {
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open/close
+      const toggler = document.querySelectorAll('[data-toggle="side-menu"]');
 
-          if (menu) {
-            menu.classList.toggle("is-hidden");
+      if (toggler.length) {
+        for (var i = 0; i < toggler.length; i++) {
+          const target = toggler[i].getAttribute("data-target");
+
+          if (target.length) {
+            toggler[i].addEventListener("click", function (event) {
+              event.preventDefault();
+              const menu = document.querySelector(target);
+
+              if (menu) {
+                menu.classList.toggle("is-hidden");
+              }
+            });
           }
-        });
+        }
       }
-    }
+    });
   }
-});
+}
+
